@@ -1,12 +1,14 @@
-"""生成 README 的配图（docs/readme/），版式见 docs/mockups/readme 的 C 版：主页横幅 + 三个本事的三联图 + WorkBuddy 实操截图。
+"""生成 README 的配图（docs/readme/），版式见 docs/mockups/readme 的 C 版：顶部横幅 + 三个本事的三联图 + WorkBuddy 实操截图。
 
     python3 scripts/build_readme_images.py
 
-需要 ffmpeg、cwebp 和 Google Chrome（只在本机跑，CI 不跑）。输入都在仓库里：
-  - 横幅：site/ 首屏，用无头 Chrome 截图。截之前隐藏导航、入口按钮、副标题和滚动字幕，README 里的图不该像能点的界面
+需要 ffmpeg、cwebp 和 Google Chrome（只在本机跑，CI 不跑）。输入：
+  - 横幅：宣传片结尾那张「GYM」梗图 videos/gym-promo/assets/meme/gym-sign.jpg（用户 2026-10-18 指定；网络转载的梗图，
+    已裁到只剩招牌，来源见同目录 README.md）。videos/ 不进 git，横幅只能在本机重建
+  - 社交预览图：site/ 首屏，用无头 Chrome 截图。截之前隐藏导航、入口按钮、副标题和滚动字幕，图不该像能点的界面
   - 三联图和实操截图：site/assets/video/install-tutorial.mp4 里动画停稳的帧（帧间差最小处，见 FRAMES）。教程重新剪辑后要重新找时间点
 输出：
-  - docs/readme/banner.webp         README 顶部横幅（1600 宽）
+  - docs/readme/banner.webp         README 顶部横幅（梗图原尺寸 1204×544，不放大）
   - docs/readme/strip.webp          三个本事：拆层算热量 · 分顿吃 · 按价格排组合（每格 1280 宽，点开大图能看清字）
   - docs/readme/usage.webp          WorkBuddy 里的真实输出（带红笔批注）
   - docs/readme/social-preview.jpg  1280×640，仓库 Settings → Social preview 手动上传（GitHub 没有接口）
@@ -26,6 +28,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "docs/readme"
 TUTORIAL = ROOT / "site/assets/video/install-tutorial.mp4"
+MEME = ROOT / "videos/gym-promo/assets/meme/gym-sign.jpg"
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 # 教程里各镜动画停稳的时间（秒）：01 拆层（339 大卡、两片吉士打叉）、02 今晚 / 明早、03 四套组合卡、WorkBuddy 输出加批注
 FRAMES = {"p01": 12.25, "p02": 22.9, "p03": 34.0, "usage": 100.5}
@@ -81,16 +84,18 @@ def chrome_shot(url: str, out: Path, size: str, tmp: Path) -> None:
             pass
 
 
-def banner(tmp: Path) -> None:
+def banner() -> None:
+    webp(MEME, OUT / "banner.webp")
+
+
+def social_preview(tmp: Path) -> None:
     site = tmp / "site"
     shutil.copytree(ROOT / "site", site, ignore=shutil.ignore_patterns("src-img", ".*"))
     html = (site / "index.html").read_text(encoding="utf-8")
     (site / "index.html").write_text(html.replace("</head>", HIDE_CSS + "</head>", 1), encoding="utf-8")
     shot = tmp / "hero.png"
     chrome_shot((site / "index.html").as_uri(), shot, "1280,640", tmp)   # 2 倍图：2560×1280
-    # 内容在左上 2240×1050 内；再往下是背景色块的边缘
-    run(["ffmpeg", "-v", "error", "-y", "-i", str(shot), "-vf", "crop=2240:1050:40:0", str(tmp / "banner.png")])
-    webp(tmp / "banner.png", OUT / "banner.webp", 1600)
+    # 内容在左上 2240×1120 内；再往下是背景色块的边缘
     run(["ffmpeg", "-v", "error", "-y", "-i", str(shot), "-vf", "crop=2240:1120:40:0,scale=1280:640", "-q:v", "3",
          str(OUT / "social-preview.jpg")])
 
@@ -122,10 +127,13 @@ def main() -> None:
             sys.exit(f"缺少 {tool}")
     if not Path(CHROME).exists():
         sys.exit(f"找不到 Chrome：{CHROME}")
+    if not MEME.exists():
+        sys.exit(f"找不到横幅原图：{MEME}（videos/ 不进 git，只在本机）")
     OUT.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(prefix="readme-img-") as t:
         tmp = Path(t)
-        banner(tmp)
+        banner()
+        social_preview(tmp)
         strip(tmp)
         usage(tmp)
     for f in sorted(OUT.iterdir()):
