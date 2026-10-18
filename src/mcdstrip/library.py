@@ -124,7 +124,7 @@ class Library:
             for cid, n in parts.items():
                 used.setdefault(cid, []).append(prod if n == 1 else f"{prod} ×{n:g}")
         return {
-            "about": "Gyᗰ 麦门健身房 配料级营养库：由麦当劳中国官方整份营养与配方联合求解（非负贝叶斯最小二乘），"
+            "about": "麦麦健身餐规划师 配料级营养库：由麦当劳中国官方整份营养与配方联合求解（非负贝叶斯最小二乘），"
                      "参考美国麦当劳官网与 USDA 配料数据。value 为估计值，sd 为后验标准差；单位 kcal、g、mg。",
             "units": {"kcal": "大卡", "protein": "g", "fat": "g", "carb": "g", "sodium": "mg", "calcium": "mg"},
             "effective_dof": round(self.dof, 1),

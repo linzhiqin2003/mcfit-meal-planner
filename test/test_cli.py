@@ -1,4 +1,4 @@
-"""命令行：参数换算、无解提示、训练部位缺失、加练、JSON 输出（离线快照）。"""
+"""命令行：参数换算、无解提示、训练部位缺失（主页用的隐藏参数）、加练、JSON 输出（离线快照）。"""
 import contextlib
 import io
 import json
@@ -59,11 +59,11 @@ class CliTest(unittest.TestCase):
         self.assertEqual([p["price_yuan"] for p in plans], sorted(p["price_yuan"] for p in plans))
 
     def test_json_items_and_card(self):
-        code, out = run("--kcal-max", "500", "--protein-min", "30", "--train", "练腿", "--format", "json", "--top", "1")
+        code, out = run("--kcal-max", "500", "--protein-min", "30", "--format", "json", "--top", "1")
         d = json.loads(out)
         self.assertTrue(d["ok"])
         p = d["plans"][0]
-        self.assertIn("今日训练：练腿", p["card"])
+        self.assertIn("今日训练 🍔", p["card"])
         self.assertTrue(p["calculate_price_items"])
         self.assertEqual(d["order_args"]["storeCode"], "1450441")
 

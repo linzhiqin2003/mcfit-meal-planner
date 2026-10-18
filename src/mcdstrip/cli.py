@@ -3,14 +3,16 @@
     mcdstrip library                         # 构建配料库并打印
     mcdstrip plan --kcal-max 400 --protein-min 30 --offline data/fixtures/stores/1450441/2026-10-16T1900
     MCD_MCP_TOKEN=... mcdstrip stores --city 上海 --near 人民广场
-    MCD_MCP_TOKEN=... mcdstrip plan --kcal-max 400 --protein-min 30 --city 上海 --near 人民广场 --style gym --train 练腿
+    MCD_MCP_TOKEN=... mcdstrip plan --kcal-max 400 --protein-min 30 --city 上海 --near 人民广场 --style gym
     MCD_MCP_TOKEN=... mcdstrip plan --kcal-max 400 --protein-min 30 --store 1450441 --verify
+    mcdstrip eat 双层吉士汉堡                 # 单样餐品的几种吃法（去配料、只吃馅），不需要 Token
 """
 from __future__ import annotations
 
 import argparse
 import json
 import logging
+import os
 import sys
 from pathlib import Path
 
@@ -87,12 +89,17 @@ def cmd_library(a) -> int:
     return 0
 
 
+def missing_token_text() -> str:
+    from .mcp import token_setup_hint
+    return f"还没有设置麦当劳 MCP Token：在 open.mcd.cn/mcp 申请后，{token_setup_hint()}。"
+
+
 def friendly_error(e: Exception) -> str:
     """给用户看的错误：按原因分开说清楚，不暴露堆栈和内部细节（详情用 -v 看日志）。"""
     from .mcp import McdAuthError, McdBusinessError, McdMcpError, token_setup_hint
     if isinstance(e, McdAuthError):
         if "缺少" in str(e):
-            return f"还没有设置麦当劳 MCP Token：在 open.mcd.cn/mcp 申请后，{token_setup_hint()}。"
+            return missing_token_text()
         return f"麦当劳 MCP Token 无效或已过期：请到 open.mcd.cn/mcp 重新获取，{token_setup_hint()}。"
     if isinstance(e, McdBusinessError):
         return f"麦当劳接口返回：{e.message}"
@@ -254,7 +261,7 @@ def cmd_plan(a) -> int:
     for i, p in enumerate(plans):
         print(f"\n—— 方案 {i + 1} ——")
         if a.style == "gym":
-            print(render_gym(p, a.train, bonuses[i], cat.slot, checks.get(i), extras[i]))
+            print(render_gym(p, bonuses[i], cat.slot, checks.get(i), extras[i]))
         else:
             print(render_plain(p, checks.get(i), cat.slot))
     return 0
@@ -312,7 +319,7 @@ def _plans_json(a, cat, plans, bonuses, checks, notice, extras=None) -> dict:
             "how_to_eat": [{"name": it.name, "how": it.how} for o, n in p.counts() for it in o.items
                            if it.how != "整份吃"],
             "footnotes": p.footnotes,
-            "card": render_gym(p, a.train, bonuses[i], cat.slot, chk, extras[i] if extras else None),
+            "card": render_gym(p, bonuses[i], cat.slot, chk, extras[i] if extras else None),
             "eat_options": [{"name": name, "options": [{"how": r.how, "this_meal": _nut(r.tonight),
                                                          "next_meal": _nut(r.leftover) if r.leftover.kcal > 0 else None,
                                                          "chosen": r.chosen} for r in rungs]}
@@ -326,11 +333,59 @@ def _plans_json(a, cat, plans, bonuses, checks, notice, extras=None) -> dict:
         "order_args": {"storeCode": cat.store_code, "orderType": 1, "beType": 1,
                        **({"reservationDate": cat.reservation} if cat.reservation else {})},
         "notice": notice,
+        # 离线演示且没设 Token：附上设置方法，智能体原话转告即可，不用为了拿它再跑一次实时查询
+        "token_setup": missing_token_text() if a.offline and not os.environ.get("MCD_MCP_TOKEN") else None,
         "official_sets": [{"name": x.name, "category": x.category, "price_yuan": x.price_cents / 100,
                            "whole": _nut(x.whole), "lowest": _nut(x.lowest), "lowest_hows": list(x.lowest_hows),
                            "meets_target_whole": x.fits_whole} for x in (extras[0]["official"] if extras else [])],
         "plans": out,
     }
+
+
+def cmd_eat(a) -> int:
+    """单样餐品的几种吃法：整份 / 下单去配料 / 到手只吃馅、面包留到下一顿，各自这一顿和下一顿的营养。"""
+    from .lookup import NotFound, load_catalogs, lookup, merged_catalog, snapshots
+    from .render import render_ladders, short_how
+    try:
+        table, lib, modmap = load_core()
+        builder = Builder(table, lib, modmap, TRAIN_RULES)
+        if a.offline:
+            cats = load_catalogs([Path(a.offline)])
+        elif a.store:
+            from .mcp import McdMcp
+            cats = [load_live(McdMcp(), a.store)]
+        else:
+            cats = load_catalogs(snapshots(DATA))
+        found = lookup(builder, merged_catalog(cats), a.name)
+    except NotFound as e:
+        if a.format == "json":
+            print(json.dumps({"ok": False, "error": str(e), "candidates": e.candidates}, ensure_ascii=True))
+        else:
+            print(e)
+        return 1
+    except Exception as e:
+        log.debug("eat 失败", exc_info=True)
+        return _fail(a, friendly_error(e), 3)
+    if len(found.rungs) > 1:
+        card = "\n".join(render_ladders([(found.name, found.rungs)], "下一顿")).rstrip()
+    else:
+        w = found.rungs[0].tonight
+        card = f"{found.name}没有值得去的配料，也没有面包可留，只能整份吃：{w.kcal:.0f} 大卡，蛋白质 {w.protein:.0f} g"
+    if a.format == "json":
+        print(json.dumps({
+            "ok": True,
+            "name": found.name,
+            "whole_source": "配料库估算" if found.estimated else "官方营养表",
+            "options": [{"how": r.how, "short": short_how(r.how), "this_meal": _nut(r.tonight),
+                         "next_meal": _nut(r.leftover) if r.leftover.kcal > 0 else None} for r in found.rungs],
+            "card": card,
+            "footnotes": found.footnotes,
+        }, ensure_ascii=True, indent=1))
+        return 0
+    print(card)
+    for x in found.footnotes:
+        print(f"注：{x}")
+    return 0
 
 
 def _bonus(options, plan, c: Constraints, part: str | None):
@@ -362,7 +417,7 @@ def _non_negative(v: str) -> float:
 
 
 def main(argv: list[str] | None = None) -> int:
-    ap = argparse.ArgumentParser(prog="mcdstrip", description="麦麦健身餐规划师（Gyᗰ 麦门健身房）：健身人群的麦当劳点餐求解器")
+    ap = argparse.ArgumentParser(prog="mcdstrip", description="麦麦健身餐规划师：健身人群的麦当劳点餐求解器")
     ap.add_argument("-v", "--verbose", action="store_true")
     sub = ap.add_subparsers(dest="cmd", required=True)
     lib = sub.add_parser("library", help="构建并打印配料库")
@@ -370,6 +425,12 @@ def main(argv: list[str] | None = None) -> int:
     st = sub.add_parser("stores", help="按城市和地点搜索附近门店（需要 MCD_MCP_TOKEN）")
     st.add_argument("--city", required=True)
     st.add_argument("--near", required=True, help="地点关键词，如 人民广场")
+    ea = sub.add_parser("eat", help="单样餐品的几种吃法（去配料、只吃馅），不需要 Token")
+    ea.add_argument("name", help="餐品名，如 双层吉士汉堡（简称、少几个字也能匹配）")
+    ea.add_argument("--format", choices=["text", "json"], default="text")
+    ea_src = ea.add_mutually_exclusive_group()
+    ea_src.add_argument("--offline", help="门店快照目录（默认用自带的全部快照查可去配料）")
+    ea_src.add_argument("--store", help="门店编码：按这家店的实时菜单查可去配料（需要 MCD_MCP_TOKEN）")
     pl = sub.add_parser("plan", help="按约束求最优点法")
     pl.add_argument("--kcal-max", type=_positive(float), required=True)
     pl.add_argument("--protein-min", type=_non_negative, default=0)
@@ -379,7 +440,8 @@ def main(argv: list[str] | None = None) -> int:
     pl.add_argument("--budget", type=_non_negative, help="预算上限（元）")
     pl.add_argument("--max-items", type=_positive(int), default=4)
     pl.add_argument("--no-split", action="store_true", help="不考虑到手自拆")
-    pl.add_argument("--train", choices=sorted({t for _, t in TRAIN_RULES}), help="今日训练部位")
+    # 训练部位只给项目主页「练」页生成数据用（build_site_data.py），Skill 不再用，不在 --help 里显示
+    pl.add_argument("--train", choices=sorted({t for _, t in TRAIN_RULES}), help=argparse.SUPPRESS)
     pl.add_argument("--style", choices=["plain", "gym"], default="plain")
     pl.add_argument("--format", choices=["text", "json"], default="text", help="json 供智能体调用：含算价参数与训练卡文字")
     pl.add_argument("--top", type=_positive(int), default=3)
@@ -398,7 +460,7 @@ def main(argv: list[str] | None = None) -> int:
         if hasattr(stream, "reconfigure"):
             stream.reconfigure(encoding="utf-8", errors="replace")
     logging.basicConfig(level=logging.DEBUG if a.verbose else logging.WARNING, format="%(levelname)s %(name)s %(message)s")
-    return {"library": cmd_library, "stores": cmd_stores, "plan": cmd_plan}[a.cmd](a)
+    return {"library": cmd_library, "stores": cmd_stores, "plan": cmd_plan, "eat": cmd_eat}[a.cmd](a)
 
 
 if __name__ == "__main__":

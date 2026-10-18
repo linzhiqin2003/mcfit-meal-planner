@@ -49,7 +49,7 @@ class TrainListTest(unittest.TestCase):
     def test_alias_names_merge_into_sets(self):
         # 单点「麦乐鸡」与套餐里的「麦乐鸡5块」是同一样，合成「共 2 组」
         p = Plan((0,), (single("s", "麦乐鸡", 1300, N(kcal=213, protein=12)), combo("c", 1400, NUGGETS, COKE)))
-        card = render_gym(p, "练胸")
+        card = render_gym(p)
         self.assertIn("麦乐鸡5块：5 块一组，共 2 组", card)
         self.assertNotIn("麦乐鸡：", card)
 
@@ -61,9 +61,17 @@ class TrainListTest(unittest.TestCase):
     def test_bonus_shows_name_without_whole_eat_note(self):
         p = Plan((0,), (combo("c", 1400, NUGGETS, COKE),))
         bonus = single("b", "麦辣鸡腿汉堡", 2000, N(kcal=485, protein=24), tags=frozenset({"练腿"}))
-        card = render_gym(p, "练腿", bonus)
-        self.assertIn("再加一个🦵麦辣鸡腿汉堡上上强度", card)
+        card = render_gym(p, bonus)
+        self.assertIn("再加一个🍔麦辣鸡腿汉堡上上强度", card)
         self.assertNotIn("整份吃", card)
+
+    def test_no_body_parts_in_card(self):
+        # 卡片不再讲训练部位（练腿、练胸……），鸡肉类用鸡腿图标、汉堡用汉堡图标
+        p = Plan((0,), (single("s", "麦麦脆汁鸡-琵琶腿", 1300, N(kcal=230, protein=20)), combo("c", 1400, NUGGETS, COKE)))
+        bonus = single("b", "麦辣鸡腿汉堡", 2000, N(kcal=485, protein=24), tags=frozenset({"练腿"}))
+        card = render_gym(p, bonus)
+        self.assertNotRegex(card, r"练腿|练胸|练背|练手臂|🦵|💪|🏋|🦾")
+        self.assertIn("🍗麦麦脆汁鸡-琵琶腿：1 个一组", card)
 
 
 class SignatureTest(unittest.TestCase):

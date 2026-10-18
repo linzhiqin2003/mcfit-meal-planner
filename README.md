@@ -149,7 +149,6 @@ claude mcp add --transport http --scope user mcd-mcp https://mcp.mcd.cn --header
 - 「今晚 500 大卡以内，蛋白质 30 克，人民广场附近」
 - 「减脂期，晚饭想吃麦当劳，40 块以内，碳水别太高」
 - 「明早 7 点半在福州路吃早餐，400 大卡，蛋白质 25 克」
-- 「晚饭 600 大卡，麦乐鸡管够」
 
 智能体会运行脚本、贴出训练计划卡，等你说「下单」后再通过麦当劳 MCP 下单。
 
@@ -163,6 +162,9 @@ python3 skill/maimen-gym/scripts/gym.py plan --kcal-max 500 --protein-min 30 --o
 
 # 实时：自动选最近的营业门店，并核价（需要已设置 MCD_MCP_TOKEN）
 python3 skill/maimen-gym/scripts/gym.py plan --kcal-max 500 --protein-min 30 --city 上海 --near 人民广场 --style gym --verify
+
+# 单样餐品的几种吃法：去配料、只吃馅各多少热量，面包留到下一顿还剩多少（不需要 Token）
+python3 skill/maimen-gym/scripts/gym.py eat 双层吉士汉堡
 
 # 给智能体用的结构化输出：含算价参数、训练卡文字、餐段说法，在上面的命令后加 --format json
 ```

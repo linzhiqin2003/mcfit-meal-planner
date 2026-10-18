@@ -1,4 +1,4 @@
-"""把麦麦健身餐规划师（Gyᗰ 麦门健身房）Skill 安装到 AI 客户端的技能目录（Windows、macOS、Linux 通用）。
+"""把麦麦健身餐规划师 Skill 安装到 AI 客户端的技能目录（Windows、macOS、Linux 通用）。
 
     python3 install.py                      # 自动装进本机已有的 WorkBuddy 和 Claude Code
     python3 install.py --target workbuddy   # → ~/.workbuddy/skills/maimen-gym
@@ -8,7 +8,7 @@
 Windows 上把 python3 换成 py（或 python）。
 
 安装内容：SKILL.md 与 references（给智能体读）、scripts/gym.py（入口）、
-lib/mcdstrip（计算代码，纯 Python 标准库）、data（官方营养表快照、配方、配料参考值）。
+lib/mcdstrip（计算代码，纯 Python 标准库）、data（官方营养表快照、配方、配料参考值、晚餐和早餐两份门店快照）。
 """
 import argparse
 import os
@@ -23,8 +23,9 @@ from mcdstrip.mcp import token_setup_hint  # noqa: E402
 
 # 客户端名 → (显示名, 配置目录)；技能装在配置目录下的 skills/
 CLIENTS = {"workbuddy": ("WorkBuddy", ".workbuddy"), "claude": ("Claude Code", ".claude")}
-# 运行要用的全部数据：配方、参考值、配料名、可去配料映射、官方营养表，外加一家门店快照供无 Token 演示
-DATA_DIRS = ["data/reference", "data/fixtures/stores/1450441/2026-10-16T1900"]
+# 运行要用的全部数据：配方、参考值、配料名、可去配料映射、官方营养表，外加一家门店的晚餐和早餐快照：
+# 无 Token 时演示用；gym.py eat 也从这两份菜单查可去的配料（麦满分只在早餐菜单上）
+DATA_DIRS = ["data/reference", "data/fixtures/stores/1450441/2026-10-16T1900", "data/fixtures/stores/1450441/2026-10-17T0730"]
 DATA_FILES = ["data/fixtures/nutrition_raw.txt"]
 IGNORE = shutil.ignore_patterns("__pycache__", "*.pyc")
 
@@ -48,7 +49,7 @@ def main() -> int:
     for stream in (sys.stdout, sys.stderr):
         if hasattr(stream, "reconfigure"):
             stream.reconfigure(encoding="utf-8", errors="replace")
-    ap = argparse.ArgumentParser(description="安装麦麦健身餐规划师（Gyᗰ 麦门健身房）Skill")
+    ap = argparse.ArgumentParser(description="安装麦麦健身餐规划师 Skill")
     ap.add_argument("--target", help="workbuddy、claude，或任意目录；不填时装进本机已有的客户端")
     a = ap.parse_args()
     home = Path.home()
@@ -73,7 +74,7 @@ def main() -> int:
         print("3. 已检测到环境变量 MCD_MCP_TOKEN，脚本可以直接取菜单和核价。")
     else:
         print(f"3. 设置环境变量 MCD_MCP_TOKEN（脚本取菜单、核价时用）：{token_setup_hint()}。")
-    print("然后对智能体说：「今晚练腿，500 大卡以内，蛋白质 30 克，人民广场附近」。")
+    print("然后对智能体说：「今晚 500 大卡以内，蛋白质 30 克，人民广场附近」。")
     return 0
 
 

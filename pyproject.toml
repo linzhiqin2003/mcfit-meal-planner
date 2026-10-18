@@ -1,7 +1,7 @@
 [project]
 name = "maimen-gym"
 version = "0.1.0"
-description = "麦麦健身餐规划师（Gyᗰ 麦门健身房）：健身人群的麦当劳点餐 Skill —— 配料级营养库与约束求解器（基于麦当劳中国 MCP）"
+description = "麦麦健身餐规划师：健身人群的麦当劳点餐 Skill —— 配料级营养库与约束求解器（基于麦当劳中国 MCP）"
 readme = "README.md"
 requires-python = ">=3.9"
 dependencies = []

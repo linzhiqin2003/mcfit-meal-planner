@@ -37,10 +37,28 @@ class InstallTest(unittest.TestCase):
         d = json.loads(r.stdout)
         self.assertTrue(d["ok"])
         self.assertTrue(d["plans"])
+        # 没设 Token：离线输出带上设置方法，智能体不用为了拿它再跑一次实时查询
+        self.assertIn("MCD_MCP_TOKEN", d["token_setup"])
+
+    def test_eat_runs_from_installed_copy(self):
+        # 晚餐快照里没有麦满分：装好的 Skill 要带早餐快照，才查得到麦满分的可去配料
+        r = self.run_gym("eat", "猪柳蛋麦满分", "--format", "json")
+        self.assertEqual(r.returncode, 0, r.stdout.decode("utf-8", "replace") + r.stderr.decode("utf-8", "replace"))
+        self.assertIn("去吉士", [o["short"] for o in json.loads(r.stdout)["options"]])
+
+    def test_skill_md_snapshots_are_installed(self):
+        # SKILL.md 里让智能体用的快照路径，装好后都要存在
+        import re
+        text = (self.skill / "SKILL.md").read_text(encoding="utf-8")
+        snaps = set(re.findall(r"data/fixtures/stores/\d+/[\dT-]+", text))
+        snaps |= {f"data/fixtures/stores/1450441/{t}" for t in re.findall(r"`(\d{4}-\d{2}-\d{2}T\d{4})`", text)}
+        self.assertTrue(snaps)
+        for rel in snaps:
+            self.assertTrue((self.skill / rel / "menu.json").exists(), rel)
 
     def test_output_is_utf8_even_on_gbk_console(self):
         # 中文 Windows：管道和控制台默认 GBK，ᗰ 和 emoji 编不进去
-        r = self.run_gym("plan", "--kcal-max", "500", "--protein-min", "30", "--train", "练腿", "--offline", DEMO,
+        r = self.run_gym("plan", "--kcal-max", "500", "--protein-min", "30", "--offline", DEMO,
                          "--style", "gym", "--top", "1", PYTHONIOENCODING="gbk", LC_ALL="zh_CN.GBK", LANG="zh_CN.GBK")
         self.assertEqual(r.returncode, 0, r.stderr.decode("utf-8", "replace"))
         self.assertIn("Go to Gym 不如 Go to ᗰ", r.stdout.decode("utf-8"))

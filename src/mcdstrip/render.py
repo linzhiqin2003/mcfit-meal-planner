@@ -1,4 +1,4 @@
-"""把求解结果写成给人看的文字：普通版和「Gyᗰ」训练计划版。
+"""把求解结果写成给人看的文字：普通版和训练计划版。
 
 文案只改变说法，不改变数量：份数严格来自求解结果，满足用户给的热量和蛋白质目标。
 """
@@ -11,23 +11,21 @@ from .meal import role
 from .nutrition import Nutrition, negligible, normalize
 from .solver import Item, Option, Plan
 
-# 训练部位：按餐品名打标签（麦乐鸡是鸡胸肉）
+# 鸡肉的部位标签。Skill 的卡片和话术不再讲训练部位（2026-10-18 用户定）；标签只用于挑「加练」的鸡肉类单品，
+# 以及项目主页「练」页按部位生成方案（build_site_data.py 用隐藏参数 --train）
 TRAIN_RULES: list[tuple[str, str]] = [
     (r"鸡腿|琵琶腿", "练腿"),
     (r"麦乐鸡|鸡块|鸡柳|鸡胸", "练胸"),
     (r"里脊", "练背"),
     (r"翅", "练手臂"),
 ]
-TRAIN_ICON = {"练腿": "🦵", "练胸": "💪", "练背": "🏋️", "练手臂": "🦾"}
-# 各部位的专属文案（只改说法，不改数量）
-TRAIN_SLOGAN = {
-    "练腿": "Never skip leg day，鸡腿日更不能跳",
-    "练胸": "周一练胸是健身房的国际惯例。麦乐鸡是鸡胸肉，蘸酱算辅助器械，量力而行",
-    "练背": "背练出来自己看不见，里脊吃下去自己知道",
-    "练手臂": "麒麟臂从鸡翅开始",
-}
-SIDE_ICON = [(r"玉米", "🌽"), (r"苹果", "🍎"), (r"薯", "🍟"), (r"派|新地|麦旋风|圆筒", "🍦"),
-             (r"牛奶|豆浆", "🥛"), (r"咖啡|拿铁|美式|奶铁", "☕")]
+# 卡片上每样餐品前的图标：按餐品名匹配，先小食饮料，再汉堡，再鸡肉类，都不是就用汉堡
+FOOD_ICON = [(r"玉米", "🌽"), (r"苹果", "🍎"), (r"薯", "🍟"), (r"派|新地|麦旋风|圆筒", "🍦"),
+             (r"牛奶|豆浆", "🥛"), (r"咖啡|拿铁|美式|奶铁", "☕"), (r"堡|麦满分", "🍔"), (r"鸡|翅", "🍗")]
+
+
+def food_icon(name: str) -> str:
+    return next((ic for pat, ic in FOOD_ICON if re.search(pat, name)), "🍔")
 
 
 def nut_text(n) -> str:
@@ -142,8 +140,7 @@ def _train_items(p: Plan) -> list[TrainItem]:
     for o, n in p.counts():
         for raw_name, how in _main_names(o, with_how=True):
             name = normalize(raw_name)       # 「麦乐鸡」和「麦乐鸡5块」是同一样，合并成一组
-            part = next((tag for pat, tag in TRAIN_RULES if re.search(pat, name)), None)
-            icon = TRAIN_ICON.get(part) or next((ic for pat, ic in SIDE_ICON if re.search(pat, name)), "🍔")
+            icon = food_icon(name)
             m = re.search(r"(\d+)\s*块", name)
             per_set = f"{m.group(1)} 块一组" if m else "1 个一组"
             key = name + per_set + how
@@ -240,15 +237,10 @@ def render_official(sets: list, p: Plan, c, nxt: str) -> list[str]:
     return out + [""]
 
 
-def render_gym(p: Plan, part: str | None = None, bonus: Option | None = None, slot: str | None = None,
+def render_gym(p: Plan, bonus: Option | None = None, slot: str | None = None,
                price_checked=None, extras: dict | None = None) -> str:
     _, nxt = MEAL_WORDS[meal_of(slot)]
-    icon = TRAIN_ICON.get(part or "", "🍔")
-    head = f"今日训练：{part} {icon}" if part else "今日训练 🍔"
-    out = ["Go to Gym 不如 Go to ᗰ", head]
-    if part in TRAIN_SLOGAN:
-        out.append(TRAIN_SLOGAN[part])
-    out.append("")
+    out = ["Go to Gym 不如 Go to ᗰ", "今日训练 🍔", ""]
     for it in _train_items(p):
         out.append(f"{it.icon}{it.name}：{it.per_set}，共 {it.sets} 组" + (f"（{it.how}）" if it.how else ""))
     split = [o for o in p.options if o.payload and (o.payload[0] == "single" and o.payload[3] or
@@ -267,8 +259,7 @@ def render_gym(p: Plan, part: str | None = None, bonus: Option | None = None, sl
     if bonus is not None:
         name, how = (_main_names(bonus, with_how=True) or [(_items(bonus)[0].name, "")])[0]
         how = f"（{how}）" if how else ""
-        bonus_part = part if part in bonus.tags else next((tag for _, tag in TRAIN_RULES if tag in bonus.tags), None)
-        out += ["", f"有余力的朋友，可以再加一个{TRAIN_ICON.get(bonus_part or '', '')}{normalize(name)}{how}上上强度"
+        out += ["", f"有余力的朋友，可以再加一个{food_icon(normalize(name))}{normalize(name)}{how}上上强度"
                     f"（+{bonus.tonight.kcal:.0f} 大卡，+{bonus.tonight.protein:.0f} g 蛋白质，+¥{bonus.price_cents / 100:.1f}）"]
     if extras:
         # 官方菜单给不了的：同一个汉堡的几种吃法、和官方「N 大卡套餐」的对比

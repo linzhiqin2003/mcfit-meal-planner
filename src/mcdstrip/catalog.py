@@ -418,7 +418,7 @@ class Builder:
             tag_names = [p.name]
             tp = self.tag_protein([(p.name, ep.tonight.protein)])
             oid = f"{p.code}|{','.join(ep.removed)}|{int(ep.split)}"
-            notes = _estimate_note(p.name, ep)
+            notes = estimate_note(p.name, ep)
             items = (Item(p.name, ep.note, ep.tonight, single=True),)
         else:
             price = p.price_cents + sum(ch.diff_cents for _, ch, _ in sel)
@@ -433,12 +433,12 @@ class Builder:
             tag_names = [ch.name for _, ch, _ in sel]
             tp = self.tag_protein([(ch.name, e.tonight.protein) for _, ch, e in sel])
             oid = f"{p.code}|" + "|".join(f"{rid}:{ch.code}:{','.join(e.removed)}:{int(e.split)}" for rid, ch, e in sel)
-            notes = tuple(x for _, ch, e in sel for x in _estimate_note(ch.name, e))
+            notes = tuple(x for _, ch, e in sel for x in estimate_note(ch.name, e))
             items = tuple(Item(ch.name, e.note, e.tonight) for _, ch, e in sel)
         return Option(oid, label, price, tonight, left, self.tags(tag_names), payload, tp, notes, items)
 
 
-def _estimate_note(name: str, ep: EatPlan) -> tuple[str, ...]:
+def estimate_note(name: str, ep: EatPlan) -> tuple[str, ...]:
     if ep.estimate_sd <= 0:
         return ()
     return (f"{name}不在官方营养表里，营养由配料库估算（约 ±{ep.estimate_sd:.0f} 大卡）",)

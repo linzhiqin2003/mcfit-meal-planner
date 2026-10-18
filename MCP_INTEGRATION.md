@@ -32,8 +32,8 @@ sequenceDiagram
     participant S as 脚本 gym.py
     participant M as 麦当劳 MCP
 
-    U->>A: 今晚练腿，500 大卡，蛋白质 30 克，人民广场附近
-    A->>S: plan --kcal-max 500 --protein-min 30 --train 练腿 --city 上海 --near 人民广场 --format json --verify
+    U->>A: 今晚 500 大卡，蛋白质 30 克，人民广场附近
+    A->>S: plan --kcal-max 500 --protein-min 30 --city 上海 --near 人民广场 --format json --verify
     S->>M: query-nearby-stores / now-time-info
     Note over S: 选最近的营业门店；餐段空档时预约下一餐段
     S->>M: query-meals（失败 600057 时换下一家）

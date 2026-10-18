@@ -73,15 +73,15 @@ class CompareCliTest(unittest.TestCase):
         return code, out.getvalue()
 
     def test_card_shows_options_and_official_compare(self):
-        code, out = self.run_plan("--kcal-max", "500", "--protein-min", "30", "--train", "练腿", "--style", "gym", "--top", "1")
+        code, out = self.run_plan("--kcal-max", "500", "--protein-min", "30", "--style", "gym", "--top", "1")
         self.assertEqual(code, 0)
-        self.assertIn("同一个麦香鸡，有这几种练法：", out)
+        self.assertIn("同一个双层吉士汉堡，有这几种练法：", out)
         self.assertIn("← 本方案", out)
         self.assertIn("对比麦当劳官方「500 大卡套餐」", out)
         self.assertIn("没有一款能到 30 g 蛋白质", out)
 
     def test_json_has_eat_options_and_official_sets(self):
-        code, out = self.run_plan("--kcal-max", "500", "--protein-min", "30", "--train", "练腿", "--format", "json", "--top", "1")
+        code, out = self.run_plan("--kcal-max", "500", "--protein-min", "30", "--format", "json", "--top", "1")
         d = json.loads(out)
         self.assertEqual(len(d["official_sets"]), 6)
         opts = d["plans"][0]["eat_options"]
