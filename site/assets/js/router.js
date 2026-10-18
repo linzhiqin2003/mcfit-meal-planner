@@ -27,7 +27,7 @@
       if (name && a.getAttribute("data-go") === name) a.setAttribute("aria-current", "page");
       else a.removeAttribute("aria-current");
     });
-    document.title = name ? "「" + name + "」· Gyᗰ 麦门健身房" : "Gyᗰ 麦门健身房";
+    document.title = name ? "「" + name + "」· 麦麦健身餐规划师" : "麦麦健身餐规划师";
     var view = document.getElementById(id);
     if (name) {
       window.scrollTo(0, 0);

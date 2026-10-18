@@ -1,7 +1,7 @@
 # maimen-gym（Gyᗰ 麦门健身房）项目记忆
 
 项目名「Gyᗰ 麦门健身房」（2026-10-15 用户定名；早期工作名「拆着吃」，目录与仓库名 maimen-gym，代码包名仍为 mcdstrip）。
-Skill 名「麦麦健身餐规划师」（2026-10-16 用户定：要一听就懂；「Gyᗰ 麦门健身房」保留为项目品牌，网站标题、页眉、片尾口号不改，介绍时写「Gyᗰ 麦门健身房 · 麦麦健身餐规划师」；SKILL.md 的 `name` 仍是 maimen-gym，description 以新名字开头，WorkBuddy 技能卡片显示的就是这一行）。健身人群的麦当劳点餐 Skill，口号「Go to Gym 不如 Go to ᗰ」，推荐结果写成训练计划（练腿 / 练胸 / 练背 / 练手臂，麦乐鸡算练胸）。参加麦当劳程序员创意开发大赛（M-CODE，10/25 23:59 截止，按 GitHub Star 定榜）。
+Skill 名「麦麦健身餐规划师」（2026-10-16 用户定：要一听就懂；「Gyᗰ 麦门健身房」保留为项目品牌，片尾口号不改；2026-10-18 用户改：网站页眉、页脚和页面标题也改成「麦麦健身餐规划师」，README 引用行只留口号，介绍时写「Gyᗰ 麦门健身房 · 麦麦健身餐规划师」；SKILL.md 的 `name` 仍是 maimen-gym，description 以新名字开头，WorkBuddy 技能卡片显示的就是这一行）。健身人群的麦当劳点餐 Skill，口号「Go to Gym 不如 Go to ᗰ」，推荐结果写成训练计划（练腿 / 练胸 / 练背 / 练手臂，麦乐鸡算练胸）。参加麦当劳程序员创意开发大赛（M-CODE，10/25 23:59 截止，按 GitHub Star 定榜）。
 
 ## 约定
 - 写实双吉素材以 `videos/gym-promo/assets/cutouts/burger-v3` 为准（参数在 bake.json，`scripts/bake_burger.py` 可复现）；用户给的麦当劳官方实拍 / 配料图只在本机当参考板，不入库。产品图在 `cutouts/sides/`，一律不画第三方品牌标志
