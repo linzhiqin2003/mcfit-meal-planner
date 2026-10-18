@@ -13,7 +13,7 @@ FIX = ROOT / "data/fixtures/store_search/上海-人民广场.json"
 class StoresTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.stores = parse_stores(json.loads(FIX.read_text()))
+        cls.stores = parse_stores(json.loads(FIX.read_text(encoding="utf-8")))
 
     def test_parse_periods_with_split_ranges(self):
         ps = parse_periods("宵夜(00:00至04:45,22:14至23:59)，早餐(05:14至10:15)，午餐(10:44至14:15)")

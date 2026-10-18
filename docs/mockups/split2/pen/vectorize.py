@@ -27,11 +27,11 @@ def main(src: str, pieces: list[str]) -> None:
         Image.fromarray(np.where(crop, 0, 255).astype("uint8"), "L").convert("1").save(bmp)
         svg = HERE / f"{name}.svg"
         subprocess.run(["potrace", str(bmp), "-s", "-o", str(svg), "-t", "6", "-a", "1.1", "-O", "0.5", "--flat"], check=True)
-        s = svg.read_text()
+        s = svg.read_text(encoding="utf-8")
         d = " ".join(re.findall(r'<path d="([^"]+)"', s, re.S))
         tf = re.search(r'<g transform="([^"]+)"', s).group(1)
         out = f'<svg viewBox="0 0 {crop.shape[1]} {crop.shape[0]}" aria-hidden="true"><path transform="{tf}" d="{" ".join(d.split())}"/></svg>'
-        (HERE / f"{name}.inline.svg").write_text(out)
+        (HERE / f"{name}.inline.svg").write_text(out, encoding="utf-8")
         print(name, crop.shape[1], crop.shape[0], len(out), "bytes")
 
 

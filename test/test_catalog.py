@@ -17,10 +17,10 @@ STORE = ROOT / "data/fixtures/stores/1450441/2026-10-16T1900"
 class CatalogTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.tab = parse_table((ROOT / "data/fixtures/nutrition_raw.txt").read_text())
-        recipes = json.loads((ROOT / "data/reference/recipes_draft.json").read_text())
+        cls.tab = parse_table((ROOT / "data/fixtures/nutrition_raw.txt").read_text(encoding="utf-8"))
+        recipes = json.loads((ROOT / "data/reference/recipes_draft.json").read_text(encoding="utf-8"))
         cls.lib = build_library(cls.tab, recipes, load_priors(ROOT / "data/reference/priors_us.json"))
-        cls.modmap = json.loads((ROOT / "data/reference/modifier_map.json").read_text())
+        cls.modmap = json.loads((ROOT / "data/reference/modifier_map.json").read_text(encoding="utf-8"))
         cls.cat = load_fixture(STORE)
         cls.builder = Builder(cls.tab, cls.lib, cls.modmap)
 
@@ -132,7 +132,7 @@ class NamesTest(unittest.TestCase):
             self.assertEqual(normalize(raw), want, raw)
 
     def test_piece_scaling(self):
-        tab = parse_table((ROOT / "data/fixtures/nutrition_raw.txt").read_text())
+        tab = parse_table((ROOT / "data/fixtures/nutrition_raw.txt").read_text(encoding="utf-8"))
         b = Builder(tab, None, {})
         self.assertEqual(b.base_nutrition("麦辣鸡翅4块"), tab["麦辣鸡翅-2块"].scale(2))
         self.assertEqual(b.base_nutrition("麦乐鸡4块"), tab["麦乐鸡4块"])      # 表里有就不换算

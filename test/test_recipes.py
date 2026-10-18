@@ -19,12 +19,12 @@ STORES = ROOT / "data/fixtures/stores/1450441"
 class RecipesTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.tab = parse_table((ROOT / "data/fixtures/nutrition_raw.txt").read_text())
+        cls.tab = parse_table((ROOT / "data/fixtures/nutrition_raw.txt").read_text(encoding="utf-8"))
         book = load_recipes(REF / "recipes.json")
         cls.recipes, cls.exclude = book.recipes, book.fit_exclude
         cls.lib = build_library(cls.tab, cls.recipes, load_priors(REF / "priors_us.json"), fit_exclude=cls.exclude,
                                 obs_sd=book.obs_sd, uncertain=book.uncertain)
-        cls.modmap = json.loads((REF / "modifier_map.json").read_text())
+        cls.modmap = json.loads((REF / "modifier_map.json").read_text(encoding="utf-8"))
         cls.builder = Builder(cls.tab, cls.lib, cls.modmap, TRAIN_RULES)
 
     def test_every_menu_modifier_maps_into_its_recipe(self):

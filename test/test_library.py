@@ -94,7 +94,7 @@ class PriorLoadingTest(unittest.TestCase):
         with tempfile.TemporaryDirectory() as d:
             f = Path(d) / "p.json"
             f.write_text(json.dumps({"x": {"mean": {"kcal": 100}, "rel_sd": 0.3},
-                                     "y": {"mean": {"kcal": 100}, "sd": {"kcal": 10}}}))
+                                     "y": {"mean": {"kcal": 100}, "sd": {"kcal": 10}}}), encoding="utf-8")
             pr = load_priors(f)
         for cid in ("x", "y"):
             self.assertEqual(pr[cid].mean.calcium, 0.0)
@@ -107,8 +107,8 @@ class RealDataTest(unittest.TestCase):
     """用官方营养表和草稿配方跑一遍：双层吉士汉堡的拆分必须守恒。"""
 
     def test_draft_recipes_on_official_table(self):
-        tab = parse_table((ROOT / "data/fixtures/nutrition_raw.txt").read_text())
-        recipes = json.loads((ROOT / "data/reference/recipes_draft.json").read_text())
+        tab = parse_table((ROOT / "data/fixtures/nutrition_raw.txt").read_text(encoding="utf-8"))
+        recipes = json.loads((ROOT / "data/reference/recipes_draft.json").read_text(encoding="utf-8"))
         lib = build_library(tab, recipes, load_priors(ROOT / "data/reference/priors_us.json"))
         self.assertFalse(lib.suspicious())
         patty = lib.components["patty.beef_small"].value

@@ -5,6 +5,7 @@
 - 页脚小人测试原来在模块顶层导入 numpy 和 `build_site_curtain`（后者还要 scipy 和 `videos/` 下的切图脚本），干净克隆和 CI 里会直接导入失败；改成导入不到时只跑页面与 `bow.json` 的一致性检查，牌子框算法的测试跳过
 - README 克隆地址换成 `linzhiqin2003/maimen-gym`
 - 旧提交里有 8 处本机路径（研究记录、3D 任务书的旧版本），所以公开用的 `main` 是当前文件树的单次提交；`master` 保留本地完整历史，不推送。干净克隆 `main` 实测：传输约 27 MB，历史里没有本机路径，参赛声明与官方逐字节一致，系统自带 Python 3.9（无 numpy）下 119 个测试通过（跳过 1 个）
+- 建公开仓库 `linzhiqin2003/maimen-gym`（北京时间 10/18 18:45 创建）并推送，Pages 已部署到 linzhiqin2003.github.io/maimen-gym。第一次 CI 里 Windows 两个版本失败：测试里 10 处 `read_text()` / `write_text()` 没写编码，Windows 按 cp1252 读中文数据文件报 UnicodeDecodeError（产品代码在 d92743f 已统一 UTF-8，测试当时漏了）。全部补上 `encoding="utf-8"`，新增 `test_encoding.py` 按语法树检查所有入库的 Python 文件，修复前的文件能抓出这几处；另用 `-X warn_default_encoding -W error::EncodingWarning` 跑全量 121 个测试，没有隐式编码
 
 ## 2026-10-17 纸袋人头套按用户照片重做
 - 用户给了一张照片（小红书上倒戴麦当劳外卖袋秀肌肉），要求头套照着做：麦当劳现行外卖袋倒戴——牛皮纸、几道黄色笔刷横纹、左上角红色方块标志（倒过来像「W」）、提手垂在脖子前、两个黑点眼睛，不戴头带。照片里只裁纸袋做参考板（`assets/bagman/ref/`，不入库），人物和照片不进成片
