@@ -3,7 +3,8 @@
     python3 scripts/build_site_videos.py
 
 输入（videos/ 下 HyperFrames 渲染的成片，目录本身不入库）：
-  - videos/tutorial-workbuddy/renders/tutorial-workbuddy-16x9.mp4   安装教程，1920×1080，114 秒（前 36 秒是 Skill 和三个卖点），moov 已前置
+  - videos/tutorial-workbuddy/renders/tutorial-workbuddy-16x9-v3-mcfit.mp4   安装教程，1920×1080，114 秒（前 36 秒是 Skill 和三个卖点），moov 已前置；
+    v3 只把旧名换成新名（终端里的仓库地址和目录、技能页卡片、调用技能那步、导航条和片头片尾的署名），镜头和时间与 v2 相同（2026-10-18）
   - videos/gym-promo/renders/gym-promo-v6.mp4                       宣传片，1080×1920，46 秒（麦当劳纸袋健身人 + 真实使用场景 + 三个卖点 + GYM 梗图结尾；v6 只把结尾的「GitHub 搜」改成新仓库名 mcfit-meal-planner，2026-10-18）
 输出：
   - site/assets/video/install-tutorial.mp4  教程原样复制（码率已经够低、索引已前置，重编码只会掉画质）
@@ -22,7 +23,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 VIDEO_OUT = ROOT / "site/assets/video"
 IMG_OUT = ROOT / "site/assets/img"
-TUTORIAL = ROOT / "videos/tutorial-workbuddy/renders/tutorial-workbuddy-16x9.mp4"
+TUTORIAL = ROOT / "videos/tutorial-workbuddy/renders/tutorial-workbuddy-16x9-v3-mcfit.mp4"
 PROMO = ROOT / "videos/gym-promo/renders/gym-promo-v6.mp4"
 log = logging.getLogger("site-videos")
 
@@ -59,7 +60,7 @@ def main() -> None:
          "-profile:v", "high", "-pix_fmt", "yuv420p", "-c:a", "aac", "-b:a", "96k", "-movflags", "+faststart", str(promo)])
     log.info("宣传片 %s：%.1f MB", promo.relative_to(ROOT), promo.stat().st_size / 1e6)
 
-    poster(TUTORIAL, 5.9, 1280, IMG_OUT / "install-tutorial-poster.webp")   # 片头：把麦当劳吃成健身餐 + 麦麦健身餐规划师
+    poster(TUTORIAL, 5.9, 1280, IMG_OUT / "install-tutorial-poster.webp")   # 片头：把麦当劳吃成健身餐 + 麦麦健身餐规划师 + McFit Meal Planner
     poster(PROMO, 2.8, 540, IMG_OUT / "promo-poster.webp")                  # 「麦当劳 也能当健身餐 ？？？」+ 纸袋人举双吉
 
 

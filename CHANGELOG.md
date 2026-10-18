@@ -1,5 +1,12 @@
 # 更新日志
 
+## 2026-10-18 安装教程改名：横版、竖版 v3（mcfit-meal-planner），网站教程视频和 README 实操图跟着换
+- 两个教程工程（`videos/tutorial-workbuddy`、`-vertical`，不入库）里的旧名全部换掉：终端里的克隆地址和目录、安装输出的技能目录、技能页说明字幕、「调用技能」那一步、导航条底部和结尾页署名（「麦麦健身餐规划师」，结尾页加英文名 McFit Meal Planner）、结尾页仓库地址。片头原来是「Gyᗰ 麦门健身房 出品」，换成同名会和上一行重复，改成英文名 McFit Meal Planner。配音里没有旧名，不重配；镜头和时间都没动
+- 版式跟着改：地址长了 8 个字符，横版终端放不下一行，和竖版一样拆成 `git clone \` + 地址、`cd`、`python3 install.py` 四行（回车和输出的时间不变）；竖版终端字号 28→26、续行缩进减到 2 个字符。结尾页地址横版 52→42px（整行和旧地址一样宽，「点个 Star」不压到杠铃上）、竖版 42→36px，逐字出现的步数改成 43。字幕里的技能名和「用户自定义」不换行，竖版原来会断成「mcfit-」「meal-planner」
+- 技能页那一镜是 WorkBuddy 真实截图，用户选择不重截、照原图改字（`videos/tutorial-workbuddy/scripts/retext_card.py`）：按 WorkBuddy 安装包里的样式（PingFang SC、名字 16px/500、说明 14px/400 单行省略、`-webkit-font-smoothing: antialiased`）用无头 Chrome 渲染，按截图比例 0.9255 缩小、预模糊后用原图的 JPEG 量化表重压；先用旧文字校准，重建误差约 2.6（0–255）。头像底色是 WorkBuddy 按名字哈希选的，新名字从靛蓝变成樱粉，也一起换了
+- 新成片 `tutorial-workbuddy-16x9-v3-mcfit.mp4` / `9x16-v3-mcfit.mp4`（旧成片保留）。和旧版逐帧比：没改的镜头（卖点、今日、Token、配置、连接、结果卡，导航条署名那块除外）中位 PSNR 54–58 dB，96–100% 的帧在 50 dB 以上，低于 50 dB 的帧是字幕淡入等过程帧，差异放大后是均匀的编码噪声
+- 主页安装教程视频和封面换成 v3（`build_site_videos.py` 改读新成片，宣传片重编码后字节不变）；README 实操截图重出（导航条底部署名）。三联图取自没改的镜头、社交预览图是主页截图，内容都没变，保留原文件
+
 ## 2026-10-18 项目改名 McFit Meal Planner：仓库、Skill 和宣传片结尾改成 mcfit-meal-planner
 - GitHub 仓库 `linzhiqin2003/maimen-gym` 改名为 `linzhiqin2003/mcfit-meal-planner`（用户定；已提示 McFIT 是德国连锁健身房的注册商标，用户接受）。旧地址网页和 API 都 301 跳到新仓库；报名 Issue #848 登记的是旧地址，没有改 Issue。本地 origin 已改成新地址
 - Skill 目录和名字改成 `skill/mcfit-meal-planner`（`name: mcfit-meal-planner`），装到 `~/.workbuddy/skills/mcfit-meal-planner`。`install.py` 会删掉改名前装的 `maimen-gym`（只删有 `scripts/gym.py` 和 `lib/mcdstrip` 的，用户自己的同名目录不动），否则客户端里会出现两个一样的技能；`test_install.py` 加两个测试
