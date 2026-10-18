@@ -17,7 +17,7 @@
 |---|---|---|---|
 | 3a | **补核价证据**：设置好 Token 后运行 `python3 scripts/price_check_record.py`，生成 `docs/research/price_check_<日期>.json`（不含 Token），MCP_INTEGRATION 的 9/9 改为引用这份记录 | 需要你的 Token | 0.2h |
 | ~~3b~~ | ~~推送前清理~~：已完成（10/18）。`assets/3d` 和 `videos/` 不入库，`main` 是单次提交，`master` 留作本地完整历史 | — | — |
-| 4 | **建公开仓库** `linzhiqin2003/maimen-gym` 并推送 `main`（README 占位符已替换）；在未登录状态下确认参赛声明能读到，Settings → Pages 的 Source 设为 GitHub Actions | 你拍板 | 0.5h |
+| ~~4~~ | ~~建公开仓库~~：已完成（10/18 18:45 创建）。未登录可读到 4 个必需文件，参赛声明与官方逐字节一致；CI 五个环境通过（修了 Windows 下测试的编码问题）；Pages 已部署 linzhiqin2003.github.io/maimen-gym | — | — |
 | 5 | **发报名 Issue**：正文 4 行、不空行、不用 Markdown。项目名建议写「麦门健身房 maimen-gym」，因为 ᗰ 这种符号有被格式校验拒绝的风险 | 你拍板时间 | 0.2h |
 | 6 | 实际使用验收：在 WorkBuddy 和 Claude Code 里各装一遍，用真实 Token 从对话一路走到核价；**Windows 还没在真机上装过**（WorkBuddy 的技能目录按 `%USERPROFILE%\.workbuddy\skills` 推断），推送后先看 CI 的 Windows 结果，有条件再找一台 Windows 实装；**macOS 上从程序坞打开的 WorkBuddy 能不能读到 `~/.zshrc` 里的 Token 也没实测**（README 给了 `launchctl setenv` 兜底），验收时顺带确认 | 需要你的 WorkBuddy | 1h |
 
