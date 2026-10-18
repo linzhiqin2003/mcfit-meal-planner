@@ -684,6 +684,8 @@ html[data-view="home"] .curtain{display:none}
 .ins-step .say{margin-top:6px;font-size:21px;line-height:1.5;font-weight:600;color:var(--ink)}
 .ins-step .code{margin-top:16px;padding:16px 56px 16px 18px;font-size:13px}
 .ins-step .note{font-size:14px;color:var(--ink-3)}
+.ins-step .os{margin:16px 0 0;font-size:13px;line-height:1.4;color:var(--ink-3);letter-spacing:.02em}
+.ins-step .os+.code{margin-top:6px}
 #v-install .sub-head{margin-top:104px}
 @media (max-width:900px){
   .ins-steps{grid-template-columns:minmax(0,1fr)}

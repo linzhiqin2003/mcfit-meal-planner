@@ -1,4 +1,4 @@
-<p align="center"><img src="docs/readme/banner.webp" width="100%" alt="GYM：招牌上的 M 是金拱门"></p>
+<p align="center"><img src="docs/readme/banner.webp" width="100%" alt="纸袋健身人：GO TO GYM 不如 GO TO GYM（招牌上的 M 是金拱门）"></p>
 
 <p align="center"><b>麦麦健身餐规划师</b> · 健身人群的麦当劳点餐 Skill<br><sub><a href="https://mcd.lzqqq.org">项目主页</a> · <a href="#安装">安装</a> · <a href="data/ingredient_library.json">开放数据集</a></sub></p>
 

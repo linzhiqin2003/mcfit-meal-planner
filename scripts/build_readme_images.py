@@ -3,12 +3,12 @@
     python3 scripts/build_readme_images.py
 
 需要 ffmpeg、cwebp 和 Google Chrome（只在本机跑，CI 不跑）。输入：
-  - 横幅：宣传片结尾那张「GYM」梗图 videos/gym-promo/assets/meme/gym-sign.jpg（用户 2026-10-18 指定；网络转载的梗图，
-    已裁到只剩招牌，来源见同目录 README.md）。videos/ 不进 git，横幅只能在本机重建
+  - 横幅：用户 2026-10-18 做好的 videos/gym-promo/assets/meme/readme-banner.jpg（纸袋健身人 + 「GO TO GYM 不如 GO TO」+
+    宣传片结尾的招牌梗图，梗图来源见同目录 README.md）。videos/ 不进 git，横幅只能在本机重建
   - 社交预览图：site/ 首屏，用无头 Chrome 截图。截之前隐藏导航、入口按钮、副标题和滚动字幕，图不该像能点的界面
   - 三联图和实操截图：site/assets/video/install-tutorial.mp4 里动画停稳的帧（帧间差最小处，见 FRAMES）。教程重新剪辑后要重新找时间点
 输出：
-  - docs/readme/banner.webp         README 顶部横幅（梗图原尺寸 1204×544，不放大）
+  - docs/readme/banner.webp         README 顶部横幅（原尺寸 1600×750，不缩放）
   - docs/readme/strip.webp          三个本事：拆层算热量 · 分顿吃 · 按价格排组合（每格 1280 宽，点开大图能看清字）
   - docs/readme/usage.webp          WorkBuddy 里的真实输出（带红笔批注）
   - docs/readme/social-preview.jpg  1280×640，仓库 Settings → Social preview 手动上传（GitHub 没有接口）
@@ -28,7 +28,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "docs/readme"
 TUTORIAL = ROOT / "site/assets/video/install-tutorial.mp4"
-MEME = ROOT / "videos/gym-promo/assets/meme/gym-sign.jpg"
+BANNER_SRC = ROOT / "videos/gym-promo/assets/meme/readme-banner.jpg"
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 # 教程里各镜动画停稳的时间（秒）：01 拆层（339 大卡、两片吉士打叉）、02 今晚 / 明早、03 四套组合卡、WorkBuddy 输出加批注
 FRAMES = {"p01": 12.25, "p02": 22.9, "p03": 34.0, "usage": 100.5}
@@ -85,7 +85,7 @@ def chrome_shot(url: str, out: Path, size: str, tmp: Path) -> None:
 
 
 def banner() -> None:
-    webp(MEME, OUT / "banner.webp")
+    webp(BANNER_SRC, OUT / "banner.webp")
 
 
 def social_preview(tmp: Path) -> None:
@@ -127,8 +127,8 @@ def main() -> None:
             sys.exit(f"缺少 {tool}")
     if not Path(CHROME).exists():
         sys.exit(f"找不到 Chrome：{CHROME}")
-    if not MEME.exists():
-        sys.exit(f"找不到横幅原图：{MEME}（videos/ 不进 git，只在本机）")
+    if not BANNER_SRC.exists():
+        sys.exit(f"找不到横幅原图：{BANNER_SRC}（videos/ 不进 git，只在本机）")
     OUT.mkdir(parents=True, exist_ok=True)
     with tempfile.TemporaryDirectory(prefix="readme-img-") as t:
         tmp = Path(t)

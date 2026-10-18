@@ -1,5 +1,9 @@
 # 更新日志
 
+## 2026-10-18 README 横幅换成用户做的图；「装」页加 Windows 安装命令
+- README 横幅换成用户做好的图（纸袋健身人 + 「GO TO GYM 不如 GO TO」+ 招牌梗图，1600×750），原图放在本机 `videos/gym-promo/assets/meme/readme-banner.jpg`
+- 主页「装」页第一步分成「macOS · 终端」和「Windows · PowerShell」两块命令，各带复制按钮（Windows 拆成 `cd maimen-gym` 和 `py install.py --target workbuddy` 两行：没有 `python3`，旧版 PowerShell 也不支持 `&&`），注明没有 `py` 时换成 `python`。复制按钮改为复制所在命令块里显示的命令（去掉提示符），不再在 JS 里写死一份；第三步示例去掉「练腿」
+
 ## 2026-10-18 README：横幅换成 GYM 梗图，去掉「训练部位」，「适合谁」换成用户文案；网站改名
 - 横幅换成宣传片结尾用过的「GYM」梗图（用户指定；`videos/gym-promo/assets/meme/gym-sign.jpg`，已裁到只剩招牌，原尺寸 1204×544）。`build_readme_images.py` 的横幅改读这张图（videos/ 不进 git，只能在本机重建），社交预览图仍截主页首屏
 - README 不再用「训练部位」概念：删掉「训练部位」一节、参数表的 `--train`、命令示例里的 `--train 练腿`、示例对话里的「今晚练腿」「练胸日」和开头的「今天练哪里」。Skill 和网站里的部位功能没动

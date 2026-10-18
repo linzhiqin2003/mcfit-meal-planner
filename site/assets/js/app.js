@@ -126,7 +126,8 @@
     if (t) return set({ train: t.getAttribute("data-part") }, { source: "chips" });
     t = e.target.closest(".ranks li[data-rank]");
     if (t) return set({ rank: +t.getAttribute("data-rank") }, { source: "ranks" });
-    if (e.target.closest("#copyBtn")) copyInstall();
+    t = e.target.closest(".code .copy");
+    if (t) copyCode(t);
   });
   document.addEventListener("keydown", function (e) {
     if (e.key !== "Enter" && e.key !== " ") return;
@@ -136,12 +137,17 @@
     t.click();
   });
 
-  function copyInstall() {
-    var text = $("cloneCmd").textContent + "\ncd maimen-gym && python3 install.py --target workbuddy";
-    var btn = $("copyBtn");
+  // 复制按钮所在命令块里显示的命令（去掉行首的 $ / > 提示符），显示什么就复制什么
+  function copyCode(btn) {
+    var text = [].map.call(btn.closest(".code").querySelectorAll(".ln"), function (ln) {
+      var c = ln.cloneNode(true), pr = c.querySelector(".pr");
+      if (pr) pr.remove();
+      return c.textContent.trim();
+    }).join("\n");
+    var label = btn.getAttribute("aria-label");
     (navigator.clipboard ? navigator.clipboard.writeText(text) : Promise.reject()).then(function () {
       btn.innerHTML = use("i-check"); btn.setAttribute("aria-label", "已复制");
-      setTimeout(function () { btn.innerHTML = use("i-copy"); btn.setAttribute("aria-label", "复制命令"); }, 1600);
+      setTimeout(function () { btn.innerHTML = use("i-copy"); btn.setAttribute("aria-label", label); }, 1600);
     }, function () { /* 不支持剪贴板时什么也不做，命令仍可手动选中 */ });
   }
 
