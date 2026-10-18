@@ -21,7 +21,7 @@ class InstallTest(unittest.TestCase):
         cls.env.pop("MCD_MCP_TOKEN", None)
         subprocess.run([sys.executable, str(ROOT / "install.py"), "--target", str(Path(cls.tmp.name) / "skills")],
                        check=True, capture_output=True, env=cls.env)
-        cls.skill = Path(cls.tmp.name) / "skills" / "maimen-gym"
+        cls.skill = Path(cls.tmp.name) / "skills" / "mcfit-meal-planner"
 
     @classmethod
     def tearDownClass(cls):
@@ -72,6 +72,36 @@ class InstallTest(unittest.TestCase):
         self.assertNotIn("Traceback", s.stderr.decode("utf-8", "replace"))
 
 
+class RenameTest(unittest.TestCase):
+    """改名前装过的 maimen-gym 要删掉（否则客户端里有两个一样的技能），但用户自己的同名目录不能动。"""
+
+    def run_install(self, skills: Path):
+        return subprocess.run([sys.executable, str(ROOT / "install.py"), "--target", str(skills)],
+                              capture_output=True, env={**os.environ, "PYTHONIOENCODING": "utf-8"}, timeout=120)
+
+    def test_old_install_removed(self):
+        with tempfile.TemporaryDirectory() as t:
+            skills = Path(t)
+            old = skills / "maimen-gym"
+            (old / "scripts").mkdir(parents=True)
+            (old / "scripts" / "gym.py").write_text("", encoding="utf-8")
+            (old / "lib" / "mcdstrip").mkdir(parents=True)
+            r = self.run_install(skills)
+            self.assertEqual(r.returncode, 0, r.stderr.decode("utf-8", "replace"))
+            self.assertFalse(old.exists())
+            self.assertTrue((skills / "mcfit-meal-planner" / "SKILL.md").is_file())
+            self.assertIn("改名前的旧版本", r.stdout.decode("utf-8"))
+
+    def test_unrelated_dir_kept(self):
+        with tempfile.TemporaryDirectory() as t:
+            skills = Path(t)
+            mine = skills / "maimen-gym"
+            mine.mkdir()
+            (mine / "notes.md").write_text("用户自己的东西", encoding="utf-8")
+            self.assertEqual(self.run_install(skills).returncode, 0)
+            self.assertTrue((mine / "notes.md").is_file())
+
+
 class AutoTargetTest(unittest.TestCase):
     """不带 --target：只装进本机已有的客户端，一个都没有时说清楚。"""
 
@@ -87,7 +117,7 @@ class AutoTargetTest(unittest.TestCase):
             r = self.run_install(home)
             out = r.stdout.decode("utf-8")
             self.assertEqual(r.returncode, 0, out + r.stderr.decode("utf-8", "replace"))
-            self.assertTrue((home / ".claude" / "skills" / "maimen-gym" / "SKILL.md").is_file())
+            self.assertTrue((home / ".claude" / "skills" / "mcfit-meal-planner" / "SKILL.md").is_file())
             self.assertFalse((home / ".workbuddy").exists())
             self.assertIn("Claude Code", out)
             self.assertIn("MCD_MCP_TOKEN", out)      # 没设 Token 时给出设置方法

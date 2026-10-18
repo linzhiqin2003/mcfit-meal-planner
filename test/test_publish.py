@@ -20,7 +20,7 @@ class PatternTest(unittest.TestCase):
             self.assertTrue(cp.LOCAL_PATH.search(s), s)
 
     def test_ignores_placeholders_and_relative_paths(self):
-        for s in ("data/fixtures/stores/1450441/details/", "~/.claude/skills/maimen-gym", "%USERPROFILE%\\.claude",
+        for s in ("data/fixtures/stores/1450441/details/", "~/.claude/skills/mcfit-meal-planner", "%USERPROFILE%\\.claude",
                   "C:" + "\\Users\\你的用户名", "/" + "Users/你的用户名/", "C:" + "\\Users\\%USERNAME%"):
             self.assertFalse(cp.LOCAL_PATH.search(s), s)
 

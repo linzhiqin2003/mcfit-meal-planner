@@ -220,7 +220,7 @@
     render();
     once(box, play);
   }).catch(function (err) {
-    console.warn("[maimen-gym] 配料数据加载失败", err);
+    console.warn("[mcfit-meal-planner] 配料数据加载失败", err);
     box.classList.add("failed");
     var msg = document.createElement("p");
     msg.className = "od-fail";

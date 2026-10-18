@@ -19,7 +19,7 @@
   function play(v) {
     v.controls = true;
     var p = v.play();
-    if (p && p.catch) p.catch(function (err) { console.warn("[maimen-gym] 视频播放失败", err); });
+    if (p && p.catch) p.catch(function (err) { console.warn("[mcfit-meal-planner] 视频播放失败", err); });
   }
 
   // 还没加载时设 currentTime 只是记下「默认起播位置」，各浏览器不一定都认；元数据到了再设一次兜底（play() 会触发加载）
@@ -35,7 +35,7 @@
     v.addEventListener("click", function () { if (!fig(v).classList.contains("playing") && v.paused) play(v); });
     // 真加载失败（网络、格式）时给一句看得懂的提示，不让画面毫无反应；细节进控制台
     v.addEventListener("error", function () {
-      console.warn("[maimen-gym] 视频加载失败", v.currentSrc, v.error && v.error.code);
+      console.warn("[mcfit-meal-planner] 视频加载失败", v.currentSrc, v.error && v.error.code);
       fig(v).classList.add("failed");
     });
     v.addEventListener("play", function () {

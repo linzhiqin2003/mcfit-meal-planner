@@ -1,6 +1,6 @@
 <p align="center"><img src="docs/readme/banner.webp" width="100%" alt="纸袋健身人：GO TO GYM 不如 GO TO GYM（招牌上的 M 是金拱门）"></p>
 
-<p align="center"><b>麦麦健身餐规划师</b> · 健身人群的麦当劳点餐 Skill<br><sub><a href="https://mcd.lzqqq.org">项目主页</a> · <a href="#安装">安装</a> · <a href="data/ingredient_library.json">开放数据集</a></sub></p>
+<p align="center"><b>麦麦健身餐规划师</b>（McFit Meal Planner）· 健身人群的麦当劳点餐 Skill<br><sub><a href="https://mcd.lzqqq.org">项目主页</a> · <a href="#安装">安装</a> · <a href="data/ingredient_library.json">开放数据集</a></sub></p>
 
 # 麦麦健身餐规划师
 
@@ -77,22 +77,22 @@ Go to Gym 不如 Go to ᗰ
 macOS（打开「终端」）：
 
 ```bash
-git clone https://github.com/linzhiqin2003/maimen-gym.git
-cd maimen-gym
+git clone https://github.com/linzhiqin2003/mcfit-meal-planner.git
+cd mcfit-meal-planner
 python3 install.py
 ```
 
 Windows（打开 PowerShell 或「终端」）：
 
 ```powershell
-git clone https://github.com/linzhiqin2003/maimen-gym.git
-cd maimen-gym
+git clone https://github.com/linzhiqin2003/mcfit-meal-planner.git
+cd mcfit-meal-planner
 py install.py
 ```
 
 没有装 git 也行：在本仓库页面点 **Code → Download ZIP**，解压后在解压出来的文件夹里打开终端，再运行最后一行。Windows 上在文件夹空白处右键选「在终端中打开」；macOS 上先在终端输入 `cd `（末尾有空格），再把文件夹拖进终端窗口、按回车。
 
-`install.py` 会自动装进本机已有的客户端：WorkBuddy 装到 `~/.workbuddy/skills/maimen-gym`，Claude Code 装到 `~/.claude/skills/maimen-gym`（Windows 上 `~` 是 `C:\Users\你的用户名`）。只想装其中一个，就加上 `--target workbuddy` 或 `--target claude`。Windows 上没有 `py` 命令时，把 `py` 换成 `python`。
+`install.py` 会自动装进本机已有的客户端：WorkBuddy 装到 `~/.workbuddy/skills/mcfit-meal-planner`，Claude Code 装到 `~/.claude/skills/mcfit-meal-planner`（Windows 上 `~` 是 `C:\Users\你的用户名`）。只想装其中一个，就加上 `--target workbuddy` 或 `--target claude`。Windows 上没有 `py` 命令时，把 `py` 换成 `python`。
 
 ### 2. 申请 Token
 
@@ -158,13 +158,13 @@ claude mcp add --transport http --scope user mcd-mcp https://mcp.mcd.cn --header
 
 ```bash
 # 离线演示（用仓库里的门店快照，不需要 Token）
-python3 skill/maimen-gym/scripts/gym.py plan --kcal-max 500 --protein-min 30 --offline data/fixtures/stores/1450441/2026-10-16T1900 --style gym
+python3 skill/mcfit-meal-planner/scripts/gym.py plan --kcal-max 500 --protein-min 30 --offline data/fixtures/stores/1450441/2026-10-16T1900 --style gym
 
 # 实时：自动选最近的营业门店，并核价（需要已设置 MCD_MCP_TOKEN）
-python3 skill/maimen-gym/scripts/gym.py plan --kcal-max 500 --protein-min 30 --city 上海 --near 人民广场 --style gym --verify
+python3 skill/mcfit-meal-planner/scripts/gym.py plan --kcal-max 500 --protein-min 30 --city 上海 --near 人民广场 --style gym --verify
 
 # 单样餐品的几种吃法：去配料、只吃馅各多少热量，面包留到下一顿还剩多少（不需要 Token）
-python3 skill/maimen-gym/scripts/gym.py eat 双层吉士汉堡
+python3 skill/mcfit-meal-planner/scripts/gym.py eat 双层吉士汉堡
 
 # 给智能体用的结构化输出：含算价参数、训练卡文字、餐段说法，在上面的命令后加 --format json
 ```
@@ -189,7 +189,7 @@ python3 skill/maimen-gym/scripts/gym.py eat 双层吉士汉堡
 - 去配料、只吃馅的热量误差（一个标准差）中位约 ±13 大卡，九成在 ±30 大卡以内；拆不准的吃法不推荐。
 - 不在官方营养表里的新品按配方估算，误差超过 12% 不推荐，推荐时会注明误差。
 
-详细说明见 [营养是怎么算的](skill/maimen-gym/references/nutrition-method.md)。
+详细说明见 [营养是怎么算的](skill/mcfit-meal-planner/references/nutrition-method.md)。
 
 **开放数据集**：[data/ingredient_library.json](data/ingredient_library.json) 收录 44 种麦当劳中国配料的估计营养（热量、蛋白质、脂肪、碳水、钠、钙）、标准差、依据和用到它的餐品，可以直接拿去用。
 
@@ -202,7 +202,7 @@ python3 skill/maimen-gym/scripts/gym.py eat 双层吉士汉堡
 ## 项目结构
 
 ```
-skill/maimen-gym/        Skill 本体：SKILL.md、references、scripts/gym.py
+skill/mcfit-meal-planner/ Skill 本体：SKILL.md、references、scripts/gym.py
 src/mcdstrip/            计算代码（纯标准库）
   mcp.py                 麦当劳 MCP 客户端（Streamable HTTP）
   nutrition.py           官方营养表解析、菜单名归一

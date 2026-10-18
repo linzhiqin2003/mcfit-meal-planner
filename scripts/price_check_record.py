@@ -18,7 +18,7 @@ from datetime import datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-GYM = ROOT / "skill" / "maimen-gym" / "scripts" / "gym.py"
+GYM = ROOT / "skill" / "mcfit-meal-planner" / "scripts" / "gym.py"
 CASES = [
     {"kcal_max": 400, "protein_min": 30, "train": None},
     {"kcal_max": 500, "protein_min": 30, "train": "练腿"},

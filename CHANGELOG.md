@@ -1,5 +1,11 @@
 # 更新日志
 
+## 2026-10-18 项目改名 McFit Meal Planner：仓库、Skill 和宣传片结尾改成 mcfit-meal-planner
+- GitHub 仓库 `linzhiqin2003/maimen-gym` 改名为 `linzhiqin2003/mcfit-meal-planner`（用户定；已提示 McFIT 是德国连锁健身房的注册商标，用户接受）。旧地址网页和 API 都 301 跳到新仓库；报名 Issue #848 登记的是旧地址，没有改 Issue。本地 origin 已改成新地址
+- Skill 目录和名字改成 `skill/mcfit-meal-planner`（`name: mcfit-meal-planner`），装到 `~/.workbuddy/skills/mcfit-meal-planner`。`install.py` 会删掉改名前装的 `maimen-gym`（只删有 `scripts/gym.py` 和 `lib/mcdstrip` 的，用户自己的同名目录不动），否则客户端里会出现两个一样的技能；`test_install.py` 加两个测试
+- README、主页（GitHub 链接、macOS / Windows 安装命令、技能名）、MCP_INTEGRATION.md、pyproject 的包名里的 maimen-gym 都换成 mcfit-meal-planner；README 标题行加英文名。CHANGELOG、TODO 和旧 mockup 是历史记录，不改
+- 宣传片 v6：只把结尾「GitHub 搜」后面的名字改成 mcfit-meal-planner，其余与 v5 相同；主页宣传片按 v6 重新生成
+
 ## 2026-10-18 Skill 实测（Codex、Claude）后：新增 `gym.py eat`，去掉「麦门健身房」和训练部位
 - 用 Codex（gpt-6-astra）和 Claude 两个 harness 按真实用户提问实测 Skill：实时配餐、离线演示、单样餐品拆分。数字全部和脚本一致，都没有越权下单。共同问题：用户只问「双吉去吉士、只吃肉饼多少热量」时没有现成命令，Codex 翻源码用了约 37 万输入 token，Claude 编了一组约束去跑 plan 才碰巧拿到
 - 新 `gym.py eat <餐品名>`（`src/mcdstrip/lookup.py`）：列出一样餐品的全部吃法（整份 / 下单去配料 / 只吃馅，面包留到下一顿），不需要门店和 Token。名字依次按精确、包含、按顺序含有（「双吉」→ 双层吉士汉堡）、字形相近匹配，先在算得出营养的餐品里找；按块数换算的（麦乐鸡10块）直接认；套餐、算不准的新品、有歧义时说明原因并给候选。可去配料默认从自带的门店快照查，安装包因此加上早餐快照（麦满分只在早餐菜单上）。复测：Codex 3 条命令、约 7 万输入 token；Claude 1 条命令答对

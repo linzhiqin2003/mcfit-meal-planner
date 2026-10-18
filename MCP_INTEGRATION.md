@@ -50,7 +50,7 @@ sequenceDiagram
 
 ## 每个 Tool 带来的业务价值
 
-- **`list-nutrition-foods` + `query-meal-detail`**：前者给出约 160 款餐品的整份营养，后者给出每款能去掉哪些配料。两者结合，我们反推出每种配料的营养（[配料库](skill/maimen-gym/references/nutrition-method.md)），于是能回答官方数据回答不了的问题：「双层吉士汉堡去吉士、只吃馅，吃进去多少？」答案是约 182 大卡、16 克蛋白、2 克碳水，面包（约 157 大卡）留作明天的早餐。
+- **`list-nutrition-foods` + `query-meal-detail`**：前者给出约 160 款餐品的整份营养，后者给出每款能去掉哪些配料。两者结合，我们反推出每种配料的营养（[配料库](skill/mcfit-meal-planner/references/nutrition-method.md)），于是能回答官方数据回答不了的问题：「双层吉士汉堡去吉士、只吃馅，吃进去多少？」答案是约 182 大卡、16 克蛋白、2 克碳水，面包（约 157 大卡）留作明天的早餐。
 - **`query-meals` + `query-meal-detail`**：套餐每组的可选项、份数和差价，决定了「同样的东西怎么买最便宜」。一家店展开后有上千种买法和吃法，交给求解器挑。
 - **`query-nearby-stores` + `now-time-info`**：用户只说地点，不用记门店编码；早餐和午餐之间的空档会自动预约下一餐段，不会给出买不到的东西。
 - **`calculate-price`**：每个方案都用官方算价核对，展示给用户的价格就是下单价。

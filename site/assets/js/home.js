@@ -437,5 +437,5 @@
   Promise.all([
     fetch("assets/img/poses.json").then(function (r) { return r.json(); }),
     document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()
-  ]).then(function (res) { poses = res[0]; build(); }).catch(function (err) { console.warn("[maimen-gym] 首屏小人加载失败", err); });
+  ]).then(function (res) { poses = res[0]; build(); }).catch(function (err) { console.warn("[mcfit-meal-planner] 首屏小人加载失败", err); });
 })();

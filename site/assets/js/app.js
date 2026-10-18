@@ -162,7 +162,7 @@
     document.dispatchEvent(new CustomEvent("mg:ready", { detail: { state: Object.assign({}, state) } }));
   }).catch(function (err) {
     // 数据没加载到时保留首屏写死的默认方案，只把交互区换成提示
-    console.warn("[maimen-gym] 方案数据加载失败", err);
+    console.warn("[mcfit-meal-planner] 方案数据加载失败", err);
     $("ranks").innerHTML = '<li class="none">方案数据暂时加载不出来，刷新一下试试。</li>';
   });
 })();
