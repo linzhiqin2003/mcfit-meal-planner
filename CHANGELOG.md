@@ -1,5 +1,12 @@
 # 更新日志
 
+## 2026-10-18 README 配图（C 版：主页横幅 + 三联图）、仓库简介换成用户文案
+- 三版 mockup（A 教程截帧逐条配图 / B 对话动图 + 三联小图 / C 主页横幅 + 三联图，`docs/mockups/readme/`，不入库），用户选 C
+- README 顶部加主页首屏横幅和「项目主页 · 安装 · 开放数据集」链接；三个本事后面加三联图（拆层 339 大卡 · 今晚 522 / 明早 157 · 四套组合卡，每格 1280 宽，点开能看清字）；「使用」一节加 WorkBuddy 真实输出截图。图在 `docs/readme/`，合计约 370 KB
+- 新 `scripts/build_readme_images.py` 生成全部配图：横幅用无头 Chrome 截 site/ 首屏（隐藏导航、入口按钮、副标题；关掉动画并按「减少动态效果」渲染，否则会截到入场动画中途，小人半透明），三联图和实操截图取安装教程里动画停稳的帧；三联图按行统计非背景像素定裁切范围（导航 84–191 行、内容 222–942 行、说明 961 行起），按估计裁会各切掉半截。另出 1280×640 的 `social-preview.jpg`，要在仓库 Settings → Social preview 手动上传
+- 新 `test/test_readme.py`：README 里相对链接和图片都存在、页内锚点对得上标题、图片都有 alt 文字（删掉一张图时会报错）
+- 仓库 About 换成用户给的文案（202 字符）
+
 ## 2026-10-18 项目主页上线 mcd.lzqqq.org（GitHub Pages 留一份）
 - 报名 Issue 已发（M-China/mcd-developer-innovation-challenge#848），机器人 18:59 回复「已成功参赛」
 - 主页部署到自己的服务器：nginx 新增 `mcd.lzqqq.org` 站点（配置入库 `deploy/nginx/`），Cloudflare 是 Full strict，原有的源站证书不含 mcd，单独用 webroot 签了一张（到 2027-01-16）；没有扩展共用证书，因为那张里的 demo.lzqqq.org 已经没有站点，扩展可能整体失败

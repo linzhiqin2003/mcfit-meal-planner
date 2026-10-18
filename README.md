@@ -1,3 +1,7 @@
+<p align="center"><img src="docs/readme/banner.webp" width="100%" alt="Go to Gym 不如 Go to ᗰ"></p>
+
+<p align="center"><b>麦麦健身餐规划师</b> · 健身人群的麦当劳点餐 Skill<br><sub><a href="https://mcd.lzqqq.org">项目主页</a> · <a href="#安装">安装</a> · <a href="data/ingredient_library.json">开放数据集</a></sub></p>
+
 # 麦麦健身餐规划师
 
 > Gyᗰ 麦门健身房 · Go to Gym 不如 Go to ᗰ
@@ -7,6 +11,9 @@
 - **配料级营养计算**：官方只给整份营养，它算到每一种配料。双层吉士汉堡整份 429 大卡，下单去吉士 339 大卡，到手只吃牛肉饼和吉士 272 大卡；巨无霸下单去巨无霸酱，513 → 395 大卡。
 - **分顿吃配餐建议**：点两个双吉、都下单去吉士，今晚两片面包夹四块牛肉饼（522 大卡、蛋白质 38 g），另外两片面包留到明早当早餐（157 大卡）。
 - **多样省钱搭配**：比如 500 大卡以内、蛋白质 25 克以上、汉堡 + 小食 + 饮料、健康配餐，它按价格排出几套用不同汉堡的组合，随心配、三件套自动套上，汉堡还能下单去酱：
+
+<img src="docs/readme/strip.webp" width="100%" alt="三个本事：拆层算热量、分顿吃、按价格排组合">
+<p align="center"><sub>左起：拆层算热量 · 分顿吃 · 按价格排出的「汉堡 + 小食 + 饮料」（点开看大图）</sub></p>
 
 | 组合 | 价格 | 这一顿 |
 |---|---|---|
@@ -145,6 +152,8 @@ claude mcp add --transport http --scope user mcd-mcp https://mcp.mcd.cn --header
 - 「练胸日，600 大卡，麦乐鸡管够」
 
 智能体会运行脚本、贴出训练计划卡，等你说「下单」后再通过麦当劳 MCP 下单。
+
+<p align="center"><img src="docs/readme/usage.webp" width="80%" alt="WorkBuddy 里的真实输出：热量、价格都核过，连只吃馅的吃法也写好"></p>
 
 也可以直接用命令行，在仓库目录下运行（Windows 把 `python3` 换成 `py`）：
 
