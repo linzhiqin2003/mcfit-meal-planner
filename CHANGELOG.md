@@ -1,5 +1,12 @@
 # 更新日志
 
+## 2026-10-18 项目主页上线 mcd.lzqqq.org（GitHub Pages 留一份）
+- 报名 Issue 已发（M-China/mcd-developer-innovation-challenge#848），机器人 18:59 回复「已成功参赛」
+- 主页部署到自己的服务器：nginx 新增 `mcd.lzqqq.org` 站点（配置入库 `deploy/nginx/`），Cloudflare 是 Full strict，原有的源站证书不含 mcd，单独用 webroot 签了一张（到 2027-01-16）；没有扩展共用证书，因为那张里的 demo.lzqqq.org 已经没有站点，扩展可能整体失败
+- 缓存：页面 no-cache；带 `?v=` 的资源一年 immutable；不带版本号的（JS 动态加载的图片、`data/*.json`）10 分钟，Cloudflare 会把静态文件的浏览器缓存提到 4 小时（域名设置）
+- 新 `scripts/deploy_site.py`：只取入库的站点文件、加版本号、权限设成 755/644 后 rsync，site/ 有未提交改动时拒绝发布；`--url` 发布后核对线上首页（去掉 Cloudflare 插入的统计脚本再比）。`test_deploy_site.py` 3 个测试
+- 线上验收：30 个资源无失败、控制台无报错，视频分段请求 206、安装教程能播放，http 跳 https，`.gitignore`、`src-img/` 都是 404；仓库主页字段改为 https://mcd.lzqqq.org
+
 ## 2026-10-18 发布前收尾：3D 工程和视频工程不入库，公开分支 main 只有一次提交
 - `.gitignore`：`assets/3d`（只留 BRIEF.md）和整个 `videos/` 只在本机。两者合计约 480 MB，里面有官方参考照片、用户照片裁出的参考图，推送前自查报出的 15 处本机路径也全在这两个目录里；主页要用的图片和视频已经生成到 `site/`。设计稿的出图和生成日志不入库。要发布的文件现在是 581 个、约 34 MB，`check_publish.py` 无问题
 - 页脚小人测试原来在模块顶层导入 numpy 和 `build_site_curtain`（后者还要 scipy 和 `videos/` 下的切图脚本），干净克隆和 CI 里会直接导入失败；改成导入不到时只跑页面与 `bow.json` 的一致性检查，牌子框算法的测试跳过
