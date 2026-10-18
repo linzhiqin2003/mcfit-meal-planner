@@ -1,0 +1,23 @@
+{
+ "吉士": "cheese.american",
+ "高达干酪片": "cheese.gouda",
+ "番茄酱": "sauce.ketchup",
+ "芥末酱": "sauce.mustard",
+ "酸黄瓜": "veg.pickle",
+ "洋葱粒": "veg.onion",
+ "生菜": "veg.lettuce_shred",
+ "切块生菜": "veg.lettuce_leaf",
+ "番茄片": "veg.tomato",
+ "巨无霸酱": "sauce.bigmac",
+ "麦香鱼酱": "sauce.tartar",
+ "麦香鸡酱": "sauce.mcchicken",
+ "烤味酱": "sauce.teriyaki",
+ "培根": "bacon",
+ "黄油": "butter",
+ "芥末沙拉酱": "sauce.mustard_mayo",
+ "烤牛肉风味酱": "sauce.roast_beef",
+ "醇香芝士风味酱": "sauce.cheese",
+ "红油麻香酱": "sauce.hongyou_mala",
+ "酸辣笋丝": "veg.bamboo_shoot",
+ "辣椒黄油风味酱": "sauce.gochujang_butter"
+}

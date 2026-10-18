@@ -1,0 +1,47 @@
+{
+ "code": "5888",
+ "name": "吉士蛋麦满分",
+ "rounds": [],
+ "image": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_5888_600.png",
+ "modification": {
+  "items": [
+   {
+    "maxValues": 3,
+    "minValues": 0,
+    "values": [
+     {
+      "code": "100136",
+      "price": 0,
+      "name": "麦香鸡酱",
+      "maxQuantity": 1,
+      "minQuantity": 0,
+      "selectedQuantity": 1,
+      "selectedKey": "0-1",
+      "unselectedKey": "0-0"
+     },
+     {
+      "code": "100141",
+      "price": 0,
+      "name": "吉士",
+      "maxQuantity": 1,
+      "minQuantity": 0,
+      "selectedQuantity": 1,
+      "selectedKey": "0-1",
+      "unselectedKey": "0-0"
+     },
+     {
+      "code": "100214",
+      "price": 0,
+      "name": "番茄酱",
+      "maxQuantity": 1,
+      "minQuantity": 0,
+      "selectedQuantity": 1,
+      "selectedKey": "0-1",
+      "unselectedKey": "0-0"
+     }
+    ]
+   }
+  ]
+ },
+ "supportModify": true
+}

@@ -1,0 +1,27 @@
+{
+ "code": "513112",
+ "name": "火腿扒早安营养卷",
+ "rounds": [],
+ "image": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_513112_600.png",
+ "modification": {
+  "items": [
+   {
+    "maxValues": 1,
+    "minValues": 0,
+    "values": [
+     {
+      "code": "100214",
+      "price": 0,
+      "name": "番茄酱",
+      "maxQuantity": 1,
+      "minQuantity": 0,
+      "selectedQuantity": 1,
+      "selectedKey": "0-1",
+      "unselectedKey": "0-0"
+     }
+    ]
+   }
+  ]
+ },
+ "supportModify": true
+}

@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>怎么算 · B 线束</title>
+<link rel="stylesheet" href="../../../site/assets/css/site.css">
+<style>
+:root{--cheese:#CDBF9C}
+/* 方向 B：一束线走完全程。三路已知数收成一个结（配料库），在门店菜单里散开成上千种点法，再一路收窄到一个价格；
+   底下用工程图的尺寸线标出三步各管哪一段，说明文字的列宽跟着尺寸线走 */
+.hiw-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px 40px;flex-wrap:wrap;margin:88px 0 28px}
+.hiw-head h2{margin:8px 0 0;font-size:40px;line-height:1.15;font-weight:600;letter-spacing:-.02em}
+.hiw-head .aside{margin:0;font-size:15px;color:var(--ink-2)}
+.flow{position:relative;border-top:2px solid var(--ink)}
+.flow svg{position:absolute;left:0;top:0;overflow:visible}
+.flow .ln{fill:none;stroke:var(--ink);stroke-width:1;stroke-opacity:.42}
+.flow .ln.pick{stroke:var(--red);stroke-opacity:.75}
+.flow .main{fill:none;stroke:var(--red);stroke-width:2.4}
+.flow .guide{stroke:var(--rule-2);stroke-width:1;stroke-dasharray:2 4}
+.flow .dim{fill:none;stroke:var(--ink);stroke-width:1.25}
+.flow .dimno{font-family:var(--num);font-weight:700;font-size:13px;fill:var(--ink-3);letter-spacing:.06em}
+.fl{position:absolute;white-space:nowrap;line-height:1;text-align:center}
+.fl.end{text-align:right}
+.fl b{display:inline-block;font-family:var(--num);font-weight:700;font-size:46px;line-height:.82;letter-spacing:-.005em;font-variant-numeric:tabular-nums}
+.fl b.w{font-family:var(--cn);font-size:24px;line-height:38px;letter-spacing:0}
+.fl small{display:block;margin-top:8px;font-size:13px;color:var(--ink-2)}
+.fl.red b{color:var(--red)}
+.fl.in{display:flex;align-items:baseline;gap:8px}
+.fl.in b{display:inline;font-size:32px}
+.fl.in small{display:inline;margin:0}
+.fl.knot b{position:relative;z-index:0}
+.fl.knot b::before{content:"";position:absolute;z-index:-1;left:-.08em;right:-.08em;bottom:.1em;height:.26em;background:var(--cheese)}
+.phases{display:grid;border-bottom:1px solid var(--ink)}
+.phase{padding:2px 32px 32px 0}
+.phase h3{margin:0;font-size:22px;font-weight:600;line-height:1.3}
+.phase h3 .no{font-family:var(--num);font-weight:700;font-size:15px;letter-spacing:.06em;color:var(--ink-3);margin-right:10px;vertical-align:2px}
+.phase p{margin:10px 0 0;font-size:15px;line-height:1.85;color:var(--ink-2)}
+.phase p .n{font-family:var(--num);font-weight:700;font-size:1.22em;line-height:1;color:var(--ink)}
+/* 手机：线束竖着走，标签在右；三步的说明依次排在下面 */
+.flow.v .fl{display:flex;align-items:baseline;gap:8px;text-align:left}
+.flow.v .fl b{display:inline;font-size:34px}
+.flow.v .fl b.w{font-size:20px}
+.flow.v .fl small{display:inline;margin:0}
+.flow.v .fl.in b{font-size:26px}
+.flow.v + .phases{grid-template-columns:1fr!important}
+.flow.v + .phases .phase{padding:22px 0 0}
+.flow.v + .phases .phase:last-child{padding-bottom:28px}
+@media (max-width:640px){
+  .hiw-head{margin:64px 0 22px}
+  .hiw-head h2{font-size:30px}
+}
+</style>
+</head>
+<body>
+<section class="page"><div class="wrap page-body">
+
+  <!-- 上下文：省钱对比（与线上一致） -->
+  <div class="versus" style="margin-top:0">
+    <div class="versus-head"><h3>省钱对比</h3><p>同一家店，同样 400 大卡以内、蛋白质 30 克以上</p></div>
+    <div class="vs">
+      <div class="side a"><div class="lab">只能整份吃</div><div class="big"><span>最便宜</span><b>¥32.0</b></div><div class="what">2 × 薄皮焦香V翅</div><div class="st sep"><span>384 大卡</span><span>蛋白质 34 g</span><span>碳水 12 g</span></div></div>
+      <div class="vs-mid"><span>VS</span></div>
+      <div class="side b"><div class="lab">允许拆着吃</div><div class="big"><span>最便宜</span><b>¥27.8</b></div><div class="what">2 份人气经典随心配，高达吉士双牛堡去干酪、只吃馅</div><div class="st sep"><span>365 大卡</span><span>蛋白质 33 g</span><span>碳水 6 g，面包留作明天早餐</span></div></div>
+    </div>
+  </div>
+
+  <!-- ============ 新：怎么算 · 线束 ============ -->
+  <div class="hiw-head">
+    <div><div class="kicker">HOW IT WORKS</div><h2>怎么算</h2></div>
+    <p class="aside">每一步留下多少，一眼看清</p>
+  </div>
+  <div class="flow" id="flow" role="img" aria-label="三路已知数据收成 44 种配料，在门店菜单里展开成 1,744 种点法，筛到 575 个候选、3 个方案，最便宜 27.8 元，经官方核价后由你确认下单"></div>
+  <div class="phases" id="phases">
+    <div class="phase"><h3><span class="no">01</span>配料库</h3><p>官方只公布整份营养。我们用配方和参考值（美国麦当劳官网、USDA）联合求解，拆出每种配料的营养和误差；拆不准的吃法不推荐。</p></div>
+    <div class="phase"><h3><span class="no">02</span>约束求解</h3><p>以上面的省钱对比为例：门店 <span class="n">119</span> 项菜单，每个单品、每种套餐选法、每种吃法都算一种点法；按热量、蛋白质、碳水、预算和训练部位筛掉不可能的，再用分支定界搜索 <span class="n">6,931</span> 步，留下最便宜的 3 个方案。</p></div>
+    <div class="phase"><h3><span class="no">03</span>实时核价</h3><p>按地点自动选最近的营业门店，每个方案用麦当劳官方算价接口核对（<span class="nw">实测 <span class="n">9/9</span> 一致</span>），你确认后才下单。</p></div>
+  </div>
+
+</div></section>
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#"><span class="gy">Gy<span class="m"><svg aria-hidden="true" viewBox="0 0 640 708"><path d="M0 708V40Q0 0 40 0H600Q640 0 640 40V708H490V160Q490 130 460 130H425Q395 130 395 160V708H245V160Q245 130 215 130H180Q150 130 150 160V708Z"/></svg></span></span><span class="cn">麦门健身房</span></a>
+    <p>本项目是麦当劳程序员节创意开发大赛的参赛作品，不是麦当劳官方产品。除整份营养外，数字均为估算，仅供参考，不构成营养建议。</p>
+  </div>
+</footer>
+<script>
+(() => {
+  const flow = document.getElementById("flow"), phases = document.getElementById("phases");
+  const NS = "http://www.w3.org/2000/svg";
+  const LANES = [6, 7, 8];                       // 三路输入各几根线，大致按 28 : 33 : 41
+  const N = LANES.reduce((a, b) => a + b);
+  const INPUTS = [["28", "款餐品官方营养"], ["33", "份配方"], ["41", "个配料参考值"]];
+  const STAGES = [
+    { b: "44", s: "种配料 ± 误差", cls: "knot" },
+    { b: "1,744", s: "种点法" },
+    { b: "575", s: "个候选" },
+    { b: "3", s: "个方案" },
+    { b: "¥27.8", s: "最便宜", cls: "red" },
+    { w: "官方核价", s: "实测 9/9 一致" },
+    { w: "下单", s: "你确认后" },
+  ];
+
+  // 主轴坐标 s（沿流向）、横轴坐标 t（线束展开方向）；横排 x=s,y=t，竖排 x=t,y=s
+  function layout(W) {
+    if (W >= 720) {
+      const x0 = 176, R = W - x0 - 4;
+      const f = [.16, .37, .51, .62, .72, .86, 1];
+      return { v: false, W, H: 404, c: 244, s0: x0, lead: 18, s: f.map(k => x0 + R * k),
+               lane: 94, laneGap: 3.4, knot: 7, wide: 120, mid: 76, bun: 18, guide: [104, 372], dimAt: 392,
+               phases: [[0, 0], [0, 4], [4, 6]] };
+    }
+    const s0 = 92, steps = [86, 176, 100, 76, 66, 66, 62];
+    const s = []; steps.reduce((a, d) => (s.push(a + d), a + d), s0);
+    return { v: true, W, H: s[6] + 30, c: 92, s0, lead: 14, s, lane: 50, laneGap: 3, knot: 5, wide: 66, mid: 42, bun: 14,
+             labelT: 178, dimAt: 6, phases: [[0, 0], [0, 4], [4, 6]] };
+  }
+
+  function render() {
+    const W = flow.clientWidth, L = layout(W);
+    const P = (s, t) => L.v ? [t, s] : [s, t];
+    const svg = document.createElementNS(NS, "svg");
+    svg.setAttribute("width", W); svg.setAttribute("height", L.H);
+    flow.replaceChildren(svg); flow.classList.toggle("v", L.v); flow.style.height = L.H + "px";
+    const el = (tag, attrs) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); svg.appendChild(e); return e; };
+    const seg = (a, b) => { const m = (a[0] + b[0]) / 2; const [c1, c2, e] = [P(m, a[1]), P(m, b[1]), P(b[0], b[1])]; return `C${c1} ${c2} ${e}`; };
+    const [s1, s2, s3, s4, s5, s6, s7] = L.s, c = L.c;
+
+    // 阶段引线
+    L.s.forEach((s, k) => {
+      if (L.v) el("line", { class: "guide", x1: c + (k === 1 ? L.wide : k === 2 ? L.mid : 12) + 10, y1: s, x2: L.labelT - 10, y2: s });
+      else el("line", { class: "guide", x1: s, y1: L.guide[0], x2: s, y2: L.guide[1] });
+    });
+
+    // 线束
+    let i = 0;
+    LANES.forEach((n, k) => {
+      for (let j = 0; j < n; j++, i++) {
+        const u = (i - (N - 1) / 2) / ((N - 1) / 2);
+        const bun = i < 7 ? 0 : i < 14 ? 1 : 2;
+        const t0 = c + (k - 1) * L.lane + (j - (n - 1) / 2) * L.laneGap;
+        const pts = [[L.s0, t0], [L.s0 + L.lead, t0], [s1, c + u * L.knot], [s2, c + u * L.wide], [s3, c + u * L.mid], [s4, c + (bun - 1) * L.bun]];
+        let d = `M${P(...pts[0])} L${P(...pts[1])}`;
+        for (let q = 1; q < pts.length - 1; q++) d += seg(pts[q], pts[q + 1]);
+        el("path", { class: "ln", d });
+        if (bun === 1) el("path", { class: "ln pick", d: `M${P(...pts[5])} ${seg(pts[5], [s5, c])}` });
+      }
+    });
+    el("path", { class: "main", d: `M${P(s5, c)} L${P(s7, c)}` });
+    [0, 2].forEach(b => el("circle", { cx: P(s4, c + (b - 1) * L.bun)[0], cy: P(s4, c + (b - 1) * L.bun)[1], r: 3.5, fill: "var(--paper)", stroke: "var(--ink)", "stroke-width": 1.25 }));
+    el("circle", { cx: P(s5, c)[0], cy: P(s5, c)[1], r: 5.5, fill: "var(--red)" });
+    el("circle", { cx: P(s6, c)[0], cy: P(s6, c)[1], r: 5.5, fill: "var(--paper)", stroke: "var(--ink)", "stroke-width": 2 });
+    el("circle", { cx: P(s7, c)[0], cy: P(s7, c)[1], r: 6.5, fill: "var(--ink)" });
+
+    // 尺寸线：三步各管哪一段
+    const span = [[L.s0 - (L.v ? 30 : 176), s1], [s1, s5], [s5, s7]];
+    span.forEach(([a, b], k) => {
+      const g = 5, A = a + (k ? g : 0), B = b - (k < 2 ? g : 0), t = L.dimAt, tick = L.v ? 8 : -8;
+      el("path", { class: "dim", d: `M${P(A, t + tick)} L${P(A, t)} L${P(B, t)} L${P(B, t + tick)}` });
+      if (L.v) { const tx = el("text", { class: "dimno", x: t + 8, y: A + 16 }); tx.textContent = "0" + (k + 1); }
+    });
+
+    // 文字标签
+    const lab = (cls, html, x, y, tf) => { const d = document.createElement("div"); d.className = "fl " + (cls || ""); d.innerHTML = html; Object.assign(d.style, { left: x + "px", top: y + "px", transform: tf }); flow.appendChild(d); };
+    INPUTS.forEach(([b, s], k) => {
+      const t = c + (k - 1) * L.lane;
+      if (L.v) lab("in", `<b>${b}</b><small>${s}</small>`, L.labelT, L.s0 - 30 + k * 30, "translateY(-50%)");
+      else lab("in", `<b>${b}</b><small>${s}</small>`, L.s0 - 14, t, "translate(-100%,-50%)");
+    });
+    STAGES.forEach((g, k) => {
+      const html = (g.b ? `<b>${g.b}</b>` : `<b class="w">${g.w}</b>`) + `<small>${g.s}</small>`;
+      if (L.v) lab(g.cls, html, L.labelT, L.s[k], "translateY(-50%)");
+      else {
+        const last = k === STAGES.length - 1;
+        lab((g.cls || "") + (last ? " end" : ""), html, L.s[k], 22, last ? "translateX(-100%)" : "translateX(-50%)");
+      }
+    });
+
+    // 说明文字的列宽跟尺寸线走
+    phases.style.gridTemplateColumns = L.v ? "" : `${s1}px ${s5 - s1}px 1fr`;
+  }
+  render();
+  let raf; addEventListener("resize", () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(render); });
+})();
+</script>
+</body>
+</html>

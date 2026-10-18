@@ -1,0 +1,70 @@
+{
+ "code": "9900016077",
+ "name": "蘸酱炸鸡",
+ "rounds": [
+  {
+   "id": 1,
+   "name": "选择小食",
+   "quantity": 1,
+   "maxQuantity": 1,
+   "minQuantity": 1,
+   "choices": [
+    {
+     "code": "521823",
+     "name": "脆皮鸡柳3根",
+     "quantity": 1,
+     "maxQuantity": -1,
+     "isDefault": 1,
+     "diffPrice": "+ ¥0",
+     "supportModify": false
+    },
+    {
+     "code": "505416",
+     "name": "麦麦脆汁鸡-琵琶腿",
+     "quantity": 0,
+     "maxQuantity": -1,
+     "isDefault": 0,
+     "diffPrice": "+ ¥0",
+     "supportModify": false
+    },
+    {
+     "code": "521995",
+     "name": "脆皮鸡块4块",
+     "quantity": 0,
+     "maxQuantity": -1,
+     "isDefault": 0,
+     "diffPrice": "+ ¥0",
+     "supportModify": false
+    }
+   ]
+  },
+  {
+   "id": 2,
+   "name": "选择蘸酱",
+   "quantity": 1,
+   "maxQuantity": 1,
+   "minQuantity": 1,
+   "choices": [
+    {
+     "code": "521966",
+     "name": "韩式烟熏芝士风味酱",
+     "quantity": 1,
+     "maxQuantity": -1,
+     "isDefault": 1,
+     "diffPrice": "+ ¥0",
+     "supportModify": false
+    },
+    {
+     "code": "521799",
+     "name": "日式鲜磨山葵酱",
+     "quantity": 0,
+     "maxQuantity": -1,
+     "isDefault": 0,
+     "diffPrice": "+ ¥0",
+     "supportModify": false
+    }
+   ]
+  }
+ ],
+ "supportModify": false
+}

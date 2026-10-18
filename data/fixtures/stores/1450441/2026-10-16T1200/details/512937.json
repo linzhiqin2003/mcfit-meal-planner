@@ -1,0 +1,102 @@
+{
+ "code": "512937",
+ "name": "冰浓浓抹茶牛奶中杯",
+ "rounds": [],
+ "image": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_512937_600.png",
+ "modification": {
+  "items": [
+   {
+    "maxValues": 1,
+    "minValues": 0,
+    "values": [
+     {
+      "code": "120146",
+      "price": 200,
+      "name": "换燕麦奶",
+      "maxQuantity": 1,
+      "minQuantity": 0,
+      "selectedQuantity": 0,
+      "selectedKey": "0-1",
+      "unselectedKey": "0-0"
+     }
+    ]
+   },
+   {
+    "maxValues": 1,
+    "minValues": 1,
+    "values": [
+     {
+      "code": "200002",
+      "price": 0,
+      "name": "标准",
+      "maxQuantity": 1,
+      "minQuantity": 0,
+      "selectedQuantity": 1,
+      "selectedKey": "0-1"
+     },
+     {
+      "code": "200002",
+      "price": 0,
+      "name": "去冰",
+      "maxQuantity": 1,
+      "minQuantity": 0,
+      "selectedQuantity": 0,
+      "selectedKey": "0-0"
+     },
+     {
+      "code": "200002",
+      "price": 0,
+      "name": "多冰",
+      "maxQuantity": 1,
+      "minQuantity": 0,
+      "selectedQuantity": 0,
+      "selectedKey": "0-2"
+     },
+     {
+      "code": "200002",
+      "price": 0,
+      "name": "少冰",
+      "maxQuantity": 1,
+      "minQuantity": 0,
+      "selectedQuantity": 0,
+      "selectedKey": "1-1"
+     }
+    ]
+   },
+   {
+    "maxValues": 1,
+    "minValues": 1,
+    "values": [
+     {
+      "code": "120269",
+      "price": 0,
+      "name": "标准（推荐）",
+      "maxQuantity": 1,
+      "minQuantity": 0,
+      "selectedQuantity": 1,
+      "selectedKey": "0-1"
+     },
+     {
+      "code": "120269",
+      "price": 0,
+      "name": "少糖",
+      "maxQuantity": 1,
+      "minQuantity": 0,
+      "selectedQuantity": 0,
+      "selectedKey": "1-1"
+     },
+     {
+      "code": "120269",
+      "price": 0,
+      "name": "不另外加糖",
+      "maxQuantity": 1,
+      "minQuantity": 0,
+      "selectedQuantity": 0,
+      "selectedKey": "0-0"
+     }
+    ]
+   }
+  ]
+ },
+ "supportModify": true
+}

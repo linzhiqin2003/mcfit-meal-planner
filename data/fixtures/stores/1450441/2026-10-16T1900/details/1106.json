@@ -1,0 +1,67 @@
+{
+ "code": "1106",
+ "name": "培根蔬萃双层牛堡",
+ "rounds": [],
+ "image": "https://menu-img.mcd.cn/pcm/prod/menu/20250804/product/MS_1106_600.png",
+ "modification": {
+  "items": [
+   {
+    "maxValues": 5,
+    "minValues": 0,
+    "values": [
+     {
+      "code": "100136",
+      "price": 0,
+      "name": "麦香鸡酱",
+      "maxQuantity": 1,
+      "minQuantity": 0,
+      "selectedQuantity": 1,
+      "selectedKey": "0-1",
+      "unselectedKey": "0-0"
+     },
+     {
+      "code": "100160",
+      "price": 0,
+      "name": "番茄片",
+      "maxQuantity": 1,
+      "minQuantity": 0,
+      "selectedQuantity": 1,
+      "selectedKey": "0-1",
+      "unselectedKey": "0-0"
+     },
+     {
+      "code": "100168",
+      "price": 0,
+      "name": "生菜",
+      "maxQuantity": 1,
+      "minQuantity": 0,
+      "selectedQuantity": 1,
+      "selectedKey": "0-1",
+      "unselectedKey": "0-0"
+     },
+     {
+      "code": "100214",
+      "price": 0,
+      "name": "番茄酱",
+      "maxQuantity": 1,
+      "minQuantity": 0,
+      "selectedQuantity": 1,
+      "selectedKey": "0-1",
+      "unselectedKey": "0-0"
+     },
+     {
+      "code": "103386",
+      "price": 0,
+      "name": "培根",
+      "maxQuantity": 1,
+      "minQuantity": 0,
+      "selectedQuantity": 1,
+      "selectedKey": "0-1",
+      "unselectedKey": "0-0"
+     }
+    ]
+   }
+  ]
+ },
+ "supportModify": true
+}

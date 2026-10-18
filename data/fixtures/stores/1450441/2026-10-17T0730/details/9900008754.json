@@ -1,0 +1,35 @@
+{
+ "code": "9900008754",
+ "name": "经典麦旋风",
+ "rounds": [
+  {
+   "id": 1,
+   "name": "选择麦旋风",
+   "quantity": 1,
+   "maxQuantity": 1,
+   "minQuantity": 1,
+   "choices": [
+    {
+     "code": "1217",
+     "name": "奥利奥麦旋风",
+     "quantity": 1,
+     "maxQuantity": -1,
+     "isDefault": 1,
+     "diffPrice": "+ ¥0",
+     "supportModify": false
+    },
+    {
+     "code": "4900",
+     "name": "草莓麦旋风",
+     "quantity": 0,
+     "maxQuantity": -1,
+     "isDefault": 0,
+     "diffPrice": "+ ¥0",
+     "supportModify": false
+    }
+   ]
+  }
+ ],
+ "image": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_9900008754_600.png",
+ "supportModify": false
+}

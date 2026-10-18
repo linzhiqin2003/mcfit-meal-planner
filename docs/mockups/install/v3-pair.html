@@ -1,0 +1,122 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="../../../site/"><title>装 · 双屏并排</title><link rel="stylesheet" href="assets/css/site.css"><style>
+body{background:var(--paper)}
+.player,.promo{position:relative;margin:0}
+.player video,.promo video{display:block;width:100%;height:auto;background:#000}
+.player video{aspect-ratio:16/9;border-radius:14px;box-shadow:0 1px 0 rgba(23,21,15,.06),0 18px 40px -18px rgba(23,21,15,.35)}
+.big-play{position:absolute;left:50%;top:50%;display:flex;align-items:center;justify-content:center;width:84px;height:84px;margin:-62px 0 0 -42px;border:0;border-radius:50%;background:var(--red);color:var(--paper);cursor:pointer;box-shadow:0 10px 30px -8px rgba(210,58,30,.55)}
+.big-play svg{width:34px;height:34px;margin-left:4px;fill:currentColor}
+.big-play.sm{width:60px;height:60px;margin:-30px 0 0 -30px}.big-play.sm svg{width:24px;height:24px}
+.player figcaption{display:flex;align-items:baseline;gap:12px;margin-top:14px;font-size:14px;color:var(--ink-3)}
+.player figcaption b{font-size:16px;color:var(--ink)}
+.steps3{list-style:none;margin:0;padding:0}
+.st-h{display:flex;align-items:center;gap:14px}
+.st-h h3{margin:0;font-family:"MG Heavy",var(--cn);font-weight:900;font-size:26px;line-height:1.2}
+.st-h .stamp{font-size:18px}
+.jump{display:inline-flex;align-items:center;gap:4px;margin-left:auto;height:30px;padding:0 12px 0 9px;border:1.5px solid var(--rule-2);border-radius:999px;background:none;font-family:var(--num);font-weight:700;font-size:15px;color:var(--ink-2);cursor:pointer}
+.jump svg{width:13px;height:13px;fill:currentColor}
+.st p{margin:14px 0 0;font-size:15px;line-height:1.8;color:var(--ink-2)}
+.st p code{font-family:var(--mono);font-size:14px;color:var(--ink)}
+.st .say{margin-top:6px;font-size:21px;line-height:1.5;font-weight:600;color:var(--ink)}
+.st .code{margin-top:16px;font-size:13px;padding:16px 56px 16px 18px}
+.st .note{font-size:14px;color:var(--ink-3)}
+.sec{display:flex;align-items:center;gap:16px;margin:0;font-family:"MG Heavy",var(--cn);font-weight:900;font-size:40px}
+
+.v3 .screens{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:32px;align-items:end}
+.v3 .promo video{border-radius:14px;aspect-ratio:9/16;box-shadow:0 18px 40px -18px rgba(23,21,15,.35)}
+.v3 .promo figcaption,.v3 .cap{display:flex;align-items:baseline;gap:12px;margin-top:14px;font-size:14px;color:var(--ink-3)}
+.v3 .cap b{font-size:16px;color:var(--ink)}
+.v3 .checklist{margin-top:72px}
+.v3 .steps3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin-top:24px;border-top:2px solid var(--ink)}
+.v3 .st{padding:26px 32px 30px;border-left:1px solid var(--rule)}
+.v3 .st:first-child{padding-left:0;border-left:0}.v3 .st:last-child{padding-right:0}
+.v3 .tick{display:inline-block;width:26px;height:26px;margin-left:auto;border:2px solid var(--rule-2);border-radius:6px}
+.v3 .st .jump{margin-left:0}
+.v3 .st-h{flex-wrap:wrap}
+</style></head>
+<body><svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="g-m" viewBox="0 0 640 708"><path d="M0 708V40Q0 0 40 0H600Q640 0 640 40V708H490V160Q490 130 460 130H425Q395 130 395 160V708H245V160Q245 130 215 130H180Q150 130 150 160V708Z"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.5l2.94 5.96 6.56.95-4.75 4.63 1.12 6.54L12 17.5l-5.87 3.08 1.12-6.54L2.5 9.41l6.56-.95z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="13" height="13" rx="2"/><path d="M4 16a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-ok" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11"/><path d="m7.5 12.3 3 3 6-6.6"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 5-5.54 10.19-7.4 11.8a1 1 0 0 1-1.2 0C9.54 20.19 4 15 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></symbol>
+    <symbol id="i-click" viewBox="0 0 24 24"><path d="M14 4.1 12 6"/><path d="m5.1 8-2.9-.8"/><path d="m6 12-1.9 2"/><path d="M7.2 2.2 8 5.1"/><path d="M9.04 9.69a.5.5 0 0 1 .65-.65l11 4.5a.5.5 0 0 1-.07.95l-4.35 1.04a1 1 0 0 0-.74.74l-1.04 4.35a.5.5 0 0 1-.95.07z"/></symbol>
+    <symbol id="i-ban" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m5.7 5.7 12.6 12.6"/></symbol>
+    <symbol id="i-leg" viewBox="0 0 24 24"><path d="M15.4 15.63a7.875 6 135 1 1 6.23-6.23 4.5 3.43 135 0 0-6.23 6.23"/><path d="m8.29 12.71-2.6 2.6a2.5 2.5 0 1 0-1.65 4.65A2.5 2.5 0 1 0 8.7 18.3l2.59-2.59"/></symbol>
+    <symbol id="i-burger" viewBox="0 0 24 24"><path d="M4 10.5C4 7 7.6 4 12 4s8 3 8 6.5z"/><path d="M3 14c1.5-1.2 3-1.2 4.5 0s3 1.2 4.5 0 3-1.2 4.5 0 3 1.2 4.5 0"/><path d="M4 17.5h16v.5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/></symbol>
+    <symbol id="i-nugget" viewBox="0 0 24 24"><path d="M4.6 8.2c1.2-3 5-4.3 7.6-2.6 2.3 1.5 2.6 4.6.9 6.6-1.9 2.2-5.6 2.7-7.6 1.1-1.5-1.2-1.7-3.3-.9-5.1z"/><path d="M14.6 13.4c1.8-1 4.6-.5 5.5 1.4.8 1.7.1 3.8-1.7 4.6-1.9.9-4.4.4-5.3-1.4-.8-1.6-.2-3.7 1.5-4.6z"/><path d="M7.5 9.5l1 .6M10 8.2l.4 1M17 16l.8.4"/></symbol>
+    <symbol id="i-arm" viewBox="0 0 24 24"><path d="M12.41 13.02A5 5 0 0 1 22 15c0 3.87-4 7-9 7-4.08 0-8.15-.82-10.37-2.46-.43-.32-.63-.83-.62-1.36C2.12 12.72 2.63 2 10 2a3 3 0 0 1 3 3 2 2 0 0 1-2 2c-1.1 0-1.64-.44-2-1"/><path d="M15 14a5 5 0 0 0-7.58 2"/><path d="M9.96 6.83C8.02 7.98 9.5 13 8 15"/></symbol>
+    <symbol id="i-back" viewBox="0 0 24 24"><path d="M9.5 3v2.6L4.6 7.4A2 2 0 0 0 3.3 9.3v2.4M14.5 3v2.6l4.9 1.8a2 2 0 0 1 1.3 1.9v2.4"/><path d="M6.3 9.2c.2 4.4 1.2 8 2.2 11.8h7c1-3.8 2-7.4 2.2-11.8"/><path d="M12 7.2v3M12 12.4v2.6M12 17.2v2.2"/><path d="M8.7 9.6c.9 1.4 1.9 2.1 2.9 2.2M15.3 9.6c-.9 1.4-1.9 2.1-2.9 2.2"/></symbol>
+    <symbol id="i-wing" viewBox="0 0 24 24"><path d="M3.6 12.6C3.4 9.6 5 7.2 8 6.2c4.2-1.4 9-1.5 13-1.2-.6 3.1-2.4 5.6-5.2 6.8.2 2-1.2 3.6-3.4 3.8.1 2.1-1.6 3.6-3.9 3.5-2.9-.2-4.7-2.9-4.9-6.5z"/><path d="M7.6 10.4c2.6-1.2 5.6-1.9 8.6-2.1"/></symbol>
+    <symbol id="i-milk" viewBox="0 0 24 24"><path d="M8 2h8"/><path d="M9 2v2.8L7 8v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V8l-2-3.2V2"/><path d="M7 15a6.5 6.5 0 0 1 5 0 6.5 6.5 0 0 0 5 0"/></symbol>
+    <symbol id="i-any" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></symbol>
+  </defs>
+</svg>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#" data-go="" aria-label="Gyᗰ 麦门健身房，回到首页">
+      <span class="gy">Gy<span class="m"><svg aria-hidden="true"><use href="#g-m"/></svg></span></span><span class="cn">麦门健身房</span>
+    </a>
+    <!-- 单字 + 不重复单字的短说明；当前页（router.js 标 aria-current）下面一道红笔线。GitHub 由右边的 Star 按钮负责，不再单列 -->
+    <nav class="nav" aria-label="主导航">
+      <a href="#/练" data-go="练"><b>练</b><span>点餐方案</span><svg class="nav-pen" viewBox="0 0 302 24" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M4.0 8.0 C5.0 9.5 6.7 15.7 10.0 17.0 C13.3 18.3 14.1 17.0 24.0 16.0 C54.4 12.3 115.3 9.0 161.0 9.3 C206.7 8.8 252.3 11.6 298.0 13.7"/></svg></a>
+      <a href="#/拆" data-go="拆"><b>拆</b><span>只吃馅</span><svg class="nav-pen" viewBox="0 0 302 24" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M4.0 8.0 C5.0 9.5 6.7 15.7 10.0 17.0 C13.3 18.3 14.1 17.0 24.0 16.0 C54.4 12.3 115.3 9.0 161.0 9.3 C206.7 8.8 252.3 11.6 298.0 13.7"/></svg></a>
+      <a href="#/装" data-go="装" aria-current="page"><b>装</b><span>WorkBuddy</span><svg class="nav-pen" viewBox="0 0 302 24" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M4.0 8.0 C5.0 9.5 6.7 15.7 10.0 17.0 C13.3 18.3 14.1 17.0 24.0 16.0 C54.4 12.3 115.3 9.0 161.0 9.3 C206.7 8.8 252.3 11.6 298.0 13.7"/></svg></a>
+    </nav>
+    <a class="btn btn-line btn-sm" href="https://github.com/linzhiqin2003/maimen-gym" data-repo aria-label="在 GitHub 上 Star"><svg class="i"><use href="#i-star"/></svg><span class="btn-long">在 GitHub 上 </span>Star</a>
+  </div>
+</header>
+<section class="view page coach v3" id="v-install">
+  <div class="page-head wrap">
+    <a class="back" href="#"><svg class="i"><use href="#i-arrow"/></svg>回到首页</a>
+    <img class="page-avatar" src="assets/img/buddy-nugget.webp" alt="" width="420" height="584">
+    <div class="ph-text">
+      <div class="kicker">INSTALL</div>
+      <h1 class="page-title"><span class="ib">装 ·</span> <span class="ib"><span class="pen-mark">装到 WorkBuddy<svg class="pen pen-u" viewBox="0 0 302 24" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M4.0 8.0 C5.0 9.5 6.7 15.7 10.0 17.0 C13.3 18.3 14.1 17.0 24.0 16.0 C54.4 12.3 115.3 9.0 161.0 9.3 C206.7 8.8 252.3 11.6 298.0 13.7"/></svg></span></span></h1>
+      <p>三组动作：装 Skill、接麦当劳 MCP、开口说一句。跟着 78 秒的视频做一遍就好。</p>
+    </div>
+  </div>
+  <div class="wrap page-body">
+    <div class="screens">
+      <div><figure class="player "><video preload="none" playsinline poster="assets/img/install-tutorial-poster.webp" src="assets/video/install-tutorial.mp4"></video>
+      <button class="big-play" type="button" aria-label="播放安装教程"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></button></figure><div class="cap"><b>安装教程</b><span>1:18 · 跟着做一遍</span></div></div>
+      <div><figure class="promo "><video preload="none" playsinline poster="assets/img/promo-poster.webp" src="assets/video/promo.mp4"></video>
+      <button class="big-play sm" type="button" aria-label="播放宣传片"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></button></figure><div class="cap"><b>宣传片</b><span>0:28</span></div></div>
+    </div>
+    <div class="checklist"><h2 class="sec">三组动作</h2>
+      <ol class="steps3"><li class="st "><div class="st-h"><span class="stamp">01</span><h3>装 Skill</h3><button class="jump" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>0:06</button></div><div class="code"><span class="ln"><span class="pr">$</span>git clone https://github.com/linzhiqin2003/maimen-gym.git</span><span class="ln"><span class="pr">$</span>cd maimen-gym &amp;&amp; python3 install.py --target workbuddy</span><button class="copy" type="button" aria-label="复制命令"><svg class="i"><use href="#i-copy"/></svg></button></div>
+        <p class="note">装好后在 WorkBuddy 的技能页确认 maimen-gym 已开启</p></li><li class="st "><div class="st-h"><span class="stamp">02</span><h3>接麦当劳 MCP</h3><button class="jump" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>0:22</button></div><p>在 <code>open.mcd.cn/mcp</code> 申请麦当劳 MCP Token，然后在 WorkBuddy 的连接器里添加麦当劳 MCP，粘贴配置、点信任。</p></li><li class="st "><div class="st-h"><span class="stamp">03</span><h3>开口说一句</h3><button class="jump" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>0:47</button></div><p>新建任务，直接说：</p><p class="say">「今晚练腿，500 大卡以内，蛋白质 30 克，人民广场附近」</p></li></ol></div>
+
+    <div style="height:24px"></div>
+    <div class="sub-head"><div class="kicker">OPEN DATA</div><h2>开放数据集</h2></div>
+    <div class="data">
+      <div>
+        <h3><span class="ph"><span class="n">44</span> 种麦当劳中国配料的</span><span class="ph">估计营养，开放下载</span></h3>
+        <div class="dl"><a class="btn btn-line" href="https://github.com/linzhiqin2003/maimen-gym/blob/main/data/ingredient_library.json" data-repo-path="data/ingredient_library.json"><svg class="i"><use href="#i-download"/></svg><span>下载</span>ingredient_library.json</a></div>
+      </div>
+      <div>
+        <table class="ing">
+          <thead><tr><th>配料</th><th class="r">大卡</th><th class="r">误差</th><th class="r">蛋白质</th><th class="bar barh">大卡 ± 误差</th></tr></thead>
+          <tbody>
+            <tr><td class="nm">小牛肉饼</td><td class="k r">91</td><td class="e r">±7</td><td class="p r">8.2<span>g</span></td><td class="bar"><div class="whisk"><span class="rg" style="left:28%;width:4.67%"></span><span class="pt" style="left:30.33%"></span></div></td></tr>
+            <tr><td class="nm">吉士片</td><td class="k r">45</td><td class="e r">±2</td><td class="p r">3.0<span>g</span></td><td class="bar"><div class="whisk"><span class="rg" style="left:14.33%;width:1.33%"></span><span class="pt" style="left:15%"></span></div></td></tr>
+            <tr><td class="nm">普通汉堡面包</td><td class="k r">142</td><td class="e r">±6</td><td class="p r">4.6<span>g</span></td><td class="bar"><div class="whisk"><span class="rg" style="left:45.33%;width:4%"></span><span class="pt" style="left:47.33%"></span></div></td></tr>
+            <tr><td class="nm">安格斯牛肉饼</td><td class="k r">266</td><td class="e r">±15</td><td class="p r">23.1<span>g</span></td><td class="bar"><div class="whisk"><span class="rg" style="left:83.67%;width:10%"></span><span class="pt" style="left:88.67%"></span></div></td></tr>
+            <tr><td class="nm">鳕鱼排</td><td class="k r">114</td><td class="e r">±6</td><td class="p r">10.2<span>g</span></td><td class="bar"><div class="whisk"><span class="rg" style="left:36%;width:4%"></span><span class="pt" style="left:38%"></span></div></td></tr>
+            <tr><td class="nm">番茄酱</td><td class="k r">12</td><td class="e r">±7</td><td class="p r">0.1<span>g</span></td><td class="bar"><div class="whisk"><span class="rg" style="left:1.67%;width:4.67%"></span><span class="pt" style="left:4%"></span></div></td></tr>
+          </tbody>
+          <tfoot class="scale-row"><tr><td colspan="4"></td><td class="bar"><div class="scale"><span>0</span><span>150</span><span>300 大卡</span></div></td></tr></tfoot>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+</body></html>

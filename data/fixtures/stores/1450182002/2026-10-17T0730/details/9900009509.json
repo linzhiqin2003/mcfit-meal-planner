@@ -1,0 +1,916 @@
+{
+ "code": "9900009509",
+ "name": "猪柳麦满分三件套",
+ "rounds": [
+  {
+   "id": 1,
+   "name": "猪柳麦满分",
+   "quantity": 1,
+   "maxQuantity": 1,
+   "minQuantity": 1,
+   "choices": [
+    {
+     "code": "5024",
+     "name": "猪柳麦满分",
+     "quantity": 1,
+     "maxQuantity": -1,
+     "isDefault": 1,
+     "diffPrice": "+ ¥0",
+     "supportModify": true,
+     "modification": {
+      "items": [
+       {
+        "maxValues": 1,
+        "minValues": 0,
+        "values": [
+         {
+          "code": "100141",
+          "price": 0,
+          "name": "吉士",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 1,
+          "selectedKey": "0-1",
+          "unselectedKey": "0-0"
+         }
+        ]
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": 2,
+   "name": "德式图林根香肠",
+   "quantity": 1,
+   "maxQuantity": 1,
+   "minQuantity": 1,
+   "choices": [
+    {
+     "code": "505235",
+     "name": "德式图林根香肠",
+     "quantity": 1,
+     "maxQuantity": -1,
+     "isDefault": 1,
+     "diffPrice": "+ ¥0",
+     "supportModify": false
+    }
+   ]
+  },
+  {
+   "id": 3,
+   "name": "选择早餐套餐饮料",
+   "quantity": 1,
+   "maxQuantity": 1,
+   "minQuantity": 1,
+   "choices": [
+    {
+     "code": "507368",
+     "name": "麦咖啡™热美式中杯",
+     "quantity": 1,
+     "maxQuantity": -1,
+     "isDefault": 1,
+     "diffPrice": "+ ¥0",
+     "supportModify": true,
+     "modification": {
+      "items": [
+       {
+        "maxValues": 1,
+        "minValues": 1,
+        "values": []
+       }
+      ]
+     }
+    },
+    {
+     "code": "3050",
+     "name": "可乐中杯",
+     "quantity": 0,
+     "maxQuantity": -1,
+     "isDefault": 0,
+     "diffPrice": "- ¥5.5",
+     "supportModify": true,
+     "modification": {
+      "items": [
+       {
+        "maxValues": 1,
+        "minValues": 1,
+        "values": [
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "标准",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 1,
+          "selectedKey": "0-1"
+         },
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "去冰",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 0,
+          "selectedKey": "0-0"
+         },
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "多冰",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 0,
+          "selectedKey": "0-2"
+         },
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "少冰",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 0,
+          "selectedKey": "1-1"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "code": "3060",
+     "name": "雪碧中杯",
+     "quantity": 0,
+     "maxQuantity": -1,
+     "isDefault": 0,
+     "diffPrice": "- ¥5.5",
+     "supportModify": true,
+     "modification": {
+      "items": [
+       {
+        "maxValues": 1,
+        "minValues": 1,
+        "values": [
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "标准",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 1,
+          "selectedKey": "0-1"
+         },
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "去冰",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 0,
+          "selectedKey": "0-0"
+         },
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "多冰",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 0,
+          "selectedKey": "0-2"
+         },
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "少冰",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 0,
+          "selectedKey": "1-1"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "code": "3071",
+     "name": "无糖可口可乐中杯",
+     "quantity": 0,
+     "maxQuantity": -1,
+     "isDefault": 0,
+     "diffPrice": "- ¥5.5",
+     "supportModify": true,
+     "modification": {
+      "items": [
+       {
+        "maxValues": 1,
+        "minValues": 1,
+        "values": [
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "标准",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 1,
+          "selectedKey": "0-1"
+         },
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "去冰",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 0,
+          "selectedKey": "0-0"
+         },
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "多冰",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 0,
+          "selectedKey": "0-2"
+         },
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "少冰",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 0,
+          "selectedKey": "1-1"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "code": "515281",
+     "name": "阳光柠檬红茶中杯",
+     "quantity": 0,
+     "maxQuantity": -1,
+     "isDefault": 0,
+     "diffPrice": "- ¥5.5",
+     "supportModify": true,
+     "modification": {
+      "items": [
+       {
+        "maxValues": 1,
+        "minValues": 1,
+        "values": [
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "标准",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 1,
+          "selectedKey": "0-1"
+         },
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "去冰",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 0,
+          "selectedKey": "0-0"
+         },
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "多冰",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 0,
+          "selectedKey": "0-2"
+         },
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "少冰",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 0,
+          "selectedKey": "1-1"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "code": "3100",
+     "name": "可乐大杯",
+     "quantity": 0,
+     "maxQuantity": -1,
+     "isDefault": 0,
+     "diffPrice": "- ¥3.5",
+     "supportModify": true,
+     "modification": {
+      "items": [
+       {
+        "maxValues": 1,
+        "minValues": 1,
+        "values": [
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "标准",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 1,
+          "selectedKey": "0-1"
+         },
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "去冰",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 0,
+          "selectedKey": "0-0"
+         },
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "多冰",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 0,
+          "selectedKey": "0-2"
+         },
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "少冰",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 0,
+          "selectedKey": "1-1"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "code": "3111",
+     "name": "无糖可口可乐大杯",
+     "quantity": 0,
+     "maxQuantity": -1,
+     "isDefault": 0,
+     "diffPrice": "- ¥3.5",
+     "supportModify": true,
+     "modification": {
+      "items": [
+       {
+        "maxValues": 1,
+        "minValues": 1,
+        "values": [
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "标准",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 1,
+          "selectedKey": "0-1"
+         },
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "去冰",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 0,
+          "selectedKey": "0-0"
+         },
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "多冰",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 0,
+          "selectedKey": "0-2"
+         },
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "少冰",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 0,
+          "selectedKey": "1-1"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "code": "3110",
+     "name": "雪碧大杯",
+     "quantity": 0,
+     "maxQuantity": -1,
+     "isDefault": 0,
+     "diffPrice": "- ¥3.5",
+     "supportModify": true,
+     "modification": {
+      "items": [
+       {
+        "maxValues": 1,
+        "minValues": 1,
+        "values": [
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "标准",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 1,
+          "selectedKey": "0-1"
+         },
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "去冰",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 0,
+          "selectedKey": "0-0"
+         },
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "多冰",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 0,
+          "selectedKey": "0-2"
+         },
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "少冰",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 0,
+          "selectedKey": "1-1"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "code": "515282",
+     "name": "阳光柠檬红茶大杯",
+     "quantity": 0,
+     "maxQuantity": -1,
+     "isDefault": 0,
+     "diffPrice": "- ¥3.5",
+     "supportModify": true,
+     "modification": {
+      "items": [
+       {
+        "maxValues": 1,
+        "minValues": 1,
+        "values": [
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "标准",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 1,
+          "selectedKey": "0-1"
+         },
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "去冰",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 0,
+          "selectedKey": "0-0"
+         },
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "多冰",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 0,
+          "selectedKey": "0-2"
+         },
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "少冰",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 0,
+          "selectedKey": "1-1"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "code": "2430",
+     "name": "【美汁源】“黄金橙橙”",
+     "quantity": 0,
+     "maxQuantity": -1,
+     "isDefault": 0,
+     "diffPrice": "- ¥2",
+     "supportModify": true,
+     "modification": {
+      "items": [
+       {
+        "maxValues": 1,
+        "minValues": 1,
+        "values": [
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "标准",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 1,
+          "selectedKey": "0-1"
+         },
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "去冰",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 0,
+          "selectedKey": "0-0"
+         },
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "多冰",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 0,
+          "selectedKey": "0-2"
+         },
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "少冰",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 0,
+          "selectedKey": "1-1"
+         }
+        ]
+       }
+      ]
+     }
+    },
+    {
+     "code": "507411",
+     "name": "麦咖啡™冰美式中杯",
+     "quantity": 0,
+     "maxQuantity": -1,
+     "isDefault": 0,
+     "diffPrice": "+ ¥0",
+     "supportModify": true,
+     "modification": {
+      "items": [
+       {
+        "maxValues": 1,
+        "minValues": 1,
+        "values": [
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "标准",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 1,
+          "selectedKey": "0-1"
+         },
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "去冰",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 0,
+          "selectedKey": "0-0"
+         },
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "多冰",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 0,
+          "selectedKey": "0-2"
+         },
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "少冰",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 0,
+          "selectedKey": "1-1"
+         }
+        ]
+       },
+       {
+        "maxValues": 1,
+        "minValues": 1,
+        "values": []
+       }
+      ]
+     }
+    },
+    {
+     "code": "507369",
+     "name": "麦咖啡™热美式大杯",
+     "quantity": 0,
+     "maxQuantity": -1,
+     "isDefault": 0,
+     "diffPrice": "+ ¥4",
+     "supportModify": true,
+     "modification": {
+      "items": [
+       {
+        "maxValues": 1,
+        "minValues": 1,
+        "values": []
+       }
+      ]
+     }
+    },
+    {
+     "code": "507374",
+     "name": "麦咖啡™冰美式大杯",
+     "quantity": 0,
+     "maxQuantity": -1,
+     "isDefault": 0,
+     "diffPrice": "+ ¥4",
+     "supportModify": true,
+     "modification": {
+      "items": [
+       {
+        "maxValues": 1,
+        "minValues": 1,
+        "values": [
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "标准",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 1,
+          "selectedKey": "0-1"
+         },
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "去冰",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 0,
+          "selectedKey": "0-0"
+         },
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "多冰",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 0,
+          "selectedKey": "0-2"
+         },
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "少冰",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 0,
+          "selectedKey": "1-1"
+         }
+        ]
+       },
+       {
+        "maxValues": 1,
+        "minValues": 1,
+        "values": []
+       }
+      ]
+     }
+    },
+    {
+     "code": "507328",
+     "name": "麦咖啡™热奶铁中杯",
+     "quantity": 0,
+     "maxQuantity": -1,
+     "isDefault": 0,
+     "diffPrice": "+ ¥2",
+     "supportModify": true,
+     "modification": {
+      "items": [
+       {
+        "maxValues": 1,
+        "minValues": 1,
+        "values": []
+       }
+      ]
+     }
+    },
+    {
+     "code": "507409",
+     "name": "麦咖啡™冰奶铁中杯",
+     "quantity": 0,
+     "maxQuantity": -1,
+     "isDefault": 0,
+     "diffPrice": "+ ¥2",
+     "supportModify": true,
+     "modification": {
+      "items": [
+       {
+        "maxValues": 1,
+        "minValues": 1,
+        "values": [
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "标准",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 1,
+          "selectedKey": "0-1"
+         },
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "去冰",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 0,
+          "selectedKey": "0-0"
+         },
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "多冰",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 0,
+          "selectedKey": "0-2"
+         },
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "少冰",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 0,
+          "selectedKey": "1-1"
+         }
+        ]
+       },
+       {
+        "maxValues": 1,
+        "minValues": 1,
+        "values": []
+       }
+      ]
+     }
+    },
+    {
+     "code": "507329",
+     "name": "麦咖啡™热奶铁大杯",
+     "quantity": 0,
+     "maxQuantity": -1,
+     "isDefault": 0,
+     "diffPrice": "+ ¥6",
+     "supportModify": true,
+     "modification": {
+      "items": [
+       {
+        "maxValues": 1,
+        "minValues": 1,
+        "values": []
+       }
+      ]
+     }
+    },
+    {
+     "code": "507372",
+     "name": "麦咖啡™冰奶铁大杯",
+     "quantity": 0,
+     "maxQuantity": -1,
+     "isDefault": 0,
+     "diffPrice": "+ ¥6",
+     "supportModify": true,
+     "modification": {
+      "items": [
+       {
+        "maxValues": 1,
+        "minValues": 1,
+        "values": [
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "标准",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 1,
+          "selectedKey": "0-1"
+         },
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "去冰",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 0,
+          "selectedKey": "0-0"
+         },
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "多冰",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 0,
+          "selectedKey": "0-2"
+         },
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "少冰",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 0,
+          "selectedKey": "1-1"
+         }
+        ]
+       },
+       {
+        "maxValues": 1,
+        "minValues": 1,
+        "values": []
+       }
+      ]
+     }
+    },
+    {
+     "code": "507394",
+     "name": "热牛奶中杯",
+     "quantity": 0,
+     "maxQuantity": -1,
+     "isDefault": 0,
+     "diffPrice": "+ ¥0",
+     "supportModify": false
+    },
+    {
+     "code": "510041",
+     "name": "冰牛奶中杯",
+     "quantity": 0,
+     "maxQuantity": -1,
+     "isDefault": 0,
+     "diffPrice": "+ ¥0",
+     "supportModify": false
+    },
+    {
+     "code": "512041",
+     "name": "热牛奶大杯",
+     "quantity": 0,
+     "maxQuantity": -1,
+     "isDefault": 0,
+     "diffPrice": "+ ¥4",
+     "supportModify": false
+    },
+    {
+     "code": "512042",
+     "name": "冰牛奶大杯",
+     "quantity": 0,
+     "maxQuantity": -1,
+     "isDefault": 0,
+     "diffPrice": "+ ¥4",
+     "supportModify": false
+    }
+   ]
+  }
+ ],
+ "image": "https://menu-img.mcd.cn/pcm/prod/menu/20240717/product/MS_9900009509_600.png",
+ "supportModify": false
+}

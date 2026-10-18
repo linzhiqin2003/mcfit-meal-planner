@@ -1,0 +1,44 @@
+{
+ "code": "9900016308",
+ "name": "蘸酱脆皮鸡块8块",
+ "rounds": [
+  {
+   "id": 1,
+   "name": "清货脆皮鸡块4块",
+   "quantity": 2,
+   "maxQuantity": 2,
+   "minQuantity": 2,
+   "choices": [
+    {
+     "code": "521995",
+     "name": "脆皮鸡块4块",
+     "quantity": 2,
+     "maxQuantity": -1,
+     "isDefault": 1,
+     "diffPrice": "+ ¥0",
+     "supportModify": false
+    }
+   ]
+  },
+  {
+   "id": 2,
+   "name": "1个甜酸酱",
+   "quantity": 2,
+   "maxQuantity": 2,
+   "minQuantity": 2,
+   "choices": [
+    {
+     "code": "521960",
+     "name": "甜酸酱",
+     "quantity": 2,
+     "maxQuantity": -1,
+     "isDefault": 1,
+     "diffPrice": "+ ¥0",
+     "supportModify": false
+    }
+   ]
+  }
+ ],
+ "image": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_9900016308_600.png",
+ "supportModify": false
+}

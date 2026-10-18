@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>怎么算 · C 数字与证据</title>
+<link rel="stylesheet" href="../../../site/assets/css/site.css">
+<style>
+:root{--cheese:#CDBF9C}
+/* 方向 C：每一步用它最有分量的那个数开头（不再是没有信息的 1、2、3），右边配一张能看懂的小图当证据 */
+.hiw-head{margin:88px 0 32px}
+.hiw-head h2{margin:8px 0 0;font-size:40px;line-height:1.15;font-weight:600;letter-spacing:-.02em}
+.rows{border-top:2px solid var(--ink);border-bottom:1px solid var(--ink)}
+.hrow{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);column-gap:88px;padding:40px 0 44px}
+.hrow+.hrow{border-top:1px solid var(--rule)}
+.kick{display:flex;align-items:baseline;gap:10px;font-size:20px;font-weight:600}
+.kick .no{font-family:var(--num);font-weight:700;font-size:15px;letter-spacing:.06em;color:var(--ink-3)}
+.hn{display:flex;align-items:flex-end;gap:14px;margin-top:22px}
+.hn b{font-family:var(--num);font-weight:700;font-size:120px;line-height:.76;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.hn b.from{color:var(--ink-3)}
+.hn .arr{align-self:center;width:40px;height:20px;margin-top:-6px;fill:none;stroke:var(--ink-3);stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.hn span{font-size:15px;line-height:1.5;color:var(--ink-2);white-space:nowrap}
+.hrow p{margin:22px 0 0;max-width:520px;font-size:15px;line-height:1.85;color:var(--ink-2)}
+.hrow p .n{font-family:var(--num);font-weight:700;font-size:1.22em;line-height:1;color:var(--ink)}
+.ev{align-self:center}
+.ev-cap{display:flex;justify-content:space-between;gap:16px;padding-bottom:10px;border-bottom:1px solid var(--rule);font-size:13px;color:var(--ink-3)}
+/* 证据 1：误差须 */
+.wk{display:grid;grid-template-columns:132px minmax(0,1fr) 92px;align-items:center;column-gap:16px;padding:12px 0;border-bottom:1px solid var(--rule)}
+.wk .nm{font-size:15px;font-weight:600;line-height:1.35}
+.wk .nm small{display:block;font-size:12px;font-weight:400;color:var(--ink-3)}
+.wk .v{text-align:right;font-family:var(--num);font-weight:700;font-size:22px;line-height:1;white-space:nowrap}
+.wk .v span{font-size:15px;color:var(--ink-3);margin-left:3px}
+.wtrack{position:relative;height:22px}
+.wtrack .rng{position:absolute;top:50%;height:1.5px;background:var(--ink);transform:translateY(-50%)}
+.wtrack .rng::before,.wtrack .rng::after{content:"";position:absolute;top:-5px;width:1.5px;height:12px;background:inherit}
+.wtrack .rng::before{left:0}.wtrack .rng::after{right:0}
+.wtrack .dot{position:absolute;top:50%;width:9px;height:9px;border-radius:50%;background:var(--ink);transform:translate(-50%,-50%)}
+.wk.bad .nm,.wk.bad .v{color:var(--red-ink)}
+.wk.bad .v span{color:var(--red-ink)}
+.wk.bad .rng{background:none;border-top:1.5px dashed var(--red-ink);height:0}
+.wk.bad .rng::before,.wk.bad .rng::after{background:var(--red-ink);top:-6.5px}
+.wk.bad .dot{background:var(--paper);border:1.5px solid var(--red-ink)}
+.wk.bad .why{position:absolute;right:0;top:-14px;font-size:12px;color:var(--red-ink);white-space:nowrap}
+.axis{display:grid;grid-template-columns:132px minmax(0,1fr) 92px;column-gap:16px;padding-top:8px;font-size:12px;color:var(--ink-3)}
+.axis .sc{position:relative;height:14px;font-family:var(--num);font-weight:700;font-size:13px}
+.axis .sc span{position:absolute;top:0;transform:translateX(-50%)}
+/* 证据 2：一路筛下来还剩多少（线性长度，3 个方案几乎看不见，就是要这个效果） */
+.at{display:grid;grid-template-columns:184px minmax(0,1fr);align-items:center;column-gap:20px;padding:13px 0;border-bottom:1px solid var(--rule)}
+.at .k{display:flex;align-items:baseline;gap:8px;white-space:nowrap}
+.at .k b{font-family:var(--num);font-weight:700;font-size:28px;line-height:1;min-width:64px;text-align:right}
+.at .k span{font-size:14px;color:var(--ink-2)}
+.at .bar{position:relative;height:12px;border-bottom:1px solid var(--rule-2)}
+.at .bar i{position:absolute;left:0;bottom:-1px;height:12px;background:var(--ink)}
+.at.win .k b{color:var(--red)}
+.at.win .bar i{width:5px!important;background:var(--red)}
+.at.win .bar em{position:absolute;left:16px;top:50%;transform:translateY(-50%);font-style:normal;font-size:14px;font-weight:600;color:var(--red-ink);white-space:nowrap}
+/* 证据 3：三组约束 × 前 3 个方案，逐个核价 */
+.tally{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:24px;padding:20px 0 18px;border-bottom:1px solid var(--rule)}
+.tally .g .gk{font-size:13px;color:var(--ink-3)}
+.tally .dots{display:flex;gap:10px;margin-top:10px}
+.tally .dots svg{width:40px;height:40px;fill:none;stroke:var(--ink);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.tally-foot{display:flex;align-items:center;gap:12px;padding-top:14px;font-size:15px;color:var(--ink-2)}
+.tally-foot b{font-weight:600;color:var(--ink)}
+.tally-foot svg.i{width:18px;height:18px;color:var(--ink-3)}
+@media (max-width:1180px){.hrow{column-gap:56px}}
+@media (max-width:900px){
+  .hrow{grid-template-columns:1fr;row-gap:32px}
+  .hrow p{max-width:none}
+}
+@media (max-width:640px){
+  .hiw-head{margin:64px 0 24px}
+  .hiw-head h2{font-size:30px}
+  .hrow{padding:30px 0 34px}
+  .hn b{font-size:84px}
+  .hn .arr{width:28px}
+  .wk{grid-template-columns:88px minmax(0,1fr) 70px;column-gap:10px}
+  .wk .nm{font-size:14px}
+  .wk .v{font-size:19px}
+  .wk .v span{font-size:13px}
+  .axis{grid-template-columns:88px minmax(0,1fr) 70px;column-gap:10px}
+  .at{grid-template-columns:136px minmax(0,1fr);column-gap:12px}
+  .at .k b{font-size:24px;min-width:52px}
+  .at .k span{font-size:13px}
+  .at.win .bar em{left:12px;font-size:13px}
+  .tally{column-gap:12px}
+  .tally .dots{gap:4px}
+  .tally .dots svg{width:30px;height:30px}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="ok" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18.5"/><path d="M12.5 20.5l5 5 10-11"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></symbol>
+</defs></svg>
+<section class="page"><div class="wrap page-body">
+
+  <!-- 上下文：省钱对比（与线上一致） -->
+  <div class="versus" style="margin-top:0">
+    <div class="versus-head"><h3>省钱对比</h3><p>同一家店，同样 400 大卡以内、蛋白质 30 克以上</p></div>
+    <div class="vs">
+      <div class="side a"><div class="lab">只能整份吃</div><div class="big"><span>最便宜</span><b>¥32.0</b></div><div class="what">2 × 薄皮焦香V翅</div><div class="st sep"><span>384 大卡</span><span>蛋白质 34 g</span><span>碳水 12 g</span></div></div>
+      <div class="vs-mid"><span>VS</span></div>
+      <div class="side b"><div class="lab">允许拆着吃</div><div class="big"><span>最便宜</span><b>¥27.8</b></div><div class="what">2 份人气经典随心配，高达吉士双牛堡去干酪、只吃馅</div><div class="st sep"><span>365 大卡</span><span>蛋白质 33 g</span><span>碳水 6 g，面包留作明天早餐</span></div></div>
+    </div>
+  </div>
+
+  <!-- ============ 新：怎么算 · 数字与证据 ============ -->
+  <div class="hiw-head"><div class="kicker">HOW IT WORKS</div><h2>怎么算</h2></div>
+  <div class="rows">
+
+    <div class="hrow">
+      <div>
+        <div class="kick"><span class="no">01</span>配料库</div>
+        <div class="hn"><b>44</b><span>种配料的营养<br>每种都带误差</span></div>
+        <p>官方只公布整份营养。我们用 <span class="n">28</span> 款餐品的官方营养、<span class="n">33</span> 份配方和 <span class="n">41</span> 个配料参考值（美国麦当劳官网、USDA）联合求解；误差太大的，不拿来推荐吃法。</p>
+      </div>
+      <div class="ev">
+        <div class="ev-cap"><span>估计值与误差</span><span>大卡</span></div>
+        <div class="wk"><div class="nm">牛肉饼</div><div class="wtrack"><span class="rng" style="left:14%;width:2.33%"></span><span class="dot" style="left:15.17%"></span></div><div class="v">91<span>±7</span></div></div>
+        <div class="wk"><div class="nm">吉士</div><div class="wtrack"><span class="rng" style="left:7.17%;width:.67%"></span><span class="dot" style="left:7.5%"></span></div><div class="v">45<span>±2</span></div></div>
+        <div class="wk"><div class="nm">汉堡面包<small>两片</small></div><div class="wtrack"><span class="rng" style="left:22.67%;width:2%"></span><span class="dot" style="left:23.67%"></span></div><div class="v">142<span>±6</span></div></div>
+        <div class="wk bad"><div class="nm">龙焰鸡腿堡<small>按配料预测</small></div><div class="wtrack"><span class="why">误差太大，不推荐</span><span class="rng" style="left:59.83%;width:38.67%"></span><span class="dot" style="left:79.17%"></span></div><div class="v">475<span>±116</span></div></div>
+        <div class="axis"><span></span><div class="sc"><span style="left:0">0</span><span style="left:33.33%">200</span><span style="left:66.67%">400</span><span style="left:100%">600</span></div><span></span></div>
+      </div>
+    </div>
+
+    <div class="hrow">
+      <div>
+        <div class="kick"><span class="no">02</span>约束求解</div>
+        <div class="hn"><b class="from">1,744</b><svg class="arr" viewBox="0 0 24 24"><use href="#i-arrow"/></svg><b>3</b><span>从全部点法<br>到最终方案</span></div>
+        <p>以上面的省钱对比为例：门店 <span class="n">119</span> 项菜单，每个单品、每种套餐选法、每种吃法都算一种点法；单份就超出热量、蛋白质、碳水、预算或部位要求的先筛掉，再去掉价格更高、营养又不占优的，最后用分支定界搜索 <span class="n">6,931</span> 步。</p>
+      </div>
+      <div class="ev">
+        <div class="ev-cap"><span>每一步还剩多少点法</span><span>400 大卡以内 · 蛋白质 30 克以上</span></div>
+        <div class="at"><div class="k"><b>1,744</b><span>全部展开</span></div><div class="bar"><i style="width:100%"></i></div></div>
+        <div class="at"><div class="k"><b>706</b><span>单份不超标</span></div><div class="bar"><i style="width:40.48%"></i></div></div>
+        <div class="at"><div class="k"><b>575</b><span>去掉更差的</span></div><div class="bar"><i style="width:32.97%"></i></div></div>
+        <div class="at win"><div class="k"><b>3</b><span>分支定界</span></div><div class="bar"><i></i><em>最便宜 ¥27.8</em></div></div>
+      </div>
+    </div>
+
+    <div class="hrow">
+      <div>
+        <div class="kick"><span class="no">03</span>实时核价</div>
+        <div class="hn"><b>9/9</b><span>个方案的预测价<br>与官方算价一致</span></div>
+        <p>按地点自动选最近的营业门店，每个方案先用麦当劳官方算价接口核对；你确认之后才会下单。</p>
+      </div>
+      <div class="ev">
+        <div class="ev-cap"><span>人民广场附近门店，三组约束各取前 3 个方案</span><span>官方算价</span></div>
+        <div class="tally">
+          <div class="g"><div class="gk">第 1 组约束</div><div class="dots"><svg><use href="#ok"/></svg><svg><use href="#ok"/></svg><svg><use href="#ok"/></svg></div></div>
+          <div class="g"><div class="gk">第 2 组约束</div><div class="dots"><svg><use href="#ok"/></svg><svg><use href="#ok"/></svg><svg><use href="#ok"/></svg></div></div>
+          <div class="g"><div class="gk">第 3 组约束</div><div class="dots"><svg><use href="#ok"/></svg><svg><use href="#ok"/></svg><svg><use href="#ok"/></svg></div></div>
+        </div>
+        <div class="tally-foot"><svg class="i"><use href="#i-arrow"/></svg><span>核对无误，<b>你确认后才下单</b></span></div>
+      </div>
+    </div>
+
+  </div>
+
+</div></section>
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#"><span class="gy">Gy<span class="m"><svg aria-hidden="true" viewBox="0 0 640 708"><path d="M0 708V40Q0 0 40 0H600Q640 0 640 40V708H490V160Q490 130 460 130H425Q395 130 395 160V708H245V160Q245 130 215 130H180Q150 130 150 160V708Z"/></svg></span></span><span class="cn">麦门健身房</span></a>
+    <p>本项目是麦当劳程序员节创意开发大赛的参赛作品，不是麦当劳官方产品。除整份营养外，数字均为估算，仅供参考，不构成营养建议。</p>
+  </div>
+</footer>
+</body>
+</html>

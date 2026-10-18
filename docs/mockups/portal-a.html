@@ -1,0 +1,821 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gyᗰ 麦门健身房 · 健身人群的麦当劳点餐 Skill</title>
+<meta name="description" content="告诉它这一顿的热量上限、蛋白质目标和今天练哪里，它在你附近的麦当劳算出最便宜的点法。">
+<style>
+:root{
+  --paper:#F7F4EE;
+  --paper-2:#EEE8DD;
+  --sheet:#FFFDF8;
+  --ink:#1D1B18;
+  --ink-2:#46413A;
+  --ink-3:#6E665B;
+  --rule:#D8D0C2;
+  --rule-2:#E7E0D4;
+  --tomato:#C8281E;
+  --tomato-d:#A61F16;
+  --mustard:rgba(227,178,48,.52);
+
+  --serif-cn:"Songti SC","Noto Serif SC","Source Han Serif SC","STSong",serif;
+  --serif-en:Georgia,"Songti SC","Noto Serif SC",serif;
+  /* 数字专用：Charter / Iowan 有等高数字；Georgia 只有旧式数字，不能放进这条栈 */
+  --serif-num:Charter,"Bitstream Charter","Iowan Old Style","Sitka Text",Cambria,"Times New Roman","Songti SC",serif;
+  --sans:system-ui,-apple-system,BlinkMacSystemFont,"Helvetica Neue","PingFang SC","Hiragino Sans GB","Noto Sans SC",sans-serif;
+  --mono:"SF Mono",Menlo,Consolas,"PingFang SC","Noto Sans SC",monospace;
+  --glyph:"Euphemia UCAS","Gadugi","Noto Sans Canadian Aboriginal",sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 16px/1.75 var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+h1,h2,h3,p,figure,blockquote,ul,ol,dl,dd{margin:0;padding:0}
+ul,ol{list-style:none}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 40px}
+.ic{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.g{font-family:var(--glyph);font-style:normal}
+.en{font-family:var(--serif-en);font-style:italic}
+.num{font-family:var(--serif-num);font-variant-numeric:lining-nums tabular-nums}
+.nw{white-space:nowrap}
+p,li,dd,h1,h3,figcaption{text-wrap:pretty}
+h2,.pull p{text-wrap:balance}
+mark{color:inherit;background:linear-gradient(transparent 58%,var(--mustard) 58%,var(--mustard) 92%,transparent 92%);padding:0 .08em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+
+/* ---------- 顶栏 ---------- */
+.top{border-bottom:1px solid var(--rule)}
+.top-in{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:40px;height:76px}
+.brand{display:inline-flex;align-items:baseline;gap:10px;white-space:nowrap}
+.brand-en{font:600 25px/1 var(--serif-en);letter-spacing:-.01em}
+.brand-en .g{color:var(--tomato);font-weight:700;margin-left:.02em}
+.brand-cn{font:700 19px/1 var(--serif-cn);letter-spacing:.02em}
+.nav{display:flex;justify-content:flex-end;gap:32px;font-size:15px;color:var(--ink-2)}
+.nav a{position:relative;padding:6px 0;transition:color .2s}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .25s}
+.nav a:hover{color:var(--ink)}
+.nav a:hover::after{transform:scaleX(1)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:48px;padding:0 22px;border-radius:6px;font-size:15.5px;font-weight:600;letter-spacing:.01em;white-space:nowrap;transition:background-color .2s,color .2s,border-color .2s}
+.btn .ic{width:18px;height:18px}
+.btn-primary{background:var(--tomato);color:#fff}
+.btn-primary:hover{background:var(--tomato-d)}
+.btn-primary .ic{transition:transform .2s}
+.btn-primary:hover .ic{transform:translateX(3px)}
+.btn-line{border:1px solid var(--ink);color:var(--ink)}
+.btn-line:hover{background:var(--ink);color:var(--paper)}
+.btn-sm{height:38px;padding:0 15px;font-size:14px;gap:8px}
+.btn-sm .ic{width:16px;height:16px}
+.gh{width:18px;height:18px;flex:none;fill:currentColor}
+
+/* ---------- 首屏 ---------- */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:80px;align-items:center;padding-top:80px;padding-bottom:24px}
+.slogan{font-family:var(--serif-en);font-weight:400;font-size:clamp(56px,7.1vw,104px);line-height:1.02;letter-spacing:-.03em}
+.slogan > span{display:block}
+.slogan .cn{display:inline;font-family:var(--serif-cn);font-weight:700;font-size:.84em;letter-spacing:0;margin-right:.12em}
+.slogan .g{color:var(--tomato);letter-spacing:0}
+.title{margin-top:44px;font:700 32px/1.35 var(--serif-cn);letter-spacing:-.01em}
+.lede{margin-top:16px;max-width:31em;font-size:17px;line-height:1.85;color:var(--ink-2)}
+.lede q{quotes:none;color:var(--ink);font-weight:600}
+.cta{margin-top:36px;display:flex;flex-wrap:wrap;gap:12px}
+
+/* 训练计划卡：打卡纸 / 小票 */
+.card-fig{position:relative}
+.ticket{filter:drop-shadow(0 1px 1px rgba(70,48,24,.10)) drop-shadow(0 22px 34px rgba(70,48,24,.11));transform:rotate(1.1deg);transform-origin:50% 0}
+.tk{background:var(--sheet);font-size:14px;line-height:1.7;color:var(--ink)}
+.tk-body{padding:34px 30px 24px;
+  mask:conic-gradient(from 135deg at 50% 0,#000 90deg,#0000 0) 0 0/14px 100% round no-repeat,
+       radial-gradient(circle 10px at 0 100%,#0000 96%,#000),
+       radial-gradient(circle 10px at 100% 100%,#0000 96%,#000);
+  mask-composite:intersect}
+.tk-stub{position:relative;padding:22px 30px 34px;
+  mask:radial-gradient(circle 10px at 0 0,#0000 96%,#000),
+       radial-gradient(circle 10px at 100% 0,#0000 96%,#000),
+       conic-gradient(from -45deg at 50% 100%,#000 90deg,#0000 0) 0 0/14px 100% round no-repeat;
+  mask-composite:intersect}
+.tk-stub::before{content:"";position:absolute;left:18px;right:18px;top:0;border-top:2px dotted var(--rule)}
+.tk-slogan{font:400 18px/1.3 var(--serif-en);letter-spacing:-.01em;text-align:center;padding-bottom:18px;border-bottom:1px solid var(--rule-2)}
+.tk-slogan .cn{font-family:var(--serif-cn);font-weight:700;font-size:.9em}
+.tk-slogan .g{color:var(--tomato)}
+.tk-day{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;padding-top:18px}
+.tk-day-k{display:block;font-size:12.5px;letter-spacing:.06em;color:var(--ink-3)}
+.tk-day-v{display:block;font:700 34px/1.15 var(--serif-cn);letter-spacing:.02em}
+.tk-day .ic{width:42px;height:42px;stroke-width:1.3;margin-bottom:4px}
+.tk-motto{margin-top:6px;font:400 15px/1.6 var(--serif-cn);color:var(--ink-2)}
+.tk-items{margin-top:18px;padding-top:16px;border-top:1px dashed var(--rule)}
+.tk-item{display:grid;grid-template-columns:22px minmax(0,1fr);gap:10px;padding:5px 0}
+.tk-item .ic{width:20px;height:20px;margin-top:2px;stroke-width:1.5}
+.tk-item b{font-weight:600}
+.tk-item .set{font-family:var(--mono);font-size:13px;color:var(--ink-2)}
+.tk-item .note{display:block;font-size:13px;color:var(--ink-3)}
+.tk-tip{margin-top:10px;font-size:13.5px;color:var(--ink-2)}
+.tk-tip b{font-weight:600;color:var(--ink)}
+.tk-stats{margin-top:18px;padding-top:14px;border-top:1px dashed var(--rule)}
+.tk-row{display:flex;align-items:baseline;gap:8px;padding-top:6px}
+.tk-row .k{font-size:13.5px;color:var(--ink-2);white-space:nowrap}
+.tk-row .lead{flex:1;border-bottom:1px dotted var(--rule);transform:translateY(-4px);min-width:16px}
+.tk-row .v{font-family:var(--mono);font-size:14px;font-weight:600;white-space:nowrap}
+.tk-row .v.price{font-size:21px;color:var(--tomato);letter-spacing:-.01em}
+.tk-sub{font-family:var(--mono);font-size:12.5px;color:var(--ink-3);text-align:right;line-height:1.6}
+.tk-order-k{font-size:13px;color:var(--ink-3);letter-spacing:.06em}
+.tk-order li{display:grid;grid-template-columns:30px minmax(0,1fr);gap:6px;margin-top:8px;font-size:13.5px;line-height:1.65;color:var(--ink-2)}
+.tk-order .q{font-family:var(--mono);font-size:13px;color:var(--ink);font-weight:600}
+.card-cap{margin-top:22px;text-align:center;font-size:13px;line-height:1.6;color:var(--ink-3)}
+
+/* ---------- 段落通用 ---------- */
+.sec{padding-top:128px}
+.folio{display:flex;align-items:center;gap:16px;margin-bottom:40px;font:italic 400 15px/1 var(--serif-en);color:var(--ink-3)}
+.folio::after{content:"";flex:1;height:1px;background:var(--ink);opacity:.85}
+.folio b{font-family:var(--serif-num);font-style:normal;font-weight:600;color:var(--ink);font-size:16px;font-variant-numeric:lining-nums}
+.h-sec{font:700 clamp(36px,4.4vw,60px)/1.15 var(--serif-cn);letter-spacing:-.015em}
+.sub{margin-top:14px;font:400 20px/1.6 var(--serif-cn);color:var(--ink-2)}
+.kick{font-size:14px;letter-spacing:.14em;color:var(--ink-3)}
+
+/* ---------- 01 怎么用：填空句生成器 ---------- */
+.madlib{margin-top:28px;font:400 clamp(27px,3.3vw,44px)/2.05 var(--serif-cn);letter-spacing:.005em;color:var(--ink-2)}
+.madlib .ch{white-space:nowrap}
+.madlib .pc{display:inline-block;width:.62em;text-align:left}
+.slot{display:inline-flex;align-items:baseline;gap:.12em;margin:0 .14em;padding:0 .06em;border-bottom:2px solid var(--ink);line-height:1.25;cursor:pointer;transition:border-color .2s}
+.slot.end{margin-right:0}
+.slot:hover,.slot:focus-within{border-color:var(--tomato)}
+.slot input,.slot select{font:inherit;font-weight:700;color:var(--ink);background:transparent;border:0;border-radius:0;padding:0;margin:0;outline:none;-webkit-appearance:none;appearance:none;cursor:pointer;field-sizing:content;min-width:1ch}
+.slot .numin{font-family:var(--serif-num);font-weight:400;font-variant-numeric:lining-nums;letter-spacing:-.01em}
+.slot .ic{width:.52em;height:.52em;align-self:center;color:var(--ink-3);stroke-width:2}
+.slot-loc .ic{stroke-width:1.8}
+#loc{word-spacing:-.2em}
+@supports not (field-sizing:content){
+  #part{width:2.2em}#kcal{width:1.9em}#prot{width:1.3em}#loc{width:6.9em}
+}
+
+/* 结果：从句子下方「打印」出来的一条小票：方案 1 在上，沿虚线撕开是方案 2 */
+.printer{margin-top:40px;height:2px;background:var(--ink);position:relative;z-index:1}
+.rc{filter:drop-shadow(0 1px 1px rgba(70,48,24,.09)) drop-shadow(0 16px 26px rgba(70,48,24,.09))}
+.rc-t{display:grid;grid-template-columns:minmax(0,1fr) 340px;color:var(--ink)}
+.rc-main,.rc-stub{position:relative;background:var(--sheet)}
+.rc-main{padding:32px 40px 30px;
+  mask:radial-gradient(circle 11px at 0 100%,#0000 96%,#000),radial-gradient(circle 11px at 100% 100%,#0000 96%,#000);mask-composite:intersect}
+.rc-stub{padding:32px 36px 30px;
+  mask:radial-gradient(circle 11px at 0 100%,#0000 96%,#000),radial-gradient(circle 11px at 100% 100%,#0000 96%,#000);mask-composite:intersect}
+.rc-stub::before{content:"";position:absolute;left:0;top:0;bottom:16px;border-left:2px dotted var(--rule)}
+/* 方案 2：接在下面的一联，上沿是撕线，下沿是锯齿 */
+.rc-alt{mask:conic-gradient(from -45deg at 50% 100%,#000 90deg,#0000 0) 0 0/14px 100% round no-repeat}
+.rc-alt .rc-main{padding:24px 40px 30px;
+  mask:radial-gradient(circle 11px at 0 0,#0000 96%,#000),radial-gradient(circle 11px at 100% 0,#0000 96%,#000);mask-composite:intersect}
+.rc-alt .rc-stub{display:flex;align-items:center;padding:24px 36px 30px;
+  mask:radial-gradient(circle 11px at 0 0,#0000 96%,#000),radial-gradient(circle 11px at 100% 0,#0000 96%,#000);mask-composite:intersect}
+.rc-alt .rc-stub::before{top:16px;bottom:0}
+.rc-alt .rc-main::after,.rc-alt .rc-stub::after{content:"";position:absolute;top:0;border-top:2px dotted var(--rule)}
+.rc-alt .rc-main::after{left:16px;right:16px}
+.rc-alt .rc-stub::after{left:16px;right:16px}
+.rc-no{font:700 15px/1.5 var(--serif-cn);letter-spacing:.06em;color:var(--ink-3)}
+.rc-what{margin-top:8px;font:700 24px/1.5 var(--serif-cn);letter-spacing:-.005em}
+.rc-what small{font-size:.75em;font-weight:400;color:var(--ink-2)}
+.rc-say{margin-top:6px;font:400 16px/1.6 var(--serif-cn);color:var(--ink-2)}
+.rc-stats{margin-top:24px;padding-top:18px;border-top:1px dashed var(--rule)}
+.rc-stats dt{font-size:13px;letter-spacing:.08em;color:var(--ink-3)}
+.rc-stats dd{margin-top:4px;color:var(--ink-2)}
+.rc-stats .rc-big{display:flex;flex-wrap:wrap;column-gap:28px;row-gap:4px}
+.rc-big > span{white-space:nowrap;font-size:15px}
+.rc-big b{font:400 32px/1.2 var(--serif-num);font-variant-numeric:lining-nums;color:var(--ink);letter-spacing:-.01em;margin-right:3px}
+.rc-big i{font-style:normal;margin-right:5px;color:var(--ink-3)}
+.rc-stats .rc-next{margin-top:14px}
+.rc-next dd{font-size:15px}
+.rc-k{font-size:13px;letter-spacing:.08em;color:var(--ink-3)}
+.rc-price{margin:2px 0 22px;font-size:52px;line-height:1.05;letter-spacing:-.02em;color:var(--tomato)}
+.rc-order li{display:grid;grid-template-columns:30px minmax(0,1fr);gap:4px;margin-top:6px;font-size:14.5px;line-height:1.7;color:var(--ink-2)}
+.rc-order .q{font-family:var(--mono);font-size:13.5px;font-weight:600;color:var(--ink)}
+.rc-extra{margin-top:12px;padding-top:10px;border-top:1px dashed var(--rule);font-size:14px;line-height:1.7;color:var(--ink-3)}
+.rc-alt .rc-what{margin-top:2px;font-size:19px;color:var(--ink-2)}
+.rc-alt-nums{margin-top:4px;font-size:15px;color:var(--ink-3)}
+.rc-alt .rc-price{margin:0;font-size:36px;color:var(--ink-2)}
+/* 只有一个方案时：整张小票，下沿锯齿 */
+.rc-solo{mask:conic-gradient(from -45deg at 50% 100%,#000 90deg,#0000 0) 0 0/14px 100% round no-repeat}
+.rc-solo .rc-main,.rc-solo .rc-stub{mask:none;padding-bottom:38px}
+.rc-solo .rc-stub::before{bottom:14px}
+.rc-empty{display:flex;gap:16px;align-items:flex-start;padding:30px 40px 40px;background:var(--sheet);mask:conic-gradient(from -45deg at 50% 100%,#000 90deg,#0000 0) 0 0/14px 100% round no-repeat;font:400 21px/1.6 var(--serif-cn);color:var(--ink-2)}
+.rc-empty .ic{width:24px;height:24px;margin-top:7px;color:var(--ink-3)}
+.rc.printing{animation:print .5s cubic-bezier(.2,.7,.2,1)}
+@keyframes print{from{clip-path:inset(0 0 100% 0);transform:translateY(-10px)}to{clip-path:inset(0 0 -60px 0);transform:none}}
+@media (prefers-reduced-motion:reduce){.rc.printing{animation:none}}
+
+/* ---------- 02 拆着吃 ---------- */
+.split-top{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:48px;align-items:end}
+.drop{display:flex;align-items:flex-end;gap:28px}
+.drop-k{display:block;font-size:14px;color:var(--ink-3);letter-spacing:.04em;margin-bottom:6px}
+.drop-a,.drop-b{white-space:nowrap}
+.drop-n{font:400 clamp(76px,9.4vw,136px)/.9 var(--serif-num);font-variant-numeric:lining-nums;letter-spacing:-.035em}
+.drop-u{font:400 20px/1 var(--serif-cn);color:var(--ink-2);margin-left:8px;white-space:nowrap}
+.drop-a .drop-n{color:var(--ink-3)}
+.drop-b .drop-n{color:var(--tomato)}
+.drop-arrow{width:96px;height:24px;margin-bottom:32px;fill:none;stroke:var(--ink);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;flex:none}
+
+.split-mid{margin-top:72px;display:grid;grid-template-columns:440px minmax(0,1fr);gap:72px;align-items:center}
+.burger{width:100%;height:auto;overflow:visible}
+.burger .ln{fill:none;stroke:var(--ink);stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.burger .bun{stroke:var(--ink-3)}
+.burger .cheese{stroke-dasharray:5 4}
+.burger .lead{stroke:var(--rule);stroke-width:1}
+.burger text{font-family:var(--sans);font-size:17px;fill:var(--ink)}
+.burger .mut{fill:var(--ink-3)}
+.burger .vt{font-family:var(--serif-cn);font-weight:700;font-size:18px}
+.burger .dot{fill:var(--ink-3);stroke:none}
+
+.tbl{width:100%;border-collapse:collapse;border-top:2px solid var(--ink);font-size:16px;font-variant-numeric:tabular-nums}
+.tbl th,.tbl td{padding:17px 0 17px 18px;border-bottom:1px solid var(--rule);text-align:right;white-space:nowrap;font-weight:400}
+.tbl th:first-child{padding-left:0;text-align:left}
+.tbl thead th{padding-top:14px;padding-bottom:12px;font-size:13px;letter-spacing:.06em;color:var(--ink-3);border-bottom-color:var(--ink)}
+.tbl tbody th{font-weight:600}
+.tbl .na{color:var(--ink-3)}
+.tbl tbody tr.hl > *{font-weight:700;border-bottom:2px solid var(--ink)}
+.tbl tr.hl .kc{color:var(--tomato)}
+
+.pull{position:relative;margin:112px auto 0;max-width:900px;padding:52px 24px 46px;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);text-align:center}
+.pull::before{content:"\201C";position:absolute;top:0;left:50%;transform:translate(-50%,-52%);padding:0 .22em;background:var(--paper);font:400 76px/1 var(--serif-en);color:var(--ink-3)}
+.pull p{font:400 clamp(22px,2.5vw,31px)/1.75 var(--serif-cn);letter-spacing:.01em;color:var(--ink)}
+.pull strong{font-weight:700}
+
+.save{margin-top:112px;display:grid;grid-template-columns:300px minmax(0,1fr);gap:64px}
+.save-h{font:700 30px/1.3 var(--serif-cn)}
+.save-cond{margin-top:12px;font-size:16px;line-height:1.75;color:var(--ink-2)}
+.save-cols{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);border-top:2px solid var(--ink)}
+.save-col{padding:26px 36px 4px 0}
+.save-col + .save-col{padding:26px 0 4px 36px;border-left:1px solid var(--rule)}
+.save-k{font:700 19px/1.4 var(--serif-cn)}
+.save-p{display:flex;align-items:baseline;gap:12px;margin-top:14px}
+.save-p small{font-size:14px;color:var(--ink-3)}
+.save-p .num{font-size:clamp(52px,5.6vw,76px);line-height:1;letter-spacing:-.025em}
+.lose .save-p .num{color:var(--ink-3)}
+.win .save-p .num{color:var(--tomato)}
+.save-what{margin-top:18px;font-size:16px;line-height:1.7;color:var(--ink)}
+.save-nums{margin-top:6px;font-size:15px;line-height:1.7;color:var(--ink-2)}
+
+/* ---------- 03 训练部位 ---------- */
+.parts{margin-top:48px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:2px solid var(--ink)}
+.part{padding:34px 28px 6px;border-left:1px solid var(--rule)}
+.part:first-child{border-left:0;padding-left:0}
+.part:last-child{padding-right:0}
+.part .ic{width:46px;height:46px;stroke-width:1.25}
+.part h3{margin-top:26px;font:700 30px/1.2 var(--serif-cn);letter-spacing:.02em}
+.part .say{margin-top:14px;font:400 19px/1.65 var(--serif-cn);color:var(--ink);min-height:3.3em}
+.part .eat{margin-top:22px;padding-top:16px;border-top:1px solid var(--rule-2);font-size:15px;line-height:1.75;color:var(--ink-2)}
+.part .eat .lbl{display:block;margin-bottom:4px;font-size:12.5px;letter-spacing:.1em;color:var(--ink-3)}
+
+/* ---------- 04 怎么算 ---------- */
+.steps{margin-top:56px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:56px}
+.step-n{display:flex;align-items:center;gap:16px}
+.step-n .num{font-size:68px;line-height:1;letter-spacing:-.03em}
+.step-n i{flex:1;height:1px;background:var(--rule)}
+.step-n .ic{width:22px;height:22px;color:var(--ink-3)}
+.step h3{margin-top:24px;font:700 25px/1.3 var(--serif-cn)}
+.step p{margin-top:12px;font-size:16px;line-height:1.85;color:var(--ink-2)}
+.step p b{font-weight:600;color:var(--ink)}
+.step p .key{color:var(--tomato);font-weight:700}
+
+/* ---------- 05 数据集 ---------- */
+.data{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:80px;align-items:start}
+.data h2{margin-top:14px;font:700 clamp(30px,3.2vw,42px)/1.4 var(--serif-cn);letter-spacing:-.01em}
+.data h2 .num{color:var(--tomato);font-weight:400}
+.dl{display:inline-flex;align-items:center;gap:10px;margin-top:32px;padding-bottom:6px;border-bottom:1.5px solid var(--ink);font-size:16px;font-weight:600;transition:color .2s,border-color .2s}
+.dl code{font-family:var(--mono);font-size:15px;font-weight:500}
+.dl:hover{color:var(--tomato);border-color:var(--tomato)}
+.dt{width:100%;border-collapse:collapse;border-top:2px solid var(--ink);font-size:16px;font-variant-numeric:tabular-nums}
+.dt th,.dt td{padding:15px 0 15px 20px;border-bottom:1px solid var(--rule);text-align:right;white-space:nowrap;font-weight:400}
+.dt th:first-child{padding-left:0;text-align:left;font-weight:600}
+.dt thead th{padding-top:14px;padding-bottom:12px;font-size:13px;letter-spacing:.06em;color:var(--ink-3);font-weight:400;border-bottom-color:var(--ink)}
+.dt th:first-child{width:46%}
+.dt .err{color:var(--ink-3)}
+
+/* ---------- 06 安装 ---------- */
+.install{margin-top:48px;display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:64px;align-items:start}
+.code{position:relative;background:var(--paper-2);border-radius:10px;padding:24px 60px 24px 26px}
+.code pre{margin:0;font:14.5px/1.95 var(--mono);color:var(--ink);white-space:pre;overflow-x:auto;scrollbar-width:thin}
+.code pre .cmd{display:block}
+.code pre .cmd::before{content:"$ ";color:var(--ink-3);-webkit-user-select:none;user-select:none}
+.code .copy{position:absolute;top:14px;right:14px;width:38px;height:38px;display:grid;place-items:center;border:0;border-radius:8px;background:transparent;color:var(--ink-3);cursor:pointer;transition:color .2s,background-color .2s}
+.code .copy:hover{color:var(--ink);background:rgba(29,27,24,.06)}
+.code .copy .ic{width:18px;height:18px}
+.isteps{counter-reset:s}
+.isteps li{display:grid;grid-template-columns:44px minmax(0,1fr);padding:20px 0;border-top:1px solid var(--rule)}
+.isteps li:first-child{border-top:2px solid var(--ink)}
+.isteps .n{font:italic 400 22px/1.5 var(--serif-num);font-variant-numeric:lining-nums;color:var(--ink-3)}
+.isteps p{font-size:17px;line-height:1.75}
+.isteps code{font-family:var(--mono);font-size:15px;border-bottom:1px solid var(--rule)}
+.isteps .say{display:block;margin-top:8px;font:700 24px/1.6 var(--serif-cn);letter-spacing:.01em}
+
+/* ---------- 页脚 ---------- */
+.foot{margin-top:136px;border-top:1px solid var(--ink)}
+.foot-in{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:56px;align-items:start;padding-top:36px;padding-bottom:56px}
+.foot p{max-width:46em;font-size:14px;line-height:1.85;color:var(--ink-3)}
+.foot-links{display:flex;gap:24px;font-size:14px;color:var(--ink-2);white-space:nowrap}
+.foot-links a:hover{color:var(--ink)}
+
+/* ---------- 响应式 ---------- */
+@media (max-width:1120px){
+  .hero{grid-template-columns:minmax(0,1fr) 380px;gap:56px}
+  .split-mid{grid-template-columns:380px minmax(0,1fr);gap:48px}
+  .save{grid-template-columns:1fr;gap:28px}
+  .parts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .part:nth-child(3){border-left:0;padding-left:0}
+  .part:nth-child(n+3){border-top:1px solid var(--rule)}
+  .part:nth-child(2){padding-right:0}
+  .data{gap:56px}
+  .rc-t{grid-template-columns:minmax(0,1fr) 300px}
+  .install{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px}
+}
+@media (max-width:960px){
+  .hero{grid-template-columns:1fr;gap:64px;padding-top:56px}
+  .card-fig{max-width:420px;width:100%;margin:0 auto}
+  .split-top{grid-template-columns:1fr;gap:36px}
+  .split-mid{grid-template-columns:1fr;gap:48px}
+  .burger{max-width:470px;margin:0 auto}
+  .steps{grid-template-columns:1fr;gap:44px}
+  .step-n i,.step-n .ic{display:none}
+  .data{grid-template-columns:1fr;gap:40px}
+  .install{grid-template-columns:minmax(0,1fr);gap:40px}
+}
+@media (max-width:760px){
+  .wrap{padding:0 20px}
+  .top-in{grid-template-columns:1fr auto;grid-template-areas:"brand star" "nav nav";height:auto;gap:0 12px;padding-top:14px}
+  .top-in > .brand{grid-area:brand}
+  .brand-en{font-size:22px}
+  .brand-cn{font-size:17px}
+  .top-in > .btn{grid-area:star}
+  .nav{grid-area:nav;justify-content:flex-start;gap:24px;margin-top:10px;padding:8px 0 10px;border-top:1px solid var(--rule-2);font-size:14.5px}
+  .btn-sm{position:relative;height:38px;padding:0 13px;font-size:13.5px}
+  .btn-sm::before{content:"";position:absolute;left:0;right:0;top:-4px;bottom:-4px}
+  .hero{padding-top:40px;gap:52px}
+  .slogan{font-size:clamp(46px,13.4vw,60px);letter-spacing:-.035em}
+  .title{margin-top:30px;font-size:25px}
+  .lede{font-size:16px;line-height:1.8}
+  .cta{flex-direction:column;align-items:stretch;margin-top:28px}
+  .ticket{transform:none}
+  .tk-body{padding:30px 22px 22px}
+  .tk-stub{padding:20px 22px 30px}
+  .card-cap > span{display:block}
+  .card-cap .sep{display:none}
+  .sec{padding-top:96px}
+  .folio{margin-bottom:28px}
+  .sub{font-size:18px}
+  .madlib{margin-top:20px;font-size:25px;line-height:2.1}
+  .printer{margin-top:28px}
+  .rc-t{grid-template-columns:minmax(0,1fr)}
+  .rc-main{padding:24px 22px 22px}
+  .rc-stub{padding:24px 22px 24px;
+    mask:radial-gradient(circle 11px at 0 0,#0000 96%,#000),radial-gradient(circle 11px at 100% 0,#0000 96%,#000),radial-gradient(circle 11px at 0 100%,#0000 96%,#000),radial-gradient(circle 11px at 100% 100%,#0000 96%,#000);mask-composite:intersect}
+  .rc-stub::before{left:16px;right:16px;top:0;bottom:auto;border-left:0;border-top:2px dotted var(--rule)}
+  .rc-what{font-size:20px}
+  .rc-stats{margin-top:18px;padding-top:14px}
+  .rc-stats .rc-big{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:16px;row-gap:2px}
+  .rc-big b{font-size:28px}
+  .rc-price{font-size:44px;margin-bottom:16px}
+  .rc-alt{grid-template-columns:minmax(0,1fr) 96px}
+  .rc-alt .rc-main{padding:22px 16px 26px 22px;
+    mask:radial-gradient(circle 11px at 0 0,#0000 96%,#000)}
+  .rc-alt .rc-stub{justify-content:center;padding:22px 12px 26px;
+    mask:radial-gradient(circle 11px at 100% 0,#0000 96%,#000)}
+  .rc-alt .rc-stub::before{left:0;right:auto;top:16px;bottom:16px;border-top:0;border-left:2px dotted var(--rule)}
+  .rc-alt .rc-main::after{left:16px;right:0}
+  .rc-alt .rc-stub::after{left:0;right:16px}
+  .rc-alt .rc-what{font-size:17px}
+  .rc-alt-nums .br{display:block;height:0;overflow:hidden}
+  .rc-solo .rc-main{padding-bottom:22px;mask:radial-gradient(circle 11px at 0 100%,#0000 96%,#000),radial-gradient(circle 11px at 100% 100%,#0000 96%,#000);mask-composite:intersect}
+  .rc-solo .rc-stub{padding-bottom:36px;mask:radial-gradient(circle 11px at 0 0,#0000 96%,#000),radial-gradient(circle 11px at 100% 0,#0000 96%,#000);mask-composite:intersect}
+  .rc-alt .rc-price{font-size:28px}
+  .rc-empty{padding:24px 22px;font-size:18px}
+  .drop{gap:12px}
+  .drop-arrow{width:36px;margin-bottom:16px}
+  .drop-n{font-size:clamp(52px,16vw,72px)}
+  .drop-u{font-size:15px;margin-left:3px}
+  .drop-k{font-size:13px}
+  .split-mid{margin-top:48px}
+  .tbl{border-top:2px solid var(--ink)}
+  .tbl thead{display:none}
+  .tbl tbody tr{display:grid;grid-template-columns:88px 72px minmax(0,1fr);column-gap:10px;row-gap:4px;padding:14px 0;border-bottom:1px solid var(--rule)}
+  .tbl tbody tr.hl{border-bottom:2px solid var(--ink)}
+  .tbl tbody tr > *,.tbl tbody tr.hl > *{padding:0;border:0;text-align:left;font-size:15px}
+  .tbl tbody tr > th{grid-column:1/3;grid-row:1;font-size:16px}
+  .tbl tbody tr > .kc{grid-column:3;grid-row:1;text-align:right;font-size:16px}
+  .tbl tbody tr > .c2{grid-column:1;grid-row:2}
+  .tbl tbody tr > .c3{grid-column:2;grid-row:2}
+  .tbl tbody tr > .c4{grid-column:3;grid-row:2;text-align:right}
+  .tbl td[data-k]::before{content:attr(data-k) " ";font-size:13px;font-weight:400;color:var(--ink-3)}
+  .pull{margin-top:80px;padding:44px 4px 38px}
+  .save{margin-top:80px}
+  .save-h{font-size:26px}
+  .save-cols{grid-template-columns:1fr}
+  .save-col{padding:24px 0 24px}
+  .save-col + .save-col{padding:24px 0 4px;border-left:0;border-top:1px solid var(--rule)}
+  .parts{grid-template-columns:1fr;margin-top:36px}
+  .part,.part:nth-child(n){display:grid;grid-template-columns:52px minmax(0,1fr);column-gap:16px;padding:26px 0 22px;border-left:0;border-top:1px solid var(--rule)}
+  .part:first-child{border-top:0}
+  .part .ic{width:40px;height:40px;grid-row:1/4}
+  .part h3{margin-top:0;font-size:26px}
+  .part .say{margin-top:8px;min-height:0;font-size:18px}
+  .part .eat{margin-top:14px;padding-top:12px}
+  .steps{margin-top:40px}
+  .step-n .num{font-size:56px}
+  .step h3{margin-top:14px}
+  .dt th,.dt td{padding-left:12px;font-size:15px}
+  .dt th:first-child{width:auto}
+  .code{padding:20px 52px 20px 18px}
+  .code pre{font-size:13px;-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 32px),#0000);mask-image:linear-gradient(90deg,#000 calc(100% - 32px),#0000)}
+  .code pre.end{-webkit-mask-image:none;mask-image:none}
+  .isteps .say{font-size:21px}
+  .foot{margin-top:104px}
+  .foot-in{grid-template-columns:1fr;gap:20px;padding-bottom:48px}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="M12 2.8l2.84 5.75 6.35.93-4.6 4.48 1.09 6.32L12 17.3l-5.68 2.98 1.09-6.32-4.6-4.48 6.35-.93z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M19.5 10c0 4.6-5.1 9.4-6.8 10.9a1 1 0 0 1-1.4 0C9.6 19.4 4.5 14.6 4.5 10a7.5 7.5 0 0 1 15 0z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3.5v11.5"/><path d="m7 10.5 5 5 5-5"/><path d="M4 16.5v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8.5" y="8.5" width="12" height="12" rx="2"/><path d="M15.5 8.5V5.5a2 2 0 0 0-2-2h-8a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h3"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.4-4.4"/><path d="m8.8 8.8 4.4 4.4M13.2 8.8l-4.4 4.4"/></symbol>
+    <!-- 部位图标 -->
+    <symbol id="i-leg" viewBox="0 0 24 24"><path d="M14.2 14.6c-2 .5-3.6-.1-4.6-1.2-1.3-1.4-1.6-3.6-.6-5.6C10.2 5.2 13 3.4 15.8 3.6c2.9.2 4.9 2.4 4.6 5.3-.3 2.9-2.9 5.1-6.2 5.7z"/><path d="M10.2 13.9 6.6 17.5"/><path d="M6.6 17.5a1.9 1.9 0 1 0-2.4 2.4 1.9 1.9 0 1 0 2.9-.4"/><path d="M15.2 6.6c1.3.1 2.3.9 2.6 2.1"/></symbol>
+    <symbol id="i-nugget" viewBox="0 0 24 24"><path d="M5.2 9.6c-.4-2.6 1.7-4.7 4.3-4.4 1.2-1.5 3.8-1.8 5.4-.4 2.4-.3 4.4 1.7 4 4.1 1.6 1.4 1.6 4.1-.1 5.5.1 2.4-2 4.3-4.4 3.9-1.4 1.6-4 1.7-5.5.3-2.4.4-4.6-1.6-4.2-4C3.2 13.4 3.4 10.7 5.2 9.6z"/><path d="M9 10.2h.01M12.6 8.6h.01M15.4 11.4h.01M10.6 13.8h.01M13.8 15h.01"/></symbol>
+    <symbol id="i-back" viewBox="0 0 24 24"><path d="M9.6 3.2v2.2M14.4 3.2v2.2"/><path d="M9.6 5.4C7.2 6 5 6.6 3.6 8l3.4 8.4.6 4.6h8.8l.6-4.6L20.4 8C19 6.6 16.8 6 14.4 5.4"/><path d="M12 6.4v14.6" stroke-dasharray="1.6 1.8"/><path d="M7.2 9.6l2.6 3.6M16.8 9.6l-2.6 3.6"/></symbol>
+    <symbol id="i-arm" viewBox="0 0 24 24"><path d="M12.41 13.02A5 5 0 0 1 22 15c0 3.87-4 7-9 7-4.08 0-8.15-.82-10.37-2.46-.43-.32-.63-.83-.62-1.36C2.12 12.72 2.63 2 10 2a3 3 0 0 1 3 3 2 2 0 0 1-2 2c-1.1 0-1.64-.44-2-1"/><path d="M15 14a5 5 0 0 0-7.58 2"/><path d="M9.96 6.83C8.02 7.98 9.5 13 8 15"/></symbol>
+    <symbol id="i-burger" viewBox="0 0 24 24"><path d="M3.8 10.2c0-3.4 3.7-6 8.2-6s8.2 2.6 8.2 6z"/><path d="M3 13.4c1.5 0 1.5 1 3 1s1.5-1 3-1 1.5 1 3 1 1.5-1 3-1 1.5 1 3 1 1.5-1 3-1"/><path d="M4 17.2h16v.6a2.2 2.2 0 0 1-2.2 2.2H6.2A2.2 2.2 0 0 1 4 17.8z"/></symbol>
+    <symbol id="i-gh" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol>
+  </defs>
+</svg>
+
+<header class="top">
+  <div class="wrap top-in">
+    <a class="brand" href="#top" aria-label="Gyᗰ 麦门健身房">
+      <span class="brand-en" aria-hidden="true">Gy<span class="g">ᗰ</span></span><span class="brand-cn" aria-hidden="true">麦门健身房</span>
+    </a>
+    <nav class="nav" aria-label="页面导航">
+      <a href="#use">怎么用</a><a href="#how">怎么算</a><a href="#data">数据集</a><a href="#">GitHub</a>
+    </nav>
+    <a class="btn btn-line btn-sm" href="#"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg>在 GitHub 上 Star</a>
+  </div>
+</header>
+
+<main id="top">
+  <!-- 首屏 -->
+  <section class="wrap hero">
+    <div class="hero-copy">
+      <p class="slogan"><span>Go to Gym</span><span><span class="cn">不如</span>Go to <span class="g">ᗰ</span></span></p>
+      <h1 class="title">健身人群的麦当劳点餐 Skill</h1>
+      <p class="lede">告诉它这一顿的热量上限、蛋白质目标和今天练哪里，它在你附近的麦当劳算出<mark>最便宜的点法</mark>，精确到<q><span class="nw">「下单去吉士」</span><span class="nw">「到手只吃馅、面包留到明早」</span></q>。</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="#install">安装到 WorkBuddy<svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-line" href="#"><svg class="gh" aria-hidden="true"><use href="#i-gh"/></svg>在 GitHub 上查看</a>
+      </div>
+    </div>
+
+    <figure class="card-fig">
+      <div class="ticket">
+        <div class="tk tk-body">
+          <p class="tk-slogan">Go to Gym <span class="cn">不如</span> Go to <span class="g">ᗰ</span></p>
+          <div class="tk-day">
+            <div>
+              <span class="tk-day-k">今日训练：</span>
+              <span class="tk-day-v">练腿</span>
+            </div>
+            <svg class="ic" aria-hidden="true"><use href="#i-leg"/></svg>
+          </div>
+          <p class="tk-motto"><span class="en">Never skip leg day</span>，<span class="nw">鸡腿日更不能跳</span></p>
+
+          <ul class="tk-items">
+            <li class="tk-item"><svg class="ic" aria-hidden="true"><use href="#i-burger"/></svg><span><b>麦香鸡：</b><span class="set">1 个一组，共 1 组</span><span class="note">（下单去麦香鸡酱，只吃馅）</span></span></li>
+            <li class="tk-item"><svg class="ic" aria-hidden="true"><use href="#i-leg"/></svg><span><b>麦麦脆汁鸡-琵琶腿：</b><span class="set">1 个一组，共 1 组</span></span></li>
+          </ul>
+          <p class="tk-tip"><b>动作要领：</b>只吃馅的，面包收进冰箱，明早当早餐</p>
+
+          <div class="tk-stats">
+            <div class="tk-row"><span class="k">训练量</span><span class="lead"></span><span class="v">452 大卡</span></div>
+            <p class="tk-sub">蛋白质 30 g · 碳水 28 g · 脂肪 26 g</p>
+            <div class="tk-row"><span class="k">会员费</span><span class="lead"></span><span class="v price">¥28.9</span></div>
+            <div class="tk-row"><span class="k">明早拉伸</span><span class="lead"></span><span class="v">145 大卡</span></div>
+            <p class="tk-sub">蛋白质 6 g · 碳水 27 g · 脂肪 2 g</p>
+          </div>
+        </div>
+        <div class="tk tk-stub">
+          <p class="tk-order-k">怎么下单：</p>
+          <ol class="tk-order">
+            <li><span class="q">1 ×</span><span>人气经典随心配：麦香鸡（下单去麦香鸡酱，到手只吃馅，面包留到下一顿） + 无糖可口可乐中杯</span></li>
+            <li><span class="q">1 ×</span><span>麦麦脆汁鸡1块：麦麦脆汁鸡-琵琶腿</span></li>
+          </ol>
+        </div>
+      </div>
+      <figcaption class="card-cap"><span>Skill 真实输出</span><span class="sep"> · </span><span>麦当劳上海福州路餐厅，2026-10-16 晚餐时段</span></figcaption>
+    </figure>
+  </section>
+
+  <!-- 01 怎么用：生成器 -->
+  <section class="wrap sec" id="use">
+    <p class="folio"><span>No.<b>01</b></span></p>
+    <h2 class="h-sec">怎么用</h2>
+    <form class="madlib" id="madlib" onsubmit="return false" aria-label="生成训练计划">
+      <span class="ch">今晚<label class="slot end"><span class="sr">今天练</span><select id="part">
+          <option selected>练腿</option><option>练胸</option><option>练背</option><option>练手臂</option><option>不限</option>
+        </select><svg class="ic" aria-hidden="true"><use href="#i-chev"/></svg></label><span class="pc">，</span></span><span class="ch"><label class="slot"><span class="sr">热量上限（大卡）</span><input class="numin" id="kcal" inputmode="numeric" value="500"></label>大卡以内<span class="pc">，</span></span><span class="ch">蛋白质<label class="slot"><span class="sr">蛋白质（克）</span><input class="numin" id="prot" inputmode="numeric" value="30"></label>克以上<span class="pc">，</span></span><span class="ch">在<label class="slot slot-loc end"><span class="sr">地点</span><svg class="ic" aria-hidden="true"><use href="#i-pin"/></svg><input id="loc" value="上海 · 人民广场"></label></span>
+    </form>
+
+    <div class="printer" aria-hidden="true"></div>
+    <div class="rc" id="plans" aria-live="polite">
+      <article class="rc-t">
+        <div class="rc-main">
+          <p class="rc-no">方案 1</p>
+          <h3 class="rc-what">麦香鸡<small>（下单去麦香鸡酱，<span class="nw">只吃馅）</span></small> <span class="nw">+ 麦麦脆汁鸡-琵琶腿</span></h3>
+          <p class="rc-say"><span class="en">Never skip leg day</span>，<span class="nw">鸡腿日更不能跳</span></p>
+          <dl class="rc-stats">
+            <div><dt>训练量</dt><dd class="rc-big"><span><b>452</b> 大卡</span><span><i>蛋白质</i><b>30</b> g</span><span><i>碳水</i><b>28</b> g</span><span><i>脂肪</i><b>26</b> g</span></dd></div>
+            <div class="rc-next"><dt>明早拉伸</dt><dd><span class="nw">145 大卡</span> <span class="nw">· 蛋白质 6 g</span> <span class="nw">· 碳水 27 g</span> <span class="nw">· 脂肪 2 g</span></dd></div>
+          </dl>
+        </div>
+        <div class="rc-stub">
+          <div>
+            <p class="rc-k">会员费</p>
+            <p class="rc-price num">¥28.9</p>
+            <p class="rc-k">怎么下单</p>
+            <ol class="rc-order">
+              <li><span class="q">1 ×</span><span>人气经典随心配：麦香鸡（下单去麦香鸡酱，到手只吃馅，面包留到下一顿） + 无糖可口可乐中杯</span></li>
+              <li><span class="q">1 ×</span><span>麦麦脆汁鸡1块：<span class="nw">麦麦脆汁鸡-琵琶腿</span></span></li>
+            </ol>
+          </div>
+        </div>
+      </article>
+      <article class="rc-t rc-alt">
+        <div class="rc-main">
+          <p class="rc-no">方案 2</p>
+          <h3 class="rc-what">麦香鱼<small>（下单去麦香鱼酱，<span class="nw">只吃馅）</span></small> <span class="nw">+ 麦麦脆汁鸡-琵琶腿</span></h3>
+          <p class="rc-alt-nums"><span class="nw">464 大卡</span><span class="br"> · </span><span class="nw">蛋白质 32 g</span> <span class="nw">· 碳水 26 g</span></p>
+        </div>
+        <div class="rc-stub"><p class="rc-price num">¥29.9</p></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- 02 拆着吃 -->
+  <section class="wrap sec" id="split">
+    <p class="folio"><span>No.<b>02</b></span></p>
+    <div class="split-top">
+      <div>
+        <h2 class="h-sec">拆着吃</h2>
+        <p class="sub">以双层吉士汉堡为例</p>
+      </div>
+      <div class="drop" aria-label="整份吃 429 大卡，去吉士加只吃馅 182 大卡">
+        <div class="drop-a"><span class="drop-k">整份吃</span><span class="drop-n num">429</span><span class="drop-u">大卡</span></div>
+        <svg class="drop-arrow" viewBox="0 0 96 24" aria-hidden="true"><path d="M2 12h90"/><path d="m84 5 8 7-8 7"/></svg>
+        <div class="drop-b"><span class="drop-k">去吉士 + 只吃馅</span><span class="drop-n num">182</span><span class="drop-u">大卡</span></div>
+      </div>
+    </div>
+
+    <div class="split-mid">
+      <svg class="burger" viewBox="0 0 465 304" role="img" aria-label="双层吉士汉堡自下而上：底面包、牛肉饼、吉士、牛肉饼、吉士、酸黄瓜洋葱番茄酱芥末、顶面包">
+        <!-- 只吃馅 括号 -->
+        <path class="ln" d="M42 86h-6a4 4 0 0 0-4 4v74l-6 6 6 6v74a4 4 0 0 0 4 4h6"/>
+        <text class="vt" x="10" y="148" text-anchor="middle">只</text>
+        <text class="vt" x="10" y="172" text-anchor="middle">吃</text>
+        <text class="vt" x="10" y="196" text-anchor="middle">馅</text>
+        <!-- 顶面包 -->
+        <path class="ln bun" d="M58 70C58 38 100 16 156 16s98 22 98 54z"/>
+        <path class="ln bun" d="M92 36c14-8 30-11 46-12" stroke-width="1"/>
+        <!-- 酸黄瓜洋葱番茄酱芥末 -->
+        <path class="ln" d="M62 94q8-7 16 0t16 0 16 0 16 0 16 0 16 0 16 0 16 0 16 0 16 0 16 0 16 0"/>
+        <ellipse class="ln" cx="104" cy="104" rx="11" ry="4"/>
+        <ellipse class="ln" cx="158" cy="104" rx="11" ry="4"/>
+        <ellipse class="ln" cx="210" cy="104" rx="11" ry="4"/>
+        <!-- 吉士 1 -->
+        <path class="ln cheese" d="M52 122h208v7h-22l-6 10-6-10H94l-6 11-6-11H52z"/>
+        <!-- 牛肉饼 1 -->
+        <rect class="ln" x="58" y="152" width="196" height="26" rx="13"/>
+        <circle class="dot" cx="96" cy="161" r="1.4"/><circle class="dot" cx="130" cy="168" r="1.4"/><circle class="dot" cx="168" cy="160" r="1.4"/><circle class="dot" cx="204" cy="168" r="1.4"/><circle class="dot" cx="226" cy="160" r="1.4"/>
+        <!-- 吉士 2 -->
+        <path class="ln cheese" d="M52 190h208v7h-22l-6 10-6-10H94l-6 11-6-11H52z"/>
+        <!-- 牛肉饼 2 -->
+        <rect class="ln" x="58" y="220" width="196" height="26" rx="13"/>
+        <circle class="dot" cx="90" cy="236" r="1.4"/><circle class="dot" cx="126" cy="228" r="1.4"/><circle class="dot" cx="162" cy="236" r="1.4"/><circle class="dot" cx="198" cy="228" r="1.4"/><circle class="dot" cx="230" cy="236" r="1.4"/>
+        <!-- 底面包 -->
+        <path class="ln bun" d="M56 262h200v16a18 18 0 0 1-18 18H74a18 18 0 0 1-18-18z"/>
+        <!-- 引线与标注 -->
+        <path class="ln lead" d="M262 48h20M262 98h20M266 131h16M262 165h20M266 199h16M262 233h20M262 279h20"/>
+        <text x="290" y="54">顶面包<tspan class="mut" dx="8">留到明早</tspan></text>
+        <text x="290" y="104">酸黄瓜洋葱番茄酱芥末</text>
+        <text x="290" y="137">吉士<tspan class="mut" dx="8">可下单去掉</tspan></text>
+        <text x="290" y="171">牛肉饼</text>
+        <text x="290" y="205">吉士<tspan class="mut" dx="8">可下单去掉</tspan></text>
+        <text x="290" y="239">牛肉饼</text>
+        <text x="290" y="285">底面包<tspan class="mut" dx="8">留到明早</tspan></text>
+      </svg>
+
+      <table class="tbl">
+        <caption class="sr">双层吉士汉堡四种吃法的营养对比</caption>
+        <thead><tr><th scope="col">吃法</th><th scope="col">这一顿</th><th scope="col">蛋白质</th><th scope="col">碳水</th><th scope="col">留到明早</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">整份吃</th><td class="kc">429 大卡</td><td class="c2" data-k="蛋白质">27 g</td><td class="c3" data-k="碳水">31 g</td><td class="c4 na" data-k="留到明早">—</td></tr>
+          <tr><th scope="row">下单去吉士</th><td class="kc">339 大卡</td><td class="c2" data-k="蛋白质">21 g</td><td class="c3" data-k="碳水">30 g</td><td class="c4 na" data-k="留到明早">—</td></tr>
+          <tr><th scope="row">到手只吃馅</th><td class="kc">272 大卡</td><td class="c2" data-k="蛋白质">22 g</td><td class="c3" data-k="碳水">3 g</td><td class="c4" data-k="留到明早">面包 157 大卡</td></tr>
+          <tr class="hl"><th scope="row">去吉士 + 只吃馅</th><td class="kc">182 大卡</td><td class="c2" data-k="蛋白质">16 g</td><td class="c3" data-k="碳水">2 g</td><td class="c4" data-k="留到明早">面包 157 大卡</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <blockquote class="pull">
+      <p>官方只公布整份营养。我们把它拆到每一种配料，于是<mark class="nw"><strong>「只吃馅」</strong></mark>吃进去多少、面包留下多少，都能算出来。</p>
+    </blockquote>
+
+    <div class="save">
+      <div>
+        <h3 class="save-h">省钱对比</h3>
+        <p class="save-cond">同一家店，同样 <span class="nw">400 大卡以内</span>、<span class="nw">蛋白质 30 克以上</span></p>
+      </div>
+      <div class="save-cols">
+        <div class="save-col lose">
+          <p class="save-k">只能整份吃</p>
+          <p class="save-p"><small>最便宜</small><span class="num">¥32.0</span></p>
+          <p class="save-what">2 × 薄皮焦香V翅</p>
+          <p class="save-nums">384 大卡 · 蛋白质 34 g · 碳水 12 g</p>
+        </div>
+        <div class="save-col win">
+          <p class="save-k">允许拆着吃</p>
+          <p class="save-p"><small>最便宜</small><span class="num">¥27.8</span></p>
+          <p class="save-what">2 份人气经典随心配，<span class="nw">高达吉士双牛堡</span><span class="nw">去干酪、只吃馅</span></p>
+          <p class="save-nums">365 大卡 · 蛋白质 33 g · 碳水 6 g，<span class="nw">面包留作明天早餐</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 训练部位 -->
+  <section class="wrap sec" id="parts">
+    <p class="folio"><span>No.<b>03</b></span></p>
+    <h2 class="h-sec">训练部位</h2>
+    <ul class="parts">
+      <li class="part">
+        <svg class="ic" aria-hidden="true"><use href="#i-leg"/></svg>
+        <h3>练腿</h3>
+        <p class="say"><span class="en">Never skip leg day</span>，<span class="nw">鸡腿日更不能跳</span></p>
+        <p class="eat"><span class="lbl">吃什么</span>鸡腿、琵琶腿：<span class="nw">板烧鸡腿堡</span>、<span class="nw">麦辣鸡腿汉堡</span>、<span class="nw">麦麦脆汁鸡-琵琶腿</span></p>
+      </li>
+      <li class="part">
+        <svg class="ic" aria-hidden="true"><use href="#i-nugget"/></svg>
+        <h3>练胸</h3>
+        <p class="say">周一练胸是健身房的国际惯例</p>
+        <p class="eat"><span class="lbl">吃什么</span>麦乐鸡（麦乐鸡是鸡胸肉）、鸡块、鸡柳</p>
+      </li>
+      <li class="part">
+        <svg class="ic" aria-hidden="true"><use href="#i-back"/></svg>
+        <h3>练背</h3>
+        <p class="say">背练出来自己看不见，里脊吃下去自己知道</p>
+        <p class="eat"><span class="lbl">吃什么</span>里脊：<span class="nw">麦麦脆汁鸡-带骨里脊</span></p>
+      </li>
+      <li class="part">
+        <svg class="ic" aria-hidden="true"><use href="#i-arm"/></svg>
+        <h3>练手臂</h3>
+        <p class="say">麒麟臂从鸡翅开始</p>
+        <p class="eat"><span class="lbl">吃什么</span>鸡翅</p>
+      </li>
+    </ul>
+  </section>
+
+  <!-- 04 怎么算 -->
+  <section class="wrap sec" id="how">
+    <p class="folio"><span>No.<b>04</b></span></p>
+    <h2 class="h-sec">怎么算</h2>
+    <ol class="steps">
+      <li class="step">
+        <div class="step-n"><span class="num">1</span><i></i><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></div>
+        <h3>配料库</h3>
+        <p><b>28</b> 款餐品的官方营养 + <b>33</b> 份配方 + <b>41</b> 个配料参考值（美国麦当劳官网、USDA），联合求解出 <b>44</b> 种配料的营养和误差。<mark class="nw">拆不准的吃法不推荐。</mark></p>
+      </li>
+      <li class="step">
+        <div class="step-n"><span class="num">2</span><i></i><svg class="ic" aria-hidden="true"><use href="#i-arrow"/></svg></div>
+        <h3>约束求解</h3>
+        <p>把门店里每个单品、每种套餐选法、每种吃法展开，在热量、蛋白质、碳水、预算和训练部位的约束下，用分支定界找最便宜的组合。</p>
+      </li>
+      <li class="step">
+        <div class="step-n"><span class="num">3</span></div>
+        <h3>实时核价</h3>
+        <p>按地点自动选最近的营业门店，每个方案用麦当劳官方算价接口核对（实测 <span class="key">9/9</span> 一致），你确认后才下单。</p>
+      </li>
+    </ol>
+  </section>
+
+  <!-- 05 数据集 -->
+  <section class="wrap sec" id="data">
+    <p class="folio"><span>No.<b>05</b></span></p>
+    <div class="data">
+      <div>
+        <p class="kick">开放数据集</p>
+        <h2><span class="num">44</span> 种麦当劳中国配料的<span class="nw">估计营养，</span><span class="nw">开放下载</span></h2>
+        <a class="dl" href="#"><svg class="ic" aria-hidden="true"><use href="#i-download"/></svg>下载 <code>ingredient_library.json</code></a>
+      </div>
+      <table class="dt">
+        <caption class="sr">部分配料的估计营养</caption>
+        <thead><tr><th scope="col">配料</th><th scope="col">大卡</th><th scope="col">误差</th><th scope="col">蛋白质</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">小牛肉饼</th><td>91</td><td class="err">±7</td><td>8.2 g</td></tr>
+          <tr><th scope="row">吉士片</th><td>45</td><td class="err">±2</td><td>3.0 g</td></tr>
+          <tr><th scope="row">普通汉堡面包</th><td>142</td><td class="err">±6</td><td>4.6 g</td></tr>
+          <tr><th scope="row">安格斯牛肉饼</th><td>266</td><td class="err">±15</td><td>23.1 g</td></tr>
+          <tr><th scope="row">鳕鱼排</th><td>114</td><td class="err">±6</td><td>10.2 g</td></tr>
+          <tr><th scope="row">番茄酱</th><td>12</td><td class="err">±7</td><td>0.1 g</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 06 安装 -->
+  <section class="wrap sec" id="install">
+    <p class="folio"><span>No.<b>06</b></span></p>
+    <h2 class="h-sec">安装</h2>
+    <div class="install">
+      <div class="code">
+        <pre id="code"><span class="cmd">git clone https://github.com/&lt;你的用户名&gt;/maimen-gym.git</span><span class="cmd">python install.py --target workbuddy</span></pre>
+        <button class="copy" type="button" id="copy" aria-label="复制命令"><svg class="ic" aria-hidden="true"><use href="#i-copy"/></svg></button>
+      </div>
+      <ol class="isteps">
+        <li><span class="n">1</span><p>在 <code>open.mcd.cn/mcp</code> 申请<span class="nw">麦当劳 MCP Token</span></p></li>
+        <li><span class="n">2</span><p>在 WorkBuddy 里添加<span class="nw">麦当劳 MCP 连接器</span></p></li>
+        <li><span class="n">3</span><p>然后直接说：<span class="say"><span class="nw">「今晚练腿，</span><span class="nw">500 大卡以内，</span><span class="nw">蛋白质 30 克，</span><span class="nw">人民广场附近」</span></span></p></li>
+      </ol>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <a class="brand" href="#top" aria-label="Gyᗰ 麦门健身房"><span class="brand-en" aria-hidden="true">Gy<span class="g">ᗰ</span></span><span class="brand-cn" aria-hidden="true">麦门健身房</span></a>
+    <p>本项目是麦当劳程序员节创意开发大赛的参赛作品，不是麦当劳官方产品。除整份营养外，<span class="nw">数字均为估算，</span><span class="nw">仅供参考，</span>不构成营养建议。</p>
+    <div class="foot-links"><a href="#">MIT License</a><a href="#">GitHub</a></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // 各部位的真实输出（同一门店同一时段）；练腿是页面默认状态，不限沿用默认结果
+  var DATA = {
+    '练胸': {kcal:600, prot:30, plan:{
+      no:'方案 1', price:'¥38.3',
+      what:'纯牛奶（盒装） <span class="nw">+ 麦乐鸡5块</span><small>（5 块一组，<span class="nw">共 2 组）</span></small>',
+      say:'周一练胸是健身房的国际惯例。麦乐鸡是鸡胸肉，蘸酱算辅助器械，量力而行',
+      stats:[['','555','大卡'],['蛋白质','31','g'],['碳水','38','g'],['脂肪','31','g']],
+      order:[['1 ×','纯牛奶(盒装)'],['2 ×','人气经典随心配：麦乐鸡5块 + 无糖可口可乐中杯']]}},
+    '练手臂': {kcal:650, prot:40, plan:{
+      no:'方案 1', price:'¥37.5',
+      what:'薄皮焦香V翅 <span class="nw">+ 麦辣鸡翅-2块</span> <span class="nw">+ 麦乐鸡4块</span>',
+      say:'麒麟臂从鸡翅开始',
+      stats:[['','586','大卡'],['蛋白质','40','g'],['碳水','26','g'],['脂肪','36','g']],
+      order:[['1 ×','薄皮焦香V翅'],['1 ×','"辣"么快乐套餐：麦辣鸡翅2块 + 麦乐鸡4块 + 纯悦']],
+      extra:'有余力的朋友，可以再加一个薄皮焦香V翅上上强度（+192 大卡，+17 g 蛋白质，+¥16.0）'}},
+    '练背': {kcal:500, prot:30, empty:'这家店现在没有「练背」的餐品（里脊），换个部位或换家店试试。'}
+  };
+  var DEFAULT = {kcal:500, prot:30};
+  var plans = document.getElementById('plans');
+  var original = plans.innerHTML;
+  var part = document.getElementById('part');
+  var kcal = document.getElementById('kcal');
+  var prot = document.getElementById('prot');
+
+  function render(p){
+    var st = p.stats.map(function(x){ return '<span>'+(x[0]?'<i>'+x[0]+'</i>':'')+'<b>'+x[1]+'</b> '+x[2]+'</span>'; }).join('');
+    var o = p.order.map(function(x){ return '<li><span class="q">'+x[0]+'</span><span>'+x[1]+'</span></li>'; }).join('');
+    return '<article class="rc-t rc-solo"><div class="rc-main"><p class="rc-no">'+p.no+'</p><h3 class="rc-what">'+p.what+'</h3><p class="rc-say">'+p.say+'</p>'+
+      '<dl class="rc-stats"><div><dt>训练量</dt><dd class="rc-big">'+st+'</dd></div></dl></div>'+
+      '<div class="rc-stub"><div><p class="rc-k">会员费</p><p class="rc-price num">'+p.price+'</p><p class="rc-k">怎么下单</p><ol class="rc-order">'+o+'</ol>'+
+      (p.extra?'<p class="rc-extra">'+p.extra+'</p>':'')+'</div></div></article>';
+  }
+
+  // 不支持 field-sizing 的浏览器：按字数给下拉框定宽，避免三个字的选项被裁掉
+  var fit = !(window.CSS && CSS.supports && CSS.supports('field-sizing','content'));
+  function fitPart(){ if (fit) part.style.width = (part.value.length + 0.15) + 'em'; }
+  fitPart();
+
+  part.addEventListener('change', function(){
+    var d = DATA[part.value] || DEFAULT;
+    kcal.value = d.kcal; prot.value = d.prot;
+    if (d.plan) plans.innerHTML = render(d.plan);
+    else if (d.empty) plans.innerHTML = '<div class="rc-empty"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg><p>'+d.empty+'</p></div>';
+    else plans.innerHTML = original;
+    fitPart();
+    plans.classList.remove('printing'); void plans.offsetWidth; plans.classList.add('printing');
+  });
+
+  // 代码块横向滚到头后去掉右侧渐隐提示
+  var pre = document.getElementById('code');
+  function edge(){ pre.classList.toggle('end', pre.scrollLeft + pre.clientWidth >= pre.scrollWidth - 2); }
+  pre.addEventListener('scroll', edge, {passive:true}); window.addEventListener('resize', edge); edge();
+
+  var copy = document.getElementById('copy');
+  copy.addEventListener('click', function(){
+    var lines = Array.prototype.map.call(document.querySelectorAll('#code .cmd'), function(n){ return n.textContent; });
+    var done = function(){ copy.innerHTML = '<svg class="ic" aria-hidden="true"><use href="#i-check"/></svg>'; setTimeout(function(){ copy.innerHTML = '<svg class="ic" aria-hidden="true"><use href="#i-copy"/></svg>'; }, 1600); };
+    if (navigator.clipboard) navigator.clipboard.writeText(lines.join('\n')).then(done, function(){});
+  });
+})();
+</script>
+</body>
+</html>

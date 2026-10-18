@@ -1,0 +1,37 @@
+{
+ "code": "1600",
+ "name": "麦香鱼",
+ "rounds": [],
+ "image": "https://menu-img.mcd.cn/pcm/prod/menu/20260520/product/MS_1600_600.png",
+ "modification": {
+  "items": [
+   {
+    "maxValues": 2,
+    "minValues": 0,
+    "values": [
+     {
+      "code": "100126",
+      "price": 0,
+      "name": "麦香鱼酱",
+      "maxQuantity": 1,
+      "minQuantity": 0,
+      "selectedQuantity": 1,
+      "selectedKey": "0-1",
+      "unselectedKey": "0-0"
+     },
+     {
+      "code": "100141",
+      "price": 0,
+      "name": "吉士",
+      "maxQuantity": 1,
+      "minQuantity": 0,
+      "selectedQuantity": 1,
+      "selectedKey": "0-1",
+      "unselectedKey": "0-0"
+     }
+    ]
+   }
+  ]
+ },
+ "supportModify": true
+}

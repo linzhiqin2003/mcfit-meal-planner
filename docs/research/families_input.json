@@ -1,0 +1,589 @@
+{
+ "牛肉小饼系": [
+  {
+   "product": "汉堡包",
+   "official_nutrition": {
+    "kcal": 248.0,
+    "protein": 13.0,
+    "fat": 8.0,
+    "carb": 29.0,
+    "sodium": 492.0,
+    "calcium": 61.0
+   },
+   "removable_ingredients_from_mcp": null,
+   "on_menu": [],
+   "combo_rounds": null
+  },
+  {
+   "product": "吉士汉堡包",
+   "official_nutrition": {
+    "kcal": 294.0,
+    "protein": 16.0,
+    "fat": 12.0,
+    "carb": 30.0,
+    "sodium": 673.0,
+    "calcium": 144.0
+   },
+   "removable_ingredients_from_mcp": null,
+   "on_menu": [],
+   "combo_rounds": null
+  },
+  {
+   "product": "双层吉士汉堡",
+   "official_nutrition": {
+    "kcal": 429.0,
+    "protein": 27.0,
+    "fat": 22.0,
+    "carb": 31.0,
+    "sodium": 1017.0,
+    "calcium": 232.0
+   },
+   "removable_ingredients_from_mcp": [
+    "吉士",
+    "酸黄瓜",
+    "洋葱粒",
+    "番茄酱",
+    "芥末酱"
+   ],
+   "on_menu": [
+    "1450441@2026-10-16T1200",
+    "1450441@2026-10-16T1900"
+   ],
+   "combo_rounds": []
+  },
+  {
+   "product": "巨无霸",
+   "official_nutrition": {
+    "kcal": 513.0,
+    "protein": 27.0,
+    "fat": 26.0,
+    "carb": 42.0,
+    "sodium": 961.0,
+    "calcium": 171.0
+   },
+   "removable_ingredients_from_mcp": [
+    "巨无霸酱",
+    "吉士",
+    "生菜",
+    "酸黄瓜",
+    "洋葱粒"
+   ],
+   "on_menu": [
+    "1450441@2026-10-16T1200",
+    "1450441@2026-10-16T1900"
+   ],
+   "combo_rounds": []
+  },
+  {
+   "product": "培根蔬萃双层牛堡",
+   "official_nutrition": {
+    "kcal": 442.0,
+    "protein": 24.0,
+    "fat": 23.0,
+    "carb": 34.0,
+    "sodium": 728.0,
+    "calcium": 73.0
+   },
+   "removable_ingredients_from_mcp": [
+    "麦香鸡酱",
+    "番茄片",
+    "生菜",
+    "番茄酱",
+    "培根"
+   ],
+   "on_menu": [
+    "1450441@2026-10-16T1200",
+    "1450441@2026-10-16T1900"
+   ],
+   "combo_rounds": []
+  },
+  {
+   "product": "高达吉士双牛堡",
+   "official_nutrition": null,
+   "removable_ingredients_from_mcp": [
+    "酸黄瓜",
+    "洋葱粒",
+    "番茄酱",
+    "芥末酱",
+    "高达干酪片"
+   ],
+   "on_menu": [
+    "1450441@2026-10-16T1200",
+    "1450441@2026-10-16T1900"
+   ],
+   "combo_rounds": []
+  },
+  {
+   "product": "不素之霸双层牛堡",
+   "official_nutrition": {
+    "kcal": 493.0,
+    "protein": 28.0,
+    "fat": 27.0,
+    "carb": 34.0,
+    "sodium": 1012.0,
+    "calcium": 75.0
+   },
+   "removable_ingredients_from_mcp": [
+    "芥末沙拉酱"
+   ],
+   "on_menu": [
+    "1450441@2026-10-16T1200",
+    "1450441@2026-10-16T1900"
+   ],
+   "combo_rounds": []
+  }
+ ],
+ "安格斯系": [
+  {
+   "product": "芝士安格斯厚牛堡",
+   "official_nutrition": {
+    "kcal": 696.0,
+    "protein": 32.0,
+    "fat": 44.0,
+    "carb": 43.0,
+    "sodium": 897.0,
+    "calcium": 150.0
+   },
+   "removable_ingredients_from_mcp": [
+    "醇香芝士风味酱",
+    "高达干酪片",
+    "番茄片",
+    "黄油"
+   ],
+   "on_menu": [
+    "1450441@2026-10-16T1200",
+    "1450441@2026-10-16T1900"
+   ],
+   "combo_rounds": []
+  },
+  {
+   "product": "培根安格斯厚牛堡",
+   "official_nutrition": {
+    "kcal": 707.0,
+    "protein": 34.0,
+    "fat": 44.0,
+    "carb": 43.0,
+    "sodium": 1037.0,
+    "calcium": 161.0
+   },
+   "removable_ingredients_from_mcp": [
+    "吉士",
+    "烤牛肉风味酱",
+    "切块生菜",
+    "培根",
+    "黄油"
+   ],
+   "on_menu": [
+    "1450441@2026-10-16T1200",
+    "1450441@2026-10-16T1900"
+   ],
+   "combo_rounds": []
+  },
+  {
+   "product": "芝士双层安格斯厚牛堡",
+   "official_nutrition": {
+    "kcal": 1003.0,
+    "protein": 58.0,
+    "fat": 65.0,
+    "carb": 46.0,
+    "sodium": 1373.0,
+    "calcium": 251.0
+   },
+   "removable_ingredients_from_mcp": null,
+   "on_menu": [],
+   "combo_rounds": null
+  },
+  {
+   "product": "培根双层安格斯厚牛堡",
+   "official_nutrition": {
+    "kcal": 987.0,
+    "protein": 55.0,
+    "fat": 64.0,
+    "carb": 46.0,
+    "sodium": 1191.0,
+    "calcium": 226.0
+   },
+   "removable_ingredients_from_mcp": null,
+   "on_menu": [],
+   "combo_rounds": null
+  }
+ ],
+ "鱼系": [
+  {
+   "product": "麦香鱼",
+   "official_nutrition": {
+    "kcal": 325.0,
+    "protein": 16.0,
+    "fat": 13.0,
+    "carb": 35.0,
+    "sodium": 556.0,
+    "calcium": 99.0
+   },
+   "removable_ingredients_from_mcp": [
+    "麦香鱼酱",
+    "吉士"
+   ],
+   "on_menu": [
+    "1450441@2026-10-16T1200",
+    "1450441@2026-10-16T1900"
+   ],
+   "combo_rounds": []
+  },
+  {
+   "product": "双层深海鳕鱼堡",
+   "official_nutrition": {
+    "kcal": 485.0,
+    "protein": 28.0,
+    "fat": 21.0,
+    "carb": 46.0,
+    "sodium": 917.0,
+    "calcium": 147.0
+   },
+   "removable_ingredients_from_mcp": [],
+   "on_menu": [
+    "1450441@2026-10-16T1200",
+    "1450441@2026-10-16T1900"
+   ],
+   "combo_rounds": [
+    "选择双层深海鳕鱼堡"
+   ]
+  },
+  {
+   "product": "儿童鱼排堡",
+   "official_nutrition": {
+    "kcal": 269.0,
+    "protein": 15.0,
+    "fat": 6.0,
+    "carb": 36.0,
+    "sodium": 442.0,
+    "calcium": 58.0
+   },
+   "removable_ingredients_from_mcp": null,
+   "on_menu": [],
+   "combo_rounds": null
+  }
+ ],
+ "鸡肉汉堡系": [
+  {
+   "product": "麦香鸡",
+   "official_nutrition": {
+    "kcal": 369.0,
+    "protein": 15.0,
+    "fat": 17.0,
+    "carb": 39.0,
+    "sodium": 731.0,
+    "calcium": 73.0
+   },
+   "removable_ingredients_from_mcp": [
+    "麦香鸡酱",
+    "生菜"
+   ],
+   "on_menu": [
+    "1450441@2026-10-16T1200",
+    "1450441@2026-10-16T1900"
+   ],
+   "combo_rounds": []
+  },
+  {
+   "product": "麦辣鸡腿汉堡",
+   "official_nutrition": {
+    "kcal": 485.0,
+    "protein": 24.0,
+    "fat": 24.0,
+    "carb": 42.0,
+    "sodium": 1208.0,
+    "calcium": 154.0
+   },
+   "removable_ingredients_from_mcp": [
+    "麦香鸡酱",
+    "切块生菜"
+   ],
+   "on_menu": [
+    "1450182002@2026-10-16T1200",
+    "1450182002@2026-10-16T1900",
+    "1450441@2026-10-16T1200",
+    "1450441@2026-10-16T1900"
+   ],
+   "combo_rounds": []
+  },
+  {
+   "product": "板烧鸡腿堡",
+   "official_nutrition": {
+    "kcal": 391.0,
+    "protein": 23.0,
+    "fat": 17.0,
+    "carb": 35.0,
+    "sodium": 1041.0,
+    "calcium": 93.0
+   },
+   "removable_ingredients_from_mcp": [
+    "烤味酱",
+    "切块生菜"
+   ],
+   "on_menu": [
+    "1450182002@2026-10-16T1200",
+    "1450182002@2026-10-16T1900",
+    "1450441@2026-10-16T1200",
+    "1450441@2026-10-16T1900"
+   ],
+   "combo_rounds": []
+  },
+  {
+   "product": "那么大鸡排",
+   "official_nutrition": {
+    "kcal": 385.0,
+    "protein": 24.0,
+    "fat": 21.0,
+    "carb": 24.0,
+    "sodium": 996.0,
+    "calcium": 13.0
+   },
+   "removable_ingredients_from_mcp": null,
+   "on_menu": [],
+   "combo_rounds": null
+  },
+  {
+   "product": "龙焰鸡腿堡",
+   "official_nutrition": null,
+   "removable_ingredients_from_mcp": [
+    "辣椒黄油风味酱",
+    "切块生菜"
+   ],
+   "on_menu": [
+    "1450441@2026-10-16T1200",
+    "1450441@2026-10-16T1900"
+   ],
+   "combo_rounds": []
+  },
+  {
+   "product": "龙焰芝士棒鸡腿堡",
+   "official_nutrition": null,
+   "removable_ingredients_from_mcp": [
+    "辣椒黄油风味酱",
+    "切块生菜"
+   ],
+   "on_menu": [
+    "1450441@2026-10-16T1200",
+    "1450441@2026-10-16T1900"
+   ],
+   "combo_rounds": []
+  },
+  {
+   "product": "酥酥多笋卷",
+   "official_nutrition": {
+    "kcal": 342.0,
+    "protein": 14.0,
+    "fat": 15.0,
+    "carb": 36.0,
+    "sodium": 1044.0,
+    "calcium": 41.0
+   },
+   "removable_ingredients_from_mcp": [
+    "生菜",
+    "红油麻香酱",
+    "酸辣笋丝"
+   ],
+   "on_menu": [
+    "1450441@2026-10-16T1200",
+    "1450441@2026-10-16T1900"
+   ],
+   "combo_rounds": []
+  }
+ ],
+ "早餐麦满分系": [
+  {
+   "product": "猪柳麦满分",
+   "official_nutrition": {
+    "kcal": 308.0,
+    "protein": 16.0,
+    "fat": 16.0,
+    "carb": 24.0,
+    "sodium": 781.0,
+    "calcium": 213.0
+   },
+   "removable_ingredients_from_mcp": [
+    "吉士"
+   ],
+   "on_menu": [
+    "1450182002@2026-10-17T0730",
+    "1450441@2026-10-17T0730"
+   ],
+   "combo_rounds": []
+  },
+  {
+   "product": "猪柳蛋麦满分",
+   "official_nutrition": {
+    "kcal": 387.0,
+    "protein": 23.0,
+    "fat": 21.0,
+    "carb": 25.0,
+    "sodium": 846.0,
+    "calcium": 243.0
+   },
+   "removable_ingredients_from_mcp": [
+    "吉士"
+   ],
+   "on_menu": [
+    "1450182002@2026-10-17T0730",
+    "1450441@2026-10-17T0730"
+   ],
+   "combo_rounds": []
+  },
+  {
+   "product": "双层猪柳蛋麦满分",
+   "official_nutrition": {
+    "kcal": 513.0,
+    "protein": 29.0,
+    "fat": 32.0,
+    "carb": 26.0,
+    "sodium": 1210.0,
+    "calcium": 249.0
+   },
+   "removable_ingredients_from_mcp": [
+    "吉士"
+   ],
+   "on_menu": [
+    "1450441@2026-10-17T0730"
+   ],
+   "combo_rounds": []
+  },
+  {
+   "product": "烟肉蛋麦满分",
+   "official_nutrition": {
+    "kcal": 260.0,
+    "protein": 16.0,
+    "fat": 10.0,
+    "carb": 24.0,
+    "sodium": 483.0,
+    "calcium": 238.0
+   },
+   "removable_ingredients_from_mcp": null,
+   "on_menu": [],
+   "combo_rounds": null
+  },
+  {
+   "product": "火腿扒麦满分",
+   "official_nutrition": {
+    "kcal": 261.0,
+    "protein": 14.0,
+    "fat": 12.0,
+    "carb": 24.0,
+    "sodium": 608.0,
+    "calcium": 131.0
+   },
+   "removable_ingredients_from_mcp": [
+    "生菜"
+   ],
+   "on_menu": [
+    "1450441@2026-10-17T0730"
+   ],
+   "combo_rounds": []
+  },
+  {
+   "product": "双层火腿扒麦满分",
+   "official_nutrition": {
+    "kcal": 385.0,
+    "protein": 21.0,
+    "fat": 22.0,
+    "carb": 26.0,
+    "sodium": 979.0,
+    "calcium": 134.0
+   },
+   "removable_ingredients_from_mcp": null,
+   "on_menu": [],
+   "combo_rounds": null
+  },
+  {
+   "product": "原味板烧鸡腿麦满分",
+   "official_nutrition": {
+    "kcal": 246.0,
+    "protein": 15.0,
+    "fat": 9.0,
+    "carb": 25.0,
+    "sodium": 611.0,
+    "calcium": 133.0
+   },
+   "removable_ingredients_from_mcp": [
+    "生菜",
+    "烤味酱"
+   ],
+   "on_menu": [
+    "1450182002@2026-10-17T0730",
+    "1450441@2026-10-17T0730"
+   ],
+   "combo_rounds": []
+  },
+  {
+   "product": "双层原味板烧鸡腿麦满分",
+   "official_nutrition": {
+    "kcal": 355.0,
+    "protein": 23.0,
+    "fat": 17.0,
+    "carb": 27.0,
+    "sodium": 984.0,
+    "calcium": 138.0
+   },
+   "removable_ingredients_from_mcp": [
+    "生菜",
+    "烤味酱"
+   ],
+   "on_menu": [
+    "1450182002@2026-10-17T0730",
+    "1450441@2026-10-17T0730"
+   ],
+   "combo_rounds": []
+  },
+  {
+   "product": "大脆鸡扒麦满分",
+   "official_nutrition": {
+    "kcal": 361.0,
+    "protein": 16.0,
+    "fat": 17.0,
+    "carb": 35.0,
+    "sodium": 804.0,
+    "calcium": 130.0
+   },
+   "removable_ingredients_from_mcp": [
+    "麦香鸡酱"
+   ],
+   "on_menu": [
+    "1450441@2026-10-17T0730"
+   ],
+   "combo_rounds": []
+  },
+  {
+   "product": "猪柳炒双蛋堡",
+   "official_nutrition": {
+    "kcal": 437.0,
+    "protein": 25.0,
+    "fat": 24.0,
+    "carb": 29.0,
+    "sodium": 705.0,
+    "calcium": 116.0
+   },
+   "removable_ingredients_from_mcp": [],
+   "on_menu": [
+    "1450441@2026-10-17T0730"
+   ],
+   "combo_rounds": []
+  },
+  {
+   "product": "原味板烧鸡腿炒双蛋堡",
+   "official_nutrition": {
+    "kcal": 419.0,
+    "protein": 27.0,
+    "fat": 21.0,
+    "carb": 30.0,
+    "sodium": 715.0,
+    "calcium": 116.0
+   },
+   "removable_ingredients_from_mcp": [
+    "烤味酱"
+   ],
+   "on_menu": [
+    "1450441@2026-10-17T0730"
+   ],
+   "combo_rounds": []
+  }
+ ]
+}

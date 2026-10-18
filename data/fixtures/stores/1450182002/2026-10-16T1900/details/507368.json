@@ -1,0 +1,16 @@
+{
+ "code": "507368",
+ "name": "麦咖啡™热美式中杯",
+ "rounds": [],
+ "image": "https://menu-img.mcd.cn/pcm/prod/menu/20260610/product/MS_507368_600.png",
+ "modification": {
+  "items": [
+   {
+    "maxValues": 1,
+    "minValues": 1,
+    "values": []
+   }
+  ]
+ },
+ "supportModify": true
+}

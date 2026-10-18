@@ -1,0 +1,108 @@
+{
+ "code": "9900006246",
+ "name": "只爱甜的便民套餐",
+ "rounds": [
+  {
+   "id": 1,
+   "name": "香芋派",
+   "quantity": 1,
+   "maxQuantity": 1,
+   "minQuantity": 1,
+   "choices": [
+    {
+     "code": "4106",
+     "name": "香芋派",
+     "quantity": 1,
+     "maxQuantity": -1,
+     "isDefault": 1,
+     "diffPrice": "+ ¥0",
+     "supportModify": false
+    }
+   ]
+  },
+  {
+   "id": 2,
+   "name": "苹果片一袋(60g)",
+   "quantity": 1,
+   "maxQuantity": 1,
+   "minQuantity": 1,
+   "choices": [
+    {
+     "code": "6102",
+     "name": "苹果片一袋(60g)",
+     "quantity": 1,
+     "maxQuantity": -1,
+     "isDefault": 1,
+     "diffPrice": "+ ¥0",
+     "supportModify": false
+    }
+   ]
+  },
+  {
+   "id": 3,
+   "name": "美汁源阳光橙",
+   "quantity": 1,
+   "maxQuantity": 1,
+   "minQuantity": 1,
+   "choices": [
+    {
+     "code": "2430",
+     "name": "【美汁源】“黄金橙橙”",
+     "quantity": 1,
+     "maxQuantity": -1,
+     "isDefault": 1,
+     "diffPrice": "+ ¥0",
+     "supportModify": true,
+     "modification": {
+      "items": [
+       {
+        "maxValues": 1,
+        "minValues": 1,
+        "values": [
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "标准",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 1,
+          "selectedKey": "0-1"
+         },
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "去冰",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 0,
+          "selectedKey": "0-0"
+         },
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "多冰",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 0,
+          "selectedKey": "0-2"
+         },
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "少冰",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 0,
+          "selectedKey": "1-1"
+         }
+        ]
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "image": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_9900006246_600.png",
+ "supportModify": false
+}

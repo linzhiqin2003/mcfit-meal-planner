@@ -1,0 +1,27 @@
+{
+ "code": "521315",
+ "name": "芝芝火腿扒堡",
+ "rounds": [],
+ "image": "https://menu-img.mcd.cn/pcm/prod/menu/20260304/product/MS_521315_600.png",
+ "modification": {
+  "items": [
+   {
+    "maxValues": 1,
+    "minValues": 0,
+    "values": [
+     {
+      "code": "100141",
+      "price": 0,
+      "name": "吉士",
+      "maxQuantity": 1,
+      "minQuantity": 0,
+      "selectedQuantity": 1,
+      "selectedKey": "0-1",
+      "unselectedKey": "0-0"
+     }
+    ]
+   }
+  ]
+ },
+ "supportModify": true
+}

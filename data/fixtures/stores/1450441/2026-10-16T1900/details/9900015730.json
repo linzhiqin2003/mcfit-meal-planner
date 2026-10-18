@@ -1,0 +1,98 @@
+{
+ "code": "9900015730",
+ "name": "BFF四宫格小食盘",
+ "rounds": [
+  {
+   "id": 1,
+   "name": "选择小食",
+   "quantity": 3,
+   "maxQuantity": 3,
+   "minQuantity": 3,
+   "choices": [
+    {
+     "code": "516013",
+     "name": "麦辣鸡翅-2块",
+     "quantity": 1,
+     "maxQuantity": 1,
+     "isDefault": 1,
+     "diffPrice": "+ ¥0",
+     "supportModify": false
+    },
+    {
+     "code": "516014",
+     "name": "麦乐鸡-5块",
+     "quantity": 1,
+     "maxQuantity": 1,
+     "isDefault": 0,
+     "diffPrice": "+ ¥0",
+     "supportModify": false
+    },
+    {
+     "code": "521824",
+     "name": "脆皮鸡柳3根",
+     "quantity": 1,
+     "maxQuantity": 1,
+     "isDefault": 0,
+     "diffPrice": "+ ¥0",
+     "supportModify": false
+    },
+    {
+     "code": "516012",
+     "name": "麦麦脆汁鸡-琵琶腿",
+     "quantity": 0,
+     "maxQuantity": 1,
+     "isDefault": 0,
+     "diffPrice": "+ ¥0",
+     "supportModify": false
+    },
+    {
+     "code": "521157",
+     "name": "那么大鸡排（椒盐风味）",
+     "quantity": 0,
+     "maxQuantity": 1,
+     "isDefault": 0,
+     "diffPrice": "- ¥1",
+     "supportModify": false
+    },
+    {
+     "code": "520450",
+     "name": "薄皮焦香V翅",
+     "quantity": 0,
+     "maxQuantity": 1,
+     "isDefault": 0,
+     "diffPrice": "+ ¥1",
+     "supportModify": false
+    }
+   ]
+  },
+  {
+   "id": 2,
+   "name": "选择小食",
+   "quantity": 1,
+   "maxQuantity": 1,
+   "minQuantity": 1,
+   "choices": [
+    {
+     "code": "522012",
+     "name": "小薯条",
+     "quantity": 1,
+     "maxQuantity": -1,
+     "isDefault": 1,
+     "diffPrice": "+ ¥0",
+     "supportModify": false
+    },
+    {
+     "code": "522013",
+     "name": "大薯条",
+     "quantity": 0,
+     "maxQuantity": -1,
+     "isDefault": 0,
+     "diffPrice": "+ ¥5",
+     "supportModify": false
+    }
+   ]
+  }
+ ],
+ "image": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_9900015730_600.png",
+ "supportModify": false
+}

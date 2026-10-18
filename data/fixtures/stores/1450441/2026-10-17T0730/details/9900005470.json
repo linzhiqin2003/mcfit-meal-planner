@@ -1,0 +1,80 @@
+{
+ "code": "9900005470",
+ "name": "雪菜脆笋鸡肉粥套餐",
+ "rounds": [
+  {
+   "id": 1,
+   "name": "雪菜脆笋鸡肉粥",
+   "quantity": 1,
+   "maxQuantity": 1,
+   "minQuantity": 1,
+   "choices": [
+    {
+     "code": "513606",
+     "name": "雪菜脆笋鸡肉粥",
+     "quantity": 1,
+     "maxQuantity": -1,
+     "isDefault": 1,
+     "diffPrice": "+ ¥0",
+     "supportModify": false
+    }
+   ]
+  },
+  {
+   "id": 2,
+   "name": "脆香油条",
+   "quantity": 1,
+   "maxQuantity": 1,
+   "minQuantity": 1,
+   "choices": [
+    {
+     "code": "2631",
+     "name": "脆香油条",
+     "quantity": 1,
+     "maxQuantity": -1,
+     "isDefault": 1,
+     "diffPrice": "+ ¥0",
+     "supportModify": false
+    }
+   ]
+  },
+  {
+   "id": 3,
+   "name": "选择早餐套餐小食",
+   "quantity": 1,
+   "maxQuantity": 1,
+   "minQuantity": 1,
+   "choices": [
+    {
+     "code": "4825",
+     "name": "脆薯饼",
+     "quantity": 1,
+     "maxQuantity": -1,
+     "isDefault": 1,
+     "diffPrice": "+ ¥0",
+     "supportModify": false
+    },
+    {
+     "code": "2631",
+     "name": "脆香油条",
+     "quantity": 0,
+     "maxQuantity": -1,
+     "isDefault": 0,
+     "diffPrice": "+ ¥0",
+     "supportModify": false
+    },
+    {
+     "code": "505235",
+     "name": "德式图林根香肠",
+     "quantity": 0,
+     "maxQuantity": -1,
+     "isDefault": 0,
+     "diffPrice": "+ ¥1",
+     "supportModify": false
+    }
+   ]
+  }
+ ],
+ "image": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_9900005470_600.png",
+ "supportModify": false
+}

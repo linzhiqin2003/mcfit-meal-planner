@@ -1,0 +1,138 @@
+{
+ "code": "9900006248",
+ "name": "苹板支撑便民套餐",
+ "rounds": [
+  {
+   "id": 1,
+   "name": "板烧鸡腿堡",
+   "quantity": 1,
+   "maxQuantity": 1,
+   "minQuantity": 1,
+   "choices": [
+    {
+     "code": "1406",
+     "name": "板烧鸡腿堡",
+     "quantity": 1,
+     "maxQuantity": -1,
+     "isDefault": 1,
+     "diffPrice": "+ ¥0",
+     "supportModify": true,
+     "modification": {
+      "items": [
+       {
+        "maxValues": 2,
+        "minValues": 0,
+        "values": [
+         {
+          "code": "102201",
+          "price": 0,
+          "name": "烤味酱",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 1,
+          "selectedKey": "0-1",
+          "unselectedKey": "0-0"
+         },
+         {
+          "code": "120512",
+          "price": 0,
+          "name": "切块生菜",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 1,
+          "selectedKey": "0-1",
+          "unselectedKey": "0-0"
+         }
+        ]
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "id": 2,
+   "name": "苹果片一袋(60g)",
+   "quantity": 1,
+   "maxQuantity": 1,
+   "minQuantity": 1,
+   "choices": [
+    {
+     "code": "6102",
+     "name": "苹果片一袋(60g)",
+     "quantity": 1,
+     "maxQuantity": -1,
+     "isDefault": 1,
+     "diffPrice": "+ ¥0",
+     "supportModify": false
+    }
+   ]
+  },
+  {
+   "id": 3,
+   "name": "无糖可口可乐中杯",
+   "quantity": 1,
+   "maxQuantity": 1,
+   "minQuantity": 1,
+   "choices": [
+    {
+     "code": "3071",
+     "name": "无糖可口可乐中杯",
+     "quantity": 1,
+     "maxQuantity": -1,
+     "isDefault": 1,
+     "diffPrice": "+ ¥0",
+     "supportModify": true,
+     "modification": {
+      "items": [
+       {
+        "maxValues": 1,
+        "minValues": 1,
+        "values": [
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "标准",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 1,
+          "selectedKey": "0-1"
+         },
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "去冰",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 0,
+          "selectedKey": "0-0"
+         },
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "多冰",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 0,
+          "selectedKey": "0-2"
+         },
+         {
+          "code": "200002",
+          "price": 0,
+          "name": "少冰",
+          "maxQuantity": 1,
+          "minQuantity": 0,
+          "selectedQuantity": 0,
+          "selectedKey": "1-1"
+         }
+        ]
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ],
+ "image": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_9900006248_600.png",
+ "supportModify": false
+}

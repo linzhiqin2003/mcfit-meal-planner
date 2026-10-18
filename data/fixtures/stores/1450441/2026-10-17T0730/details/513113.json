@@ -1,0 +1,27 @@
+{
+ "code": "513113",
+ "name": "图林根香肠早安营养卷",
+ "rounds": [],
+ "image": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_513113_600.png",
+ "modification": {
+  "items": [
+   {
+    "maxValues": 1,
+    "minValues": 0,
+    "values": [
+     {
+      "code": "102229",
+      "price": 0,
+      "name": "芥末沙拉酱",
+      "maxQuantity": 1,
+      "minQuantity": 0,
+      "selectedQuantity": 1,
+      "selectedKey": "0-1",
+      "unselectedKey": "0-0"
+     }
+    ]
+   }
+  ]
+ },
+ "supportModify": true
+}

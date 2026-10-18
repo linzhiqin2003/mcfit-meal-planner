@@ -1,0 +1,1530 @@
+{
+ "about": "Gyᗰ 麦门健身房 配料级营养库：由麦当劳中国官方整份营养与配方联合求解（非负贝叶斯最小二乘），参考美国麦当劳官网与 USDA 配料数据。value 为估计值，sd 为后验标准差；单位 kcal、g、mg。",
+ "units": {
+  "kcal": "大卡",
+  "protein": "g",
+  "fat": "g",
+  "carb": "g",
+  "sodium": "mg",
+  "calcium": "mg"
+ },
+ "effective_dof": 26.8,
+ "components": {
+  "bacon": {
+   "name": "培根（培根蔬萃里的 1 片）",
+   "basis": "官方数据与参考值共同确定",
+   "identifiability": 0.716,
+   "used_in": [
+    "烟肉蛋麦满分",
+    "培根安格斯厚牛堡 ×2",
+    "培根双层安格斯厚牛堡 ×2",
+    "培根蔬萃双层牛堡 ×2"
+   ],
+   "value": {
+    "kcal": 25.4,
+    "protein": 0.9,
+    "fat": 2.0,
+    "carb": 0.8,
+    "sodium": 35.3,
+    "calcium": 0.0
+   },
+   "sd": {
+    "kcal": 7.9,
+    "protein": 0.5,
+    "fat": 0.7,
+    "carb": 0.7,
+    "sodium": 18.0,
+    "calcium": 15.4
+   },
+   "prior_source": "1 份 = 培根蔬萃双层牛堡的 1 片。核查员按中国差分推算两片培根只剩约 40 大卡、≤120 mg 钠；约为美国 Bacon McDouble 培根（13.7 g，71.9/3.9/6.0/0.7/219）的 0.3 倍"
+  },
+  "bun.angus": {
+   "name": "安格斯面包",
+   "basis": "官方数据与参考值共同确定",
+   "identifiability": 0.506,
+   "used_in": [
+    "芝士安格斯厚牛堡",
+    "培根安格斯厚牛堡",
+    "芝士双层安格斯厚牛堡",
+    "培根双层安格斯厚牛堡"
+   ],
+   "value": {
+    "kcal": 209.2,
+    "protein": 5.5,
+    "fat": 2.6,
+    "carb": 37.4,
+    "sodium": 273.9,
+    "calcium": 48.3
+   },
+   "sd": {
+    "kcal": 36.4,
+    "protein": 1.5,
+    "fat": 1.0,
+    "carb": 2.3,
+    "sodium": 76.7,
+    "calcium": 14.6
+   },
+   "prior_source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200466(301516)；钙按培根安格斯的钙预算改为约 55（美国面包钙 8–11 不适用）"
+  },
+  "bun.bigmac": {
+   "name": "巨无霸三层面包",
+   "basis": "官方数据与参考值共同确定",
+   "identifiability": 0.494,
+   "used_in": [
+    "巨无霸"
+   ],
+   "value": {
+    "kcal": 166.4,
+    "protein": 7.3,
+    "fat": 1.6,
+    "carb": 35.2,
+    "sodium": 244.5,
+    "calcium": 35.6
+   },
+   "sd": {
+    "kcal": 28.1,
+    "protein": 1.4,
+    "fat": 1.0,
+    "carb": 2.4,
+    "sodium": 39.2,
+    "calcium": 310.0
+   },
+   "prior_source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200463(302510)"
+  },
+  "bun.corn_long": {
+   "name": "板烧鸡腿堡长面包",
+   "basis": "官方数据确定",
+   "identifiability": 0.206,
+   "used_in": [
+    "板烧鸡腿堡"
+   ],
+   "value": {
+    "kcal": 173.3,
+    "protein": 6.6,
+    "fat": 1.6,
+    "carb": 30.6,
+    "sodium": 273.0,
+    "calcium": 77.0
+   },
+   "sd": {
+    "kcal": 8.7,
+    "protein": 1.1,
+    "fat": 0.8,
+    "carb": 1.7,
+    "sodium": 26.8,
+    "calcium": 19.0
+   },
+   "prior_source": "没有美国对应；按本库芝麻圆面包的拟合值放大 1.2 倍（长条面包更大）"
+  },
+  "bun.longyan": {
+   "name": "龙焰鸡腿堡面包",
+   "basis": "主要依赖参考值",
+   "identifiability": 1.0,
+   "used_in": [
+    "龙焰鸡腿堡",
+    "龙焰芝士棒鸡腿堡"
+   ],
+   "value": {
+    "kcal": 170.0,
+    "protein": 7.0,
+    "fat": 2.5,
+    "carb": 32.0,
+    "sodium": 250.0,
+    "calcium": 0.0
+   },
+   "sd": {
+    "kcal": 68.0,
+    "protein": 2.8,
+    "fat": 1.0,
+    "carb": 12.8,
+    "sodium": 100.0,
+    "calcium": 400.0
+   },
+   "prior_source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=203745(302402)"
+  },
+  "bun.muffin": {
+   "name": "麦满分松饼",
+   "basis": "官方数据确定",
+   "identifiability": 0.062,
+   "used_in": [
+    "猪柳麦满分",
+    "猪柳蛋麦满分",
+    "双层猪柳蛋麦满分",
+    "烟肉蛋麦满分",
+    "火腿扒麦满分",
+    "双层火腿扒麦满分",
+    "原味板烧鸡腿麦满分",
+    "双层原味板烧鸡腿麦满分",
+    "大脆鸡扒麦满分"
+   ],
+   "value": {
+    "kcal": 137.1,
+    "protein": 6.7,
+    "fat": 1.4,
+    "carb": 22.6,
+    "sodium": 244.2,
+    "calcium": 123.9
+   },
+   "sd": {
+    "kcal": 3.5,
+    "protein": 0.6,
+    "fat": 0.5,
+    "carb": 0.8,
+    "sodium": 9.8,
+    "calcium": 8.8
+   },
+   "prior_source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200161(301533)"
+  },
+  "bun.regular": {
+   "name": "普通汉堡面包",
+   "basis": "官方数据确定",
+   "identifiability": 0.14,
+   "used_in": [
+    "麦香鱼",
+    "双层深海鳕鱼堡",
+    "儿童鱼排堡",
+    "猪柳炒双蛋堡",
+    "原味板烧鸡腿炒双蛋堡",
+    "汉堡包",
+    "吉士汉堡包",
+    "双层吉士汉堡",
+    "高达吉士双牛堡"
+   ],
+   "value": {
+    "kcal": 142.0,
+    "protein": 4.6,
+    "fat": 1.8,
+    "carb": 24.4,
+    "sodium": 154.3,
+    "calcium": 51.5
+   },
+   "sd": {
+    "kcal": 5.9,
+    "protein": 0.9,
+    "fat": 0.7,
+    "carb": 1.0,
+    "sodium": 17.5,
+    "calcium": 8.6
+   },
+   "prior_source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200477(301578)；钙按中国差分约 50（美国面包钙 7.75 不适用）"
+  },
+  "bun.sesame_round": {
+   "name": "芝麻圆面包",
+   "basis": "官方数据确定",
+   "identifiability": 0.2,
+   "used_in": [
+    "麦香鸡",
+    "麦辣鸡腿汉堡",
+    "培根蔬萃双层牛堡",
+    "不素之霸双层牛堡"
+   ],
+   "value": {
+    "kcal": 145.2,
+    "protein": 5.5,
+    "fat": 1.5,
+    "carb": 26.8,
+    "sodium": 178.1,
+    "calcium": 62.9
+   },
+   "sd": {
+    "kcal": 7.0,
+    "protein": 0.9,
+    "fat": 0.8,
+    "carb": 1.4,
+    "sodium": 19.5,
+    "calcium": 15.7
+   },
+   "prior_source": "美国 Regular Bun 200477(301578) 140/5/1.5/27/230；钙按中国差分约 60–65（核查员指出不能用四分之一磅面包 301516）；https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200477(301578)"
+  },
+  "butter": {
+   "name": "黄油（安格斯）",
+   "basis": "主要依赖参考值",
+   "identifiability": 0.976,
+   "used_in": [
+    "芝士安格斯厚牛堡",
+    "培根安格斯厚牛堡",
+    "芝士双层安格斯厚牛堡",
+    "培根双层安格斯厚牛堡"
+   ],
+   "value": {
+    "kcal": 46.8,
+    "protein": 0.0,
+    "fat": 5.6,
+    "carb": 0.0,
+    "sodium": 36.2,
+    "calcium": 0.0
+   },
+   "sd": {
+    "kcal": 17.6,
+    "protein": 0.9,
+    "fat": 1.8,
+    "carb": 1.5,
+    "sodium": 29.4,
+    "calcium": 19.0
+   },
+   "prior_source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=203747(300310)"
+  },
+  "cheese.american": {
+   "name": "吉士片",
+   "basis": "官方数据确定",
+   "identifiability": 0.161,
+   "used_in": [
+    "麦香鱼 ×0.5",
+    "双层深海鳕鱼堡",
+    "猪柳麦满分",
+    "猪柳蛋麦满分",
+    "双层猪柳蛋麦满分",
+    "烟肉蛋麦满分",
+    "培根安格斯厚牛堡",
+    "培根双层安格斯厚牛堡 ×2",
+    "吉士汉堡包",
+    "双层吉士汉堡 ×2",
+    "巨无霸"
+   ],
+   "value": {
+    "kcal": 44.8,
+    "protein": 3.0,
+    "fat": 3.8,
+    "carb": 0.4,
+    "sodium": 171.4,
+    "calcium": 83.2
+   },
+   "sd": {
+    "kcal": 2.4,
+    "protein": 0.4,
+    "fat": 0.5,
+    "carb": 0.5,
+    "sodium": 7.0,
+    "calcium": 7.2
+   },
+   "prior_source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200480(301518)"
+  },
+  "cheese.gouda": {
+   "name": "高达干酪片",
+   "basis": "主要依赖参考值",
+   "identifiability": 0.96,
+   "used_in": [
+    "芝士安格斯厚牛堡",
+    "芝士双层安格斯厚牛堡 ×2",
+    "高达吉士双牛堡"
+   ],
+   "value": {
+    "kcal": 41.2,
+    "protein": 2.7,
+    "fat": 3.0,
+    "carb": 1.4,
+    "sodium": 103.7,
+    "calcium": 77.2
+   },
+   "sd": {
+    "kcal": 15.0,
+    "protein": 1.0,
+    "fat": 1.2,
+    "carb": 1.1,
+    "sodium": 34.4,
+    "calcium": 27.0
+   },
+   "prior_source": "USDA 高达干酪每 100 g 356/24.9/27.4/2.2/819/钙700，按每片约 11 g 折算"
+  },
+  "cheese.mozz_stick": {
+   "name": "马苏里拉芝士棒",
+   "basis": "拆分不确定",
+   "identifiability": 1.0,
+   "used_in": [
+    "龙焰芝士棒鸡腿堡"
+   ],
+   "value": {
+    "kcal": 110.6,
+    "protein": 5.2,
+    "fat": 6.4,
+    "carb": 8.0,
+    "sodium": 293.3,
+    "calcium": 111.6
+   },
+   "sd": {
+    "kcal": 44.2,
+    "protein": 2.1,
+    "fat": 2.6,
+    "carb": 3.2,
+    "sodium": 117.3,
+    "calcium": 44.6
+   },
+   "prior_source": "USDA 炸芝士棒 FDC 169011，按约 35 g 一根（核查员估 30–40 g）；https://fdc.nal.usda.gov/food-details/169011/nutrients"
+  },
+  "chicken.big_cutlet": {
+   "name": "那么大鸡排",
+   "basis": "官方数据确定",
+   "identifiability": 0.005,
+   "used_in": [
+    "那么大鸡排"
+   ],
+   "value": {
+    "kcal": 385.0,
+    "protein": 24.0,
+    "fat": 21.0,
+    "carb": 24.0,
+    "sodium": 996.0,
+    "calcium": 13.0
+   },
+   "sd": {
+    "kcal": 2.0,
+    "protein": 0.6,
+    "fat": 0.6,
+    "carb": 0.6,
+    "sodium": 6.0,
+    "calcium": 6.0
+   },
+   "prior_source": ""
+  },
+  "chicken.grill_thigh_breakfast": {
+   "name": "板烧鸡腿肉（早餐那块）",
+   "basis": "官方数据确定",
+   "identifiability": 0.021,
+   "used_in": [
+    "原味板烧鸡腿麦满分",
+    "双层原味板烧鸡腿麦满分 ×2",
+    "原味板烧鸡腿炒双蛋堡",
+    "板烧鸡腿堡 ×2"
+   ],
+   "value": {
+    "kcal": 99.9,
+    "protein": 7.5,
+    "fat": 7.7,
+    "carb": 0.6,
+    "sodium": 0.0,
+    "calcium": 2.7
+   },
+   "sd": {
+    "kcal": 8.2,
+    "protein": 1.1,
+    "fat": 1.1,
+    "carb": 1.6,
+    "sodium": 227.2,
+    "calcium": 20.7
+   },
+   "prior_source": ""
+  },
+  "chicken.longyan_thigh": {
+   "name": "龙焰鸡腿排",
+   "basis": "主要依赖参考值",
+   "identifiability": 1.0,
+   "used_in": [
+    "龙焰鸡腿堡",
+    "龙焰芝士棒鸡腿堡"
+   ],
+   "value": {
+    "kcal": 250.0,
+    "protein": 20.0,
+    "fat": 12.0,
+    "carb": 14.0,
+    "sodium": 730.0,
+    "calcium": 10.0
+   },
+   "sd": {
+    "kcal": 87.5,
+    "protein": 7.0,
+    "fat": 4.2,
+    "carb": 4.9,
+    "sodium": 255.5,
+    "calcium": 20.0
+   },
+   "prior_source": "官方写明是薯片裹粉的原切鸡腿排，与麦辣不同；宽先验取美国 McCrispy 鸡排 203745(302309)"
+  },
+  "chicken.mcchicken_patty": {
+   "name": "麦香鸡鸡排",
+   "basis": "官方数据与参考值共同确定",
+   "identifiability": 0.453,
+   "used_in": [
+    "大脆鸡扒麦满分",
+    "麦香鸡"
+   ],
+   "value": {
+    "kcal": 123.9,
+    "protein": 9.3,
+    "fat": 6.2,
+    "carb": 11.5,
+    "sodium": 476.7,
+    "calcium": 6.2
+   },
+   "sd": {
+    "kcal": 27.2,
+    "protein": 1.1,
+    "fat": 2.1,
+    "carb": 1.5,
+    "sodium": 29.9,
+    "calcium": 83.4
+   },
+   "prior_source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200438(300708)"
+  },
+  "chicken.spicy_thigh": {
+   "name": "麦辣鸡腿排",
+   "basis": "官方数据与参考值共同确定",
+   "identifiability": 0.324,
+   "used_in": [
+    "麦辣鸡腿汉堡"
+   ],
+   "value": {
+    "kcal": 239.8,
+    "protein": 18.4,
+    "fat": 13.0,
+    "carb": 14.5,
+    "sodium": 924.0,
+    "calcium": 15.0
+   },
+   "sd": {
+    "kcal": 28.3,
+    "protein": 1.6,
+    "fat": 2.2,
+    "carb": 2.2,
+    "sodium": 42.5,
+    "calcium": 6.0
+   },
+   "prior_source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=203745(302309)；注意美国这条其实是鸡胸排，蛋白和脂肪方差放宽；钙收紧在 10–20（麦辣鸡腿汉堡的钙异常不进鸡排）"
+  },
+  "chicken.strip": {
+   "name": "鸡柳（酥酥多笋卷）",
+   "basis": "官方数据与参考值共同确定",
+   "identifiability": 0.768,
+   "used_in": [
+    "酥酥多笋卷 ×2"
+   ],
+   "value": {
+    "kcal": 65.8,
+    "protein": 4.7,
+    "fat": 3.0,
+    "carb": 4.2,
+    "sodium": 213.2,
+    "calcium": 2.1
+   },
+   "sd": {
+    "kcal": 25.0,
+    "protein": 1.1,
+    "fat": 1.3,
+    "carb": 1.9,
+    "sodium": 75.7,
+    "calcium": 19.9
+   },
+   "prior_source": "美国鸡柳先验的约 0.5 倍（核查员：酥酥多笋卷的余量放不下美国规格的两条）"
+  },
+  "egg.round": {
+   "name": "圆形煎蛋",
+   "basis": "官方数据确定",
+   "identifiability": 0.083,
+   "used_in": [
+    "猪柳蛋麦满分",
+    "双层猪柳蛋麦满分",
+    "烟肉蛋麦满分"
+   ],
+   "value": {
+    "kcal": 78.7,
+    "protein": 7.0,
+    "fat": 5.0,
+    "carb": 0.9,
+    "sodium": 66.9,
+    "calcium": 30.3
+   },
+   "sd": {
+    "kcal": 2.7,
+    "protein": 0.7,
+    "fat": 0.7,
+    "carb": 0.7,
+    "sodium": 7.7,
+    "calcium": 8.0
+   },
+   "prior_source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200161(300067)"
+  },
+  "egg.scrambled": {
+   "name": "炒双蛋",
+   "basis": "官方数据确定",
+   "identifiability": 0.104,
+   "used_in": [
+    "猪柳炒双蛋堡",
+    "原味板烧鸡腿炒双蛋堡"
+   ],
+   "value": {
+    "kcal": 168.4,
+    "protein": 14.2,
+    "fat": 11.3,
+    "carb": 3.4,
+    "sodium": 188.4,
+    "calcium": 59.0
+   },
+   "sd": {
+    "kcal": 6.2,
+    "protein": 1.0,
+    "fat": 0.9,
+    "carb": 1.0,
+    "sodium": 18.4,
+    "calcium": 10.8
+   },
+   "prior_source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200322(300524)"
+  },
+  "fish.fillet": {
+   "name": "鳕鱼排",
+   "basis": "官方数据确定",
+   "identifiability": 0.121,
+   "used_in": [
+    "麦香鱼",
+    "双层深海鳕鱼堡 ×2",
+    "儿童鱼排堡"
+   ],
+   "value": {
+    "kcal": 113.8,
+    "protein": 10.2,
+    "fat": 4.0,
+    "carb": 9.1,
+    "sodium": 218.2,
+    "calcium": 5.1
+   },
+   "sd": {
+    "kcal": 5.8,
+    "protein": 0.8,
+    "fat": 0.9,
+    "carb": 1.0,
+    "sodium": 17.8,
+    "calcium": 13.5
+   },
+   "prior_source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200445(300055)"
+  },
+  "ham.steak": {
+   "name": "火腿扒",
+   "basis": "官方数据确定",
+   "identifiability": 0.005,
+   "used_in": [
+    "火腿扒麦满分",
+    "双层火腿扒麦满分 ×2"
+   ],
+   "value": {
+    "kcal": 123.9,
+    "protein": 7.1,
+    "fat": 10.4,
+    "carb": 1.6,
+    "sodium": 366.7,
+    "calcium": 3.2
+   },
+   "sd": {
+    "kcal": 1.9,
+    "protein": 0.5,
+    "fat": 0.5,
+    "carb": 0.5,
+    "sodium": 5.6,
+    "calcium": 5.7
+   },
+   "prior_source": ""
+  },
+  "patty.angus": {
+   "name": "安格斯牛肉饼",
+   "basis": "官方数据确定",
+   "identifiability": 0.173,
+   "used_in": [
+    "芝士安格斯厚牛堡",
+    "培根安格斯厚牛堡",
+    "芝士双层安格斯厚牛堡 ×2",
+    "培根双层安格斯厚牛堡 ×2"
+   ],
+   "value": {
+    "kcal": 265.8,
+    "protein": 23.1,
+    "fat": 18.1,
+    "carb": 1.5,
+    "sodium": 255.7,
+    "calcium": 20.6
+   },
+   "sd": {
+    "kcal": 15.2,
+    "protein": 1.2,
+    "fat": 1.4,
+    "carb": 1.1,
+    "sodium": 65.4,
+    "calcium": 27.7
+   },
+   "prior_source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200466(301574)"
+  },
+  "patty.beef_small": {
+   "name": "小牛肉饼",
+   "basis": "官方数据确定",
+   "identifiability": 0.247,
+   "used_in": [
+    "汉堡包",
+    "吉士汉堡包",
+    "双层吉士汉堡 ×2",
+    "巨无霸 ×2",
+    "培根蔬萃双层牛堡 ×2",
+    "高达吉士双牛堡 ×2",
+    "不素之霸双层牛堡 ×2"
+   ],
+   "value": {
+    "kcal": 91.3,
+    "protein": 8.2,
+    "fat": 6.3,
+    "carb": 1.1,
+    "sodium": 184.9,
+    "calcium": 2.5
+   },
+   "sd": {
+    "kcal": 6.7,
+    "protein": 0.6,
+    "fat": 0.8,
+    "carb": 0.7,
+    "sodium": 14.9,
+    "calcium": 13.2
+   },
+   "prior_source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200477(300038)"
+  },
+  "pork.sausage": {
+   "name": "猪柳",
+   "basis": "官方数据确定",
+   "identifiability": 0.029,
+   "used_in": [
+    "猪柳麦满分",
+    "猪柳蛋麦满分",
+    "双层猪柳蛋麦满分 ×2",
+    "猪柳炒双蛋堡"
+   ],
+   "value": {
+    "kcal": 126.3,
+    "protein": 6.2,
+    "fat": 10.9,
+    "carb": 1.1,
+    "sodium": 363.7,
+    "calcium": 5.8
+   },
+   "sd": {
+    "kcal": 2.2,
+    "protein": 0.6,
+    "fat": 0.5,
+    "carb": 0.6,
+    "sodium": 6.4,
+    "calcium": 6.3
+   },
+   "prior_source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200161(300694)"
+  },
+  "sauce.bigmac": {
+   "name": "巨无霸酱",
+   "basis": "主要依赖参考值",
+   "identifiability": 0.879,
+   "used_in": [
+    "巨无霸"
+   ],
+   "value": {
+    "kcal": 117.9,
+    "protein": 0.1,
+    "fat": 8.3,
+    "carb": 3.0,
+    "sodium": 117.0,
+    "calcium": 35.6
+   },
+   "sd": {
+    "kcal": 27.5,
+    "protein": 0.9,
+    "fat": 1.6,
+    "carb": 1.5,
+    "sodium": 29.8,
+    "calcium": 310.0
+   },
+   "prior_source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200463(301554) 与 204229 两个口径取中值"
+  },
+  "sauce.cheese": {
+   "name": "醇香芝士风味酱",
+   "basis": "官方数据与参考值共同确定",
+   "identifiability": 0.642,
+   "used_in": [
+    "芝士安格斯厚牛堡",
+    "芝士双层安格斯厚牛堡"
+   ],
+   "value": {
+    "kcal": 131.8,
+    "protein": 0.8,
+    "fat": 14.5,
+    "carb": 1.6,
+    "sodium": 227.6,
+    "calcium": 6.1
+   },
+   "sd": {
+    "kcal": 34.3,
+    "protein": 0.9,
+    "fat": 2.3,
+    "carb": 1.4,
+    "sodium": 69.6,
+    "calcium": 8.0
+   },
+   "prior_source": "按蛋黄酱基底的芝士风味酱估：USDA 蛋黄酱 FDC 171009 与奶酪酱 FDC 171191 各半，约 25 g 一份；https://fdc.nal.usda.gov/food-details/171009/nutrients ; https://fdc.nal.usda.gov/food-details/171191/nutrients"
+  },
+  "sauce.gochujang_butter": {
+   "name": "辣椒黄油风味酱",
+   "basis": "拆分不确定",
+   "identifiability": 1.0,
+   "used_in": [
+    "龙焰鸡腿堡",
+    "龙焰芝士棒鸡腿堡"
+   ],
+   "value": {
+    "kcal": 55.0,
+    "protein": 0.4,
+    "fat": 5.0,
+    "carb": 2.0,
+    "sodium": 150.0,
+    "calcium": 3.0
+   },
+   "sd": {
+    "kcal": 33.0,
+    "protein": 1.0,
+    "fat": 3.0,
+    "carb": 1.5,
+    "sodium": 90.0,
+    "calcium": 20.0
+   },
+   "prior_source": "辣椒黄油风味酱按约 12 g、黄油（USDA FDC 173410）与辣椒酱各半粗估；https://fdc.nal.usda.gov/food-details/173410/nutrients"
+  },
+  "sauce.hongyou_mala": {
+   "name": "红油麻香酱",
+   "basis": "拆分不确定",
+   "identifiability": 0.946,
+   "used_in": [
+    "酥酥多笋卷"
+   ],
+   "value": {
+    "kcal": 55.4,
+    "protein": 0.3,
+    "fat": 4.5,
+    "carb": 1.1,
+    "sodium": 147.7,
+    "calcium": 3.1
+   },
+   "sd": {
+    "kcal": 31.2,
+    "protein": 1.0,
+    "fat": 2.6,
+    "carb": 1.5,
+    "sodium": 85.9,
+    "calcium": 20.0
+   },
+   "prior_source": "红油按约 10 g、六成为植物油估（USDA 植物油 884 大卡/100 g），另含辣椒与盐"
+  },
+  "sauce.ketchup": {
+   "name": "番茄酱",
+   "basis": "主要依赖参考值",
+   "identifiability": 0.871,
+   "used_in": [
+    "儿童鱼排堡",
+    "汉堡包",
+    "吉士汉堡包",
+    "双层吉士汉堡",
+    "培根蔬萃双层牛堡",
+    "高达吉士双牛堡"
+   ],
+   "value": {
+    "kcal": 12.2,
+    "protein": 0.1,
+    "fat": 0.0,
+    "carb": 1.9,
+    "sodium": 70.3,
+    "calcium": 1.3
+   },
+   "sd": {
+    "kcal": 7.0,
+    "protein": 0.8,
+    "fat": 0.8,
+    "carb": 1.1,
+    "sodium": 27.4,
+    "calcium": 31.8
+   },
+   "prior_source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200477(300037)"
+  },
+  "sauce.mcchicken": {
+   "name": "麦香鸡酱",
+   "basis": "官方数据与参考值共同确定",
+   "identifiability": 0.686,
+   "used_in": [
+    "大脆鸡扒麦满分",
+    "麦香鸡",
+    "麦辣鸡腿汉堡",
+    "培根蔬萃双层牛堡 ×0.5"
+   ],
+   "value": {
+    "kcal": 100.0,
+    "protein": 0.0,
+    "fat": 9.4,
+    "carb": 0.7,
+    "sodium": 79.3,
+    "calcium": 0.0
+   },
+   "sd": {
+    "kcal": 27.4,
+    "protein": 0.9,
+    "fat": 2.1,
+    "carb": 1.3,
+    "sodium": 28.2,
+    "calcium": 81.7
+   },
+   "prior_source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200438(300430)"
+  },
+  "sauce.mustard": {
+   "name": "芥末酱",
+   "basis": "主要依赖参考值",
+   "identifiability": 0.81,
+   "used_in": [
+    "汉堡包",
+    "吉士汉堡包",
+    "双层吉士汉堡",
+    "高达吉士双牛堡"
+   ],
+   "value": {
+    "kcal": 1.7,
+    "protein": 0.0,
+    "fat": 0.0,
+    "carb": 0.8,
+    "sodium": 26.0,
+    "calcium": 0.0
+   },
+   "sd": {
+    "kcal": 6.5,
+    "protein": 0.8,
+    "fat": 0.8,
+    "carb": 1.2,
+    "sodium": 24.1,
+    "calcium": 253.7
+   },
+   "prior_source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200477(300044)"
+  },
+  "sauce.mustard_mayo": {
+   "name": "芥末沙拉酱",
+   "basis": "官方数据与参考值共同确定",
+   "identifiability": 0.463,
+   "used_in": [
+    "不素之霸双层牛堡"
+   ],
+   "value": {
+    "kcal": 78.0,
+    "protein": 0.6,
+    "fat": 6.8,
+    "carb": 3.0,
+    "sodium": 165.7,
+    "calcium": 2.0
+   },
+   "sd": {
+    "kcal": 15.5,
+    "protein": 0.9,
+    "fat": 1.7,
+    "carb": 1.4,
+    "sodium": 29.3,
+    "calcium": 19.8
+   },
+   "prior_source": "USDA 蜂蜜芥末沙拉酱 FDC 171043，约 12 g 一份；https://fdc.nal.usda.gov/food-details/171043/nutrients"
+  },
+  "sauce.roast_beef": {
+   "name": "烤牛肉风味酱",
+   "basis": "官方数据与参考值共同确定",
+   "identifiability": 0.719,
+   "used_in": [
+    "培根安格斯厚牛堡",
+    "培根双层安格斯厚牛堡"
+   ],
+   "value": {
+    "kcal": 89.5,
+    "protein": 0.4,
+    "fat": 9.9,
+    "carb": 2.1,
+    "sodium": 202.8,
+    "calcium": 3.4
+   },
+   "sd": {
+    "kcal": 34.9,
+    "protein": 0.9,
+    "fat": 2.6,
+    "carb": 1.4,
+    "sodium": 78.9,
+    "calcium": 19.0
+   },
+   "prior_source": "按蛋黄酱基底的牛排风味酱估：USDA 蛋黄酱 FDC 171009 与牛排酱 FDC 171825 各半，约 25 g 一份；https://fdc.nal.usda.gov/food-details/171009/nutrients ; https://fdc.nal.usda.gov/food-details/171825/nutrients"
+  },
+  "sauce.tartar": {
+   "name": "麦香鱼酱",
+   "basis": "官方数据与参考值共同确定",
+   "identifiability": 0.472,
+   "used_in": [
+    "麦香鱼",
+    "双层深海鳕鱼堡 ×1.5"
+   ],
+   "value": {
+    "kcal": 47.0,
+    "protein": 0.0,
+    "fat": 5.0,
+    "carb": 1.8,
+    "sodium": 101.7,
+    "calcium": 1.3
+   },
+   "sd": {
+    "kcal": 9.4,
+    "protein": 0.8,
+    "fat": 1.1,
+    "carb": 1.1,
+    "sodium": 28.9,
+    "calcium": 17.0
+   },
+   "prior_source": "美国 Tartar Sauce 93.9 kcal 的约 0.5 倍（热量、脂肪），钠约与美国相同；核查员按中国鱼系反推约 45–55 kcal、4.5–5 g 脂肪、钠 100–145"
+  },
+  "sauce.teriyaki": {
+   "name": "烤味酱",
+   "basis": "主要依赖参考值",
+   "identifiability": 1.0,
+   "used_in": [
+    "原味板烧鸡腿麦满分",
+    "双层原味板烧鸡腿麦满分 ×2",
+    "原味板烧鸡腿炒双蛋堡",
+    "板烧鸡腿堡 ×2"
+   ],
+   "value": {
+    "kcal": 8.9,
+    "protein": 0.6,
+    "fat": 0.0,
+    "carb": 1.6,
+    "sodium": 370.1,
+    "calcium": 2.5
+   },
+   "sd": {
+    "kcal": 8.0,
+    "protein": 1.0,
+    "fat": 1.0,
+    "carb": 1.5,
+    "sodium": 227.1,
+    "calcium": 20.0
+   },
+   "prior_source": "USDA 照烧酱 FDC 171167 每 100 g 89 大卡/5.9 g/0/15.6 g/3830 mg，按约 10 g 一份折算；早餐双层减单层显示「鸡腿+酱」只有 2 g 碳水，酱的量不会多；https://fdc.nal.usda.gov/food-details/171167/nutrients"
+  },
+  "sausage.thuringer": {
+   "name": "德式图林根香肠",
+   "basis": "官方数据确定",
+   "identifiability": 0.005,
+   "used_in": [
+    "不素之霸双层牛堡",
+    "德式图林根香肠"
+   ],
+   "value": {
+    "kcal": 87.1,
+    "protein": 5.2,
+    "fat": 6.1,
+    "carb": 2.0,
+    "sodium": 295.8,
+    "calcium": 5.1
+   },
+   "sd": {
+    "kcal": 2.0,
+    "protein": 0.6,
+    "fat": 0.6,
+    "carb": 0.6,
+    "sodium": 6.0,
+    "calcium": 6.0
+   },
+   "prior_source": ""
+  },
+  "veg.bamboo_shoot": {
+   "name": "酸辣笋丝",
+   "basis": "主要依赖参考值",
+   "identifiability": 0.997,
+   "used_in": [
+    "酥酥多笋卷"
+   ],
+   "value": {
+    "kcal": 13.0,
+    "protein": 0.3,
+    "fat": 0.9,
+    "carb": 0.7,
+    "sodium": 147.7,
+    "calcium": 1.7
+   },
+   "sd": {
+    "kcal": 8.0,
+    "protein": 1.0,
+    "fat": 1.0,
+    "carb": 1.5,
+    "sodium": 85.9,
+    "calcium": 20.0
+   },
+   "prior_source": "USDA 罐装笋 FDC 169212 约 20 g，另加酸辣调味（约 1 g 油、150 mg 钠）；https://fdc.nal.usda.gov/food-details/169212/nutrients"
+  },
+  "veg.lettuce_leaf": {
+   "name": "切块生菜",
+   "basis": "主要依赖参考值",
+   "identifiability": 0.973,
+   "used_in": [
+    "培根安格斯厚牛堡",
+    "培根双层安格斯厚牛堡",
+    "麦辣鸡腿汉堡",
+    "板烧鸡腿堡",
+    "龙焰鸡腿堡",
+    "龙焰芝士棒鸡腿堡"
+   ],
+   "value": {
+    "kcal": 0.0,
+    "protein": 0.1,
+    "fat": 0.0,
+    "carb": 0.0,
+    "sodium": 26.6,
+    "calcium": 5.5
+   },
+   "sd": {
+    "kcal": 7.8,
+    "protein": 0.8,
+    "fat": 0.8,
+    "carb": 1.3,
+    "sodium": 25.4,
+    "calcium": 22.0
+   },
+   "prior_source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200765(300098)"
+  },
+  "veg.lettuce_shred": {
+   "name": "生菜丝",
+   "basis": "官方数据与参考值共同确定",
+   "identifiability": 0.456,
+   "used_in": [
+    "火腿扒麦满分",
+    "双层火腿扒麦满分",
+    "原味板烧鸡腿麦满分",
+    "双层原味板烧鸡腿麦满分",
+    "麦香鸡",
+    "酥酥多笋卷",
+    "巨无霸",
+    "培根蔬萃双层牛堡"
+   ],
+   "value": {
+    "kcal": 0.1,
+    "protein": 0.1,
+    "fat": 0.0,
+    "carb": 0.1,
+    "sodium": 0.0,
+    "calcium": 3.8
+   },
+   "sd": {
+    "kcal": 3.7,
+    "protein": 0.6,
+    "fat": 0.5,
+    "carb": 0.8,
+    "sodium": 10.5,
+    "calcium": 9.4
+   },
+   "prior_source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200463(300098)"
+  },
+  "veg.onion": {
+   "name": "洋葱粒",
+   "basis": "主要依赖参考值",
+   "identifiability": 0.822,
+   "used_in": [
+    "汉堡包",
+    "吉士汉堡包",
+    "双层吉士汉堡 ×2",
+    "巨无霸 ×2",
+    "高达吉士双牛堡 ×2"
+   ],
+   "value": {
+    "kcal": 0.0,
+    "protein": 0.0,
+    "fat": 0.0,
+    "carb": 0.2,
+    "sodium": 0.0,
+    "calcium": 2.2
+   },
+   "sd": {
+    "kcal": 6.6,
+    "protein": 0.8,
+    "fat": 0.8,
+    "carb": 1.1,
+    "sodium": 18.9,
+    "calcium": 20.5
+   },
+   "prior_source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200477(300041)"
+  },
+  "veg.pickle": {
+   "name": "酸黄瓜",
+   "basis": "主要依赖参考值",
+   "identifiability": 0.809,
+   "used_in": [
+    "汉堡包",
+    "吉士汉堡包",
+    "双层吉士汉堡",
+    "巨无霸",
+    "高达吉士双牛堡"
+   ],
+   "value": {
+    "kcal": 1.2,
+    "protein": 0.0,
+    "fat": 0.0,
+    "carb": 0.7,
+    "sodium": 58.6,
+    "calcium": 3.4
+   },
+   "sd": {
+    "kcal": 6.5,
+    "protein": 0.9,
+    "fat": 0.9,
+    "carb": 1.2,
+    "sodium": 23.8,
+    "calcium": 253.4
+   },
+   "prior_source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200477(300042)"
+  },
+  "veg.tomato": {
+   "name": "番茄片",
+   "basis": "主要依赖参考值",
+   "identifiability": 0.855,
+   "used_in": [
+    "儿童鱼排堡",
+    "芝士安格斯厚牛堡",
+    "芝士双层安格斯厚牛堡",
+    "培根蔬萃双层牛堡"
+   ],
+   "value": {
+    "kcal": 1.1,
+    "protein": 0.0,
+    "fat": 0.2,
+    "carb": 0.9,
+    "sodium": 0.0,
+    "calcium": 0.0
+   },
+   "sd": {
+    "kcal": 6.8,
+    "protein": 0.7,
+    "fat": 0.8,
+    "carb": 1.0,
+    "sodium": 23.4,
+    "calcium": 27.0
+   },
+   "prior_source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=203745(301407)"
+  },
+  "wrap.tortilla": {
+   "name": "卷饼皮",
+   "basis": "官方数据与参考值共同确定",
+   "identifiability": 0.724,
+   "used_in": [
+    "酥酥多笋卷"
+   ],
+   "value": {
+    "kcal": 141.9,
+    "protein": 3.9,
+    "fat": 3.6,
+    "carb": 25.6,
+    "sodium": 322.3,
+    "calcium": 28.2
+   },
+   "sd": {
+    "kcal": 50.7,
+    "protein": 1.9,
+    "fat": 1.9,
+    "carb": 4.3,
+    "sodium": 138.4,
+    "calcium": 49.9
+   },
+   "prior_source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=204401(300422)"
+  }
+ },
+ "fits": {
+  "麦香鱼": {
+   "max_z": 0.75,
+   "residual": {
+    "kcal": -0.2,
+    "protein": -0.3,
+    "fat": 0.2,
+    "carb": -0.5,
+    "sodium": -3.9,
+    "calcium": -0.5
+   }
+  },
+  "双层深海鳕鱼堡": {
+   "max_z": 0.6,
+   "residual": {
+    "kcal": 0.1,
+    "protein": 0.1,
+    "fat": -0.2,
+    "carb": 0.4,
+    "sodium": 2.4,
+    "calcium": 0.2
+   }
+  },
+  "儿童鱼排堡": {
+   "max_z": 0.45,
+   "residual": {
+    "kcal": -0.0,
+    "protein": 0.1,
+    "fat": -0.0,
+    "carb": -0.3,
+    "sodium": -0.7,
+    "calcium": 0.1
+   }
+  },
+  "猪柳麦满分": {
+   "max_z": 0.28,
+   "residual": {
+    "kcal": -0.2,
+    "protein": 0.1,
+    "fat": -0.1,
+    "carb": -0.1,
+    "sodium": 1.7,
+    "calcium": 0.1
+   }
+  },
+  "猪柳蛋麦满分": {
+   "max_z": 0.17,
+   "residual": {
+    "kcal": 0.1,
+    "protein": 0.1,
+    "fat": -0.0,
+    "carb": 0.0,
+    "sodium": -0.2,
+    "calcium": -0.1
+   }
+  },
+  "双层猪柳蛋麦满分": {
+   "max_z": 0.16,
+   "residual": {
+    "kcal": -0.1,
+    "protein": -0.1,
+    "fat": 0.0,
+    "carb": -0.1,
+    "sodium": 0.1,
+    "calcium": 0.1
+   }
+  },
+  "火腿扒麦满分": {
+   "max_z": 0.48,
+   "residual": {
+    "kcal": -0.1,
+    "protein": 0.1,
+    "fat": 0.2,
+    "carb": -0.3,
+    "sodium": -2.9,
+    "calcium": 0.1
+   }
+  },
+  "双层火腿扒麦满分": {
+   "max_z": 0.24,
+   "residual": {
+    "kcal": 0.0,
+    "protein": -0.0,
+    "fat": -0.1,
+    "carb": 0.1,
+    "sodium": 1.4,
+    "calcium": -0.1
+   }
+  },
+  "原味板烧鸡腿麦满分": {
+   "max_z": 0.56,
+   "residual": {
+    "kcal": -0.0,
+    "protein": 0.1,
+    "fat": -0.1,
+    "carb": 0.1,
+    "sodium": -3.4,
+    "calcium": 0.1
+   }
+  },
+  "双层原味板烧鸡腿麦满分": {
+   "max_z": 0.23,
+   "residual": {
+    "kcal": 0.1,
+    "protein": -0.1,
+    "fat": 0.1,
+    "carb": -0.1,
+    "sodium": -0.5,
+    "calcium": -0.2
+   }
+  },
+  "大脆鸡扒麦满分": {
+   "max_z": 0.62,
+   "residual": {
+    "kcal": 0.1,
+    "protein": -0.0,
+    "fat": 0.0,
+    "carb": 0.2,
+    "sodium": 3.7,
+    "calcium": -0.1
+   }
+  },
+  "猪柳炒双蛋堡": {
+   "max_z": 0.27,
+   "residual": {
+    "kcal": 0.3,
+    "protein": -0.0,
+    "fat": -0.0,
+    "carb": 0.2,
+    "sodium": -1.4,
+    "calcium": -0.3
+   }
+  },
+  "原味板烧鸡腿炒双蛋堡": {
+   "max_z": 0.36,
+   "residual": {
+    "kcal": -0.3,
+    "protein": 0.0,
+    "fat": 0.1,
+    "carb": 0.1,
+    "sodium": 2.2,
+    "calcium": 0.3
+   }
+  },
+  "芝士安格斯厚牛堡": {
+   "max_z": 0.36,
+   "residual": {
+    "kcal": 0.0,
+    "protein": -0.1,
+    "fat": 0.1,
+    "carb": 0.0,
+    "sodium": 0.0,
+    "calcium": -2.2
+   }
+  },
+  "培根安格斯厚牛堡": {
+   "max_z": 0.19,
+   "residual": {
+    "kcal": -0.0,
+    "protein": 0.0,
+    "fat": 0.0,
+    "carb": -0.1,
+    "sodium": -0.1,
+    "calcium": -0.0
+   }
+  },
+  "芝士双层安格斯厚牛堡": {
+   "max_z": 0.78,
+   "residual": {
+    "kcal": 0.0,
+    "protein": 0.1,
+    "fat": -0.0,
+    "carb": 0.1,
+    "sodium": 116.7,
+    "calcium": 1.1
+   }
+  },
+  "麦香鸡": {
+   "max_z": 0.52,
+   "residual": {
+    "kcal": -0.1,
+    "protein": 0.0,
+    "fat": -0.1,
+    "carb": -0.2,
+    "sodium": -3.1,
+    "calcium": 0.1
+   }
+  },
+  "麦辣鸡腿汉堡": {
+   "max_z": 0.07,
+   "residual": {
+    "kcal": -0.0,
+    "protein": -0.0,
+    "fat": 0.0,
+    "carb": 0.0,
+    "sodium": 0.1,
+    "calcium": 70.5
+   }
+  },
+  "板烧鸡腿堡": {
+   "max_z": 0.21,
+   "residual": {
+    "kcal": 0.0,
+    "protein": 0.0,
+    "fat": -0.1,
+    "carb": -0.0,
+    "sodium": 1.1,
+    "calcium": -0.0
+   }
+  },
+  "那么大鸡排": {
+   "max_z": 0.01,
+   "residual": {
+    "kcal": 0.0,
+    "protein": 0.0,
+    "fat": 0.0,
+    "carb": 0.0,
+    "sodium": 0.0,
+    "calcium": 0.0
+   }
+  },
+  "酥酥多笋卷": {
+   "max_z": 0.05,
+   "residual": {
+    "kcal": 0.0,
+    "protein": -0.0,
+    "fat": -0.0,
+    "carb": 0.0,
+    "sodium": -0.0,
+    "calcium": 0.0
+   }
+  },
+  "汉堡包": {
+   "max_z": 0.34,
+   "residual": {
+    "kcal": -0.4,
+    "protein": 0.0,
+    "fat": -0.1,
+    "carb": -0.1,
+    "sodium": -2.0,
+    "calcium": 0.1
+   }
+  },
+  "吉士汉堡包": {
+   "max_z": 1.26,
+   "residual": {
+    "kcal": 0.8,
+    "protein": 0.1,
+    "fat": 0.1,
+    "carb": 0.5,
+    "sodium": 7.6,
+    "calcium": -0.1
+   }
+  },
+  "双层吉士汉堡": {
+   "max_z": 0.78,
+   "residual": {
+    "kcal": -0.3,
+    "protein": -0.1,
+    "fat": 0.0,
+    "carb": -0.2,
+    "sodium": -4.7,
+    "calcium": -0.0
+   }
+  },
+  "巨无霸": {
+   "max_z": 0.26,
+   "residual": {
+    "kcal": -0.0,
+    "protein": 0.0,
+    "fat": -0.2,
+    "carb": -0.0,
+    "sodium": -0.3,
+    "calcium": 0.0
+   }
+  },
+  "培根蔬萃双层牛堡": {
+   "max_z": 0.22,
+   "residual": {
+    "kcal": 0.1,
+    "protein": -0.1,
+    "fat": 0.0,
+    "carb": 0.1,
+    "sodium": -0.3,
+    "calcium": -0.1
+   }
+  },
+  "不素之霸双层牛堡": {
+   "max_z": 0.46,
+   "residual": {
+    "kcal": 0.1,
+    "protein": 0.2,
+    "fat": 0.1,
+    "carb": 0.0,
+    "sodium": 2.8,
+    "calcium": 0.1
+   }
+  },
+  "德式图林根香肠": {
+   "max_z": 0.46,
+   "residual": {
+    "kcal": -0.1,
+    "protein": -0.2,
+    "fat": -0.1,
+    "carb": -0.0,
+    "sodium": -2.8,
+    "calcium": -0.1
+   }
+  }
+ }
+}

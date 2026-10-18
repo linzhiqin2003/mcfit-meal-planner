@@ -1,0 +1,53 @@
+{
+ "code": "9900016078",
+ "name": "蘸酱麦麦脆汁鸡",
+ "rounds": [
+  {
+   "id": 1,
+   "name": "麦麦脆汁鸡-琵琶腿",
+   "quantity": 1,
+   "maxQuantity": 1,
+   "minQuantity": 1,
+   "choices": [
+    {
+     "code": "505416",
+     "name": "麦麦脆汁鸡-琵琶腿",
+     "quantity": 1,
+     "maxQuantity": -1,
+     "isDefault": 1,
+     "diffPrice": "+ ¥0",
+     "supportModify": false
+    }
+   ]
+  },
+  {
+   "id": 2,
+   "name": "选择蘸酱",
+   "quantity": 1,
+   "maxQuantity": 1,
+   "minQuantity": 1,
+   "choices": [
+    {
+     "code": "521966",
+     "name": "韩式烟熏芝士风味酱",
+     "quantity": 1,
+     "maxQuantity": -1,
+     "isDefault": 1,
+     "diffPrice": "+ ¥0",
+     "supportModify": false
+    },
+    {
+     "code": "521799",
+     "name": "日式鲜磨山葵酱",
+     "quantity": 0,
+     "maxQuantity": -1,
+     "isDefault": 0,
+     "diffPrice": "+ ¥0",
+     "supportModify": false
+    }
+   ]
+  }
+ ],
+ "image": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_9900016078_600.png",
+ "supportModify": false
+}

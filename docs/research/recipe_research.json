@@ -1,0 +1,2873 @@
+{
+ "research": {
+  "鱼系": {
+   "family": "鱼系",
+   "components_used": [
+    {
+     "id": "bun.regular",
+     "name_cn": "普通汉堡面包（麦香鱼用蒸面包，与汉堡包同款）",
+     "new": false,
+     "us_prior": {
+      "kcal": 140,
+      "protein": 5,
+      "fat": 1.5,
+      "carb": 27,
+      "sodium": 230,
+      "source_url": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200445(301578)"
+     }
+    },
+    {
+     "id": "fish.fillet",
+     "name_cn": "鱼排（深海鳕鱼饼）",
+     "new": false,
+     "us_prior": {
+      "kcal": 120,
+      "protein": 9,
+      "fat": 5,
+      "carb": 9,
+      "sodium": 140,
+      "source_url": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200445(300055)"
+     }
+    },
+    {
+     "id": "sauce.tartar",
+     "name_cn": "麦香鱼酱",
+     "new": false,
+     "us_prior": {
+      "kcal": 90,
+      "protein": 0,
+      "fat": 10,
+      "carb": 1,
+      "sodium": 110,
+      "source_url": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200445(302503)"
+     }
+    },
+    {
+     "id": "cheese.american",
+     "name_cn": "吉士片（整片；麦香鱼用半片记 0.5）",
+     "new": false,
+     "us_prior": {
+      "kcal": 50,
+      "protein": 3,
+      "fat": 4,
+      "carb": 1,
+      "sodium": 200,
+      "source_url": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200383(301518)"
+     }
+    },
+    {
+     "id": "veg.tomato",
+     "name_cn": "番茄片",
+     "new": false,
+     "us_prior": {
+      "kcal": 0,
+      "protein": 0,
+      "fat": 0,
+      "carb": 1,
+      "sodium": 0,
+      "source_url": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=203745(301407)"
+     }
+    }
+   ],
+   "products": [
+    {
+     "product": "麦香鱼",
+     "description_url": "https://www.mcdonalds.com.cn/product/Filet-O-Fish",
+     "official_description_cn": "关键词（非全文）：深海鳕鱼烹制而成的鳕鱼饼，搭配「滋味沙拉酱」。页面营养值 1359 kJ（=325 kcal）/16/13/35/556/99，与输入一致。",
+     "composition": [
+      {
+       "component_id": "bun.regular",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "美国 Filet-O-Fish 详情（item 200445）构成为 Fish Filet Patty、Regular Bun 301578、Tartar Sauce、半片芝士 300716，面包与汉堡包同款：https://www.mcdonalds.com/dnaapp/itemDetails?country=US&language=en&showLiveData=true&item=200445",
+        "从中国数据反推：2×麦香鱼 − 双层深海鳕鱼堡 = (165,4,5,24,195,51) = 面包 + (2−n)×鱼酱。用牛肉系反推的面包约 (149,5,2,26,199,56)，钠和钙对得上，说明是同一种面包",
+        "联合最小二乘（n=1 或 1.5）得出鱼系面包约 136–147 kcal、蛋白 4.4、碳水 24.3、钠 168–177、钙 47–50，和汉堡包面包可以共用一个配料"
+       ]
+      },
+      {
+       "component_id": "fish.fillet",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "中国官网描述写的是「深海鳕鱼烹制而成的鳕鱼饼」，只有一块",
+        "美国 200445 的鱼饼 quantity 0.63782，即一块鱼饼"
+       ]
+      },
+      {
+       "component_id": "sauce.tartar",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "MCP 可去配料清单里有「麦香鱼酱」",
+        "中国官网描述写明配「滋味沙拉酱」",
+        "美国 200445 含 Tartar Sauce 302503，quantity 0.184"
+       ]
+      },
+      {
+       "component_id": "cheese.american",
+       "count": 0.5,
+       "confidence": "high",
+       "evidence": [
+        "MCP 可去配料清单里有「吉士」",
+        "美国 200445 用的是半片芝士（Pasteurized Process American Cheese Half Slice 300716，quantity 0.0709825，正好是整片 301518 在双层里 0.141965 的一半）",
+        "钙：麦香鱼 99 − 儿童鱼排堡 58 = 41，约等于一片吉士 83（吉士汉堡包 144 − 汉堡包 61）的一半，即 41.5"
+       ]
+      }
+     ],
+     "arithmetic_checks": [
+      "中国一片吉士：吉士汉堡包 − 汉堡包 = (294−248, 16−13, 12−8, 30−29, 673−492, 144−61) = (46,3,4,1,181,83)；半片 = (23,1.5,2,0.5,90.5,41.5)",
+      "麦香鱼 − 儿童鱼排堡 = (56,1,7,−1,114,41) = 0.5 吉士 + 麦香鱼酱 − 番茄。由此鱼酱 ≈ (33+番茄, −0.5, 5, −1.5+番茄碳水, 23.5+番茄钠, −0.5)，约为 (35,0,5,0,25,0)。脂肪 5 g 只有美国 10 g 的一半，钠约 25 mg，远低于美国的 110 mg",
+      "蛋白：16 − 15 = 1 ≈ 半片吉士 1.5，说明麦香鱼和儿童鱼排堡用的鱼饼大小相同",
+      "钙分解：99 ≈ 面包约 50 + 鱼饼约 5 + 鱼酱约 3 + 半片吉士 41.5 = 99.5 ✓"
+     ],
+     "notes": "中国麦香鱼酱的估计值（约 30–35 kcal、4–5 g 脂肪、25–35 mg 钠）明显低于美国先验（90/10/110）。中国官网把它叫「沙拉酱」，可能是用量更小、偏甜、低盐的配方，所以美国先验需要给很宽的方差或先缩放。"
+    },
+    {
+     "product": "双层深海鳕鱼堡",
+     "description_url": "https://www.mcdonalds.com.cn/product/double-fof",
+     "official_description_cn": "关键词（非全文）：特选「两整块深海鳕鱼饼」。页面营养值 2029 kJ（=485 kcal）/28/21/46/917/147，与输入一致。",
+     "composition": [
+      {
+       "component_id": "bun.regular",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "美国 Double Filet-O-Fish（item 200383）用的是同一个 Regular Bun 301578，quantity 0.5071，和单层一样：https://www.mcdonalds.com/dnaapp/itemDetails?country=US&language=en&showLiveData=true&item=200383",
+        "碳水：双层 − 麦香鱼 = 11 ≈ 一块鱼饼约 10 + 半片吉士 0.5，没有多出面包的碳水，说明面包没有换成更大的"
+       ]
+      },
+      {
+       "component_id": "fish.fillet",
+       "count": 2,
+       "confidence": "high",
+       "evidence": [
+        "中国官网原文为「两整块深海鳕鱼饼」",
+        "美国 200383 的鱼饼 quantity 1.27564，正好是 2 × 0.63782"
+       ]
+      },
+      {
+       "component_id": "cheese.american",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "钙：双层 − 麦香鱼 = 147 − 99 = 48 = 鱼饼钙（约 5–8）+ 约 41 → 多出半片，合计一整片（也可能是两个半片）",
+        "反证：如果没有多加吉士，鱼饼的钙就要有 48 mg。那样儿童鱼排堡 58 = 面包 + 48 + 番茄，面包钙只剩约 8 mg，而牛肉系推出的面包钙约 50–56 mg，矛盾",
+        "美国 200383 用整片 American Cheese 301518，quantity 0.141965 = 2 × 半片 0.0709825",
+        "说明：MCP 返回的可去配料清单是空列表 []，所以中国这边没有配料名的直接证据"
+       ]
+      },
+      {
+       "component_id": "sauce.tartar",
+       "count": 1,
+       "confidence": "low",
+       "evidence": [
+        "美国 200383 的 Tartar Sauce quantity 是 0.184，和单层 200445 完全一样，即只有一份",
+        "中国 MCP 可去配料清单为空，官网描述也没提酱，没有直接证据",
+        "算术检验：双层 − 2×麦香鱼 + 儿童鱼排堡 = (104,11,1,12,247,7) = 鱼饼 + (n−2)×鱼酱 + 番茄（面包和吉士都抵消掉了）。如果 n=2，鱼饼脂肪只有约 1 g（取整误差上限也只有 3 g），一块油炸裹粉的鳕鱼饼不可能这么低（美国是 5 g），所以 n=2 基本排除；n=1 时鱼饼约 (135,11,5.5,12,270,6)，合理",
+        "联合加权最小二乘 χ²：n=1 为 16.2（只有番茄 kcal 小幅为负，−3.7），n=1.5 为 12.9（所有配料都非负，最好），n=2 为 24.0（调料 kcal 为负，鱼饼脂肪 2.5 g）。算术略偏向 1–1.5 份，这里按美国规格取 1"
+       ]
+      }
+     ],
+     "arithmetic_checks": [
+      "双层 − 麦香鱼 = (160,12,8,11,361,48) = 鱼饼 + 半片吉士 + (n−1)×鱼酱。n=1 时鱼饼 = (137,10.5,6,10.5,270.5,6.5)，和美国鱼饼 (120,9,5,9,140,8) 相比热量和宏量营养素大致相当，钠明显更高",
+      "美国对应差值：Double Filet-O-Fish 530 − Filet-O-Fish 380 = 150 kcal = 鱼饼约 125 + 半片吉士 25，酱的份量不变；中国是 160 kcal",
+      "2×麦香鱼 − 双层 = (165,4,5,24,195,51)：n=1 时等于面包 + 鱼酱；n=2 时等于面包本身（5 g 脂肪、165 kcal，比牛肉系面包约 149 kcal / 2 g 高，不太支持）",
+      "钙：147 ≈ 面包约 50 + 2×鱼饼约 10 + 鱼酱约 3 + 整片吉士 83 = 146 ✓"
+     ],
+     "notes": "鱼酱份数是这个家族最大的不确定点：美国规格是 1 份，中国数字的联合拟合最偏向约 1.5 份。建议求解器分别跑 n=1 和 n=1.5 比较残差，或者在双层这一款上放开鱼酱份数作为自由参数。"
+    },
+    {
+     "product": "儿童鱼排堡",
+     "description_url": "https://www.mcdonalds.com.cn/product/kids-fish-filet-burger",
+     "official_description_cn": "关键词（非全文）：深海鳕鱼烹制而成的鳕鱼饼，「搭配新鲜番茄」。页面营养值 1126 kJ（=269 kcal）/15/6/36/442/58，与输入一致；它是开心乐园餐单品，不在快照门店菜单上。",
+     "composition": [
+      {
+       "component_id": "bun.regular",
+       "count": 1,
+       "confidence": "medium",
+       "evidence": [
+        "碳水：36 ≈ 面包 24.3 + 鱼饼 10.3 + 番茄 1.3（联合拟合，n=1）；面包份量和麦香鱼一致",
+        "中国官网没有说明面包种类，按麦香鱼同款处理"
+       ]
+      },
+      {
+       "component_id": "fish.fillet",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "中国官网描述和麦香鱼用的是同一句「深海鳕鱼烹制而成的鳕鱼饼」",
+        "蛋白：麦香鱼 16 − 儿童 15 = 1 ≈ 半片吉士 1.5，说明鱼饼一样大",
+        "儿童 − 牛肉系面包 (149,5,2,26,199,56) − 番茄 (0,0,0,1,0,2) = (120,10,4,9,243,0)，和美国鱼饼 (120,9,5,9,140,8) 的热量和宏量营养素基本一致"
+       ]
+      },
+      {
+       "component_id": "veg.tomato",
+       "count": 1,
+       "confidence": "medium",
+       "evidence": [
+        "中国官网原文为「搭配新鲜番茄」",
+        "碳水：儿童 36 比麦香鱼 35 还多，可麦香鱼还多了鱼酱和半片吉士（约 +0.5–1 g）→ 儿童鱼排堡多出约 1–2 g 碳水，正好对应番茄（美国 Roma Tomato 碳水 1 g）",
+        "具体几片（0.5、1 还是 2 份）没有直接证据"
+       ]
+      },
+      {
+       "component_id": "cheese.american",
+       "count": 0,
+       "confidence": "high",
+       "evidence": [
+        "钙 58 ≈ 面包约 50 + 鱼饼约 5 + 番茄约 2–3，没有吉士的空间（半片就是 +41）",
+        "官网描述没提吉士"
+       ]
+      },
+      {
+       "component_id": "sauce.tartar",
+       "count": 0,
+       "confidence": "medium",
+       "evidence": [
+        "官网描述只提了番茄，没提酱",
+        "脂肪：儿童 6 比麦香鱼 13 少 7 = 半片吉士 2 + 一份鱼酱约 5；如果有一整份鱼酱，脂肪会到 11 左右",
+        "拟合里假设儿童鱼排堡含番茄酱时更差：n=1 时 χ² 从 16.2 升到 30.8，番茄的钠变成 −41，所以也不支持有番茄酱"
+       ]
+      }
+     ],
+     "arithmetic_checks": [
+      "儿童 = 面包 + 鱼饼 + 番茄：用 n=1 联合拟合的配料值（面包 135.7/4.5/1.0/24.4/168/47、鱼饼 137/10.4/5.8/10.3/270.5/6.5）预测 kcal = 273 + 番茄，比官方 269 多约 4–9 kcal，所以番茄被压成负值；用 n=1.5 时没有负值",
+      "麦香鱼 − 儿童 = 0.5 吉士 + 鱼酱 − 番茄 = (56,1,7,−1,114,41)：钙 41 ≈ 41.5 ✓，碳水 −1 说明儿童多出约 1–2 g 碳水（番茄）✓"
+     ],
+     "notes": "开心乐园餐单品，不在快照门店菜单上，但营养表里有数值，可以作为约束鱼饼和面包的独立方程。它是区分鱼饼和鱼酱贡献的关键：只有它不含鱼酱和吉士。"
+    }
+   ],
+   "open_questions": [
+    "双层深海鳕鱼堡里麦香鱼酱是 1 份还是更多：美国 Double Filet-O-Fish（200383）是 1 份（quantity 0.184，和单层相同），但中国六款产品的联合加权最小二乘里 n=1.5 拟合最好（χ² 12.9，n=1 为 16.2，n=2 为 24.0 已基本排除）。n=1 的代价是：牛肉系番茄酱/芥末/酸黄瓜/洋葱合计约 20 kcal（美国约 10），面包降到约 136 kcal。建议牛肉系配方定下来后，再用全库求解比较 n=1 和 n=1.5 的残差。",
+    "中国麦香鱼酱和美国 Tartar Sauce 差距很大：反推约 30–35 kcal、4–5 g 脂肪、0 碳水、25–35 mg 钠，美国是 90/10/1/110。如果直接用美国先验且方差小，会把鱼饼和面包的数值带偏。建议先验缩放约 0.4–0.5，或给很宽的方差。",
+    "中国鱼饼的钠明显高于美国：反推约 240–270 mg，美国为 140 mg。热量、蛋白、脂肪、碳水和美国基本一致（约 120–137 kcal、10 g 蛋白、4–6 g 脂肪、10 g 碳水），钠先验需要放宽。",
+    "钙先验不能直接套美国：中国面包钙约 47–56 mg，美国 Regular Bun 只有 8 mg。美国芝士钙（整片 80 / 半片 40 mg）和中国（83）基本一致；美国鱼饼 8、鱼酱 6、Roma 番茄 2 mg 可以参考。schema 里的 us_prior 没有钙字段，这些数值请另外录入。",
+    "儿童鱼排堡的番茄份量（几片）没有直接证据，暂记 1 份 veg.tomato，默认与培根蔬萃双层牛堡等用的番茄片份量相同。是否真的不含任何酱（麦香鱼酱、番茄酱）也只是从官网描述和脂肪、钠的算术推断出来的，属中等置信度。",
+    "双层深海鳕鱼堡 MCP 可去配料返回空列表 []（不是 null），中国这边没有吉士、鱼酱的配料名直接证据。整片吉士（1.0）是由钙差值 48 加美国规格推出来的；实物可能是两个半片，营养上相同。"
+   ],
+   "urls_visited": [
+    "https://www.mcdonalds.com.cn/product/Filet-O-Fish",
+    "https://www.mcdonalds.com.cn/index/Food/menu/burger",
+    "https://www.mcdonalds.com.cn/product/double-fof",
+    "https://www.mcdonalds.com.cn/product/mcdonalds/Happy-Meal-Items-2",
+    "https://www.mcdonalds.com.cn/product/kids-fish-filet-burger",
+    "https://www.mcdonalds.com/dnaapp/itemDetails?country=US&language=en&showLiveData=true&item=200445",
+    "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200445(300055)",
+    "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200445(301578)",
+    "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200445(302503)",
+    "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200445(300716)",
+    "https://www.mcdonalds.com/us/en-us/product/double-filet-o-fish.html",
+    "https://www.mcdonalds.com/dnaapp/itemDetails?country=US&language=en&showLiveData=true&item=200383",
+    "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200383(300055)",
+    "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200383(301518)",
+    "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200383(302503)",
+    "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200383(301578)",
+    "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=203745(301407)"
+   ]
+  },
+  "早餐麦满分系": {
+   "family": "早餐麦满分系",
+   "components_used": [
+    {
+     "id": "bun.muffin",
+     "name_cn": "英式松饼（麦满分）",
+     "new": false,
+     "us_prior": {
+      "kcal": 140,
+      "protein": 5,
+      "fat": 1,
+      "carb": 27,
+      "sodium": 260,
+      "source_url": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200161(301533)"
+     }
+    },
+    {
+     "id": "pork.sausage",
+     "name_cn": "猪柳饼",
+     "new": false,
+     "us_prior": {
+      "kcal": 190,
+      "protein": 6,
+      "fat": 18,
+      "carb": 1,
+      "sodium": 280,
+      "source_url": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200161(300694)"
+     }
+    },
+    {
+     "id": "egg.round",
+     "name_cn": "圆蛋（蒸蛋）",
+     "new": false,
+     "us_prior": {
+      "kcal": 80,
+      "protein": 7,
+      "fat": 5,
+      "carb": 1,
+      "sodium": 70,
+      "source_url": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200161(300067)"
+     }
+    },
+    {
+     "id": "cheese.american",
+     "name_cn": "吉士片",
+     "new": false,
+     "us_prior": {
+      "kcal": 50,
+      "protein": 3,
+      "fat": 4,
+      "carb": 1,
+      "sodium": 200,
+      "source_url": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200480(301518)"
+     }
+    },
+    {
+     "id": "bacon",
+     "name_cn": "培根（早餐叫烟肉）",
+     "new": false,
+     "us_prior": {
+      "kcal": 70,
+      "protein": 4,
+      "fat": 6,
+      "carb": 1,
+      "sodium": 220,
+      "source_url": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200300(300163)"
+     }
+    },
+    {
+     "id": "ham.steak",
+     "name_cn": "火腿扒（官网写作“火腿扒味肉饼”）",
+     "new": false
+    },
+    {
+     "id": "veg.lettuce_shred",
+     "name_cn": "生菜丝",
+     "new": false,
+     "us_prior": {
+      "kcal": 0,
+      "protein": 0,
+      "fat": 0,
+      "carb": 1,
+      "sodium": 0,
+      "source_url": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200463(300098)"
+     }
+    },
+    {
+     "id": "chicken.grill_thigh_breakfast",
+     "name_cn": "早餐用原味板烧鸡腿肉（小块，约为板烧鸡腿堡鸡腿的一半）",
+     "new": true,
+     "reason_if_new": "算术结果显示，早餐用的鸡腿肉大约只有汉堡用鸡腿的一半。早餐里 1 块鸡腿加 1 份烤味酱 = 双层原味板烧鸡腿麦满分 − 原味板烧鸡腿麦满分 = (109 kcal, 8 g 蛋白质, 8 g 脂肪, 2 g 碳水, 373 mg 钠, 5 mg 钙)。而板烧鸡腿堡的蛋白质是 23 g、钠 1041 mg，任何面包最多贡献约 7 g 蛋白质、约 350 mg 钠，所以汉堡里鸡腿加酱加生菜至少有约 16 g 蛋白质、约 690 mg 钠，约为早餐那份的两倍。如果和 chicken.grill_thigh 共用同一个配料、份数都记 1，求解时汉堡鸡腿的估计会被拉偏。早餐里这块鸡腿和烤味酱总是 1:1 同时出现，所以在早餐家族内部，酱料用量的差别会被这个配料吸收，不影响早餐餐品的预测。没有美国对应配料。"
+    },
+    {
+     "id": "sauce.teriyaki",
+     "name_cn": "烤味酱（官网也写作香浓烧鸡酱、秘制烤味酱）",
+     "new": false
+    },
+    {
+     "id": "chicken.mcchicken_patty",
+     "name_cn": "麦香鸡鸡排（大脆鸡扒）",
+     "new": false,
+     "us_prior": {
+      "kcal": 150,
+      "protein": 9,
+      "fat": 8,
+      "carb": 10,
+      "sodium": 270,
+      "source_url": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200438(300708)"
+     }
+    },
+    {
+     "id": "sauce.mcchicken",
+     "name_cn": "麦香鸡酱",
+     "new": false,
+     "us_prior": {
+      "kcal": 100,
+      "protein": 0,
+      "fat": 11,
+      "carb": 0,
+      "sodium": 65,
+      "source_url": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200438(300430)"
+     }
+    },
+    {
+     "id": "bun.regular",
+     "name_cn": "普通汉堡面包（炒双蛋堡用，推断）",
+     "new": false,
+     "us_prior": {
+      "kcal": 140,
+      "protein": 5,
+      "fat": 1.5,
+      "carb": 27,
+      "sodium": 230,
+      "source_url": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200477(301578)"
+     }
+    },
+    {
+     "id": "egg.scrambled",
+     "name_cn": "炒蛋（1 份 = 炒双蛋堡里的一层，即 2 颗蛋）",
+     "new": false,
+     "us_prior": {
+      "kcal": 150,
+      "protein": 14,
+      "fat": 9,
+      "carb": 2,
+      "sodium": 130,
+      "source_url": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200322(300524)"
+     }
+    }
+   ],
+   "products": [
+    {
+     "product": "猪柳麦满分",
+     "description_url": "https://www.mcdonalds.com.cn/product/Sausage-McMuffin",
+     "official_description_cn": "（意译要点）一块猪柳，配烘烤风味松饼和微咸吉士。页面数据：1288 kJ / 16 / 16 / 24 / 781 / 钙 213。",
+     "composition": [
+      {
+       "component_id": "bun.muffin",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "餐品名是“麦满分”，中国官网描述提到烘烤风味松饼",
+        "美国 Sausage McMuffin（itemDetails item=200449）的配料是 English Muffin ×1"
+       ]
+      },
+      {
+       "component_id": "pork.sausage",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "中国官网描述只提到一块猪柳（双层版本才特别写明“双层”）",
+        "双层猪柳蛋 − 猪柳蛋 = 一块猪柳 = (126, 6, 11, 1, 364, 钙 6)，用这块猪柳代回本品，各项都对得上（见算式）",
+        "美国 Sausage McMuffin 只有 1 块 Sausage Patty"
+       ]
+      },
+      {
+       "component_id": "cheese.american",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "MCP 可去配料只有“吉士”，编码 100141，和双层吉士汉堡里的“吉士”编码相同",
+        "钙：213 ≈ 松饼约 128 + 猪柳 6 + 吉士约 79，正好一片吉士",
+        "美国 Sausage McMuffin 有 1 片 American Cheese"
+       ]
+      }
+     ],
+     "arithmetic_checks": [
+      "吉士 = 猪柳麦满分 − 猪柳 − (松饼+生菜) = (308−126−137, 16−6−7, 16−11−2, 24−1−22, 781−364−237, 213−6−128) = (45, 3, 3, 1, 180, 79)；牛肉小饼系的 吉士汉堡包 − 汉堡包 = (46, 3, 4, 1, 181, 83)，两者吻合，说明是一片吉士",
+      "松饼+生菜 = (137, 7, 2, 22, 237, 128) 来自 火腿扒麦满分 − 火腿扒，见火腿扒麦满分条目；生菜约为 0，所以这个值基本就是松饼本身"
+     ],
+     "notes": "美国版另有 Salted Butter（20 kcal, 2.5 g 脂肪, 15 mg 钠）；中国 MCP 没有列黄油，本配方不计，详见 open_questions。中国松饼含钙约 128 mg，美国 English Muffin 只有 60 mg，钙的先验不能直接套用美国数据。"
+    },
+    {
+     "product": "猪柳蛋麦满分",
+     "description_url": "https://www.mcdonalds.com.cn/product/Sausage-McMuffin-With-Egg",
+     "official_description_cn": "（意译要点）猪柳，加蒸鸡蛋、烘烤风味松饼和微咸芝士，层层叠放。数据：1618 kJ / 23 / 21 / 25 / 846 / 钙 243。",
+     "composition": [
+      {
+       "component_id": "bun.muffin",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "官网描述提到松饼；美国 Sausage McMuffin with Egg（item=200161）有 English Muffin ×1"
+       ]
+      },
+      {
+       "component_id": "pork.sausage",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "官网描述只提到一块猪柳；猪柳蛋 − 猪柳麦满分 的差值里没有猪柳的成分（见算式）"
+       ]
+      },
+      {
+       "component_id": "egg.round",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "官网描述是“蒸鸡蛋”，双层版页面写的是“圆形蒸蛋”",
+        "猪柳蛋 − 猪柳麦满分 = (79, 7, 5, 1, 65, 钙 30)，和美国 Egg 300067 的 (80, 7, 5, 1, 70, 钙 30) 几乎完全一致"
+       ]
+      },
+      {
+       "component_id": "cheese.american",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "MCP 可去配料“吉士”（编码 100141）出现 1 次；官网描述提到微咸芝士",
+        "钙 243 = 猪柳麦满分的 213 + 蛋 30，说明没有多加芝士"
+       ]
+      }
+     ],
+     "arithmetic_checks": [
+      "猪柳蛋 − 猪柳麦满分 = (387−308, 23−16, 21−16, 25−24, 846−781, 243−213) = (79, 7, 5, 1, 65, 30) = 1 个圆蛋（美国 Egg 是 80/7/5/1/70/钙30）；按 Atwater 系数 7×4+5×9+1×4 = 77 ≈ 79"
+     ]
+    },
+    {
+     "product": "双层猪柳蛋麦满分",
+     "description_url": "https://www.mcdonalds.com.cn/product/%E5%8F%8C%E5%B1%82%E7%8C%AA%E6%9F%B3%E8%9B%8B%E9%BA%A6%E6%BB%A1%E5%88%86",
+     "official_description_cn": "（意译要点）双层精选猪柳，配圆形蒸蛋、烘烤风味松饼和微咸吉士。数据：2148 kJ / 29 / 32 / 26 / 1210 / 钙 249。",
+     "composition": [
+      {
+       "component_id": "bun.muffin",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "官网描述提到松饼（只有一个）"
+       ]
+      },
+      {
+       "component_id": "pork.sausage",
+       "count": 2,
+       "confidence": "high",
+       "evidence": [
+        "官网描述写明“双层精选猪柳”",
+        "双层 − 单层 = (126, 6, 11, 1, 364, 钙 6)，正好是一块猪柳的特征：高钠、高脂、几乎不含钙和碳水"
+       ]
+      },
+      {
+       "component_id": "egg.round",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "官网描述是“圆形蒸蛋”（单数）",
+        "与猪柳蛋相比钙只多 6 mg；如果多一个蛋会多约 30 mg 钙、7 g 蛋白质、65 mg 钠"
+       ]
+      },
+      {
+       "component_id": "cheese.american",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "MCP 可去配料“吉士”只出现 1 次",
+        "与猪柳蛋相比钙只多 6 mg；如果多一片吉士会多约 80 mg"
+       ]
+      }
+     ],
+     "arithmetic_checks": [
+      "双层猪柳蛋 − 猪柳蛋 = (513−387, 29−23, 32−21, 26−25, 1210−846, 249−243) = (126, 6, 11, 1, 364, 6)：按 Atwater 6×4+11×9+1×4 = 127 ≈ 126，自洽；钙只多 6，排除第二片芝士和第二个蛋",
+      "和美国 Sausage Patty（190, 6, 18, 1, 280, 钙 8）相比，中国猪柳脂肪更低、钠更高，蛋白质一样"
+     ]
+    },
+    {
+     "product": "烟肉蛋麦满分",
+     "official_description_cn": "中国官网没有产品页（试了 Bacon-Egg-McMuffin、烟肉蛋麦满分 等 URL，都跳回首页）；也不在快照菜单上，MCP 没有它的配料数据。",
+     "composition": [
+      {
+       "component_id": "bun.muffin",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "餐品名是“麦满分”；碳水 24、钙 238 都和其他麦满分一致"
+       ]
+      },
+      {
+       "component_id": "egg.round",
+       "count": 1,
+       "confidence": "medium",
+       "evidence": [
+        "餐品名里有“蛋”",
+        "减去松饼和吉士后剩下 (78, 6, 5, 1, 66, 钙 31)，正好等于一个圆蛋 (79, 7, 5, 1, 65, 30)"
+       ]
+      },
+      {
+       "component_id": "cheese.american",
+       "count": 1,
+       "confidence": "medium",
+       "evidence": [
+        "钙 238 = 松饼约 128 + 蛋 30 + 吉士约 79；没有吉士的话钙对不上（培根不含钙）",
+        "美国 Egg McMuffin（item=200298）的结构是 松饼 + 蛋 + 肉 + American Cheese"
+       ]
+      },
+      {
+       "component_id": "bacon",
+       "count": 1,
+       "confidence": "low",
+       "evidence": [
+        "餐品名“烟肉”就是培根，可以肯定含培根，但份数（几片）没有证据",
+        "算术上这一行的培根贡献约等于 0（见算式），所以官方数值无法给培根份数提供任何信息"
+       ]
+      }
+     ],
+     "arithmetic_checks": [
+      "烟肉蛋 − (松饼+生菜 + 圆蛋 + 吉士) = (260−137−79−45, 16−7−7−3, 10−2−5−3, 24−22−1−1, 483−237−65−180, 238−128−30−79) = (−1, −1, 0, 0, +1, +1)，培根贡献约为 0，不合理（美国培根一份是 70 kcal、220 mg 钠）",
+      "等价写法：烟肉蛋 − 猪柳蛋 = (−127, −7, −11, −1, −363, −5) ≈ −1 块猪柳 (126, 6, 11, 1, 364, 6)。也就是说，这一行的数值等于把猪柳蛋里的猪柳拿掉、什么都没补上",
+      "反证：如果假设没有吉士，剩下的 (78, 6, 5, 1, 66, 31) 里有 31 mg 钙，培根不可能有这么多钙，所以吉士一定在，问题出在培根这一项"
+     ],
+     "notes": "这一行很可能是旧数据或有误：它在数值上恰好等于“松饼 + 蛋 + 吉士”，没有培根。建议求解时剔除这一行或给极低权重，否则会把 bacon 往 0 拉，和其他家族（培根蔬萃双层牛堡、培根安格斯厚牛堡）的培根估计冲突。"
+    },
+    {
+     "product": "火腿扒麦满分",
+     "description_url": "https://www.mcdonalds.com.cn/product/Ham-Muffin",
+     "official_description_cn": "（意译要点）火腿扒味肉饼，口感Q弹，配鲜脆生菜。数据：1092 kJ / 14 / 12 / 24 / 608 / 钙 131。",
+     "composition": [
+      {
+       "component_id": "bun.muffin",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "餐品名是“麦满分”；钙 131 和其他麦满分的基础值（约 128）一致"
+       ]
+      },
+      {
+       "component_id": "ham.steak",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "官网描述提到火腿扒味肉饼（单数）",
+        "双层火腿扒 − 火腿扒 = (124, 7, 10, 2, 371, 3) = 一块火腿扒"
+       ]
+      },
+      {
+       "component_id": "veg.lettuce_shred",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "MCP 可去配料“生菜”，编码 100168，和麦香鸡、培根蔬萃双层牛堡里的“生菜”编码相同，和板烧鸡腿堡的“切块生菜”（120512）不同",
+        "同一个编码 100168 也出现在原味板烧鸡腿麦满分里，而后者官网写的是“生菜丝”"
+       ]
+      }
+     ],
+     "arithmetic_checks": [
+      "松饼+生菜 = 火腿扒麦满分 − (双层火腿扒 − 火腿扒) = (261−124, 14−7, 12−10, 24−2, 608−371, 131−3) = (137, 7, 2, 22, 237, 128)；用板烧那条路算出来是 (137, 7, 1, 23, 238, 128)，两条独立路径吻合，说明火腿扒麦满分里没有隐藏的酱、芝士或蛋",
+      "钙 131 说明没有芝士（加芝士会到 210 左右）"
+     ],
+     "notes": "火腿扒的推导值是 124 kcal、7 g 蛋白质、10 g 脂肪、371 mg 钠，接近一块猪柳；这和官网“肉饼”的说法相符。美国只有 Canadian Bacon（15 kcal、3 g 蛋白质、220 mg 钠），不是同一种东西，所以没给美国先验。"
+    },
+    {
+     "product": "双层火腿扒麦满分",
+     "official_description_cn": "中国官网没有产品页，也不在快照菜单上，MCP 没有它的配料数据。",
+     "composition": [
+      {
+       "component_id": "bun.muffin",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "餐品名是“麦满分”；钙 134 和其他麦满分的基础值一致"
+       ]
+      },
+      {
+       "component_id": "ham.steak",
+       "count": 2,
+       "confidence": "high",
+       "evidence": [
+        "餐品名是“双层”",
+        "和单层相比的差值 (124, 7, 10, 2, 371, 3) 和猪柳很像（高钠、高脂、无钙），是一块肉饼的特征"
+       ]
+      },
+      {
+       "component_id": "veg.lettuce_shred",
+       "count": 1,
+       "confidence": "low",
+       "evidence": [
+        "没有 MCP 数据；按单层火腿扒麦满分有 1 份生菜，以及双层板烧麦满分的 MCP 生菜只出现一次，推定为 1 份",
+        "生菜热量约为 0，算术上无法验证份数"
+       ]
+      }
+     ],
+     "arithmetic_checks": [
+      "双层火腿扒 − 火腿扒 = (385−261, 21−14, 22−12, 26−24, 979−608, 134−131) = (124, 7, 10, 2, 371, 3)；按 Atwater 7×4+10×9+2×4 = 126 ≈ 124；钙只多 3，说明没有芝士"
+     ]
+    },
+    {
+     "product": "原味板烧鸡腿麦满分",
+     "description_url": "https://www.mcdonalds.com.cn/product/Grilled-Chicken-Muffin",
+     "official_description_cn": "（意译要点）去骨鸡腿肉，0 油煎制，配鲜脆生菜丝和香浓烧鸡酱，烘烤风味松饼。数据：1029 kJ / 15 / 9 / 25 / 611 / 钙 133。",
+     "composition": [
+      {
+       "component_id": "bun.muffin",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "官网描述提到烘烤风味松饼"
+       ]
+      },
+      {
+       "component_id": "chicken.grill_thigh_breakfast",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "官网描述提到去骨鸡腿肉（双层版才写明“双层”）",
+        "一块鸡腿加一份酱约 109 kcal、8 g 蛋白质，大约只有板烧鸡腿堡那块的一半，所以单独设了一个配料（见 components_used）"
+       ]
+      },
+      {
+       "component_id": "sauce.teriyaki",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "MCP 可去配料“烤味酱”，编码 102201，和板烧鸡腿堡的“烤味酱”编码相同；官网写作“香浓烧鸡酱”"
+       ]
+      },
+      {
+       "component_id": "veg.lettuce_shred",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "MCP 可去配料“生菜”（编码 100168）；官网描述写明“生菜丝”"
+       ]
+      }
+     ],
+     "arithmetic_checks": [
+      "板烧 − (双层板烧 − 板烧) = (246−109, 15−8, 9−8, 25−2, 611−373, 133−5) = (137, 7, 1, 23, 238, 128) = 松饼+生菜，和火腿扒路径的 (137, 7, 2, 22, 237, 128) 吻合"
+     ]
+    },
+    {
+     "product": "双层原味板烧鸡腿麦满分",
+     "description_url": "https://www.mcdonalds.com.cn/product/Double-Grilled-Chicken-Muffin",
+     "official_description_cn": "（意译要点）双层去骨鸡腿肉，0 油煎制，配鲜脆生菜丝和秘制烤味酱。数据：1486 kJ / 23 / 17 / 27 / 984 / 钙 138。",
+     "composition": [
+      {
+       "component_id": "bun.muffin",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "餐品名是“麦满分”；产品图（menu-img MS_4989_600.png）里只有一个松饼"
+       ]
+      },
+      {
+       "component_id": "chicken.grill_thigh_breakfast",
+       "count": 2,
+       "confidence": "high",
+       "evidence": [
+        "官网描述写明“双层去骨鸡腿肉”；产品图里能看到两块鸡腿肉"
+       ]
+      },
+      {
+       "component_id": "sauce.teriyaki",
+       "count": 2,
+       "confidence": "medium",
+       "evidence": [
+        "MCP 里“烤味酱”只出现一次（maxQuantity 1），但这只说明这一项可以去掉，不说明用量",
+        "算术：双层 − 单层 = (109, 8, 8, 2, 373, 5)；这个增量和另一条独立路径 (板烧炒双蛋堡 − 猪柳炒双蛋堡) + 猪柳 = (108, 8, 8, 2, 374, 6) 一致，而后一条路径里鸡腿肉明确带一份烤味酱",
+        "反证：如果双层只有 1 份酱，用两条路径的差可以推出烤味酱 = (0, 0, −1, 1, 1, 0)，带酱油的酱钠不可能为 0"
+       ]
+      },
+      {
+       "component_id": "veg.lettuce_shred",
+       "count": 1,
+       "confidence": "medium",
+       "evidence": [
+        "MCP 里“生菜”（100168）只出现一次；产品图里只看到一层生菜丝",
+        "生菜约为 0，算术上无法验证"
+       ]
+      }
+     ],
+     "arithmetic_checks": [
+      "双层 − 单层 = (355−246, 23−15, 17−9, 27−25, 984−611, 138−133) = (109, 8, 8, 2, 373, 5)；按 Atwater 8×4+8×9+2×4 = 112 ≈ 109",
+      "交叉验证：(原味板烧鸡腿炒双蛋堡 − 猪柳炒双蛋堡) + 猪柳(126, 6, 11, 1, 364, 6) = (−18+126, 2+6, −3+11, 1+1, 10+364, 0+6) = (108, 8, 8, 2, 374, 6) ≈ (109, 8, 8, 2, 373, 5)，说明双层增量 = 1 块鸡腿 + 1 份烤味酱"
+     ]
+    },
+    {
+     "product": "大脆鸡扒麦满分",
+     "description_url": "https://www.mcdonalds.com.cn/product/Crispy-Chicken-Muffin",
+     "official_description_cn": "（意译要点）金棕色的麦香鸡块，表面微脆，带黑胡椒香味，配酥脆的松饼。数据：1510 kJ / 16 / 17 / 35 / 804 / 钙 130。",
+     "composition": [
+      {
+       "component_id": "bun.muffin",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "官网描述提到松饼；钙 130 和其他麦满分的基础值一致"
+       ]
+      },
+      {
+       "component_id": "chicken.mcchicken_patty",
+       "count": 1,
+       "confidence": "medium",
+       "evidence": [
+        "官网描述把它叫作“麦香鸡块”",
+        "算术：本品 − 松饼 = 鸡扒+酱 (224, 9, 15, 13, 567, 2)；麦香鸡 − 普通面包估计值 = (220, 10, 15, 13, 532, 17)，热量、蛋白质、脂肪、碳水几乎相同，说明是同一种鸡排",
+        "存疑：官网特别提到黑胡椒风味，名字又叫“大脆鸡扒”；而且钠多 35 mg，所以不能完全排除是一种调味不同的鸡排"
+       ]
+      },
+      {
+       "component_id": "sauce.mcchicken",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "MCP 可去配料“麦香鸡酱”，编码 100136，和麦香鸡里的“麦香鸡酱”编码相同",
+        "MCP 里没有生菜，所以本品不含生菜"
+       ]
+      }
+     ],
+     "arithmetic_checks": [
+      "大脆鸡扒麦满分 − (松饼+生菜) = (361−137, 16−7, 17−2, 35−22, 804−237, 130−128) = (224, 9, 15, 13, 567, 2) = 鸡扒+麦香鸡酱",
+      "麦香鸡 − 大脆鸡扒麦满分 = (8, −1, 0, 4, −73, −57)：如果鸡排和酱相同，这个差值就是“普通面包+生菜 − 松饼”；钙 −57 正好对应松饼（约 128）换成普通面包（约 56），碳水 +4 也对应普通面包碳水更多（26 对 22），两者自洽"
+     ]
+    },
+    {
+     "product": "猪柳炒双蛋堡",
+     "description_url": "https://www.mcdonalds.com.cn/product/Sausage-Scrambled-Double-Egg-Burger",
+     "official_description_cn": "（意译要点）早餐要两颗蛋：两颗优质鸡蛋配猪柳。页面没有写用什么面包。数据：1827 kJ / 25 / 24 / 29 / 705 / 钙 116。",
+     "composition": [
+      {
+       "component_id": "bun.regular",
+       "count": 1,
+       "confidence": "medium",
+       "evidence": [
+        "产品图（menu-img MS_502773_600.png）是光滑、无芝麻的圆面包，不是松饼",
+        "钙：如果用松饼（约 128 mg），炒蛋的钙会算成 −18，不可能，所以排除松饼",
+        "用牛肉小饼系推出的普通面包 (149, 5, 2, 26, 199, 56) 代入后，剩下的炒蛋正好约等于 2 个圆蛋（见算式）",
+        "存疑：面包可能是外观相似的专用面包（比如奶香面包），只是营养接近普通面包"
+       ]
+      },
+      {
+       "component_id": "pork.sausage",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "官网描述提到猪柳（单数）",
+        "和原味板烧鸡腿炒双蛋堡的差值，正好等于“猪柳 − (鸡腿+烤味酱)”（见算式）"
+       ]
+      },
+      {
+       "component_id": "egg.scrambled",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "官网描述写明两颗鸡蛋；这里 1 份 = 炒双蛋层（2 颗蛋），和美国 Big Breakfast 的 Scrambled Eggs 300524（约 97 g，150 kcal、14 g 蛋白质、9 g 脂肪、2 g 碳水、130 mg 钠、钙 60）同一个口径",
+        "推导出的炒蛋 (162, 14, 11, 2, 142, 54) ≈ 2 个圆蛋 (158, 14, 10, 2, 130, 60) ≈ 美国 Scrambled Eggs"
+       ]
+      }
+     ],
+     "arithmetic_checks": [
+      "面包+炒蛋 = 猪柳炒双蛋堡 − 猪柳 = (437−126, 25−6, 24−11, 29−1, 705−364, 116−6) = (311, 19, 13, 28, 341, 110)",
+      "普通面包估计：牛肉饼 = 双层吉士 − 吉士汉堡包 − 吉士 = (429−294−46, 27−16−3, 22−12−4, 31−30−1, 1017−673−181, 232−144−83) = (89, 8, 6, 0, 163, 5)；普通面包 = 汉堡包 − 牛肉饼 − 美国用量的番茄酱、芥末、酸黄瓜、洋葱 (10, 0, 0, 3, 130) = (149, 5, 2, 26, 199, 56)",
+      "炒蛋 = (311, 19, 13, 28, 341, 110) − 普通面包 = (162, 14, 11, 2, 142, 54)，约等于 2×圆蛋 (158, 14, 10, 2, 130, 60)，说明面包和普通面包营养相当，且炒蛋层是两颗蛋",
+      "钙 116 说明没有芝士；MCP 显示不可修改（supportModify=false），没有可去的酱"
+     ]
+    },
+    {
+     "product": "原味板烧鸡腿炒双蛋堡",
+     "description_url": "https://www.mcdonalds.com.cn/product/%E5%8E%9F%E5%91%B3%E6%9D%BF%E7%83%A7%E9%B8%A1%E8%85%BF%E7%82%92%E5%8F%8C%E8%9B%8B%E5%A0%A1",
+     "official_description_cn": "（意译要点）两颗优质鸡蛋，配原味板烧鸡腿肉和秘制烤味酱。数据：1754 kJ / 27 / 21 / 30 / 715 / 钙 116。",
+     "composition": [
+      {
+       "component_id": "bun.regular",
+       "count": 1,
+       "confidence": "medium",
+       "evidence": [
+        "和猪柳炒双蛋堡同一系列（菜单分类“炒双蛋堡系列”）；去掉肉以后剩下的面包+炒蛋和猪柳款完全一致（见算式）",
+        "钙 116 排除松饼"
+       ]
+      },
+      {
+       "component_id": "chicken.grill_thigh_breakfast",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "官网描述提到原味板烧鸡腿肉",
+        "本品 − 猪柳款 + 猪柳 = (108, 8, 8, 2, 374, 6)，和早餐鸡腿+酱 (109, 8, 8, 2, 373, 5) 一致，是同一块小鸡腿"
+       ]
+      },
+      {
+       "component_id": "sauce.teriyaki",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "MCP 可去配料“烤味酱”，编码 102201；官网描述提到秘制烤味酱"
+       ]
+      },
+      {
+       "component_id": "egg.scrambled",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "官网描述写明两颗鸡蛋；1 份 = 2 颗蛋的炒蛋层"
+       ]
+      }
+     ],
+     "arithmetic_checks": [
+      "本品 − (鸡腿+烤味酱 109, 8, 8, 2, 373, 5) = (310, 19, 13, 28, 342, 111)，和猪柳款路径的 (311, 19, 13, 28, 341, 110) 吻合",
+      "本品 − 猪柳炒双蛋堡 = (−18, 2, −3, 1, 10, 0)；(鸡腿+酱) − 猪柳 = (−17, 2, −3, 1, 9, −1)，吻合"
+     ]
+    }
+   ],
+   "open_questions": [
+    "烟肉蛋麦满分的官方数值很可能有误：它恰好等于“松饼+圆蛋+吉士”（剩余 −1 kcal、−1 g 蛋白质、+1 mg 钠、+1 mg 钙），培根的贡献约为 0。这款已不在官网，也不在快照菜单上。建议求解时剔除这一行或给极低权重，否则会把 bacon 往 0 拉。培根份数（1 片还是 2 片）没有任何证据，配方里先填 1，置信度 low。",
+    "炒双蛋堡的面包：照片显示是无芝麻的光滑圆面包，算术也和 bun.regular 吻合，但没有官方说明，可能是外观相似的专用面包。在本家族里，面包和炒蛋总是一起出现，只能识别两者之和 (约 310, 19, 13, 28, 341, 110)；要分开它们，只能靠 bun.regular 在其他家族里的估计。如果改用新的专用面包配料，就必须靠先验来区分面包和炒蛋。",
+    "双层原味板烧鸡腿麦满分的烤味酱记为 2 份，这是靠两条独立的算术路径推出来的；MCP 里只列一次“烤味酱”。如果实际只有 1 份，两条路径会推出烤味酱 ≈ 0，不合理。",
+    "早餐板烧鸡腿肉新建了 chicken.grill_thigh_breakfast：一块加酱约 109 kcal、8 g 蛋白质、373 mg 钠，约为板烧鸡腿堡那块的一半。如果编排方坚持共用 chicken.grill_thigh，可以改成份数约 0.5，但烤味酱的用量也可能不同。早餐里鸡腿和酱总是 1:1 同时出现，在本家族里无法分开。",
+    "大脆鸡扒是否就是麦香鸡鸡排：官网称之为“麦香鸡块”，但特别提到黑胡椒风味；算术上热量、蛋白质、脂肪、碳水几乎相同，钠多约 35 mg。这个判断依赖“麦香鸡用普通面包”的假设。本品的麦香鸡酱用量也可能小于汉堡用量，无法单独验证。",
+    "黄油：美国各款 McMuffin 都有 Salted Butter（20 kcal、0 g 蛋白质、2.5 g 脂肪、0 g 碳水、15 mg 钠，来源 https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200161(300310)）。中国 MCP 没有给麦满分列“黄油”，而安格斯系把黄油（120160）列为可去配料；推导出的松饼脂肪只有约 2 g，也几乎没有给黄油留出空间，所以没有计入。即使计入，它也和 bun.muffin 完全共线（每款麦满分都有），只会改变先验怎么分摊。",
+    "中国松饼含钙约 128 mg（三条路径都这样推出），美国 English Muffin 只有 60 mg，碳水也更少（22 对 27）。bun.muffin 的钙不能用美国先验。",
+    "ham.steak 没有美国先验：美国只有 Canadian Bacon（15 kcal、3 g 蛋白质、0 g 脂肪、220 mg 钠，item=200298(301639)），和中国的“火腿扒味肉饼”（推导值 124 kcal、7 g 蛋白质、10 g 脂肪、371 mg 钠）差别很大，靠双层减单层就能稳定识别。",
+    "双层火腿扒麦满分不在菜单上，也没有官网页和 MCP 数据；生菜份数按单层推定为 1，置信度 low，但对营养影响约为 0。",
+    "输入里漏了一款：吉士蛋麦满分（MCP 编码 5888）在门店 1450441 的 2026-10-17 07:30 早餐菜单“麦满分系列”里，但不在官方营养表里，也不在 families_input 里。它的 MCP 可去配料是 麦香鸡酱、吉士、番茄酱。建议配方：bun.muffin×1 + egg.round×1 + cheese.american×1 + sauce.mcchicken×1 + sauce.ketchup×1（蛋的份数没有核实）。可以考虑加入预测名单。",
+    "本家族内部的可识别性：猪柳、圆蛋、火腿扒、早餐鸡腿+酱 都能直接靠差值识别。松饼和生菜无法分开；吉士要靠火腿扒或板烧这条路径（不含吉士的麦满分）才能和松饼分开。在本家族之外，吉士由牛肉小饼系的“吉士汉堡包 − 汉堡包”独立验证，结果一致。"
+   ],
+   "urls_visited": [
+    "https://www.mcdonalds.com.cn/index/Food/menu/burger",
+    "https://www.mcdonalds.com.cn/index/Food/menu/breakfast",
+    "https://www.mcdonalds.com.cn/product/Sausage-McMuffin",
+    "https://www.mcdonalds.com.cn/product/Sausage-McMuffin-With-Egg",
+    "https://www.mcdonalds.com.cn/product/%E5%8F%8C%E5%B1%82%E7%8C%AA%E6%9F%B3%E8%9B%8B%E9%BA%A6%E6%BB%A1%E5%88%86",
+    "https://www.mcdonalds.com.cn/product/Ham-Muffin",
+    "https://www.mcdonalds.com.cn/product/Crispy-Chicken-Muffin",
+    "https://www.mcdonalds.com.cn/product/Grilled-Chicken-Muffin",
+    "https://www.mcdonalds.com.cn/product/Double-Grilled-Chicken-Muffin",
+    "https://www.mcdonalds.com.cn/product/Sausage-Scrambled-Double-Egg-Burger",
+    "https://www.mcdonalds.com.cn/product/%E5%8E%9F%E5%91%B3%E6%9D%BF%E7%83%A7%E9%B8%A1%E8%85%BF%E7%82%92%E5%8F%8C%E8%9B%8B%E5%A0%A1",
+    "https://www.mcdonalds.com.cn/product/Hamburger",
+    "https://www.mcdonalds.com.cn/product/McChicken",
+    "https://www.mcdonalds.com.cn/product/Grilled-Chicken-Sandwich",
+    "https://www.mcdonalds.com.cn/product/Bacon-Egg-McMuffin (跳回首页)",
+    "https://www.mcdonalds.com.cn/product/%E7%83%9F%E8%82%89%E8%9B%8B%E9%BA%A6%E6%BB%A1%E5%88%86 (跳回首页)",
+    "https://www.mcdonalds.com.cn/product/%E5%8F%8C%E5%B1%82%E7%81%AB%E8%85%BF%E6%89%92%E9%BA%A6%E6%BB%A1%E5%88%86 (跳回首页)",
+    "https://www.mcdonalds.com.cn/nutrition_calculator",
+    "https://www.mcdonalds.com/dnaapp/itemDetails?country=US&language=en&showLiveData=true&item=200438",
+    "https://www.mcdonalds.com/dnaapp/itemDetails?country=US&language=en&showLiveData=true&item=200298",
+    "https://www.mcdonalds.com/dnaapp/itemDetails?country=US&language=en&showLiveData=true&item=200449",
+    "https://www.mcdonalds.com/dnaapp/itemDetails?country=US&language=en&showLiveData=true&item=200161",
+    "https://www.mcdonalds.com/dnaapp/itemDetails?country=US&language=en&showLiveData=true&item=200322",
+    "https://www.mcdonalds.com/dnaapp/itemDetails?country=US&language=en&showLiveData=true&item=200300",
+    "https://www.mcdonalds.com/us/en-us/product/egg-mcmuffin.html",
+    "https://www.mcdonalds.com/us/en-us/product/sausage-mcmuffin.html",
+    "https://www.mcdonalds.com/us/en-us/product/sausage-mcmuffin-with-egg.html",
+    "https://www.mcdonalds.com/us/en-us/product/big-breakfast.html",
+    "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200161(301533)",
+    "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200161(300067)",
+    "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200161(300694)",
+    "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200161(300310)",
+    "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200298(301639)",
+    "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200300(300163)",
+    "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200322(300524)",
+    "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200438(300708)",
+    "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_502773_600.png",
+    "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_4989_600.png"
+   ]
+  },
+  "安格斯系": {
+   "family": "安格斯系",
+   "components_used": [
+    {
+     "id": "bun.angus",
+     "name_cn": "安格斯黑白芝麻布里欧面包",
+     "new": false,
+     "us_prior": {
+      "kcal": 180,
+      "protein": 6,
+      "fat": 2.5,
+      "carb": 34,
+      "sodium": 260,
+      "source_url": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200466(301516)"
+     }
+    },
+    {
+     "id": "patty.angus",
+     "name_cn": "安格斯厚牛肉饼（约130克，3:7肥瘦比）",
+     "new": false,
+     "us_prior": {
+      "kcal": 220,
+      "protein": 18,
+      "fat": 16,
+      "carb": 1,
+      "sodium": 210,
+      "source_url": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200466(301574)"
+     }
+    },
+    {
+     "id": "cheese.gouda",
+     "name_cn": "高达干酪片",
+     "new": false
+    },
+    {
+     "id": "cheese.american",
+     "name_cn": "吉士片（培根安格斯页面写作「黄车打芝士片」）",
+     "new": false,
+     "us_prior": {
+      "kcal": 50,
+      "protein": 3,
+      "fat": 4,
+      "carb": 1,
+      "sodium": 200,
+      "source_url": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200480(301518)"
+     }
+    },
+    {
+     "id": "sauce.cheese",
+     "name_cn": "醇香芝士风味酱",
+     "new": true,
+     "reason_if_new": "这是芝士安格斯厚牛堡在 MCP 可去配料里的「醇香芝士风味酱」，官网写作「秘制芝士风味酱」。它是芝士安格斯和芝士双层安格斯特有的酱，规范列表里没有对应的配料，美国菜单也没有同类酱，所以没有美国先验。"
+    },
+    {
+     "id": "sauce.roast_beef",
+     "name_cn": "烤牛肉风味酱",
+     "new": true,
+     "reason_if_new": "这是培根安格斯厚牛堡在 MCP 可去配料里的「烤牛肉风味酱」，2022 年官网写作「淋上秘制酱汁」，规范列表里没有对应的配料。美国菜单没有同类酱，所以没有美国先验；美国蛋黄酱 200765(300430) 为 100 kcal、11 g 脂肪、65 mg 钠，只能当作脂肪型酱料的数量级参考。"
+    },
+    {
+     "id": "veg.tomato",
+     "name_cn": "番茄片",
+     "new": false,
+     "us_prior": {
+      "kcal": 0,
+      "protein": 0,
+      "fat": 0,
+      "carb": 1,
+      "sodium": 0,
+      "source_url": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200765(301407)"
+     }
+    },
+    {
+     "id": "veg.lettuce_leaf",
+     "name_cn": "切块生菜（罗马生菜）",
+     "new": false,
+     "us_prior": {
+      "kcal": 0,
+      "protein": 0,
+      "fat": 0,
+      "carb": 0,
+      "sodium": 0,
+      "source_url": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200765(300098)"
+     }
+    },
+    {
+     "id": "bacon",
+     "name_cn": "培根",
+     "new": false,
+     "us_prior": {
+      "kcal": 110,
+      "protein": 6,
+      "fat": 9,
+      "carb": 1,
+      "sodium": 330,
+      "source_url": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=203410(300163)"
+     }
+    },
+    {
+     "id": "butter",
+     "name_cn": "黄油（涂在安格斯面包的上下两层）",
+     "new": false,
+     "us_prior": {
+      "kcal": 45,
+      "protein": 0,
+      "fat": 5,
+      "carb": 0,
+      "sodium": 35,
+      "source_url": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=203747(300310)"
+     }
+    }
+   ],
+   "products": [
+    {
+     "product": "芝士安格斯厚牛堡",
+     "description_url": "https://www.mcdonalds.com.cn/product/Cheese-Angus",
+     "official_description_cn": "现行页面（数据截至 2025 年 4 月）：「精选100%安格斯牛肉饼，搭配秘制芝士风味酱和新鲜番茄片」，并写有热熔工艺让芝士融化。2022-06 存档页另写有「将金黄的芝士片敷在…牛肉饼上」和「包裹在黑白芝麻布里欧面包中」。",
+     "composition": [
+      {
+       "component_id": "bun.angus",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "面包不可去，所以不会出现在 MCP 清单里。2022-06 官网存档页写有「包裹在黑白芝麻布里欧面包中」：https://web.archive.org/web/20220625073425/https://www.mcdonalds.com.cn/product/Cheese-Angus",
+        "https://www.mcdonalds.com.cn/know_your_icon/Angus-family 介绍了「特别的黑白芝麻布利欧面包」",
+        "碳水只有 43 g，只容得下一个面包（牛肉饼和芝士约 1–2 g，酱料和番茄约 2–4 g，面包约 37–39 g）"
+       ]
+      },
+      {
+       "component_id": "patty.angus",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "官网描述：「精选100%安格斯牛肉饼」",
+        "know_your_icon 页面写有「一块牛肉饼约130克」",
+        "双层版官网写作「两块」，单层就是一块"
+       ]
+      },
+      {
+       "component_id": "cheese.gouda",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "MCP 可去配料里「高达干酪片」只出现 1 次，没有「吉士」",
+        "钙的预算：总钙 150 mg，减去面包（中国面包本身含钙约 50–70 mg，参见汉堡包整份才 61 mg）、牛肉饼约 11 mg、番茄约 2 mg，剩下给芝士片加芝士酱的只有约 67–87 mg，放两片（每片约 85–90 mg）会超出",
+        "培根安格斯 − 芝士安格斯 的钙只差 +11 mg，说明两款都只有一片芝士"
+       ]
+      },
+      {
+       "component_id": "sauce.cheese",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "MCP 可去配料里有「醇香芝士风味酱」，出现 1 次",
+        "官网描述：「搭配秘制芝士风味酱」"
+       ]
+      },
+      {
+       "component_id": "veg.tomato",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "MCP 可去配料里有「番茄片」，出现 1 次",
+        "官网描述：「新鲜番茄片」。这里的 1 是 1 份，每份几片不清楚"
+       ]
+      },
+      {
+       "component_id": "butter",
+       "count": 1,
+       "confidence": "medium",
+       "evidence": [
+        "MCP 可去配料里有「黄油」，出现 1 次",
+        "know_your_icon/Angus-family 页面转载的用户评价写着布里欧芝麻面包顶和堡底都涂了黄油，也就是一份黄油同时涂在上下两层",
+        "用量是否等于麦满分的黄油份量无法核实（美国的涂面包黄油：McCrispy 6.2 g，McMuffin 3.0 g）"
+       ]
+      }
+     ],
+     "arithmetic_checks": [
+      "官网 2914 kJ ÷ 4.184 = 696.5 kcal，与输入的 696 一致",
+      "合理性检查：整份减去牛肉饼估计值（约 258 kcal、20 g 蛋白、18 g 脂肪、153 mg 钠，见芝士双层的检验）再减一片芝士（约 50 kcal、3 g 蛋白、4 g 脂肪、200 mg 钠），剩下面包、芝士酱、番茄、黄油合计约 388 kcal、9 g 蛋白、22 g 脂肪、40 g 碳水、544 mg 钠。面包分到的蛋白约 7–8 g，合理，没有出现「面包含 15 g 蛋白」那类异常",
+      "2022-06 旧版数据是 731 kcal（3058 kJ）、30 g 蛋白、49 g 脂肪、43 g 碳水、928 mg 钠、166 mg 钙；2025-04 改为 696、32、44、43、897、150。可能是重新检测，也可能是配方微调，所以旧数据最多只能作为旁证"
+     ],
+     "notes": "现行营养数据截至 2025 年 4 月。配料只有一片高达干酪片，没有吉士片。只靠本家族的四款餐品，分不开高达片和芝士酱各自的营养，需要依靠先验，或借助其他家族的「高达吉士双牛堡」（它没有官方营养数据）。"
+    },
+    {
+     "product": "培根安格斯厚牛堡",
+     "description_url": "https://www.mcdonalds.com.cn/product/Thick-Angus-Beef-Burger-with-Bacon",
+     "official_description_cn": "现行页面：「精选100%安格斯牛肉饼，搭配培根、黄车打芝士片和新鲜生菜」，并写有热熔工艺让芝士融化。2022-06 存档页写的是「新鲜罗马生菜」「黑白芝麻布里欧面包」「淋上秘制酱汁」。",
+     "composition": [
+      {
+       "component_id": "bun.angus",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "面包不可去。2022-06 存档页写有「包裹在黑白芝麻布里欧面包中」：https://web.archive.org/web/20220625073437/https://www.mcdonalds.com.cn/product/Thick-Angus-Beef-Burger-with-Bacon",
+        "know_your_icon 页面列出的组成是：布利欧面包、秘制酱汁、罗马生菜、安格斯牛肉、培根、黄车达芝士片"
+       ]
+      },
+      {
+       "component_id": "patty.angus",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "官网描述：「精选100%安格斯牛肉饼」"
+       ]
+      },
+      {
+       "component_id": "cheese.american",
+       "count": 1,
+       "confidence": "medium",
+       "evidence": [
+        "MCP 可去配料里「吉士」出现 1 次，和吉士汉堡、巨无霸、麦满分用的是同一个名字",
+        "官网描述：「黄车打芝士片」",
+        "钙的预算：总钙 161 mg，减去面包约 55–70 mg、牛肉饼约 11、生菜约 2、培根约 1，剩下约 77–92 mg，正好对应一片吉士（吉士汉堡包 − 汉堡包 = +83 mg）",
+        "把它算作 cheese.american 是因为 MCP 用的名字相同；但官网称它为车打芝士，可能是另一种芝士片，因此置信度为 medium"
+       ]
+      },
+      {
+       "component_id": "sauce.roast_beef",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "MCP 可去配料里有「烤牛肉风味酱」，出现 1 次",
+        "2022 年页面写有「淋上秘制酱汁」，know_your_icon 页面写作「秘制酱汁」"
+       ]
+      },
+      {
+       "component_id": "veg.lettuce_leaf",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "MCP 可去配料里有「切块生菜」，出现 1 次（不是汉堡用的「生菜」丝）",
+        "官网描述是「新鲜生菜」，2022 年写作「新鲜罗马生菜」"
+       ]
+      },
+      {
+       "component_id": "bacon",
+       "count": 1,
+       "confidence": "medium",
+       "evidence": [
+        "MCP 可去配料里有「培根」，出现 1 次",
+        "官网描述：「搭配培根」",
+        "按 1 份计。每份几条以及克重都不清楚，可能和培根蔬萃双层牛堡的培根份量不同"
+       ]
+      },
+      {
+       "component_id": "butter",
+       "count": 1,
+       "confidence": "medium",
+       "evidence": [
+        "MCP 可去配料里有「黄油」，出现 1 次",
+        "面包上下两层都涂黄油，和芝士安格斯相同"
+       ]
+      }
+     ],
+     "arithmetic_checks": [
+      "官网 2959 kJ ÷ 4.184 = 707.2 kcal，与输入一致",
+      "培根安格斯 − 芝士安格斯（2025）：热量 +11 kcal，蛋白 +2 g，脂肪 0，碳水 0，钠 +140 mg，钙 +11 mg。这个差值等于（吉士 − 高达）+ 培根 + 烤牛肉风味酱 + 切块生菜 − 醇香芝士风味酱 − 番茄片。钙只差 11 mg，说明两款各有一片芝士（多一片会差约 80 mg 以上）；钠多 140 mg，符合培根的高钠",
+      "2022 年数据的同一差值是 +40 kcal、+4 g 蛋白、+3 g 脂肪、0 碳水、+190 mg 钠、+14 mg 钙，方向与 2025 年一致",
+      "合理性检查：整份减去牛肉饼（约 258、20、18、2、153）和一片吉士（46、3、4、1、181、83），剩下面包、酱、生菜、培根、黄油合计约 403 kcal、11 g 蛋白、22 g 脂肪、41 g 碳水、703 mg 钠。如果面包约 8 g 蛋白，培根加酱料还剩约 3 g 蛋白，培根大约 10 g 左右，量不大"
+     ],
+     "notes": "官网把它的芝士写作「黄车打芝士片」，MCP 写作「吉士」。如果求解后这款的残差明显偏大，可以考虑把它拆成单独的配料 cheese.cheddar。"
+    },
+    {
+     "product": "芝士双层安格斯厚牛堡",
+     "description_url": "https://web.archive.org/web/20260306001021/https://www.mcdonalds.com.cn/product/Thick-Angus-Double-Beef-Burger-with-Cheese-Sauce",
+     "official_description_cn": "存档页（2026-03 抓取，营养数据截至 2025 年 4 月）：「精选两块100%安格斯牛肉饼，搭配秘制芝士风味酱和新鲜番茄片」，并写有热熔工艺让芝士融化。当前官网的产品链接已跳转回首页，这款很可能已停售。",
+     "composition": [
+      {
+       "component_id": "bun.angus",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "双层版只比单层多 3 g 碳水，没有多一个面包的空间（一个面包约 35–38 g 碳水）"
+       ]
+      },
+      {
+       "component_id": "patty.angus",
+       "count": 2,
+       "confidence": "high",
+       "evidence": [
+        "官网存档页：「精选两块100%安格斯牛肉饼」",
+        "2019-07-19 的上市新闻 https://www.mcdonalds.com.cn/news/angus-double-beef-burger 写有「两块严选3:7肥瘦比的肉饼」",
+        "比单层多出约 307 kcal、26 g 蛋白、21 g 脂肪，正好是一块厚牛肉饼加一片芝士"
+       ]
+      },
+      {
+       "component_id": "cheese.gouda",
+       "count": 2,
+       "confidence": "medium",
+       "evidence": [
+        "双层减单层，钙在 2025 年数据里多 101 mg，在 2022 年数据里多 78 mg。一块牛肉饼只含约 11 mg 钙，所以必须多一片芝士",
+        "热熔工艺是每块肉饼上盖一片芝士",
+        "具体是哪种芝士只是按单层版类推为高达片（中国吉士片含钙约 83 mg，高达片推测约 85–100 mg，两者分不开）"
+       ]
+      },
+      {
+       "component_id": "sauce.cheese",
+       "count": 1,
+       "confidence": "medium",
+       "evidence": [
+        "官网存档页写有「搭配秘制芝士风味酱」",
+        "双层只多 2–3 g 碳水，牛肉饼和芝士已经占掉约 2 g，没有多一份酱的迹象，但酱本身碳水不高，这个证据较弱"
+       ]
+      },
+      {
+       "component_id": "veg.tomato",
+       "count": 1,
+       "confidence": "medium",
+       "evidence": [
+        "官网存档页写有「新鲜番茄片」，份数按单层版类推"
+       ]
+      },
+      {
+       "component_id": "butter",
+       "count": 1,
+       "confidence": "low",
+       "evidence": [
+        "这款没有 MCP 数据，页面也没提黄油。面包和单层版相同，按单层版的 MCP「黄油」类推为 1 份"
+       ]
+      }
+     ],
+     "arithmetic_checks": [
+      "芝士双层 − 芝士单层（2025）：热量 1003−696 = +307 kcal，蛋白 58−32 = +26 g，脂肪 65−44 = +21 g，碳水 46−43 = +3 g，钠 1373−897 = +476 mg，钙 251−150 = +101 mg。这正好是一块安格斯牛肉饼加一片芝士",
+      "2022-06 旧版同一差值：热量 4353/4.184 = 1040，1040−731 = +309 kcal；蛋白 53−30 = +23 g；脂肪 72−49 = +23 g；碳水 45−43 = +2 g；钠 1252−928 = +324 mg；钙 244−166 = +78 mg。旧版也说明多了一块饼和一片芝士",
+      "牛肉饼估计值 = 双层差值 − 中国吉士片（吉士汉堡包 − 汉堡包 = 46 kcal、3 g 蛋白、4 g 脂肪、1 g 碳水、181 mg 钠、83 mg 钙）。四条路径分别得到：2025 芝士路径 261、23、17、2、295、18；2025 培根路径 234、18、16、2、−27、−18；2022 芝士路径 263、20、19、1、143、−5；2022 培根路径 275、20、19、2、200、14。平均约 258 kcal、20 g 蛋白、18 g 脂肪、2 g 碳水、153 mg 钠、2 mg 钙",
+      "美国四分之一磅牛肉饼（生重 4 oz，即 113.4 g）按中国官方的「约130克」放大 1.146 倍后约为 252 kcal、20.6 g 蛋白、18.3 g 脂肪、1.1 g 碳水、241 mg 钠、11 mg 钙。热量、蛋白、脂肪和上面差分得到的平均值吻合，钠的差分结果波动很大",
+      "把单层和双层的「培根 − 芝士」差值放在一起比：如果两款双层都是多一片同类芝士，这两个差值应该只差（吉士 − 高达）。实际 2025 年单层是 +140 mg 钠、+11 mg 钙，双层是 987−1003 = −16 kcal、−3 g 蛋白、−182 mg 钠、−25 mg 钙，两者相差 322 mg 钠、36 mg 钙，远超一片芝士的全部钠含量（约 180–200 mg）。所以 2025 年的四个数里至少有一个钠值带有约 150 mg 以上的误差。2022 年数据的同一比较只差 57 mg 钠、19 mg 钙，自洽得多"
+     ],
+     "notes": "这款不在当前菜单上，求解时只用来预测营养。2025-04 的数据和单层版放在一起不完全自洽（见上），建议求解器给双层款的钠设置较大的观测误差。"
+    },
+    {
+     "product": "培根双层安格斯厚牛堡",
+     "description_url": "https://web.archive.org/web/20260308154902/https://www.mcdonalds.com.cn/product/Thick-Angus-Double-Beef-Burger-with-Bacon",
+     "official_description_cn": "存档页（2026-03 抓取，营养数据截至 2025 年 4 月）：「精选两块100%安格斯牛肉饼，搭配培根、黄车打芝士片和新鲜生菜」，并写有热熔工艺让芝士融化。2023 至 2025-04 的存档页写的是「新鲜罗马生菜」。当前官网的产品链接已跳转回首页。",
+     "composition": [
+      {
+       "component_id": "bun.angus",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "双层只比单层多 3 g 碳水"
+       ]
+      },
+      {
+       "component_id": "patty.angus",
+       "count": 2,
+       "confidence": "high",
+       "evidence": [
+        "官网存档页：「精选两块100%安格斯牛肉饼」",
+        "2019 年上市新闻写有「超厚肉饼×2」"
+       ]
+      },
+      {
+       "component_id": "cheese.american",
+       "count": 2,
+       "confidence": "medium",
+       "evidence": [
+        "双层减单层，钙在 2022 年数据里多 97 mg，说明多了一片芝士",
+        "2025 年数据只多 65 mg 钙，介于不加芝士（约 11 mg）和加一片（约 95 mg）之间，但更接近加一片",
+        "热熔工艺每块肉饼盖一片；官网写的是「黄车打芝士片」，MCP 单层版写作「吉士」"
+       ]
+      },
+      {
+       "component_id": "bacon",
+       "count": 1,
+       "confidence": "medium",
+       "evidence": [
+        "官网存档页写有「搭配培根」",
+        "双层的热量差 280–321 kcal、钠差 154–381 mg，已经被一块饼加一片芝士完全占满（约 298 kcal、422 mg 钠），没有多一份培根的空间"
+       ]
+      },
+      {
+       "component_id": "veg.lettuce_leaf",
+       "count": 1,
+       "confidence": "medium",
+       "evidence": [
+        "官网存档页写有「新鲜生菜」或「新鲜罗马生菜」，份数按单层版 MCP 的「切块生菜」类推"
+       ]
+      },
+      {
+       "component_id": "sauce.roast_beef",
+       "count": 1,
+       "confidence": "low",
+       "evidence": [
+        "双层页面的描述没有提到酱，只能按单层版 MCP 的「烤牛肉风味酱」和 2022 年描述的「淋上秘制酱汁」类推"
+       ]
+      },
+      {
+       "component_id": "butter",
+       "count": 1,
+       "confidence": "low",
+       "evidence": [
+        "面包和单层版相同，按单层版 MCP 的「黄油」类推"
+       ]
+      }
+     ],
+     "arithmetic_checks": [
+      "培根双层 − 培根单层（2025）：热量 987−707 = +280 kcal，蛋白 +21 g，脂肪 +20 g，碳水 +3 g，钠 1191−1037 = +154 mg，钙 226−161 = +65 mg",
+      "钠只多 154 mg，比美国按比例放大的牛肉饼单独一项（约 241 mg）还低。如果再减一片吉士，牛肉饼的钠就成了 −27 mg、钙成了 −18 mg，不可能，所以 2025 年的这对数据里钠和钙有测量误差",
+      "2022-06 旧版同一差值：热量 4567/4.184 = 1092，1092−771 = +321 kcal；蛋白 57−34 = +23 g；脂肪 75−52 = +23 g；碳水 46−43 = +3 g；钠 1499−1118 = +381 mg；钙 277−180 = +97 mg。和「一块牛肉饼（约 252 kcal、241 mg 钠）加一片吉士（46 kcal、181 mg 钠、83 mg 钙）≈ 298 kcal、422 mg 钠、94 mg 钙」吻合",
+      "四条双层差分路径的钙增量是 101、65、78、97，平均 85.25 mg，与中国一片吉士 +83 mg 或一块小牛肉饼加一片吉士 +88 mg 一致"
+     ],
+     "notes": "这款不在当前菜单上。2025-04 版的钠和钙相对单层版明显偏低，是本家族里最不自洽的一个数据点，求解时建议降低它的权重，或给它的钠和钙设置较大的观测误差。"
+    }
+   ],
+   "open_questions": [
+    "培根双层（2025-04）的钠 1191 mg、钙 226 mg 和单层版不自洽：双层减单层的钠只有 +154 mg，连一块牛肉饼都不够。另外三条路径（2025 芝士、2022 芝士、2022 培根）都支持「多一块饼加一片芝士」。官网标明这些数据由实验室实测（不是按配方相加），每款单独测量，所以求解器要容忍每款约 ±150 mg 钠、±20 mg 钙、±3 g 脂肪的观测噪声。是否把 2022-06 的旧数据（单层 731/771 kcal，双层 1040/1092 kcal）加作辅助观测，取决于配方是否变过：生菜的描述从「罗马生菜」改成了「生菜」，单层的数值也有变化。",
+    "培根安格斯里的「吉士」：MCP 的名字和吉士汉堡包的吉士片相同，但官网写作「黄车打芝士片」。目前按 cheese.american 处理。如果求解后残差偏大，可以拆成单独的 cheese.cheddar。",
+    "芝士双层安格斯多出来的那片芝士，按单层类推为高达干酪片，但没有直接证据（双层没有 MCP 数据）。钙增量 78–101 mg 无法区分高达片和吉士片。",
+    "在本家族里，高达干酪片和醇香芝士风味酱总是一起出现，烤牛肉风味酱、培根、切块生菜也总是一起出现，只靠这四款餐品无法分开它们各自的营养。高达片需要从其他家族的「高达吉士双牛堡」取得约束，但那一款没有官方营养数据。所以这几项只能依靠先验，或者在求解时按组合识别。",
+    "黄油：安格斯是一份黄油同时涂在面包上下两层，麦满分里的黄油份量可能不同（美国的涂面包黄油：McCrispy 6.2 g 为 45 kcal、5 g 脂肪、35 mg 钠；McMuffin 3.0 g 为 20 kcal、2.5 g 脂肪、15 mg 钠）。是否和早餐家族共用同一个 butter 配料需要统一决定。",
+    "培根：安格斯每份几条、多少克都不清楚。美国四分之一磅培根堡用 20.6 g（110 kcal、330 mg 钠），培根 McDouble 用 13.7 g（70 kcal、220 mg 钠）。是否和培根蔬萃双层牛堡共用同一份培根需要统一决定。按单层的残差估算，培根加酱料大约只含 3 g 蛋白，培根可能只有 10 g 左右。",
+    "安格斯牛肉饼的「约130克」应该是生重（麦当劳的惯例，美国四分之一磅饼也标注烹饪前 4 oz）。中国用的是 3:7 肥瘦比。美国先验要乘 130/113.4 ≈ 1.15 才能对应；钠是否同比例放大不确定，四条差分路径的钠在 −27 到 295 mg 之间跳动。",
+    "美国面包的钙先验不能用：美国普通面包只有 8 mg 钙、四分之一磅面包 10 mg，而中国汉堡包整份就有 61 mg 钙，可推算普通面包约 50 mg。所以安格斯面包的钙应按中国的数据估计（约 55–70 mg），不能用美国数值。美国部分配料的钙值：四分之一磅饼 10 mg，吉士片 80 mg/片，罗马番茄 2 mg，培根 2 mg，黄油 0。",
+    "两款双层的官网产品页现在都跳转回首页（2026-10-15 检查），Wayback 存档最晚到 2026-03，很可能已经停售，营养计算器里也已经没有这两款。番茄片和生菜的份数（每份几片）都只能按 1 份计。"
+   ],
+   "urls_visited": [
+    "https://www.mcdonalds.com.cn/product/Cheese-Angus",
+    "https://www.mcdonalds.com.cn/product/Thick-Angus-Beef-Burger-with-Bacon",
+    "https://www.mcdonalds.com.cn/index/Food/menu/burger",
+    "https://www.mcdonalds.com.cn/nutrition_calculator",
+    "https://www.mcdonalds.com.cn/know_your_icon/Angus-family",
+    "https://www.mcdonalds.com.cn/news/angus-double-beef-burger",
+    "https://www.mcdonalds.com.cn/news/20220413-FO-Angus/",
+    "https://www.mcdonalds.com.cn/news/20210601-augus",
+    "https://www.mcdonalds.com.cn/news/20240422-TruffleAngus",
+    "https://www.mcdonalds.com.cn/product/Thick-Angus-Double-Beef-Burger-with-Bacon",
+    "https://www.mcdonalds.com.cn/product/Thick-Angus-Double-Beef-Burger-with-Cheese-Sauce",
+    "http://web.archive.org/cdx/search/cdx?url=mcdonalds.com.cn/product/Thick-Angus-Double*",
+    "https://web.archive.org/web/20260308154902/https://www.mcdonalds.com.cn/product/Thick-Angus-Double-Beef-Burger-with-Bacon",
+    "https://web.archive.org/web/20260306001021/https://www.mcdonalds.com.cn/product/Thick-Angus-Double-Beef-Burger-with-Cheese-Sauce",
+    "https://web.archive.org/web/20260130100722/https://www.mcdonalds.com.cn/product/Thick-Angus-Double-Beef-Burger-with-Bacon",
+    "https://web.archive.org/web/20260130100742/https://www.mcdonalds.com.cn/product/Thick-Angus-Double-Beef-Burger-with-Cheese-Sauce",
+    "https://web.archive.org/web/20250422200707/https://www.mcdonalds.com.cn/product/Thick-Angus-Double-Beef-Burger-with-Bacon",
+    "https://web.archive.org/web/20250429013056/https://www.mcdonalds.com.cn/product/Thick-Angus-Double-Beef-Burger-with-Cheese-Sauce",
+    "https://web.archive.org/web/20230207113821/https://www.mcdonalds.com.cn/product/Thick-Angus-Double-Beef-Burger-with-Bacon",
+    "https://web.archive.org/web/20230207113747/https://www.mcdonalds.com.cn/product/Thick-Angus-Double-Beef-Burger-with-Cheese-Sauce",
+    "https://web.archive.org/web/20220625073425/https://www.mcdonalds.com.cn/product/Cheese-Angus",
+    "https://web.archive.org/web/20220625073437/https://www.mcdonalds.com.cn/product/Thick-Angus-Beef-Burger-with-Bacon",
+    "https://web.archive.org/web/20250420220550/https://www.mcdonalds.com.cn/product/Cheese-Angus",
+    "https://web.archive.org/web/20250413060115/https://www.mcdonalds.com.cn/product/Thick-Angus-Beef-Burger-with-Bacon",
+    "https://www.mcdonalds.com/us/en-us/product/quarter-pounder-with-cheese.html",
+    "https://www.mcdonalds.com/dnaapp/itemDetails?country=US&language=en&showLiveData=true&item=200466",
+    "https://www.mcdonalds.com/dnaapp/itemDetails?country=US&language=en&showLiveData=true&item=200765",
+    "https://www.mcdonalds.com/dnaapp/itemDetails?country=US&language=en&showLiveData=true&item=200476",
+    "https://www.mcdonalds.com/dnaapp/itemDetails?country=US&language=en&showLiveData=true&item=203410",
+    "https://www.mcdonalds.com/dnaapp/itemDetails?country=US&language=en&showLiveData=true&item=200492",
+    "https://www.mcdonalds.com/dnaapp/itemDetails?country=US&language=en&showLiveData=true&item=200298",
+    "https://www.mcdonalds.com/dnaapp/itemDetails?country=US&language=en&showLiveData=true&item=203747",
+    "https://www.mcdonalds.com/dnaapp/itemDetails?country=US&language=en&showLiveData=true&item=203745",
+    "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200466(301574)",
+    "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200466(301516)",
+    "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200480(301518)",
+    "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200765(301407)",
+    "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200765(300098)",
+    "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200765(300430)",
+    "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=203410(300163)",
+    "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200492(300163)",
+    "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=203747(300310)",
+    "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200298(300310)",
+    "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200477(301578)",
+    "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200476(301574)"
+   ]
+  },
+  "鸡肉汉堡系": {
+   "family": "鸡肉汉堡系",
+   "components_used": [
+    {
+     "id": "bun.sesame_round",
+     "name_cn": "圆形芝麻面包（麦香鸡 / 麦辣鸡腿汉堡）",
+     "new": true,
+     "reason_if_new": "规范表里的 bun.sesame 写的是「芝麻长面包等」，但中国官网图片里麦香鸡（MS_1450_600.png）和麦辣鸡腿汉堡（MS_1440_600_1_*.png）用的都是圆形、顶部撒芝麻的面包，既不是长面包，也不是汉堡包那种无芝麻面包。为免和其他家族的长芝麻面包被强行设为同一配料，这里单独建 ID。若 bun.sesame 原本就指这种圆形芝麻鸡肉堡面包，可以合并。",
+     "us_prior": {
+      "kcal": 180,
+      "protein": 6,
+      "fat": 2.5,
+      "carb": 34,
+      "sodium": 260,
+      "source_url": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200765(301516)"
+     }
+    },
+    {
+     "id": "bun.corn_long",
+     "name_cn": "长玉米面包（板烧鸡腿堡，2024-10-08 升级后）",
+     "new": true,
+     "reason_if_new": "2024-10-08 升级的媒体通稿（深圳新闻网）写明板烧鸡腿堡改用新工艺长玉米面包。官网产品页也注明当天升级，新图（20241008/MS_1406_600.png）是带颗粒表面的长圆形面包。它和汉堡包、芝麻面包都不同。美国没有对应配料。"
+    },
+    {
+     "id": "bun.longyan",
+     "name_cn": "龙焰系列亮面无芝麻面包",
+     "new": true,
+     "reason_if_new": "龙焰两款的官方图（MS_521952_600.png、MS_521953_600.png）是表面光亮、顶部有一道折痕、不撒芝麻的面包，和麦辣、麦香鸡的芝麻面包以及安格斯的黑白芝麻面包都不同。外观像美国 McCrispy 的 Potato Roll，而且韩国主导的这次 G-DRAGON 联名在韩国就是 McCrispy 系列，所以先验暂取 Potato Roll。这个判断只来自图片。",
+     "us_prior": {
+      "kcal": 170,
+      "protein": 7,
+      "fat": 2.5,
+      "carb": 32,
+      "sodium": 250,
+      "source_url": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=203745(302402)"
+     }
+    },
+    {
+     "id": "wrap.tortilla",
+     "name_cn": "卷饼皮（面粉薄饼）",
+     "new": true,
+     "reason_if_new": "酥酥多笋卷是卷类产品，没有面包，需要一个面皮配料。美国 Snack Wrap 用的是 Flour Tortilla（45 g）。",
+     "us_prior": {
+      "kcal": 140,
+      "protein": 4,
+      "fat": 4,
+      "carb": 22,
+      "sodium": 330,
+      "source_url": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=204401(300422)"
+     }
+    },
+    {
+     "id": "chicken.mcchicken_patty",
+     "name_cn": "麦香鸡鸡排",
+     "new": false,
+     "us_prior": {
+      "kcal": 150,
+      "protein": 9,
+      "fat": 8,
+      "carb": 10,
+      "sodium": 270,
+      "source_url": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200438(300708)"
+     }
+    },
+    {
+     "id": "chicken.spicy_thigh",
+     "name_cn": "麦辣鸡腿排",
+     "new": false,
+     "us_prior": {
+      "kcal": 250,
+      "protein": 20,
+      "fat": 12,
+      "carb": 14,
+      "sodium": 730,
+      "source_url": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=203745(302309)"
+     }
+    },
+    {
+     "id": "chicken.grill_thigh",
+     "name_cn": "板烧鸡腿排（汉堡用整块原切鸡腿）",
+     "new": false
+    },
+    {
+     "id": "chicken.big_cutlet",
+     "name_cn": "那么大鸡排（椒盐风味，整块）",
+     "new": true,
+     "reason_if_new": "这是小食单品，不可定制（supportModify=false），整份就是一块裹粉大鸡排。它不是任何汉堡的组成部分，只能单独作为一个配料，其营养就等于整份。美国没有对应产品。"
+    },
+    {
+     "id": "chicken.strip",
+     "name_cn": "加厚鸡胸肉柳条（酥酥多笋卷用）",
+     "new": true,
+     "reason_if_new": "官网写明酥酥多笋卷内含两根加厚鸡柳条（整切鸡胸肉），规范表里没有鸡柳。美国 Snack Wrap 用的 McCrispy Chicken Strip 是一根 66 g，可作先验，但算术显示中国版每根小得多（见 open_questions）。",
+     "us_prior": {
+      "kcal": 130,
+      "protein": 10,
+      "fat": 7,
+      "carb": 8,
+      "sodium": 440,
+      "source_url": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=204401(302687)"
+     }
+    },
+    {
+     "id": "cheese.mozz_stick",
+     "name_cn": "马苏里拉拉丝芝士条（裹粉，龙焰芝士棒鸡腿堡）",
+     "new": true,
+     "reason_if_new": "赢商网 2026-10-08 报道说这款在龙焰鸡腿堡基础上加了马苏里拉拉丝芝士条，官方图上是一条裹粉炸芝士条从中间拉开。它和吉士片、高达片都不同。美国目前没有在售的芝士条，没有先验。"
+    },
+    {
+     "id": "sauce.mcchicken",
+     "name_cn": "麦香鸡酱（沙拉酱，MCP 编码 100136）",
+     "new": false,
+     "us_prior": {
+      "kcal": 100,
+      "protein": 0,
+      "fat": 11,
+      "carb": 0,
+      "sodium": 65,
+      "source_url": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200438(300430)"
+     }
+    },
+    {
+     "id": "sauce.teriyaki",
+     "name_cn": "烤味酱（MCP 编码 102201）",
+     "new": false
+    },
+    {
+     "id": "sauce.gochujang_butter",
+     "name_cn": "辣椒黄油风味酱（韩式辣酱 + 黄油，MCP 编码 120549）",
+     "new": true,
+     "reason_if_new": "这是 G-DRAGON 联名新酱，在 MCP 可去配料里作为独立配料（编码 120549）。美国没有这款酱（美媒称美国吃不到 Gochujang Butter），没有先验。"
+    },
+    {
+     "id": "sauce.hongyou_mala",
+     "name_cn": "红油麻香酱（MCP 编码 120184）",
+     "new": true,
+     "reason_if_new": "酥酥多笋卷专用酱，在 MCP 可去配料里（编码 120184），官网描述也提到。规范表里没有，美国也没有对应配料。"
+    },
+    {
+     "id": "veg.lettuce_shred",
+     "name_cn": "生菜丝（MCP「生菜」编码 100168）",
+     "new": false,
+     "us_prior": {
+      "kcal": 0,
+      "protein": 0,
+      "fat": 0,
+      "carb": 0,
+      "sodium": 0,
+      "source_url": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200438(300098)"
+     }
+    },
+    {
+     "id": "veg.lettuce_leaf",
+     "name_cn": "切块生菜（MCP 编码 120512）",
+     "new": false
+    },
+    {
+     "id": "veg.bamboo_shoot",
+     "name_cn": "酸辣笋丝（MCP 编码 120212）",
+     "new": true,
+     "reason_if_new": "酥酥多笋卷专用，在 MCP 可去配料里（编码 120212），官网描述提到笋丝。这是腌渍蔬菜，钠可能不低，不能按普通蔬菜记 0。美国没有对应配料。"
+    }
+   ],
+   "products": [
+    {
+     "product": "麦香鸡",
+     "description_url": "https://www.mcdonalds.com.cn/product/McChicken",
+     "official_description_cn": "官网描述要点（转述）：清脆生菜加金黄酥脆的鸡肉，没写酱料和面包种类。营养按 1 个计：369 kcal / 15 g / 17 g / 39 g / 钠 731 mg / 钙 73 mg（2025 年 4 月数据）。",
+     "composition": [
+      {
+       "component_id": "bun.sesame_round",
+       "count": 1,
+       "confidence": "medium",
+       "evidence": [
+        "官方图 https://menu-img.mcd.cn/pcm/prod/menu/20260520/product/MS_1450_600.png 是圆形芝麻面包，不是汉堡包那种无芝麻面包",
+        "算术：碳水 39 − 美国鸡排先验 10 ≈ 29 g，和面包一份 26–29 g 相符；它和麦辣鸡腿汉堡是不是同一款面包没有直接证据"
+       ]
+      },
+      {
+       "component_id": "chicken.mcchicken_patty",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "官网描述只有一块酥脆鸡肉；美国同款 McChicken 也是 1 块鸡排（200438 组件 300708，61 g）",
+        "Atwater 校验：15×4+17×9+39×4 = 369，和官方值完全一致"
+       ]
+      },
+      {
+       "component_id": "sauce.mcchicken",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "MCP 可去配料有麦香鸡酱（编码 100136，maxQuantity=1）",
+        "图上可见白色沙拉酱；美国同款用 Mayonnaise 13.5 g"
+       ]
+      },
+      {
+       "component_id": "veg.lettuce_shred",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "MCP 可去配料有生菜，编码 100168，和巨无霸的生菜（生菜丝）同码",
+        "官方图上是生菜丝；美国同款用 Shredded Lettuce 300098"
+       ]
+      }
+     ],
+     "arithmetic_checks": [
+      "按美国先验直接相加的脂肪：面包 1.5 + 鸡排 8 + 蛋黄酱 11 = 20.5 g，超过官方 17 g，说明中国麦香鸡酱用量约为美国的 70%（反推酱的脂肪约 17−1.5−8 = 7.5 g，约 68 kcal），或者中国鸡排更瘦",
+      "反推面包：369 − 150 − 68 ≈ 151 kcal，碳水 39 − 10 = 29 g，蛋白 15 − 9 = 6 g。由汉堡包反推的普通面包约为 248−90−10 = 148 kcal、26 g 碳水、6 g 蛋白，芝麻面包略大，合理",
+      "钠：731 − 270（美国鸡排）− 约 44（酱）≈ 417 mg 给面包，远高于由汉堡包反推的普通面包约 202 mg，说明中国麦香鸡鸡排比美国咸（约 450–500 mg），先验的钠方差要放宽",
+      "钙：美国 McChicken 整份只有 20 mg（Regular Bun 8 mg），中国为 73 mg；中国面包的钙远高于美国（汉堡包反推普通面包约 48 mg），所以面包钙不能用美国先验。73 − 鸡排 6 − 生菜 2 ≈ 65 mg 给芝麻面包，没有芝士，和可去配料里没有吉士一致",
+      "跨家族线索：麦香鸡 − 大脆鸡扒麦满分 = (+8 kcal, −1 g, 0 g, +4 g, −73 mg, −57 mg)。如果大脆鸡扒就是麦香鸡鸡排且酱量相同，这个差就等于芝麻面包 + 生菜丝 − 英式松饼。用麦满分系反推的松饼钙约 124 mg（原味板烧鸡腿麦满分 133 − 小鸡腿 5 − 酱和生菜约 4），可得 124 − 65 − 2 ≈ 57，和 −57 吻合"
+     ],
+     "notes": "配方骨架可靠（MCP 加官方图）。待定的是面包是否与麦辣共用，以及各产品麦香鸡酱的用量。"
+    },
+    {
+     "product": "麦辣鸡腿汉堡",
+     "description_url": "https://www.mcdonalds.com.cn/product/Spicy-Chicken-Filet",
+     "official_description_cn": "官网描述要点（转述）：金黄脆辣的外皮包着鲜嫩鸡腿肉，配清爽生菜和沙拉酱。营养按 1 个计：485 kcal / 24 g / 24 g / 42 g / 钠 1208 mg / 钙 154 mg。",
+     "composition": [
+      {
+       "component_id": "bun.sesame_round",
+       "count": 1,
+       "confidence": "medium",
+       "evidence": [
+        "官方图 https://menu-img.mcd.cn/pcm/prod/menu/20250420/product/MS_1440_600_1_1744772174131.png 是圆形芝麻面包",
+        "算术：和麦香鸡比，碳水只多 3 g，热量差能由鸡排差解释，所以「两者面包相同」可以自洽；但钙差 81 mg 无法解释（见 arithmetic_checks）"
+       ]
+      },
+      {
+       "component_id": "chicken.spicy_thigh",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "官网描述是脆辣外皮的鸡腿肉，只有一块",
+        "图上一块不规则裹粉鸡腿排"
+       ]
+      },
+      {
+       "component_id": "sauce.mcchicken",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "MCP 可去配料有麦香鸡酱（编码 100136，和麦香鸡同码，maxQuantity=1）",
+        "官网描述写的是美味沙拉酱，图上可见白色酱"
+       ]
+      },
+      {
+       "component_id": "veg.lettuce_leaf",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "MCP 可去配料有切块生菜（编码 120512）",
+        "官方图上是大片卷边生菜"
+       ]
+      }
+     ],
+     "arithmetic_checks": [
+      "麦辣鸡腿汉堡 − 麦香鸡 = (+116 kcal, +9 g, +7 g, +3 g, +477 mg, +81 mg)，在面包和酱相同的前提下等于麦辣鸡腿排 − 麦香鸡鸡排（加上切块生菜和生菜丝的差，约等于 0）",
+      "代入美国 McChicken 鸡排先验 (150/9/8/10/270/6)，得麦辣鸡腿排 ≈ 266 kcal / 18 g / 15 g / 13 g / 747 mg / 87 mg。Atwater 校验 18×4+15×9+13×4 = 259 ≈ 266。热量和三大营养素都和美国 McCrispy 鸡排 (250/20/12/14/730) 相差在 ±3 以内，自洽",
+      "钙异常：上面反推的鸡腿排钙为 87 mg，而中国其他炸鸡类产品钙都很低（那么大鸡排 13、麦乐鸡 5 块 9、麦辣鸡翅 2 块 13、美国 McCrispy 鸡排 10）。可去配料里没有吉士，官网描述也没有芝士，所以不能用加一片芝士（约 83 mg）来解释这 81 mg 钙。换成更大的面包也解释不了，因为碳水只多 3 g。所以要么麦辣鸡腿排本身含钙（裹粉或腌料），要么这份官方钙数据有问题。求解时钙这一项应放宽，或者把这条数据当离群值处理",
+      "Atwater 校验整份：24×4+24×9+42×4 = 480 ≈ 485"
+     ],
+     "notes": "配方骨架可靠。钙 154 mg 是本家族最大的疑点，详见 open_questions。"
+    },
+    {
+     "product": "板烧鸡腿堡",
+     "description_url": "https://www.mcdonalds.com.cn/product/Grilled-Chicken-Sandwich",
+     "official_description_cn": "官网描述要点（转述）：整块去骨鸡排，用洋葱和胡椒调味，配生菜和烤味酱，不加油煎制；页面注明 2024 年 10 月 8 日起全新升级。升级通稿：改用长玉米面包，生菜丝换成大块生菜片，鸡腿肉整块原切。营养按 1 个计：391 kcal / 23 g / 17 g / 35 g / 钠 1041 mg / 钙 93 mg。",
+     "composition": [
+      {
+       "component_id": "bun.corn_long",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "深圳新闻网 2024-10-08 升级通稿 https://www.sznews.com/news/content/2024-10/08/content_31257951.htm 写明改用新工艺的长玉米面包",
+        "官方图 https://menu-img.mcd.cn/pcm/prod/menu/20241008/product/MS_1406_600.png 是长圆形、表面带颗粒的面包"
+       ]
+      },
+      {
+       "component_id": "chicken.grill_thigh",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "官网描述是一整块去骨鸡排",
+        "通稿写的是整块原切鸡腿肉"
+       ]
+      },
+      {
+       "component_id": "sauce.teriyaki",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "MCP 可去配料有烤味酱（编码 102201，maxQuantity=1），和原味板烧鸡腿麦满分同码"
+       ]
+      },
+      {
+       "component_id": "veg.lettuce_leaf",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "MCP 可去配料有切块生菜（编码 120512）",
+        "通稿写明生菜丝换成了大块生菜片"
+       ]
+      }
+     ],
+     "arithmetic_checks": [
+      "早餐双层 − 单层原味板烧鸡腿麦满分 = (355−246, 23−15, 17−9, 27−25, 984−611, 138−133) = (109 kcal, 8 g, 8 g, 2 g, 373 mg, 5 mg)，就是一块早餐用板烧鸡腿",
+      "板烧鸡腿堡 − 一块早餐鸡腿 = (282 kcal, 15 g, 9 g, 33 g, 668 mg, 88 mg)。这些要分给长玉米面包、烤味酱和生菜，其中 15 g 蛋白远超一份面包的约 6 g，不合理。所以汉堡里的鸡腿排明显大于早餐那块：按面包加酱约 (185, 6, 2, 33) 估，汉堡鸡腿排约 206 kcal / 17 g / 15 g，约为早餐那块的 1.9–2.1 倍。两边不能共用同一个 chicken.grill_thigh 且份数都记 1",
+      "钙：93 − 鸡腿约 10 − 生菜约 3 − 酱约 2 ≈ 78 mg 给长玉米面包，高于由汉堡包反推的普通面包约 48 mg，支持这是另一款面包",
+      "Atwater：23×4+17×9+35×4 = 385 ≈ 391"
+     ],
+     "notes": "配方可靠。关键问题是和早餐家族共用 chicken.grill_thigh 时的份量不一致。"
+    },
+    {
+     "product": "那么大鸡排",
+     "description_url": "https://www.mcdonalds.com.cn/product/Big-Chicken-Cutlet",
+     "official_description_cn": "官网名称为「那么大鸡排（椒盐风味）」，描述要点（转述）：金黄酥脆的裹粉外衣带椒盐颗粒，内里鲜嫩、有肉感。营养按 1 个计：385 kcal / 24 g / 21 g / 24 g / 钠 996 mg / 钙 13 mg。",
+     "composition": [
+      {
+       "component_id": "chicken.big_cutlet",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "官网小食页 https://www.mcdonalds.com.cn/index/Food/menu/snacks-3 列为小食，营养按 1 个计",
+        "MCP 详情 521156 不可定制（supportModify=false），没有任何可去配料；官方图 MS_521156_600.png 只有一块切开的裹粉鸡排，没有面包、酱或单独的调料包"
+       ]
+      }
+     ],
+     "arithmetic_checks": [
+      "Atwater：24×4+21×9+24×4 = 381 ≈ 385",
+      "钙 13 mg 和其他炸鸡类相同量级（麦辣鸡翅 2 块 13、麦乐鸡 5 块 9），可作为中国裹粉炸鸡钙含量的基准，用来反衬麦辣鸡腿汉堡的钙异常"
+     ],
+     "notes": "输入里 on_menu 为空、removable 为 null，但快照门店 1450182002 的详情文件里有 521156 那么大鸡排（椒盐风味）。它的配料就等于产品本身，不提供其他配料的信息。"
+    },
+    {
+     "product": "龙焰鸡腿堡",
+     "description_url": "https://m.winshang.com/news679649.html",
+     "official_description_cn": "中国官网没有产品页。赢商网 2026-10-08 的联名报道（转述）：韩式辣酱的甜辣加黄油香，配酥脆鸡腿肉；没提面包和生菜。MCP 可去配料：辣椒黄油风味酱、切块生菜。没有官方营养数据。",
+     "composition": [
+      {
+       "component_id": "bun.longyan",
+       "count": 1,
+       "confidence": "medium",
+       "evidence": [
+        "官方图 https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_521952_600.png 是亮面、顶部有折痕、无芝麻的面包，明显不同于麦辣的芝麻面包"
+       ]
+      },
+      {
+       "component_id": "chicken.spicy_thigh",
+       "count": 1,
+       "confidence": "low",
+       "evidence": [
+        "报道只说是酥脆鸡腿肉；图上的裹粉形态和麦辣鸡腿排相近",
+        "没有直接证据说明它就是麦辣鸡腿排；韩国同期的 McCrispy Gochujang Butter 用的是 Cajun 调味鸡腿排（Korea Herald），中国版可能另有鸡排"
+       ]
+      },
+      {
+       "component_id": "sauce.gochujang_butter",
+       "count": 1,
+       "confidence": "medium",
+       "evidence": [
+        "MCP 可去配料有辣椒黄油风味酱（编码 120549，maxQuantity=1）",
+        "但官方图上，上层生菜表面和下层面包底都可见红色酱，可能是双面涂酱，实际用量也许是单次涂抹的约 2 倍"
+       ]
+      },
+      {
+       "component_id": "veg.lettuce_leaf",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "MCP 可去配料有切块生菜（编码 120512）；图上是大片生菜"
+       ]
+      }
+     ],
+     "arithmetic_checks": [
+      "没有官方营养数据，无法做差值校验；营养将完全由配料库预测",
+      "如果鸡排共用 chicken.spicy_thigh，预测的钙会继承麦辣鸡腿排约 87 mg 的异常值，需注意"
+     ],
+     "notes": "限时联名新品（2026-10-08 上市）。四个配料里有三个缺少可靠先验（面包、酱、鸡排身份），预测不确定性大。"
+    },
+    {
+     "product": "龙焰芝士棒鸡腿堡",
+     "description_url": "https://m.winshang.com/news679649.html",
+     "official_description_cn": "中国官网没有产品页。赢商网报道（转述）：在龙焰鸡腿堡基础上加入马苏里拉拉丝芝士条。MCP 可去配料和龙焰鸡腿堡完全相同（辣椒黄油风味酱、切块生菜），芝士条不在可去配料里。没有官方营养数据。",
+     "composition": [
+      {
+       "component_id": "bun.longyan",
+       "count": 1,
+       "confidence": "medium",
+       "evidence": [
+        "官方图 https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_521953_600.png 用的面包和龙焰鸡腿堡相同"
+       ]
+      },
+      {
+       "component_id": "chicken.spicy_thigh",
+       "count": 1,
+       "confidence": "low",
+       "evidence": [
+        "和龙焰鸡腿堡同一鸡排（图上同样的裹粉鸡腿排），身份同样不确定"
+       ]
+      },
+      {
+       "component_id": "cheese.mozz_stick",
+       "count": 1,
+       "confidence": "medium",
+       "evidence": [
+        "赢商网报道说在龙焰鸡腿堡基础上特别加入马苏里拉芝士条",
+        "官方图上鸡排上方是一条裹粉炸芝士条，从中间拉开露出拉丝；看起来是一根，但也可能是两段并排，份数无文字证据"
+       ]
+      },
+      {
+       "component_id": "sauce.gochujang_butter",
+       "count": 1,
+       "confidence": "medium",
+       "evidence": [
+        "MCP 可去配料有辣椒黄油风味酱（编码 120549，maxQuantity=1）；图上同样在顶部和底部都可见红酱"
+       ]
+      },
+      {
+       "component_id": "veg.lettuce_leaf",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "MCP 可去配料有切块生菜（编码 120512）"
+       ]
+      }
+     ],
+     "arithmetic_checks": [
+      "结构上，龙焰芝士棒鸡腿堡 − 龙焰鸡腿堡 = 1 根 cheese.mozz_stick。两者都没有官方数据，无法校验"
+     ],
+     "notes": "芝士条没有美国先验，也没有任何中国数据可以约束，预测值主要取决于手设的先验。"
+    },
+    {
+     "product": "酥酥多笋卷",
+     "description_url": "https://www.mcdonalds.com.cn/product/酥酥多笋卷",
+     "official_description_cn": "官网描述要点（转述）：全新配方，内含两根加厚鸡柳条，用整切去皮鸡胸肉，外层酥脆，用复合香辛料调味；搭配爽脆笋丝和红油麻香酱。页面没有营养数据；营养表数据为 342 kcal / 14 g / 15 g / 36 g / 钠 1044 mg / 钙 41 mg。",
+     "composition": [
+      {
+       "component_id": "wrap.tortilla",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "产品为卷；官方图 https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_521816_600.png 是面饼卷起包着馅料"
+       ]
+      },
+      {
+       "component_id": "chicken.strip",
+       "count": 2,
+       "confidence": "high",
+       "evidence": [
+        "官网原文：内含两根加厚鸡柳条（https://www.mcdonalds.com.cn/product/酥酥多笋卷）"
+       ]
+      },
+      {
+       "component_id": "veg.lettuce_shred",
+       "count": 1,
+       "confidence": "medium",
+       "evidence": [
+        "MCP 可去配料有生菜，编码 100168，和巨无霸、麦香鸡的生菜丝同码（不是切块生菜 120512）"
+       ]
+      },
+      {
+       "component_id": "sauce.hongyou_mala",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "MCP 可去配料有红油麻香酱（编码 120184，maxQuantity=1）；官网描述也提到红油麻香酱"
+       ]
+      },
+      {
+       "component_id": "veg.bamboo_shoot",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "MCP 可去配料有酸辣笋丝（编码 120212，maxQuantity=1）；官网描述提到笋丝"
+       ]
+      }
+     ],
+     "arithmetic_checks": [
+      "Atwater：14×4+15×9+36×4 = 335 ≈ 342",
+      "按美国先验相加：面饼 (140/4/4/22/330/30) + 2 × 美国鸡柳 (130/10/7/8/440/4) = 400 kcal / 24 g / 18 g / 38 g / 1210 mg / 38 mg，还没加酱、笋丝和生菜，就已超过官方的 342 / 14 / 15 / 36 / 1044。蛋白多出 10 g。",
+      "反推中国鸡柳：蛋白 14 − 面饼约 4 − 酱和笋约 1 ≈ 9 g，两根平均每根约 4.5 g，不到美国 McCrispy 鸡柳 10 g 的一半。份数 2 有官网原文支撑，不该改，应该把 chicken.strip 先验缩小到约 0.45 倍，或者放宽方差",
+      "钙：面饼约 30 + 鸡柳约 4–8 + 生菜 2 + 笋丝几毫克 ≈ 41，和官方 41 mg 相符，确认没有芝士（美国 Snack Wrap 有芝士碎，整份钙 130 mg）"
+     ],
+     "notes": "份数证据充分。主要问题是先验的大小：美国鸡柳先验严重偏大。"
+    }
+   ],
+   "open_questions": [
+    "【钙异常】麦辣鸡腿汉堡的钙为 154 mg，比麦香鸡多 81 mg，但它没有芝士（MCP 可去配料里没有吉士，官网描述也没写）。中国其他裹粉炸鸡的钙都只有 9–15 mg，碳水只多 3 g，也排除了换大面包的解释。建议求解时不要为此加芝士片：要么让 chicken.spicy_thigh 先验的钙方差很大（反推约 87 mg），要么把这条钙数据降权处理。",
+    "【面包是否共用】麦香鸡和麦辣鸡腿汉堡都用圆形芝麻面包（来自图片），这里设成同一个 bun.sesame_round，置信度 medium。热量和碳水能自洽，但无法排除两者尺寸不同。我另建了 bun.sesame_round，而没有直接用规范表里描述为「芝麻长面包等」的 bun.sesame。如果其他家族的 bun.sesame 指的是长条面包，请勿合并；如果它本来就指鸡肉堡的圆芝麻面包，可以合并。",
+    "【板烧鸡腿排与早餐不一致】早餐双层减单层原味板烧鸡腿麦满分得到一块鸡腿约 109 kcal / 8 g 蛋白，而板烧鸡腿堡里的鸡腿排反推约 206 kcal / 17 g，大约是 2 倍。请和早餐麦满分系协调：要么早餐另建 chicken.grill_thigh_mini，要么早餐那边按约 0.5 份计。如果两边都记 chicken.grill_thigh × 1，求解结果会被扭曲。",
+    "【龙焰鸡排身份】龙焰两款的鸡排是不是麦辣鸡腿排没有直接证据。报道只说酥脆鸡腿肉；韩国同期产品用的是 Cajun 调味鸡腿排。这里暂记 chicken.spicy_thigh，置信度 low，也可以新建 chicken.longyan_thigh 并沿用麦辣先验。",
+    "【龙焰酱量】官方图上辣椒黄油风味酱在上层生菜和下层面包底都有，可能是两次涂抹；MCP 里它是单个可去项（maxQuantity=1），所以份数记 1，但每份用量可能是普通酱的 2 倍。这款酱没有美国先验。",
+    "【芝士条】龙焰芝士棒鸡腿堡的芝士条数量只能从图片判断，看起来是一根被拉开的裹粉马苏里拉条，但也可能是两段。美国没有在售的芝士条，没有先验；如果要设，需要用别的市场或通用食物成分数据。",
+    "【龙焰面包】bun.longyan 只凭图片认定（亮面、有折痕、无芝麻），先验暂用美国 McCrispy 的 Potato Roll。这一点没有任何文字证据。",
+    "【鸡柳先验偏大】酥酥多笋卷的两根鸡柳条有官网原文支撑，但用美国 McCrispy 鸡柳先验相加后蛋白多出 10 g。中国鸡柳每根约 4.5 g 蛋白，是美国的 45% 左右。面饼尺寸也未知（美国是 45 g），先验方差要放宽。",
+    "【美国钙先验不可用】美国面包的钙很低（Regular Bun 8 mg、Potato Roll 15 mg、Quarter Pound Bun 10 mg），中国面包的钙高得多（汉堡包反推约 48 mg，芝麻面包约 65 mg，长玉米面包约 78 mg）。美国 McChicken 整份钙 20 mg，中国为 73 mg。面包和松饼的钙应以中国数据反推，不要用美国值做先验中心。另外，us_prior 字段没有钙，我把美国钙值都写在了 arithmetic_checks 和本节里。",
+    "【芝麻面包先验尺寸】bun.sesame_round 的 us_prior 用的是美国唯一的芝麻面包 Quarter Pound Bun（180 kcal / 34 g 碳水）。但麦香鸡反推的面包约 151 kcal / 29 g 碳水，更接近美国 Regular Bun（140 / 27），先验中心建议往下调或放宽方差。",
+    "【鸡排钠】按美国 McChicken 鸡排钠 270 mg 计，麦香鸡的面包要分到约 417 mg 钠，远高于由汉堡包反推的普通面包约 202 mg，说明中国麦香鸡鸡排更咸（约 450–500 mg）。鸡排类的钠先验方差要放宽。",
+    "【酱量是否一致】麦香鸡酱（编码 100136）在麦香鸡、麦辣鸡腿汉堡、培根蔬萃双层牛堡、大脆鸡扒麦满分里同码，烤味酱（编码 102201）在板烧鸡腿堡、两款原味板烧鸡腿麦满分、原味板烧鸡腿炒双蛋堡里同码。同码只说明是同一种酱，不保证每个产品的用量相同；汉堡和早餐之间的用量差尤其可能大。",
+    "【跨家族提示】大脆鸡扒麦满分可能用的就是麦香鸡鸡排：钙链 130 − 松饼约 124 = 6 mg，正好等于美国 McChicken 鸡排的 6 mg；和麦香鸡的钙差 −57 mg 也和芝麻面包与松饼的钙差吻合。这只是算术上自洽，没有文字证据，交给早餐家族判断。",
+    "【切块生菜先验】美国官网目前在售的鸡肉堡和 Quarter Pounder Deluxe 都只用生菜丝，没找到切块（叶片）生菜配料，所以 veg.lettuce_leaf 没给 us_prior。可以借用生菜丝的值（热量、宏量营养素、钠都约为 0，钙约 2 mg），影响很小。",
+    "【那么大鸡排】输入里 on_menu 为空，但快照门店 1450182002 的详情文件里有 521156 那么大鸡排（椒盐风味），不可定制。它的配料就等于整份产品，只能确定自己，不能约束其他配料。"
+   ],
+   "urls_visited": [
+    "https://www.mcdonalds.com.cn/index/Food/menu/burger",
+    "https://www.mcdonalds.com.cn/product/McChicken",
+    "https://www.mcdonalds.com.cn/product/Spicy-Chicken-Filet",
+    "https://www.mcdonalds.com.cn/product/Grilled-Chicken-Sandwich",
+    "https://www.mcdonalds.com.cn/product/酥酥多笋卷",
+    "https://www.mcdonalds.com.cn/index/Food/menu/snacks-3",
+    "https://www.mcdonalds.com.cn/product/Big-Chicken-Cutlet",
+    "https://www.mcdonalds.com.cn/nutrition_calculator",
+    "https://m.winshang.com/news679649.html",
+    "https://www.sznews.com/news/content/2024-10/08/content_31257951.htm",
+    "https://www.koreaherald.com/article/10876646",
+    "https://www.marketing-interactive.com/mcdonald-s-hk-taps-g-dragon-for-spice-fuelled-menu-rollout",
+    "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_521952_600.png",
+    "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_521953_600.png",
+    "https://menu-img.mcd.cn/pcm/prod/menu/20250420/product/MS_1440_600_1_1744772174131.png",
+    "https://menu-img.mcd.cn/pcm/prod/menu/20260520/product/MS_1450_600.png",
+    "https://menu-img.mcd.cn/pcm/prod/menu/20241008/product/MS_1406_600.png",
+    "https://menu-img.mcd.cn/pcm/prod/menu/20260309/product/MS_511782_320.png",
+    "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_521816_600.png",
+    "https://menu-img.mcd.cn/pcm/prod/menu/20260520/product/MS_521156_600.png",
+    "https://www.mcdonalds.com/dnaapp/itemDetails?country=US&language=en&showLiveData=true&item=200438",
+    "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200438(300708)",
+    "https://www.mcdonalds.com/us/en-us/full-menu/chicken-and-fish-sandwiches.html",
+    "https://www.mcdonalds.com/us/en-us/product/deluxe-mccrispy-chicken-sandwich.html",
+    "https://www.mcdonalds.com/dnaapp/itemDetails?country=US&language=en&showLiveData=true&item=203745",
+    "https://www.mcdonalds.com/us/en-us/full-menu.html",
+    "https://www.mcdonalds.com/us/en-us/product/ranch-snack-wrap.html",
+    "https://www.mcdonalds.com/us/en-us/product/mccrispy-strips-3-piece.html",
+    "https://www.mcdonalds.com/us/en-us/product/deluxe-quarter-pounder-with-cheese.html",
+    "https://www.mcdonalds.com/us/en-us/product/spicy-snack-wrap.html",
+    "https://www.mcdonalds.com/dnaapp/itemDetails?country=US&language=en&showLiveData=true&item=204401",
+    "https://www.mcdonalds.com/dnaapp/itemDetails?country=US&language=en&showLiveData=true&item=204402",
+    "https://www.mcdonalds.com/dnaapp/itemDetails?country=US&language=en&showLiveData=true&item=204386",
+    "https://www.mcdonalds.com/dnaapp/itemDetails?country=US&language=en&showLiveData=true&item=200765"
+   ]
+  },
+  "牛肉小饼系": {
+   "family": "牛肉小饼系",
+   "components_used": [
+    {
+     "id": "bun.regular",
+     "name_cn": "普通汉堡面包",
+     "new": false,
+     "us_prior": {
+      "kcal": 140,
+      "protein": 5,
+      "fat": 1.5,
+      "carb": 27,
+      "sodium": 230,
+      "source_url": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200477(301578)"
+     }
+    },
+    {
+     "id": "bun.bigmac",
+     "name_cn": "巨无霸三层芝麻面包",
+     "new": false,
+     "us_prior": {
+      "kcal": 190,
+      "protein": 7,
+      "fat": 2,
+      "carb": 37,
+      "sodium": 320,
+      "source_url": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200463(302510)"
+     }
+    },
+    {
+     "id": "bun.sesame_round",
+     "name_cn": "圆形芝麻面包（培根蔬萃双层牛堡、不素之霸双层牛堡）",
+     "new": true,
+     "reason_if_new": "两款堡的官方产品图都是撒芝麻的圆形顶面包，不是普通汉堡面包（bun.regular 无芝麻），也不是巨无霸三层面包。两款碳水都是 34 g，钙 73 和 75 mg；减去两块牛肉饼后几乎相同，说明它们用的是同一种面包，碳水比普通面包高约 4 g。现有 bun.sesame 的定义是「芝麻长面包等」，为避免和长面包混在一起，这里先单列。如果其他家族的 bun.sesame 其实是同一种圆形芝麻面包，可以合并。US 先验取 Quarter Pounder 的芝麻面包（62.7 g），算术显示中国这款更小（碳水约 30–31 g），先验需加大方差。",
+     "us_prior": {
+      "kcal": 180,
+      "protein": 6,
+      "fat": 2.5,
+      "carb": 34,
+      "sodium": 260,
+      "source_url": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200465(301516)"
+     }
+    },
+    {
+     "id": "patty.beef_small",
+     "name_cn": "小牛肉饼（10:1）",
+     "new": false,
+     "us_prior": {
+      "kcal": 90,
+      "protein": 7,
+      "fat": 7,
+      "carb": 0,
+      "sodium": 160,
+      "source_url": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200477(300038)"
+     }
+    },
+    {
+     "id": "cheese.american",
+     "name_cn": "吉士片",
+     "new": false,
+     "us_prior": {
+      "kcal": 50,
+      "protein": 3,
+      "fat": 4,
+      "carb": 1,
+      "sodium": 200,
+      "source_url": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200480(301518)"
+     }
+    },
+    {
+     "id": "cheese.gouda",
+     "name_cn": "高达干酪片",
+     "new": false
+    },
+    {
+     "id": "sauce.ketchup",
+     "name_cn": "番茄酱（汉堡用量）",
+     "new": false,
+     "us_prior": {
+      "kcal": 10,
+      "protein": 0,
+      "fat": 0,
+      "carb": 2,
+      "sodium": 80,
+      "source_url": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200477(300037)"
+     }
+    },
+    {
+     "id": "sauce.mustard",
+     "name_cn": "芥末酱",
+     "new": false,
+     "us_prior": {
+      "kcal": 0,
+      "protein": 0,
+      "fat": 0,
+      "carb": 0,
+      "sodium": 5,
+      "source_url": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200477(300044)"
+     }
+    },
+    {
+     "id": "veg.pickle",
+     "name_cn": "酸黄瓜（汉堡包用量，美国 4.0 g）",
+     "new": false,
+     "us_prior": {
+      "kcal": 0,
+      "protein": 0,
+      "fat": 0,
+      "carb": 0,
+      "sodium": 45,
+      "source_url": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200477(300042)"
+     }
+    },
+    {
+     "id": "veg.onion",
+     "name_cn": "洋葱粒（汉堡包用量，美国 3.9 g）",
+     "new": false,
+     "us_prior": {
+      "kcal": 0,
+      "protein": 0,
+      "fat": 0,
+      "carb": 1,
+      "sodium": 0,
+      "source_url": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200477(300041)"
+     }
+    },
+    {
+     "id": "veg.lettuce_shred",
+     "name_cn": "生菜丝（MCP 编码 100168，单位为巨无霸用量，美国 28.4 g）",
+     "new": false,
+     "us_prior": {
+      "kcal": 0,
+      "protein": 0,
+      "fat": 0,
+      "carb": 1,
+      "sodium": 0,
+      "source_url": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200463(300098)"
+     }
+    },
+    {
+     "id": "veg.tomato",
+     "name_cn": "番茄片（培根蔬萃的 MCP 编码为 100160）",
+     "new": false,
+     "us_prior": {
+      "kcal": 0,
+      "protein": 0,
+      "fat": 0,
+      "carb": 0,
+      "sodium": 0,
+      "source_url": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200497(301407)"
+     }
+    },
+    {
+     "id": "sauce.bigmac",
+     "name_cn": "巨无霸酱",
+     "new": false,
+     "us_prior": {
+      "kcal": 110,
+      "protein": 0,
+      "fat": 11,
+      "carb": 2,
+      "sodium": 115,
+      "source_url": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=204229"
+     }
+    },
+    {
+     "id": "sauce.mcchicken",
+     "name_cn": "麦香鸡酱（MCP 编码 100136，与麦香鸡、麦辣鸡腿汉堡相同）",
+     "new": false,
+     "us_prior": {
+      "kcal": 100,
+      "protein": 0,
+      "fat": 11,
+      "carb": 0,
+      "sodium": 65,
+      "source_url": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200438(300430)"
+     }
+    },
+    {
+     "id": "bacon",
+     "name_cn": "培根（MCP 编码 103386，单位为 1 片）",
+     "new": false,
+     "us_prior": {
+      "kcal": 70,
+      "protein": 4,
+      "fat": 6,
+      "carb": 1,
+      "sodium": 220,
+      "source_url": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200492(300163)"
+     }
+    },
+    {
+     "id": "sausage.thuringer",
+     "name_cn": "德式图林根香肠",
+     "new": true,
+     "reason_if_new": "不素之霸双层牛堡的官网描述写明「搭配德式图林根香肠」，产品图里也有。规范列表中没有对应配料（pork.sausage 是早餐猪柳饼，不是同一种东西），美国官网也没有同类产品，因此没有 US 先验。"
+    },
+    {
+     "id": "sauce.mustard_mayo",
+     "name_cn": "芥末沙拉酱（MCP 编码 102229）",
+     "new": true,
+     "reason_if_new": "不素之霸双层牛堡唯一的可去配料是「芥末沙拉酱」（编码 102229），和 sauce.mustard（芥末酱，102230）是不同编码、不同产品：它以沙拉酱为底，含脂肪。美国没有同款，因此没有 US 先验。"
+    }
+   ],
+   "products": [
+    {
+     "product": "汉堡包",
+     "description_url": "https://www.mcdonalds.com.cn/product/Hamburger",
+     "official_description_cn": "（节选）100%纯牛肉……搭配爽脆酸黄瓜和洋葱粒，添加美味番茄酱",
+     "composition": [
+      {
+       "component_id": "bun.regular",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "美国 Hamburger(200477) 用普通面包 Regular Bun 50.7 g",
+        "算术：汉堡包减去推得的牛肉饼 = 159/5/2/29/329/56（kcal/蛋白质/脂肪/碳水/钠/钙），与美国面包加配料之和 150/5/1.5/30/360 接近"
+       ]
+      },
+      {
+       "component_id": "patty.beef_small",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "官网描述「100%纯牛肉」",
+        "算术：牛肉饼 = 双层吉士 − 2×吉士汉堡包 + 汉堡包 = 89/8/6/0/163/5，与美国牛肉饼 90/7/7/0/160（钙 4）几乎完全一致"
+       ]
+      },
+      {
+       "component_id": "sauce.ketchup",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "官网描述「添加美味番茄酱」",
+        "美国 Hamburger 含番茄酱 7.8 g"
+       ]
+      },
+      {
+       "component_id": "veg.pickle",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "官网描述「爽脆酸黄瓜」",
+        "美国 Hamburger 含酸黄瓜 4.0 g"
+       ]
+      },
+      {
+       "component_id": "veg.onion",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "官网描述「洋葱粒」",
+        "美国 Hamburger 含洋葱 3.9 g"
+       ]
+      },
+      {
+       "component_id": "sauce.mustard",
+       "count": 1,
+       "confidence": "low",
+       "evidence": [
+        "官网描述只提番茄酱，没有提芥末酱",
+        "美国 Hamburger 含芥末酱 0.5 g；中国双层吉士汉堡在 MCP 中有芥末酱（102230）",
+        "汉堡包不在快照门店菜单上，MCP 无法核实；营养上可忽略（美国数据钠 5 mg）"
+       ]
+      }
+     ],
+     "arithmetic_checks": [
+      "牛肉饼 = 双层吉士 − 2×吉士汉堡包 + 汉堡包 = 429−588+248 = 89 kcal，蛋白质 27−32+13 = 8，脂肪 22−24+8 = 6，碳水 31−60+29 = 0，钠 1017−1346+492 = 163，钙 232−288+61 = 5；美国牛肉饼为 90/7/7/0/160（钙 4）",
+      "汉堡包 − 牛肉饼 = 159/5/2/29/329/56 = 面包 + 番茄酱 + 芥末酱 + 酸黄瓜 + 洋葱；美国之和为 150/5/1.5/30/360，美国钙仅 12：中国面包钙约 50 mg，远高于美国面包的 8 mg",
+      "与美国 Hamburger 总值 250/12/9/30/510 对比，中国 248/13/8/29/492，差异很小"
+     ],
+     "notes": "不在门店菜单上，MCP 没有可去配料。配方依据中国官网描述、美国同款构成和家族算术三方面互证。"
+    },
+    {
+     "product": "吉士汉堡包",
+     "description_url": "https://www.mcdonalds.com.cn/product/Cheeseburger",
+     "official_description_cn": "（节选）100%纯牛肉与香软芝士融为一体，搭配爽脆酸黄瓜和洋葱颗粒，辅以美味酱料",
+     "composition": [
+      {
+       "component_id": "bun.regular",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "美国 Cheeseburger(200480) 用 Regular Bun 50.7 g",
+        "与汉堡包相比碳水只多 1 g（吉士片 1 g），面包相同"
+       ]
+      },
+      {
+       "component_id": "patty.beef_small",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "官网描述「100%纯牛肉」",
+        "算术：吉士汉堡包 − 汉堡包只等于一片吉士，因此牛肉饼数量与汉堡包相同，为 1"
+       ]
+      },
+      {
+       "component_id": "cheese.american",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "官网描述「与香软芝士融为一体」",
+        "算术：吉士汉堡包 − 汉堡包 = 46/3/4/1/181，钙 83；美国一片芝士为 50/3/4/1/200，钙 80，对应恰好一片"
+       ]
+      },
+      {
+       "component_id": "sauce.ketchup",
+       "count": 1,
+       "confidence": "medium",
+       "evidence": [
+        "官网描述「辅以美味酱料」",
+        "美国 Cheeseburger 含番茄酱 7.8 g；汉堡包官网写明有番茄酱，两款差值只有芝士"
+       ]
+      },
+      {
+       "component_id": "sauce.mustard",
+       "count": 1,
+       "confidence": "low",
+       "evidence": [
+        "官网描述「美味酱料」没有点名",
+        "美国 Cheeseburger 含芥末酱 0.5 g；中国双层吉士在 MCP 中有芥末酱",
+        "营养上可忽略"
+       ]
+      },
+      {
+       "component_id": "veg.pickle",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "官网描述「爽脆酸黄瓜」",
+        "美国 Cheeseburger 含酸黄瓜 4.0 g"
+       ]
+      },
+      {
+       "component_id": "veg.onion",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "官网描述「洋葱颗粒」",
+        "美国 Cheeseburger 含洋葱 3.9 g"
+       ]
+      }
+     ],
+     "arithmetic_checks": [
+      "吉士汉堡包 − 汉堡包 = 294−248 = 46 kcal，16−13 = 3 g 蛋白质，12−8 = 4 g 脂肪，30−29 = 1 g 碳水，673−492 = 181 mg 钠，144−61 = 83 mg 钙；美国一片芝士为 50/3/4/1/200（钙 80），对应恰好一片吉士，其余配料相同",
+      "与美国 Cheeseburger 总值 300/15/13/31/720（钙 90）对比，中国 294/16/12/30/673/144，钙高出的部分来自面包"
+     ],
+     "notes": "不在门店菜单上，MCP 没有可去配料。这片吉士的营养由差值直接推出，可作为 cheese.american 的强约束：46/3/4/1/181/83。"
+    },
+    {
+     "product": "双层吉士汉堡",
+     "description_url": "https://www.mcdonalds.com.cn/product/Double-Cheeseburger",
+     "official_description_cn": "（节选）100%纯牛肉与双层香软芝士融为一体，搭配松软面包与美味酱料",
+     "composition": [
+      {
+       "component_id": "bun.regular",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "产品图 MS_1120_600.png 是无芝麻的普通圆面包",
+        "比吉士汉堡包碳水只多 1 g（多出的吉士片），面包相同",
+        "美国 Double Cheeseburger(200486) 用 Regular Bun"
+       ]
+      },
+      {
+       "component_id": "patty.beef_small",
+       "count": 2,
+       "confidence": "high",
+       "evidence": [
+        "产品图有两块牛肉饼",
+        "算术：双层吉士 − 吉士汉堡包 = 135/11/10/1/344/88，等于一块牛肉饼加一片芝士（美国 90+50 = 140 kcal，7+3 = 10 g 蛋白质，7+4 = 11 g 脂肪）",
+        "美国 Double Cheeseburger 牛肉饼 61.2 g，即 2 块"
+       ]
+      },
+      {
+       "component_id": "cheese.american",
+       "count": 2,
+       "confidence": "high",
+       "evidence": [
+        "官网描述「双层香软芝士」",
+        "产品图有两片黄色吉士",
+        "MCP 可去配料「吉士」（100141）只出现一次，但只是一个可去开关（maxQuantity=1），不代表只有一片",
+        "钙：双层吉士 − 吉士汉堡包 = +88 mg，相当于再一片吉士（83）加牛肉饼（5）；若只有一片芝士，差值应只有约 +5",
+        "美国 Double Cheeseburger 芝士 28.4 g，即 2 片"
+       ]
+      },
+      {
+       "component_id": "sauce.ketchup",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "MCP 可去配料「番茄酱」（100214）",
+        "美国 Double Cheeseburger 番茄酱 7.8 g，用量与单层相同"
+       ]
+      },
+      {
+       "component_id": "sauce.mustard",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "MCP 可去配料「芥末酱」（102230）",
+        "产品图可见黄芥末"
+       ]
+      },
+      {
+       "component_id": "veg.pickle",
+       "count": 1,
+       "confidence": "low",
+       "evidence": [
+        "MCP 可去配料「酸黄瓜」（100202）",
+        "美国 Double Cheeseburger 酸黄瓜 8.0 g，是单层的 2 倍",
+        "但中国算术更支持 1 份：按 1 份算推得牛肉饼钠 163 mg，与美国 160 一致；若是 2 份，牛肉饼钠只剩 118 mg",
+        "另一佐证：中国比美国少 103 mg 钠，扣掉两片芝士的差（约 −38）和基础差（−18）后剩约 −47，恰好约等于一份酸黄瓜"
+       ]
+      },
+      {
+       "component_id": "veg.onion",
+       "count": 2,
+       "confidence": "low",
+       "evidence": [
+        "MCP 可去配料「洋葱粒」（100212）",
+        "美国 Double Cheeseburger 洋葱 7.9 g，即 2 份",
+        "中国数据算不出份数：每份只有约 1 g 碳水，在取整误差内"
+       ]
+      }
+     ],
+     "arithmetic_checks": [
+      "双层吉士 − 吉士汉堡包 = 135/11/10/1/344/88；预期为一块牛肉饼（90/7/7/0/160，钙 4）加一片吉士（中国差值 46/3/4/1/181，钙 83），即 136/10/11/1/341/87，吻合",
+      "双层吉士 − 汉堡包 = 181/14/14/2/525/171；预期为一块牛肉饼加两片吉士，即 181/14/14/2/525/171（用中国推得值）",
+      "按 1 份酸黄瓜、2 份洋葱、美国先验求和：430/25/23.5/33/1080，中国为 429/27/22/31/1017；钠差 −63，可由中国吉士片钠较低（每片 −19）解释大半",
+      "与美国 Double Cheeseburger 总值 440/25/24/34/1120（钙 180）对比，中国 429/27/22/31/1017/232"
+     ],
+     "notes": "份数单位：牛肉饼按块，芝士按片，酸黄瓜和洋葱按汉堡包的一份。"
+    },
+    {
+     "product": "巨无霸",
+     "description_url": "https://www.mcdonalds.com.cn/product/Big-Mac",
+     "official_description_cn": "（节选）两块100%纯牛肉饼，搭配撒有鲜芝麻的松软面包、清新爽口的生菜、洋葱和酸黄瓜，辅以香滑顺口的芝士与美味酱汁",
+     "composition": [
+      {
+       "component_id": "bun.bigmac",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "官网描述「撒有鲜芝麻的松软面包」",
+        "美国 Big Mac(200463) 用 Big Mac Bun 68.9 g（三层面包）",
+        "算术：巨无霸 − 2×牛肉饼 − 吉士 = 289/8/10/41/454/78，碳水 41 只能主要来自约 37 g 碳水的三层面包"
+       ]
+      },
+      {
+       "component_id": "patty.beef_small",
+       "count": 2,
+       "confidence": "high",
+       "evidence": [
+        "官网描述「两块100%纯牛肉饼」",
+        "美国 Big Mac 牛肉饼 61.2 g，即 2 块"
+       ]
+      },
+      {
+       "component_id": "cheese.american",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "MCP 可去配料「吉士」（100141）",
+        "官网描述「香滑顺口的芝士」",
+        "钙：巨无霸 − 2×牛肉饼 − 1 片吉士 = 78 mg，可由面包、酱和生菜解释；若是 2 片，余量为 −5 mg，不可能",
+        "美国 Big Mac 芝士 14.2 g，即 1 片"
+       ]
+      },
+      {
+       "component_id": "sauce.bigmac",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "MCP 可去配料「巨无霸酱」（100116）",
+        "美国 Big Mac 酱 28.0 g（计算器口径 140 kcal）；单位为一个巨无霸的总酱量",
+        "算术：余量脂肪 10 g 减去面包约 2 g，酱约 8 g 脂肪（约 75–85 kcal），比美国两种口径都小"
+       ]
+      },
+      {
+       "component_id": "veg.lettuce_shred",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "MCP 可去配料「生菜」（100168，与麦香鸡同一编码，即生菜丝）",
+        "官网描述「清新爽口的生菜」",
+        "美国 Big Mac 生菜丝 28.4 g，分两层；单位为一个巨无霸的用量"
+       ]
+      },
+      {
+       "component_id": "veg.onion",
+       "count": 2,
+       "confidence": "low",
+       "evidence": [
+        "MCP 可去配料「洋葱粒」（100212）",
+        "美国 Big Mac 洋葱 7.9 g，是汉堡包 3.9 g 的 2 倍（底层和中层各一份）",
+        "中国数据算不出份数：每份约 1 g 碳水"
+       ]
+      },
+      {
+       "component_id": "veg.pickle",
+       "count": 1,
+       "confidence": "low",
+       "evidence": [
+        "MCP 可去配料「酸黄瓜」（100202）",
+        "美国 Big Mac 酸黄瓜 8.0 g，即 2 份",
+        "中国算术更支持与双层吉士相同（1 份）：巨无霸 − 双层吉士 的钠差观测为 −56，按同样 1 份预测为 −61；若巨无霸多一份酸黄瓜，预测为 −16"
+       ]
+      }
+     ],
+     "arithmetic_checks": [
+      "巨无霸 − 2×牛肉饼(89/8/6/0/163/5) − 吉士(46/3/4/1/181/83) = 289/8/10/41/454/78；美国三层面包(190/7/2/37/320) + 产品页口径巨无霸酱(110/0/11/2/115) + 生菜(0/0/0/1/0) + 2 份洋葱(碳水 2) + 1 份酸黄瓜(钠 45) = 300/7/13/42/480，吻合，中国酱量偏小",
+      "巨无霸 − 双层吉士 = 84/0/4/11/−56/−61；预测 = (三层面包 − 普通面包 50/2/0.5/10/90) + 酱(110/0/11/2/115) + 生菜(碳水 1) + 多一份洋葱(碳水 1) − 一片吉士(46/3/4/1/181) − 番茄酱(10/0/0/2/80) − 芥末酱(钠 5) = 104/−1/7.5/11/−61，吻合（kcal 和脂肪偏高说明中国巨无霸酱更少）",
+      "钙差 −61 = −83（少一片吉士）+ 约 22（面包更大、酱和生菜），确认只有 1 片芝士",
+      "与美国 Big Mac 总值 580/25/34/45/1060（钙 120）对比，中国 513/27/26/42/961/171"
+     ],
+     "notes": "份数单位：巨无霸酱和生菜以一个巨无霸的总用量为 1 份。"
+    },
+    {
+     "product": "培根蔬萃双层牛堡",
+     "description_url": "https://www.mcdonalds.com.cn/product/Bacon-Lettuce-Tomato-Double-Beef-Burger",
+     "official_description_cn": "（节选）一层爽脆生菜，一片鲜番茄，两片培根，两片牛肉，一层特别酱料",
+     "composition": [
+      {
+       "component_id": "bun.sesame_round",
+       "count": 1,
+       "confidence": "medium",
+       "evidence": [
+        "产品图 MS_1106_600.png 顶面包撒满芝麻，不是 bun.regular",
+        "碳水 34 与不素之霸相同（同为芝麻顶圆面包），两者减去两块牛肉饼后钙都约 63–65",
+        "算术：培根蔬萃 − 双层吉士 + 2 片吉士 = 105/3/9/5/73/7；扣除番茄、生菜和酱后，碳水仍比普通面包多约 3–4 g"
+       ]
+      },
+      {
+       "component_id": "patty.beef_small",
+       "count": 2,
+       "confidence": "high",
+       "evidence": [
+        "官网描述「两片牛肉」",
+        "产品图有两块小牛肉饼"
+       ]
+      },
+      {
+       "component_id": "bacon",
+       "count": 2,
+       "confidence": "high",
+       "evidence": [
+        "官网描述「两片培根」",
+        "MCP 可去配料「培根」（103386，与培根安格斯厚牛堡相同编码）",
+        "单位按 1 片计；美国先验是 Bacon McDouble 整份 13.7 g，算术显示中国两片合计约 40–50 kcal，每片约为美国份的 0.3–0.4"
+       ]
+      },
+      {
+       "component_id": "veg.tomato",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "官网描述「一片鲜番茄」",
+        "MCP 可去配料「番茄片」（100160）"
+       ]
+      },
+      {
+       "component_id": "veg.lettuce_shred",
+       "count": 1,
+       "confidence": "medium",
+       "evidence": [
+        "MCP 可去配料「生菜」（100168，与巨无霸、麦香鸡同一编码，即生菜丝）",
+        "官网描述「一层爽脆生菜」；巨无霸有两层，实际用量可能为 0.5–1 个巨无霸单位，营养上可忽略"
+       ]
+      },
+      {
+       "component_id": "sauce.mcchicken",
+       "count": 1,
+       "confidence": "medium",
+       "evidence": [
+        "MCP 可去配料「麦香鸡酱」（100136，与麦香鸡相同）",
+        "官网描述「一层特别酱料」；产品图可见白色沙拉酱",
+        "用量是否等于麦香鸡上的一份无法确认：算术显示酱加培根合计约 85 kcal / 8.5 g 脂肪，酱可能只有约半份美国 mayo"
+       ]
+      },
+      {
+       "component_id": "sauce.ketchup",
+       "count": 1,
+       "confidence": "medium",
+       "evidence": [
+        "MCP 可去配料「番茄酱」（100214，与双层吉士相同）",
+        "产品图可见番茄酱",
+        "用量是否等于汉堡包的一份无法确认"
+       ]
+      }
+     ],
+     "arithmetic_checks": [
+      "培根蔬萃 − 2×牛肉饼 = 264/8/11/34/402/63 = 芝麻面包 + 2 片培根 + 番茄 + 生菜 + 麦香鸡酱 + 番茄酱，无负值",
+      "培根蔬萃 − 双层吉士 = 13/−3/1/3/−289/−159；加回两片吉士(92/6/8/2/362/166) = 105/3/9/5/73/7 = (芝麻面包 − 普通面包) + 2 片培根 + 番茄 + 生菜 + 麦香鸡酱 − 芥末酱 − 酸黄瓜 − 洋葱（番茄酱两边都有，相互抵消）。钙仅 +7，确认没有芝士",
+      "按美国先验求和（QP 芝麻面包 180 + 2 块牛肉饼 180 + 美国培根整份 70 + mayo 100 + 番茄酱 10）= 540/24/33.5/37/945，中国为 442/24/23/34/728：中国的面包、酱和培根都明显更小，美国先验需降权",
+      "佐证：官网「牛气满满」套餐（本品 + 小杯玉米杯 + 低卡饮料）为 495/26/24/42/764/79，减去本品 = 53/2/1/8/36/6，与玉米杯一致，说明本品营养数值自洽"
+     ],
+     "notes": "份数单位：培根按片，番茄按片。MCP 中番茄片编码 100160 与芝士安格斯的 102225 不同，可能是不同规格。"
+    },
+    {
+     "product": "高达吉士双牛堡",
+     "description_url": "https://menu-img.mcd.cn/pcm/prod/menu/20260101/product/MS_521316_600.png",
+     "official_description_cn": "中国官网汉堡菜单无此产品页（未查到官方文字描述）；依据为 MCP 可去配料和官方菜单图片",
+     "composition": [
+      {
+       "component_id": "bun.regular",
+       "count": 1,
+       "confidence": "medium",
+       "evidence": [
+        "官方菜单图 MS_521316_600.png 顶面包无芝麻，形状与普通汉堡面包一致（光泽略强，可能是拍摄风格）",
+        "可去配料与双层吉士几乎相同（酸黄瓜、洋葱粒、番茄酱、芥末酱），属于同一构型，价格 22.5 元，双层吉士为 23 元"
+       ]
+      },
+      {
+       "component_id": "patty.beef_small",
+       "count": 2,
+       "confidence": "high",
+       "evidence": [
+        "品名「双牛」",
+        "官方菜单图有两块小牛肉饼"
+       ]
+      },
+      {
+       "component_id": "cheese.gouda",
+       "count": 1,
+       "confidence": "medium",
+       "evidence": [
+        "MCP 可去配料「高达干酪片」（102215，与芝士安格斯厚牛堡相同）",
+        "官方菜单图只看到一片白色干酪，夹在两块牛肉饼之间",
+        "MCP 只有一个开关，看不出片数；对照双层吉士的图明显是两片黄色吉士"
+       ]
+      },
+      {
+       "component_id": "sauce.ketchup",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "MCP 可去配料「番茄酱」（100214）",
+        "图中可见番茄酱"
+       ]
+      },
+      {
+       "component_id": "sauce.mustard",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "MCP 可去配料「芥末酱」（102230）",
+        "图中可见黄芥末"
+       ]
+      },
+      {
+       "component_id": "veg.pickle",
+       "count": 1,
+       "confidence": "low",
+       "evidence": [
+        "MCP 可去配料「酸黄瓜」（100202）",
+        "图中可见酸黄瓜",
+        "份数参照双层吉士（算术支持 1 份）"
+       ]
+      },
+      {
+       "component_id": "veg.onion",
+       "count": 2,
+       "confidence": "low",
+       "evidence": [
+        "MCP 可去配料「洋葱粒」（100212）",
+        "份数参照双层吉士（跟美国双层堡的 2 份洋葱），无法从数据验证"
+       ]
+      }
+     ],
+     "arithmetic_checks": [
+      "无官方营养，无法直接校验。按本配方预测 = 双层吉士 − 2 片吉士 + 1 片高达 = (429−92)/(27−6)/(22−8)/(31−2)/(1017−362)/(232−166) = 337/21/14/29/655/66，再加 1 片高达干酪（由安格斯家族解出）"
+     ],
+     "notes": "不含普通吉士片：可去配料里没有「吉士」（100141），而双层吉士里有；图片也没有黄色芝士。品名中的「吉士」应理解为「干酪」，不是额外的美式吉士片。"
+    },
+    {
+     "product": "不素之霸双层牛堡",
+     "description_url": "https://www.mcdonalds.com.cn/product/beef-sausage",
+     "official_description_cn": "（节选）特选两块100%纯牛肉饼，仅以少许盐和胡椒调味，搭配德式图林根香肠",
+     "composition": [
+      {
+       "component_id": "bun.sesame_round",
+       "count": 1,
+       "confidence": "medium",
+       "evidence": [
+        "产品图 MS_4648_600 顶面包撒满芝麻",
+        "碳水 34 与培根蔬萃相同；减去两块牛肉饼后钙为 65，培根蔬萃为 63，支持同一种面包"
+       ]
+      },
+      {
+       "component_id": "patty.beef_small",
+       "count": 2,
+       "confidence": "high",
+       "evidence": [
+        "官网描述「特选两块100%纯牛肉饼」",
+        "产品图有两块牛肉饼"
+       ]
+      },
+      {
+       "component_id": "sausage.thuringer",
+       "count": 1,
+       "confidence": "medium",
+       "evidence": [
+        "官网描述「搭配德式图林根香肠」",
+        "产品图显示一根香肠切成两段（或两段短香肠）平铺在牛肉饼上，按 1 份计"
+       ]
+      },
+      {
+       "component_id": "sauce.mustard_mayo",
+       "count": 1,
+       "confidence": "high",
+       "evidence": [
+        "MCP 唯一可去配料「芥末沙拉酱」（102229）",
+        "产品图可见黄色酱"
+       ]
+      }
+     ],
+     "arithmetic_checks": [
+      "不素之霸 − 2×牛肉饼 = 315/12/15/34/686/65 = 芝麻面包 + 香肠 + 芥末沙拉酱；若面包约 160/5.5/2/31/220，香肠加酱约 155/6.5/13/3/466，符合约 40 g 图林根香肠加少量沙拉酱，无负值",
+      "不素之霸 − 双层吉士 + 2 片吉士 = 156/7/13/5/357/9 = (芝麻面包 − 普通面包) + 香肠 + 芥末沙拉酱 − 番茄酱 − 芥末酱 − 酸黄瓜 − 洋葱；钙仅 +9，确认没有芝士",
+      "不素之霸 − 培根蔬萃 = 51/4/4/0/284/2 = (香肠 + 芥末沙拉酱) − (2 片培根 + 番茄 + 生菜 + 麦香鸡酱 + 番茄酱)；碳水和钙几乎相同，支持两款同用一种面包"
+     ],
+     "notes": "MCP 只列出芥末沙拉酱，产品图里也没有洋葱、酸黄瓜、番茄酱或芝士，因此不加这些配料。"
+    }
+   ],
+   "open_questions": [
+    "双层堡的酸黄瓜和洋葱份数：美国 Double Cheeseburger 和 Big Mac 的酸黄瓜都是 8.0 g、洋葱 7.9 g，都是汉堡包的 2 倍。中国算术更支持酸黄瓜只有 1 份：按 1 份推得牛肉饼钠 163，与美国 160 一致；若按 2 份，牛肉饼钠只剩 118。洋葱每份只有约 1 g 碳水，数据无法分辨，暂按美国用 2 份。建议求解时把这几项设为低权重，或对两种假设各跑一次比较残差。",
+    "bun.sesame_round 是新增配料（培根蔬萃和不素之霸的圆形芝麻顶面包）。如果其他家族的 bun.sesame 是同一种圆形芝麻面包（比如麦辣鸡腿汉堡或麦香鸡用的面包），请合并。美国 QP 面包（180/6/2.5/34/260）偏大，中国这款碳水约 30–31 g。",
+    "培根单位按片计（官网写「两片培根」）。美国先验是 Bacon McDouble 整份厚切培根 13.7 g（70/4/6/1/220），和中国「一片」的换算关系未知；算术显示中国两片合计约 40–50 kcal。需要和安格斯家族的培根安格斯厚牛堡（同一编码 103386）统一片数口径。",
+    "高达吉士双牛堡没有官方营养，官网也没有产品页。高达干酪 1 片只依据菜单图（只看到一片白色干酪），未找到官方文字确认。面包是否是普通面包也只凭图片判断。",
+    "不素之霸的香肠是一根切半还是两段短香肠，看不清（按 1 份计）。芥末沙拉酱和图林根香肠都没有美国先验，只能靠这一款餐品的方程加安格斯或其他家族的约束，单独无法辨识，建议给弱的通用先验（比如一般香肠和芥末蛋黄酱的营养）并加大方差。",
+    "培根蔬萃里麦香鸡酱、番茄酱、生菜的用量是否等于麦香鸡、汉堡包、巨无霸的标准份无法确认；算术显示这款的酱和培根都明显小于美国份。",
+    "巨无霸酱：中国余量算出的脂肪约 8 g，比美国两种口径（110 或 140 kcal）都小，先验取产品页口径（110）更接近，但仍需较大方差。",
+    "钙的先验：中国面包钙约 50 mg（汉堡包 − 牛肉饼 = 56，含配料），美国面包只有 8 mg；美国面包类的钙先验不能用。牛肉饼（约 5）和吉士（约 83）的钙与美国（4、80）一致。",
+    "汉堡包和吉士汉堡包不在门店菜单上，无法用 MCP 核实芥末酱；汉堡包官网描述只提番茄酱。营养影响可忽略。",
+    "番茄片编码：培根蔬萃为 100160，芝士安格斯为 102225，可能是不同规格的番茄片；营养可忽略，暂共用 veg.tomato。"
+   ],
+   "urls_visited": [
+    "https://www.mcdonalds.com.cn/product/Hamburger",
+    "https://www.mcdonalds.com.cn/product/Cheeseburger",
+    "https://www.mcdonalds.com.cn/product/Double-Cheeseburger",
+    "https://www.mcdonalds.com.cn/product/Big-Mac",
+    "https://www.mcdonalds.com.cn/product/Bacon-Lettuce-Tomato-Double-Beef-Burger",
+    "https://www.mcdonalds.com.cn/product/beef-sausage",
+    "https://www.mcdonalds.com.cn/product/牛气满满",
+    "https://www.mcdonalds.com.cn/index/Food/menu/burger",
+    "https://www.mcdonalds.com.cn/product/mcdonalds/hamburgers",
+    "https://www.mcdonalds.com.cn/product/mcdonalds/500大卡套餐-2",
+    "https://www.mcdonalds.com.cn/nutrition_calculator",
+    "https://menu-img.mcd.cn/pcm/prod/menu/20260101/product/MS_521316_600.png",
+    "https://menu-img.mcd.cn/pcm/prod/menu/20260101/product/MS_1120_600.png",
+    "https://menu-img.mcd.cn/pcm/prod/menu/20250804/product/MS_1106_600.png",
+    "https://menu-img.mcd.cn/pcm/prod/menu/20250611/product/MS_4648_600_1749175329279.png",
+    "https://www.mcdonalds.com/dnaapp/itemDetails?country=US&language=en&showLiveData=true&item=200477",
+    "https://www.mcdonalds.com/dnaapp/itemDetails?country=US&language=en&showLiveData=true&item=200480",
+    "https://www.mcdonalds.com/dnaapp/itemDetails?country=US&language=en&showLiveData=true&item=200486",
+    "https://www.mcdonalds.com/dnaapp/itemDetails?country=US&language=en&showLiveData=true&item=200491",
+    "https://www.mcdonalds.com/dnaapp/itemDetails?country=US&language=en&showLiveData=true&item=200463",
+    "https://www.mcdonalds.com/dnaapp/itemDetails?country=US&language=en&showLiveData=true&item=200492",
+    "https://www.mcdonalds.com/dnaapp/itemDetails?country=US&language=en&showLiveData=true&item=200497",
+    "https://www.mcdonalds.com/dnaapp/itemDetails?country=US&language=en&showLiveData=true&item=200466",
+    "https://www.mcdonalds.com/dnaapp/itemDetails?country=US&language=en&showLiveData=true&item=200465",
+    "https://www.mcdonalds.com/dnaapp/itemDetails?country=US&language=en&showLiveData=true&item=200496",
+    "https://www.mcdonalds.com/dnaapp/itemDetails?country=US&language=en&showLiveData=true&item=200426",
+    "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200492(300163)",
+    "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200465(301516)",
+    "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200497(301407)",
+    "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200497(300098)",
+    "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200486(301518)"
+   ]
+  }
+ },
+ "verdicts": {
+  "鱼系": {
+   "family": "鱼系",
+   "checks": [
+    {
+     "product": "麦香鱼",
+     "verdict": "consistent",
+     "reasoning": "配方：1 面包 + 1 鱼饼 + 1 鱼酱 + 0.5 吉士。我没能推翻任何一个份数。\n(1) 用美国原始值（raw）预测。我自己逐个抓了美国配料的原始值：面包 141.7/4.91/1.75/26.92/226.2/钙 7.75，鱼饼 123.1/9.22/5.17/9.47/143.5/钙 7.33，鱼酱 93.9/0.19/10.10/0.55/108.1/钙 6.06，半片芝士 25.06/1.30/1.87/0.68/102.2/钙 39.0。合计 383.8/15.6/18.9/37.6/580/60.1，官方是 325/16/13/35/556/99。差值依次为 +58.8 kcal、−0.4 g 蛋白、+5.9 g 脂肪、+2.6 g 碳水、+24 mg 钠、−38.9 mg 钙。多出的热量和脂肪只出现在含鱼酱的两款，不含鱼酱的儿童鱼排堡没有（见第 3 条），说明是中国鱼酱的用量或配方小得多，不是份数错了。钙少约 39，三款都差不多（−39、−40、−41），对应中国面包钙约 47–50（美国只有 7.75），也说明每款各只有一个面包。\n(2) 芝士份数（看钙）：麦香鱼 − 儿童鱼排堡 = (56, 1, 7, −1, 114, 41) = 0.5 吉士 + 鱼酱 − 番茄。中国一片吉士 = 吉士汉堡包 − 汉堡包 = (46, 3, 4, 1, 181, 83)，半片钙 41.5，和差值 41 正好对上。如果是整片，钙差应约 83；如果没有吉士，钙差约 0。两种都被排除。MCP 可去配料清单里有「吉士」，美国配方 300716 也是半片。\n(3) 鱼酱：MCP 清单有「麦香鱼酱」，官网写「滋味沙拉酱」。由上面的差值反推中国鱼酱约为：热量 33+番茄、蛋白 −0.5、脂肪 5、碳水约 0、钠 23.5+番茄、钙约 0。按 9 kcal/g 算，5 g 脂肪就有 45 kcal，比 33–38 kcal 多，说明真实脂肪大概在取整区间的下沿，约 3.5–4 g。\n(4) 面包：份数没有问题。但「和汉堡包面包共用同一个配料」只有在双层鳕鱼堡的鱼酱约 1.5 份时才能严格成立。若取 1 份，从儿童鱼排堡反推的鱼系面包约为 131/4.4/1.1/24.3/172/47，而牛肉系反推的是 149/5/2/26/199/56，热量差约 18 kcal。我的联合拟合里，求解器为了填这个缺口，把芥末、酸黄瓜、洋葱各推到约 4.5 kcal（美国都是 0）。这个影响的是先验，不影响份数。",
+     "suggested_fix": "份数不用改。改先验：sauce.tartar 不要直接用美国的 94 kcal/10 g 脂肪/108 mg 钠，先乘 0.4 左右再给宽方差。中国反推值约 35–45 kcal、4–5 g 脂肪、钠 20–100 mg，钠的范围由儿童鱼排堡是否含番茄酱决定。fish.fillet 的钠先验要放宽到约 250 mg（美国 143.5）。bun.regular 的钙先验用中国反推的约 50 mg，不要用美国的 7.75。"
+    },
+    {
+     "product": "双层深海鳕鱼堡",
+     "verdict": "suspicious",
+     "reasoning": "面包 1、鱼饼 2、吉士 1 这三项能站住；鱼酱的份数目前定不下来。\n(1) 用美国原始值预测（鱼酱按 1 份）：141.7 + 246.2 + 93.9 + 50.1 = 531.9 kcal，蛋白 26.1，脂肪 26.0，碳水 47.8，钠 825.7，钙 106.6。官方是 485/28/21/46/917/147，差值依次为 +47 kcal、−1.9 g、+5.0 g、+1.8 g、−91 mg、−40 mg。钙少 40，和另外两款一样，所以芝士份数是对的。我核实了美国 200383：鱼饼原始值正好是单层的两倍，芝士是整片（50.1 kcal、钙 78.1），鱼酱原始值 93.93，和单层完全相同，面包也一样。\n(2) 芝士：双层 − 麦香鱼 的钙 = 48 = 鱼饼钙 + (c − 0.5)×83。c=1 时鱼饼钙 6.5（美国 7.3），合理。c=0.5 时鱼饼钙要 48，儿童鱼排堡的面包钙就只剩 58 − 48 − 2 ≈ 8，和牛肉系的 56 冲突，排除。c=2 时鱼饼钙为 −76，排除。\n(3) 鱼饼：官网原文是「两整块深海鳕鱼饼」。双层 − 麦香鱼 = (160, 12, 8, 11, 361, 48)，n=1 时鱼饼为 (137, 10.5, 6, 10.5, 270.5, 6.5)，合理。\n(4) 鱼酱份数 n 是问题所在。\n· n=0 可以排除：此时鱼饼 = (137, 10.5, 6, …) + 鱼酱 ≈ 脂肪 11 g，代回儿童鱼排堡，面包脂肪 = 6 − 11 = −5。\n· n=2 不受青睐，但谈不上排除：2×麦香鱼 − 双层 = 面包 + (2−n)×鱼酱，n=2 时就等于面包本身，即 (165, 4, 5, 24, 195, 51)。它的钠和钙与牛肉系面包 (199, 56) 吻合得很好，但热量多 16 kcal、脂肪多 3 g；同时鱼饼脂肪约 1 g，取整误差上限也只到 3 g。两处独立的矛盾一起看，n=2 可能性低。\n· n=1 和 n=1.5 分不开：在我自设的先验和取整噪声下，总 χ²：n=1 为 13.4，n=1.5 为 9.4，n=2 为 17.1。排序和研究员一致（16.2/12.9/24.0），但绝对值完全取决于先验方差怎么设，不能当作证据。\n· 我还发现一个值得留意的替代解：n=2 加上「儿童鱼排堡含番茄酱」。这个组合下鱼饼钠约 162（美国 143.5）、鱼酱钠约 109（美国 108），研究员标出的两个钠异常（中国鱼饼钠是美国的 1.9 倍、中国鱼酱钠只有美国的 0.2 倍）同时消失；代价是面包变成 165 kcal、5 g 脂肪。\n(5) MCP 可去配料返回空列表 []，不能当作「没有配料」的证据：钙证明有吉士，n=0 被排除证明有鱼酱。研究员把鱼酱份数标为 low，这个处理是诚实的。",
+     "suggested_fix": "面包 1、鱼饼 2（high）和吉士 1（high）保持不变。鱼酱名义上仍记 1 份（美国规格），但不要直接写死：把这一款的鱼酱份数设成 [1, 2] 区间内的自由参数，先验中心取 1；或者分别跑 n=1、1.5、2 三个情景，各自比较全库残差。同时在文档里注明：n=1 意味着鱼系面包比牛肉系轻约 15–18 kcal，或者牛肉系的调料热量比美国多；n=2 则要求面包约 165 kcal、5 g 脂肪。等牛肉系的面包和调料定下来，再用全库求解来决定 n。"
+    },
+    {
+     "product": "儿童鱼排堡",
+     "verdict": "consistent",
+     "reasoning": "配方：1 面包 + 1 鱼饼 + 1 番茄片，不含吉士、鱼酱和番茄酱。证据如下。\n(1) 用美国原始值预测（番茄按 0/0/0/1/0、钙约 2）：264.8/14.1/6.9/37.4/369.7/17.1，官方 269/15/6/36/442/58。差值依次为 −4 kcal、−0.9 g、+0.9 g、+1.4 g、−72 mg、−41 mg。热量和三大营养素几乎都对上，没有多出鱼酱那份热量和脂肪，所以「不含鱼酱」成立。钙少 41，和另外两款一样，对应一个中国面包，不含吉士。\n(2) 吉士：钙 58 ≈ 面包约 50 + 鱼饼约 6 + 番茄约 2，加半片吉士就会到约 100。排除吉士。\n(3) 鱼酱：麦香鱼 − 儿童 的脂肪 = 7 = 0.5 吉士的 2 + 鱼酱脂肪。若儿童鱼排堡含整份鱼酱，番茄要变成 −33 kcal、−3.9 g 脂肪（总 χ² 53.9）；含半份时番茄约 −10 kcal。都被排除。\n(4) 鱼饼大小：两款蛋白差 16 − 15 = 1 ≈ 半片吉士的 1.5 g，说明鱼饼一样大。碳水 36 比麦香鱼 35 还多，说明面包没有变小。\n(5) 番茄：官网原文写「搭配新鲜番茄」，有直接证据。具体几片不知道，但对营养影响不到 1 g。\n(6) 番茄酱：只有算术证据，而且依赖双层鳕鱼堡的 n。n=1 时若含番茄酱，面包钠只剩约 91–104 mg；n=1.5 时约 137–143。两者都远低于牛肉系的 199 和美国的 226，所以不支持含番茄酱。但 n=2 时，含番茄酱反而让钠完全对上（见双层鳕鱼堡一条）。\n(7) 我核实了这款仍列在官网开心乐园餐页面上（/product/mcdonalds/Happy-Meal-Items-2），营养值 1126 kJ ≈ 269 kcal，和输入一致。它的能量比按蛋白、脂肪、碳水折算的值高约 36 kJ，在全库里偏高但不离群（汉堡包 +28、烟肉蛋麦满分 +38），可能是膳食纤维的能量。",
+     "suggested_fix": "份数不用改。建议把「不含番茄酱」的置信度写成 medium，并注明它只在双层鳕鱼堡鱼酱 n≤1.5 时成立；如果全库求解最后偏向 n=2，要回头复核这款是否含番茄酱。veg.tomato 记 1 份没有问题，它对营养的影响可以忽略。"
+    }
+   ],
+   "cross_family_notes": [
+    "面包钙：美国 Regular Bun 的原始钙是 7.75 mg，中国从牛肉系、鱼系两边反推都是约 47–56 mg。鱼系三款用美国先验预测时，钙一律少 39–41 mg，这是「每款一个面包」的独立证据。所有用 bun.regular 的家族都要单独提供中国面包的钙先验，因为 us_prior 里没有钙字段。",
+    "中国的吉士和小牛肉饼都能当可靠锚点。一片吉士 = 吉士汉堡包 − 汉堡包 = (46, 3, 4, 1, 181, 83)，美国原始值是 50.1/2.60/3.82/1.36/204.4/钙 78.1。一块小牛肉饼 = 双层吉士 − 吉士汉堡包 − 一片吉士 = (89, 8, 6, 0, 163, 5)，美国是 90/7/7/0/160。",
+    "如果求解器让 bun.regular 在鱼系和牛肉系之间共用，鱼系的钠只能接受约 170–185 mg 的面包，而牛肉系按美国调料钠（番茄酱 80、酸黄瓜 45、芥末 5）反推是 199。要么放宽牛肉系调料的钠先验，要么允许两边面包的钠有偏差，否则误差会被推进双层鳕鱼堡的鱼酱份数。",
+    "能量取整：中国标签的能量普遍比按蛋白、脂肪、碳水折算（17/37/17 kJ/g）的值高约 +2 到 +45 kJ（多数在 +10 到 +25），推测是膳食纤维的能量。所以不要要求每个配料的 kcal 都和它的宏量营养素严格换算一致，例如麦香鱼酱 5 g 脂肪对应约 35 kcal 的那点矛盾，属于取整加纤维的误差。",
+    "MCP 可去配料返回空列表 []（例如双层深海鳕鱼堡）不能当作「不含该配料」的证据，可能只是这个商品没开放自定义。",
+    "已核实的美国原始数据：200445 的鱼饼 123.1 kcal、钙 7.33；鱼酱 93.9 kcal、钙 6.06；半片芝士钙 39.0。200383 的鱼饼原始值正好是单层的两倍，整片芝士钙 78.1，鱼酱和面包与单层完全相同。番茄先验 203745(301407) 我没能核实（内置浏览器面板中途关闭），对结果影响可以忽略。",
+    "我的中间计算脚本（研究时的临时文件，未入库）是 fit.py（加权最小二乘，比较 14 种假设）和 atw.py（核对能量与宏量营养素是否一致）。"
+   ]
+  },
+  "早餐麦满分系": {
+   "family": "早餐麦满分系",
+   "checks": [
+    {
+     "product": "猪柳麦满分",
+     "verdict": "consistent",
+     "reasoning": "我把 9 个可用方程放在一起做了最小二乘拟合（剔除了烟肉蛋和大脆鸡扒这两个只出现一次的方程），另加了牛肉小饼系的吉士方程。未知量取 M（松饼，含约等于 0 的生菜）、S（猪柳）、E（圆蛋）、C（吉士）、H（火腿扒）、K（早餐鸡腿+烤味酱）、BX（炒双蛋堡的面包+炒蛋），共 7 个，10 个方程，rank=7。拟合结果：M=(136.7, 7, 1.3, 22.3, 236.9, 钙126.5)，S=(126.1, 6, 10.8, 1, 363.6, 5.1)，C=(45.6, 3, 3.9, 0.8, 180.8, 82.2)，每个餐品各项营养的残差都不超过 0.8。按配方 M+S+C 预测本品为 (308.4, 16, 16.1, 24.2, 781.2, 213.8)，官方值是 (308, 16, 16, 24, 781, 213)。吉士只有 1 片：用不含吉士的三款麦满分（火腿扒、板烧、大脆鸡扒）算出的基础钙约 130，本品比它多约 82 mg，正好是一片。如果是两片，钙应在 295 左右。可去配料清单只有“吉士”，说明没有可去的酱。黄油不需要单独计：M 的脂肪只有 1.3 g，几乎没有空间，而且它和松饼完全共线。",
+     "suggested_fix": ""
+    },
+    {
+     "product": "猪柳蛋麦满分",
+     "verdict": "consistent",
+     "reasoning": "本品减去猪柳麦满分，差值为 (79, 7, 5, 1, 65, 钙30)，拟合出的 E=(78.5, 7, 5, 0.8, 65, 29.6)，和美国 Egg 的数值以及 Atwater 系数估算（76）都吻合。钙 243 = 213 + 30，说明没有第二片吉士（多一片会多约 82 mg）。按配方预测为 (386.9, 23, 21.1, 25, 846.2, 243.4)，各项残差都不超过 0.4。",
+     "suggested_fix": ""
+    },
+    {
+     "product": "双层猪柳蛋麦满分",
+     "verdict": "consistent",
+     "reasoning": "本品减去猪柳蛋，差值为 (126, 6, 11, 1, 364, 钙6)。这个差值高钠、高脂、几乎不含钙和碳水，是一块猪柳的特征，Atwater 估算 125 和 126 对得上。钙只多 6 mg，排除了第二片吉士（+82）和第二个蛋（+30）。还有一条交叉验证：这块猪柳 S 也出现在炒双蛋堡里。早餐鸡腿与猪柳的差值 K−S=(−17, 2, −3, 1.4, 10, 0.7)，而 板烧炒双蛋堡−猪柳炒双蛋堡 实测为 (−18, 2, −3, 1, 10, 0)，说明两条产品线用的是同一种猪柳和同一种鸡腿。残差都不超过 0.4。",
+     "suggested_fix": ""
+    },
+    {
+     "product": "烟肉蛋麦满分",
+     "verdict": "refuted",
+     "reasoning": "配方是 松饼+圆蛋+吉士+培根×1。本品减去 M+E+C 后剩下 (−0.8, −1, −0.2, 0.1, +0.3, −0.3)，也就是说培根的贡献在 6 项营养上都在 ±1 以内，等于 0。如果按美国培根 (70, 4, 6, 1, 220) 计，预测值是 (331, 21, 16, 25, 703, 238)，比官方多 71 kcal、5 g 蛋白质、220 mg 钠。即使按美国 Canadian Bacon (15, 3, 0, 0, 220) 计，钠也会多出 220 mg。反过来假设没有吉士、剩下的都是培根，得到的“培根”是 (45, 2, 3.7, 0.9, 181, 钙82)，这正是一片吉士的营养结构，培根不可能含 82 mg 钙。所以只要配方里有培根，就和这一行官方数据矛盾。官网页面说明营养数据是汇总得出的（2025 年 4 月更新），而本家族其他方程的残差都不超过 0.8，看起来像是按配料求和。这一行恰好等于“没有培根”的求和结果，最可能是数据库里漏掉了培根这一项。这一点我同意研究员的判断。另外，研究员把“烟肉”直接对应到 bacon，这一点也有疑问：中国的烟肉蛋麦满分对应美国的 Egg McMuffin，而美国用的是 Canadian Bacon（圆形的背部培根），不是汉堡里那种条状培根。",
+     "suggested_fix": "1）求解时把这一行的权重设为 0，不要只是降低权重，否则 bacon 会被拉到 0，和培根蔬萃双层牛堡、培根安格斯系的估计冲突。2）配方文档里保留“烟肉×1”，但不要改成 0，因为餐品名里有烟肉。3）“烟肉”不要和汉堡里的条状 bacon 共用一个 ID。建议新增 bacon.canadian（烟肉，圆形背部培根），美国先验用 Canadian Bacon item=200298(301639)，置信度 low。这款餐品已不在官网，也不在快照菜单上，不需要为它做预测。"
+    },
+    {
+     "product": "火腿扒麦满分",
+     "verdict": "consistent",
+     "reasoning": "H = 双层火腿扒 − 火腿扒 = (124, 7, 10, 2, 371, 钙3)，Atwater 估算 129 和 124 大致对得上。关键在于 M 有三条互相独立的推导路径：(a) 火腿扒路径 (137, 7, 2, 22, 237, 128)；(b) 板烧路径 (137, 7, 1, 23, 238, 128)；(c) 猪柳麦满分 − 猪柳 − 牛肉系吉士 = (136, 7, 1, 22, 236, 124)。三条路径在 ±1 内一致，说明火腿扒麦满分里没有隐藏的酱、吉士或蛋。如果有一份酱，至少会多约 10 kcal 和 50~100 mg 钠。钙 131 也排除了吉士。可去配料清单里只有生菜（编码 100168），和配方一致。残差都不超过 0.6。",
+     "suggested_fix": ""
+    },
+    {
+     "product": "双层火腿扒麦满分",
+     "verdict": "consistent",
+     "reasoning": "这款不在菜单上，也没有 MCP 数据。但它的数值和在售的板烧系、猪柳系推出的 M 吻合，拟合残差都不超过 0.3，说明数据没有失效，不像烟肉蛋那样有问题。钙 134 比单层只多 3 mg，排除了吉士。生菜份数没有证据（置信度 low），但生菜营养约为 0，对求解没有影响。",
+     "suggested_fix": ""
+    },
+    {
+     "product": "原味板烧鸡腿麦满分",
+     "verdict": "consistent",
+     "reasoning": "按配方 M + K（早餐鸡腿 + 烤味酱）预测为 (245.8, 15, 9.1, 24.7, 610.5, 132.3)，官方值是 (246, 15, 9, 25, 611, 133)。可去配料清单里有生菜和烤味酱，和官网描述的“生菜丝”“香浓烧鸡酱”对应。新建配料 chicken.grill_thigh_breakfast 有依据：板烧鸡腿堡减去普通面包后是 (242, 18, 15, 9, 842, 37)，是 K 的 2.2 倍（热量、蛋白质）和 2.3 倍（钠）。如果和汉堡用的鸡腿共用一个 ID、份数都记 1，结果会严重偏离。另外，板烧鸡腿堡的官网页面写明它从 2024-10-08 起“全新升级”为“原块去骨鸡排”，说明汉堡用的鸡排和早餐用的鸡腿很可能本来就是不同规格，这也支持单独建配料。",
+     "suggested_fix": ""
+    },
+    {
+     "product": "双层原味板烧鸡腿麦满分",
+     "verdict": "consistent",
+     "reasoning": "研究员把烤味酱记为 2 份（置信度 medium），我认为证据比研究员给出的更强。如果双层只有 1 份酱，那么双层减单层就只是一块鸡腿，于是 烤味酱 = 板烧 − M − 鸡腿 = (0.3, 0, −0.3, 0.7, 1.1, 1.5)，约等于 0。这里用的 M 来自火腿扒和猪柳两条不经过板烧的路径，所以这个推论不依赖炒双蛋堡那条路径。一份带酱油的酱，钠不可能是 0。所以酱的用量是随鸡腿加倍的。MCP 里“烤味酱”只出现一次，这也不构成反证：双层吉士汉堡的 MCP 里“吉士”同样只出现一次，但钙 232 = 61 + 2×83 + 牛肉饼 5，证明那里实际有两片。所以 MCP 只列一次并不代表只有一份。按配方预测为 (354.9, 23, 16.9, 27.1, 984.2, 138.2)，各项残差都不超过 0.2。生菜按 1 份计，对营养影响约为 0。",
+     "suggested_fix": ""
+    },
+    {
+     "product": "大脆鸡扒麦满分",
+     "verdict": "suspicious",
+     "reasoning": "本品减去 M，剩下的鸡扒+酱为 P=(224, 9, 15.7, 12.7, 567, 钙3.5)。麦香鸡减去普通面包估计值 (149, 5, 2, 26, 199, 56)，剩下 (220, 10, 15, 13, 532, 17)。热量、蛋白质、脂肪、碳水几乎一样，但钠多 35 mg，钙少 13.5 mg。还要注意，这个比较建立在“麦香鸡用的是普通面包”这个跨家族假设上，我没有在本家族里核实。官网描述把它叫作“麦香鸡块”，这支持共用麦香鸡鸡排；但又特别提到“黑胡椒特殊的香味”，餐品名还叫“大脆鸡扒”，这又暗示可能是调味不同的鸡排。另外，早餐里的麦香鸡酱用量也可能比汉堡少。可去配料清单里只有麦香鸡酱，没有生菜；钙 130 排除了吉士。结构上没有错，但 P 只出现在本品这一个方程里，正好被解出，家族内部没有任何冗余能检验鸡排到底是哪一种。",
+     "suggested_fix": "配方可以保留 chicken.mcchicken_patty×1 + sauce.mcchicken×1 + bun.muffin×1，但鸡排份数的置信度应从 medium 降为 low。求解后要检查本品和麦香鸡的残差：如果麦香鸡的面包被证实不是 bun.regular，或者两款的钠残差方向相反、超过约 20 mg，就改成新配料 chicken.crispy_breakfast（大脆鸡扒，黑胡椒调味），美国先验用 McChicken Patty 300708，并放宽方差。不要为了凑数值去调整麦香鸡酱的份数。"
+    },
+    {
+     "product": "猪柳炒双蛋堡",
+     "verdict": "consistent",
+     "reasoning": "BX（面包+炒蛋）=(310.4, 19, 13.2, 27.8, 341.4, 110.5)，可以由猪柳款和板烧款两条路径互相印证，残差都不超过 0.5。如果把炒蛋看作两个圆蛋，BX−2E=(153, 5, 3.2, 26, 211, 51)，和牛肉系推出的普通面包 (149, 5, 2, 26, 199, 56) 只差 (4, 0, 1, 0, 12, −5)。如果是松饼，钙应在 127 左右、碳水约 22，这里对不上，所以不是松饼。这个面包和普通面包的营养相当，但有两点我没能核实：我打不开产品图（内置浏览器不可用），官网文字也没有提到面包类型。所以“普通面包”只是营养上的等价，不是官方说明。可去配料清单为空，且 supportModify=false，所以 MCP 无法排除隐藏的酱；不过 BX 的闭合只给酱留下不到约 5 kcal、约 12 mg 钠的空间，因此没有酱。钙 116 也排除了吉士。egg.scrambled 只出现在两款炒双蛋堡里，而且总是和 bun.regular 一起出现，所以即使面包认错，误差也会被炒蛋吸收，对汉堡家族的面包估计影响很小。",
+     "suggested_fix": ""
+    },
+    {
+     "product": "原味板烧鸡腿炒双蛋堡",
+     "verdict": "consistent",
+     "reasoning": "按配方 BX + K 预测为 (419.5, 27, 21, 30.2, 715, 116.3)，官方值是 (419, 27, 21, 30, 715, 116)。可去配料清单只有烤味酱，没有生菜，和配方一致。本品减猪柳炒双蛋堡实测为 (−18, 2, −3, 1, 10, 0)，按麦满分推出的 K−S 是 (−17, 2, −3, 1.4, 10, 0.7)，说明这里的鸡腿就是早餐那块小鸡腿，并带 1 份烤味酱。面包的说明见猪柳炒双蛋堡一条。",
+     "suggested_fix": ""
+    }
+   ],
+   "cross_family_notes": [
+    "本家族 10 个方程、7 个未知量的最小二乘拟合，残差全部不超过 0.8（单位分别是 kcal、g、g、g、mg、mg）。官网说明营养值是“汇总和验证后得出”的，这些结果说明官方数据很可能是按配料求和，再对整份取整。所以闭合误差超过约 2 的方程，应该优先怀疑数据有误（比如烟肉蛋），而不是去改配方。",
+    "吉士（cheese.american）可以跨家族共用：本家族推出的 C=(45.6, 3, 3.9, 0.8, 181, 钙82)，和牛肉小饼系的 吉士汉堡包−汉堡包 (46, 3, 4, 1, 181, 83) 一致。",
+    "MCP 只列一次某个配料，不等于只有一份：双层吉士汉堡的 MCP 里“吉士”只列一次，但钙 232 = 61 + 2×83 + 5，证明有两片。其他家族在用 MCP 次数判断份数时，也要考虑这一点。",
+    "sauce.teriyaki 在任何家族里都无法单独识别：在早餐里它总是和 chicken.grill_thigh_breakfast 按 1:1 出现，在板烧鸡腿堡里总是和 chicken.grill_thigh 一起出现，又没有美国先验。建议给它一个明确的弱先验（比如参考日本或香港的照烧酱数据），或者在两个家族里分别把酱并入鸡肉配料。另外，板烧鸡腿堡减面包后的碳水是早餐那份 K 的 3.8 倍（热量只有 2.2 倍），说明汉堡用的酱可能更多或更甜，早餐和汉堡的酱用量不一定相同。",
+    "美国先验在本家族偏差较大，应该放宽方差，让数据主导：猪柳，美国 190 kcal、脂肪 18 g，中国推出 126 kcal、10.8 g；松饼，美国碳水 27 g、钙约 60 mg，中国推出 22 g、127 mg。猪柳、松饼、圆蛋、火腿扒、早餐鸡腿都能由本家族的数据直接识别。",
+    "研究员给出的 bun.regular、cheese.american、sauce.mcchicken、veg.lettuce_shred 的美国先验，和 sauce_reference.json 中的对应数据一致。其余先验（English Muffin 300694/301533、Egg 300067、Scrambled Eggs 300524、Bacon 300163、Canadian Bacon 301639、McChicken Patty 300708）我没能独立核实：用 curl 和 WebFetch 访问美国接口都返回 403，内置浏览器也打不开。",
+    "漏掉的餐品吉士蛋麦满分（MCP 编码 5888）可去配料里有麦香鸡酱和番茄酱，说明部分麦满分会加酱。但猪柳系麦满分的 MCP 只列了吉士，三条路径推出的 M 闭合也只给隐藏酱留下不到约 1 kcal、约 1 mg 钠的空间，所以现有配方里不需要补酱。吉士蛋麦满分的配方研究员没有核实，又没有官方营养数据，只能用来预测，不能放进求解。",
+    "本次查过的网页：mcdonalds.com.cn 上的 /product/Sausage-Scrambled-Double-Egg-Burger、Crispy-Chicken-Muffin、McChicken、Grilled-Chicken-Muffin、Double-Grilled-Chicken-Muffin、Ham-Muffin、Sausage-McMuffin、Sausage-McMuffin-With-Egg、Grilled-Chicken-Sandwich，以及“原味板烧鸡腿炒双蛋堡”和“双层猪柳蛋麦满分”的中文名页面。页面上的营养值和输入数据一致，描述也和研究员的意译一致。另外读了本地保存的官方营养表（list-nutrition-foods 的结果，烟肉蛋这一行是 1089 kJ / 260 kcal）。"
+   ]
+  },
+  "安格斯系": {
+   "family": "安格斯系",
+   "checks": [
+    {
+     "product": "芝士安格斯厚牛堡",
+     "verdict": "consistent",
+     "reasoning": "官方数值已核对：现行页面（数据截至 2025-04）为 2914 kJ = 696.5 kcal、蛋白 32 g、脂肪 44 g、碳水 43 g、钠 897 mg、钙 150 mg。描述原文是「精选100%安格斯牛肉饼，搭配秘制芝士风味酱和新鲜番茄片」。2022-06-25 存档页（当时叫「安格斯MAX厚牛芝士堡」）另写有「将金黄的芝士片敷在100%安格斯牛肉饼上…搭配秘制芝士风味酱、新鲜番茄片，包裹在黑白芝麻布里欧面包中」，没有提到生菜或洋葱。\n\n算式（五项依次为 kcal/蛋白/脂肪/碳水/钠，有钙时第六项为钙）：用研究员给的先验，面包 180/6/2.5/34/260，牛肉饼按 130/113.4 放大为 252/20.6/18.3/1.1/241，芝士片暂用中国吉士片 46/3/4/1/181（由吉士汉堡包−汉堡包得出），黄油 45/0/5/0/35，番茄 0/0/0/1/0。整份减去这些，留给醇香芝士风味酱 173 kcal、2.4 g 蛋白、14.2 g 脂肪、5.9 g 碳水、180 mg 钠，相当于约 25–30 g 蛋黄酱型的酱，没有负数。换成研究员列出的美国芝士片先验，残差为 169/2.4/14.2/5.9/161。把同一套先验用在芝士双层（2 块饼、2 片芝士、1 份酱）上，酱的残差是 174/4.7/12.8/6.7/197，和单层几乎一样，说明单层和双层的配方互相吻合。\n\n钙预算：150 − 面包约 56（中国普通面包：汉堡包 61 − 小牛肉饼 5）− 牛肉饼 11 − 番茄 2 ≈ 81 mg，留给芝士片和芝士酱合计。两片芝士（≥160 mg）不可能，所以 1 片成立。藏着一片不可去的吉士也不可能（会到约 230 mg）。\n\n推翻研究员的一条证据：「MCP 里高达干酪片只出现 1 次」不能用来证明份数。mcd-contest-analysis/data/burger_modifications.json 里，双层吉士汉堡的「吉士」也只有 1 条，数量字段同为 (1,1,0)，但按钙它有 2 片（双层吉士 232 − 汉堡包 61 = 171 ≈ 2×83 + 5）。所以份数只能靠钙预算判断。\n\n补充证据：高达干酪片的 MCP 选项编码 102215 和高达吉士双牛堡的相同，是同一 SKU，可以共用 cheese.gouda。",
+     "suggested_fix": "份数不用改。需要修正的有以下几点：\n(1) 从 evidence 里删掉「MCP 只出现 1 次」，改用钙预算作为 1 片的证据。\n(2) 黄油：MCP 编码 120160 只出现在两款安格斯里，早餐麦满分的可去清单里完全没有黄油，所以不要和早餐共用 butter。另外 butter 和 bun.angus 在四款里总是同时出现，完全共线，建议并入 bun.angus（或新建 butter.angus 并给较紧的先验）。\n(3) cheese.gouda 需要先验。按中国命名习惯，「干酪」指天然干酪（区别于「再制干酪」）。可以用 USDA 高达每 100 g 的数值 356 kcal/24.9 g 蛋白/27.4 g 脂肪/2.2 g 碳水/819 mg 钠/700 mg 钙，按每片 10–15 g 折算。钙预算倾向 10–12 g，而且它的钠会比吉士片低约 60–80 mg。\n(4) 安格斯的番茄片编码是 102225，培根蔬萃的是 100160，份量可能不同，建议不要强行共用 veg.tomato（营养影响很小）。"
+    },
+    {
+     "product": "培根安格斯厚牛堡",
+     "verdict": "suspicious",
+     "reasoning": "官方数值：2959 kJ = 707.2 kcal、蛋白 34 g、脂肪 44 g、碳水 43 g、钠 1037 mg、钙 161 mg，描述写的是「搭配培根、黄车打芝士片和新鲜生菜」。\n\n算式（kcal/蛋白/脂肪/碳水/钠）：按研究员 components_used 里的美国先验求和——面包 180/6/2.5/34/260，牛肉饼 220/18/16/1/210，美国芝士 50/3/4/1/200，培根 110/6/9/1/330，黄油 45/0/5/0/35，生菜 0——合计 605/33/36.5/37/1035。留给烤牛肉风味酱的只有 102 kcal、1 g 蛋白、7.5 g 脂肪、6 g 碳水、2 mg 钠。如果牛肉饼按 130 g 放大，残差变成 70/−1.6/5.2/5.9/−29，蛋白和钠都是负数。一份含 6 g 碳水、7.5 g 脂肪的咸味酱，钠不可能接近 0，所以这组先验和官方的钠、蛋白互相矛盾。\n\n问题出在美国四分之一磅培根（20.6 g，330 mg 钠，6 g 蛋白）用在中国份量上太大。把培根减半（约 55/3/4.5/0.5/165），芝士改用中国吉士片 46/3/4/1/181，酱的残差为 129/1.4/9.7/6.4/155，合理。培根蔬萃双层牛堡用的是同一培根编码 103386，按普通面包加两块小牛肉饼计算，留给培根、麦香鸡酱、番茄酱和蔬菜的只有约 3 g 蛋白、约 200 mg 钠（其中番茄酱约 80），同样说明中国的培根份量只有美国的约 1/3–1/2。\n\n份数本身没有问题。钙：161 − 面包 56 − 牛肉饼 11 − 生菜和培根约 3 ≈ 91 mg，正好一片吉士（83）。两片会达到 ≥240，旧版 180 mg 的数据也排除两片。2022 存档页的文案「将金黄的芝士片敷在…牛肉饼上…搭配培根、黄车打芝士片」出现了两次芝士字样，但钙预算排除两片，这是模板文案。\n\n吉士的身份：它的 MCP 选项编码 100141 和巨无霸、双层吉士汉堡、麦香鱼的「吉士」完全相同，是同一 SKU。「黄车打芝士片」只是营销叫法，所以置信度可以从 medium 升为 high。\n\n成对差值：培根单层 − 芝士单层 = +11/+2/0/0/+140/+11（最后一项为钙），钠高符合培根，没有负数。",
+     "suggested_fix": "份数保持不变：面包 1、牛肉饼 1、吉士 1、烤牛肉风味酱 1、切块生菜 1、培根 1、黄油 1。需要修改的是先验和说明：\n(1) bacon 的先验改为美国四分之一磅培根的 0.35–0.5 倍，约 40–55 kcal、2–3 g 蛋白、3.5–4.5 g 脂肪、115–165 mg 钠，或者给较宽的方差。\n(2) cheese.american 的先验直接用中国差分 吉士汉堡包 − 汉堡包 = 46/3/4/1/181/83（kcal/蛋白/脂肪/碳水/钠/钙），不要用美国的 50/3/4/1/200；置信度依据编码 100141 改为 high。\n(3) 删掉 notes 和 open_questions 里「拆成 cheese.cheddar」的建议。\n(4) 黄油的处理同芝士安格斯：并入 bun.angus，或作为安格斯专用配料，不和早餐共用。"
+    },
+    {
+     "product": "芝士双层安格斯厚牛堡",
+     "verdict": "consistent",
+     "reasoning": "官方数值来自 2026-03 存档（数据截至 2025-04）：4195 kJ = 1002.6 kcal、蛋白 58 g、脂肪 65 g、碳水 46 g、钠 1373 mg、钙 251 mg。描述原文是「精选两块100%安格斯牛肉饼，搭配秘制芝士风味酱和新鲜番茄片」。\n\n算式（kcal/蛋白/脂肪/碳水/钠/钙）：双层 − 单层 = +307/+26/+21/+3/+476/+101。减去放大后的美国牛肉饼 252/20.6/18.3/1.1/241/11，剩 55/5.4/2.7/1.9/235/90，正好是一片芝士；再减去吉士片，剩 9/2.4/−1.3/0.9/54/7。\n\n「只多一块牛肉饼、不多芝士」的假设被排除：钙少 90 mg、钠少 235 mg、蛋白少 5.4 g。按容差（kcal ±20、蛋白/脂肪/碳水 ±2 g、钠 ±80 mg、钙 ±15 mg）计算的拟合误差 χ² 为 62，而「多一块饼加一片芝士」只有 2.9。用一份芝士酱代替那片芝士也不行，会多出约 170 kcal。\n\n2022-06 旧版的同一差值是 +310/+23/+23/+2/+324/+78，减去牛肉饼和吉士片后为 12/−0.6/0.7/−0.1/−98/−16，也吻合。按 2 块饼、2 片芝士、1 份酱计算，酱的残差 174/4.7/12.8/6.7/197 和单层一致，说明双层仍只有 1 份酱、1 份番茄。\n\n不足之处：\n• 第二片是高达还是吉士没有直接证据。钠残差在 +54（按吉士）到 +112（按 15 g 天然高达）之间，都在噪声范围内，分不开。\n• 和旧版相比，本款 2025 年的钠相对单层多涨了约 150 mg：单层从旧版到 2025 变化 −31 mg，双层却是 +121 mg。说明这次的钠值可能偏高约 150 mg。",
+     "suggested_fix": "份数不改。第二片芝士保持 gouda，但置信度标为 low，并在 open_questions 写明「种类没有直接证据，钙和热量分不开高达和吉士」。本款的钠观测误差设为约 150 mg。黄油的处理同单层。"
+    },
+    {
+     "product": "培根双层安格斯厚牛堡",
+     "verdict": "suspicious",
+     "reasoning": "官方数值来自 2026-03 存档（数据截至 2025-04）：4128 kJ = 986.6 kcal、蛋白 55 g、脂肪 64 g、碳水 46 g、钠 1191 mg、钙 226 mg。描述从 2023 到 2026 都没变，只是「罗马生菜」改成了「生菜」。\n\n算式（kcal/蛋白/脂肪/碳水/钠/钙）：2025 年双层 − 单层 = +280/+21/+20/+3/+154/+65。减去放大后的牛肉饼，剩 28/0.4/1.7/1.9/−87/54；再减一片吉士，剩 −18/−2.6/−2.3/0.9/−268/−29。两种假设同样不好：只有 1 片芝士时钙少 54 mg，χ² 为 17.8；2 片芝士时钠多出 268 mg、蛋白多 2.6 g，χ² 为 19.0。\n\n用研究员的美国先验算整份，留给烤牛肉风味酱的钠是 −254 mg（牛肉饼不放大）或 −316 mg（放大），蛋白是 −4.3 g。所以所列配方无法拟合 2025 年的这组数据。\n\n2022-06 旧版则和 2 片芝士完全吻合：双层 − 单层 = +321/+23/+23/+3/+381/+97，减去牛肉饼和吉士片后为 23/−0.6/0.7/0.9/−41/3。\n\n跨年代对比：单层培根从旧版到 2025 变化 −64 kcal、−81 mg 钠、−19 mg 钙，双层却是 −105、−308、−51。双层多掉的 −41 kcal、−227 mg 钠、−32 mg 钙，大约相当于 0.4–1 片吉士。所以 2025 年的双层培根数据要么有测量偏差，要么实际供应时少了芝士或培根。\n\n「热熔工艺让芝士慢慢融化」是四款通用的文案，不能当作 2 片芝士的证据。培根 1 份有支持：热量差已经被一块饼加一片芝士占满，没有空间再加一份培根。烤牛肉风味酱和黄油没有直接证据，只能类推。",
+     "suggested_fix": "牛肉饼 2、培根 1、cheese.american 2 都保留，但 cheese 的置信度降为 low。求解时给本款 2025 年数据设较大的观测误差：钠 σ≥250 mg、钙 σ≥40 mg、蛋白 σ≥3 g；或者不让它进入拟合，只用来做预测。建议做一次敏感性求解，对比芝士 ×1 和 ×2 两种情况对共享配料（吉士片、培根、牛肉饼）估计值的影响。不要把 2022-06 旧值和 2025 值放进同一次拟合。"
+    }
+   ],
+   "cross_family_notes": [
+    "MCP 可去配料清单不表示份数。burger_modifications.json 里每一条的数量字段都是 (1,1,0)，包括双层吉士汉堡的「吉士」，但按钙它有 2 片（双层吉士 232 − 吉士汉堡包 144 = +88，双层吉士 − 汉堡包 = +171 ≈ 2×83 + 5）。各家族都不能用「只出现 1 次」来证明 1 份。",
+    "MCP 选项编码可以用来判断跨家族是不是同一种配料：\n• 吉士 100141：培根安格斯、巨无霸、双层吉士汉堡、麦香鱼\n• 高达干酪片 102215：芝士安格斯、高达吉士双牛堡\n• 培根 103386：培根安格斯、培根蔬萃双层牛堡\n• 切块生菜 120512：培根安格斯、板烧鸡腿堡、麦辣鸡腿汉堡、两款龙焰\n• 生菜 100168：巨无霸、麦香鸡、培根蔬萃、酥酥多笋卷\n• 麦香鸡酱 100136：培根蔬萃、麦辣、麦香鸡\n番茄片有两个编码（安格斯 102225，培根蔬萃 100160），份量可能不同。",
+    "高达吉士双牛堡的名字里有「吉士」，但 MCP 只列了高达干酪片、没有吉士。所以可去清单可能漏掉部分芝士，牛肉小饼系的研究员要单独判断它有没有不可去的吉士。",
+    "黄油（编码 120160）只出现在两款安格斯里。早餐麦满分各款的可去清单都没有黄油，butter 不宜跨家族共用。另外在安格斯系里 butter 与 bun.angus 完全共线，要么合并成一个配料，要么给紧先验。",
+    "中国培根的份量只有美国四分之一磅培根（20.6 g，110 kcal，330 mg 钠）的约 1/3–1/2。美国先验会让培根安格斯（以及按普通面包计算的培根蔬萃）残差的钠和蛋白变成负数，培根蔬萃家族也应该按比例缩小这个先验。",
+    "可以复用的中国差分基准（kcal/蛋白/脂肪/碳水/钠/钙）：吉士片 = 吉士汉堡包 − 汉堡包 = 46/3/4/1/181/83；小牛肉饼 = 双层吉士 − 吉士汉堡包 − 吉士片 = 89/8/6/0/163/5；普通面包的钙约为 61 − 5 = 56 mg（美国面包只有 8–10 mg，钙先验不能用）。",
+    "官网营养数据的「更新时间」是全站统一的页脚，不是每款单独的：2022-06-25 存档的芝士安格斯页写「2019年2月」，2025-04 存档里同样的数值却写「2022年6月」。所以旧数据无法逐款确定年代，新旧两版不要混在一次拟合里。2025-04 两款双层安格斯的钠，相对单层的规律分别偏高约 150 mg 和偏低约 230 mg，建议全库按约 ±150–250 mg 设置钠的观测噪声。",
+    "美国 dnaapp 接口用 curl 和 WebFetch 访问都返回 403，内置浏览器也打不开 mcdonalds.com，所以研究员引用的美国先验（四分之一磅面包 180 kcal、四分之一磅牛肉饼 220 kcal、培根 110 kcal 等）未能独立复核。实际核对过的来源有：mcdonalds.com.cn 芝士安格斯和培根安格斯现行页、know_your_icon/Angus-family 页面，以及 Wayback 上 2022-06、2023-02、2025-04、2026-03 的四款安格斯存档页，存档用 curl 取得。"
+   ]
+  }
+ }
+}

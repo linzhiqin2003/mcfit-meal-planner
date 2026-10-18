@@ -1,0 +1,21 @@
+name: tests
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        # 用户在 Windows 和 macOS 上装：两个系统都要跑；3.9 是 macOS 自带的版本
+        include:
+          - {os: ubuntu-latest, python: "3.9"}
+          - {os: ubuntu-latest, python: "3.12"}
+          - {os: windows-latest, python: "3.9"}
+          - {os: windows-latest, python: "3.12"}
+          - {os: macos-latest, python: "3.12"}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m unittest discover -s test -v

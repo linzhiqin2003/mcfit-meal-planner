@@ -1,0 +1,27 @@
+{
+ "code": "521981",
+ "name": "巧克力味厚松饼猪柳蛋堡",
+ "rounds": [],
+ "image": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_521981_600.png",
+ "modification": {
+  "items": [
+   {
+    "maxValues": 1,
+    "minValues": 0,
+    "values": [
+     {
+      "code": "100141",
+      "price": 0,
+      "name": "吉士",
+      "maxQuantity": 1,
+      "minQuantity": 0,
+      "selectedQuantity": 1,
+      "selectedKey": "0-1",
+      "unselectedKey": "0-0"
+     }
+    ]
+   }
+  ]
+ },
+ "supportModify": true
+}

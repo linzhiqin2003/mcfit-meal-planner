@@ -1,0 +1,47 @@
+{
+ "captured_at": "2026-10-15 16:51:01",
+ "local_time": "2026-10-15T16:51:56",
+ "calls": 433,
+ "stores": {
+  "1450441": [
+   {
+    "store": "1450441",
+    "slot": "2026-10-16T12:00",
+    "items": 119,
+    "detail_failures": {}
+   },
+   {
+    "store": "1450441",
+    "slot": "2026-10-16T19:00",
+    "items": 119,
+    "detail_failures": {}
+   },
+   {
+    "store": "1450441",
+    "slot": "2026-10-17T07:30",
+    "items": 94,
+    "detail_failures": {}
+   }
+  ],
+  "1450182002": [
+   {
+    "store": "1450182002",
+    "slot": "2026-10-16T12:00",
+    "items": 30,
+    "detail_failures": {}
+   },
+   {
+    "store": "1450182002",
+    "slot": "2026-10-16T19:00",
+    "items": 30,
+    "detail_failures": {}
+   },
+   {
+    "store": "1450182002",
+    "slot": "2026-10-17T07:30",
+    "items": 33,
+    "detail_failures": {}
+   }
+  ]
+ }
+}

@@ -1,0 +1,37 @@
+{
+ "code": "520689",
+ "name": "小杯鲜萃咖啡",
+ "rounds": [],
+ "image": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_520689_600.png",
+ "modification": {
+  "items": [
+   {
+    "maxValues": 2,
+    "minValues": 0,
+    "values": [
+     {
+      "code": "120519",
+      "price": 0,
+      "name": "奶油球",
+      "maxQuantity": 1,
+      "minQuantity": 0,
+      "selectedQuantity": 1,
+      "selectedKey": "0-1",
+      "unselectedKey": "0-0"
+     },
+     {
+      "code": "120520",
+      "price": 0,
+      "name": "白砂糖",
+      "maxQuantity": 1,
+      "minQuantity": 0,
+      "selectedQuantity": 1,
+      "selectedKey": "0-1",
+      "unselectedKey": "0-0"
+     }
+    ]
+   }
+  ]
+ },
+ "supportModify": true
+}

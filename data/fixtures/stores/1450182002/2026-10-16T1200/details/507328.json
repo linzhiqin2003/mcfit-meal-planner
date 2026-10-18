@@ -1,0 +1,16 @@
+{
+ "code": "507328",
+ "name": "麦咖啡™热奶铁中杯",
+ "rounds": [],
+ "image": "https://menu-img.mcd.cn/pcm/prod/menu/20250324/product/MS_507328_600.png",
+ "modification": {
+  "items": [
+   {
+    "maxValues": 1,
+    "minValues": 1,
+    "values": []
+   }
+  ]
+ },
+ "supportModify": true
+}

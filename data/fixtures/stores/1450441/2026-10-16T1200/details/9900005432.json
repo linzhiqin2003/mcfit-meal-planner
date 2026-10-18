@@ -1,0 +1,26 @@
+{
+ "code": "9900005432",
+ "name": "麦麦脆汁鸡1块",
+ "rounds": [
+  {
+   "id": 1,
+   "name": "选择麦麦脆汁鸡",
+   "quantity": 1,
+   "maxQuantity": 1,
+   "minQuantity": 1,
+   "choices": [
+    {
+     "code": "505416",
+     "name": "麦麦脆汁鸡-琵琶腿",
+     "quantity": 1,
+     "maxQuantity": -1,
+     "isDefault": 1,
+     "diffPrice": "+ ¥0",
+     "supportModify": false
+    }
+   ]
+  }
+ ],
+ "image": "https://menu-img.mcd.cn/pcm/prod/menu/20241204/product/MS_9900005432_600.png",
+ "supportModify": false
+}

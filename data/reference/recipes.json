@@ -1,0 +1,236 @@
+{
+ "麦香鱼": {
+  "bun.regular": 1.0,
+  "fish.fillet": 1.0,
+  "sauce.tartar": 1.0,
+  "cheese.american": 0.5
+ },
+ "双层深海鳕鱼堡": {
+  "bun.regular": 1.0,
+  "fish.fillet": 2.0,
+  "cheese.american": 1.0,
+  "sauce.tartar": 1.5
+ },
+ "儿童鱼排堡": {
+  "bun.regular": 1.0,
+  "fish.fillet": 1.0,
+  "veg.tomato": 1.0,
+  "sauce.ketchup": 1.0
+ },
+ "猪柳麦满分": {
+  "bun.muffin": 1.0,
+  "pork.sausage": 1.0,
+  "cheese.american": 1.0
+ },
+ "猪柳蛋麦满分": {
+  "bun.muffin": 1.0,
+  "pork.sausage": 1.0,
+  "egg.round": 1.0,
+  "cheese.american": 1.0
+ },
+ "双层猪柳蛋麦满分": {
+  "bun.muffin": 1.0,
+  "pork.sausage": 2.0,
+  "egg.round": 1.0,
+  "cheese.american": 1.0
+ },
+ "烟肉蛋麦满分": {
+  "bun.muffin": 1.0,
+  "egg.round": 1.0,
+  "cheese.american": 1.0,
+  "bacon": 1.0
+ },
+ "火腿扒麦满分": {
+  "bun.muffin": 1.0,
+  "ham.steak": 1.0,
+  "veg.lettuce_shred": 1.0
+ },
+ "双层火腿扒麦满分": {
+  "bun.muffin": 1.0,
+  "ham.steak": 2.0,
+  "veg.lettuce_shred": 1.0
+ },
+ "原味板烧鸡腿麦满分": {
+  "bun.muffin": 1.0,
+  "chicken.grill_thigh_breakfast": 1.0,
+  "sauce.teriyaki": 1.0,
+  "veg.lettuce_shred": 1.0
+ },
+ "双层原味板烧鸡腿麦满分": {
+  "bun.muffin": 1.0,
+  "chicken.grill_thigh_breakfast": 2.0,
+  "sauce.teriyaki": 2.0,
+  "veg.lettuce_shred": 1.0
+ },
+ "大脆鸡扒麦满分": {
+  "bun.muffin": 1.0,
+  "chicken.mcchicken_patty": 1.0,
+  "sauce.mcchicken": 1.0
+ },
+ "猪柳炒双蛋堡": {
+  "bun.regular": 1.0,
+  "pork.sausage": 1.0,
+  "egg.scrambled": 1.0
+ },
+ "原味板烧鸡腿炒双蛋堡": {
+  "bun.regular": 1.0,
+  "chicken.grill_thigh_breakfast": 1.0,
+  "sauce.teriyaki": 1.0,
+  "egg.scrambled": 1.0
+ },
+ "芝士安格斯厚牛堡": {
+  "bun.angus": 1.0,
+  "patty.angus": 1.0,
+  "cheese.gouda": 1.0,
+  "sauce.cheese": 1.0,
+  "veg.tomato": 1.0,
+  "butter": 1.0
+ },
+ "培根安格斯厚牛堡": {
+  "bun.angus": 1.0,
+  "patty.angus": 1.0,
+  "cheese.american": 1.0,
+  "sauce.roast_beef": 1.0,
+  "veg.lettuce_leaf": 1.0,
+  "bacon": 2.0,
+  "butter": 1.0
+ },
+ "芝士双层安格斯厚牛堡": {
+  "bun.angus": 1.0,
+  "patty.angus": 2.0,
+  "cheese.gouda": 2.0,
+  "sauce.cheese": 1.0,
+  "veg.tomato": 1.0,
+  "butter": 1.0
+ },
+ "培根双层安格斯厚牛堡": {
+  "bun.angus": 1.0,
+  "patty.angus": 2.0,
+  "cheese.american": 2.0,
+  "bacon": 2.0,
+  "veg.lettuce_leaf": 1.0,
+  "sauce.roast_beef": 1.0,
+  "butter": 1.0
+ },
+ "麦香鸡": {
+  "bun.sesame_round": 1.0,
+  "chicken.mcchicken_patty": 1.0,
+  "sauce.mcchicken": 1.0,
+  "veg.lettuce_shred": 1.0
+ },
+ "麦辣鸡腿汉堡": {
+  "bun.sesame_round": 1.0,
+  "chicken.spicy_thigh": 1.0,
+  "sauce.mcchicken": 1.0,
+  "veg.lettuce_leaf": 1.0
+ },
+ "板烧鸡腿堡": {
+  "bun.corn_long": 1.0,
+  "chicken.grill_thigh_breakfast": 2.0,
+  "sauce.teriyaki": 2.0,
+  "veg.lettuce_leaf": 1.0
+ },
+ "那么大鸡排": {
+  "chicken.big_cutlet": 1.0
+ },
+ "龙焰鸡腿堡": {
+  "bun.longyan": 1.0,
+  "sauce.gochujang_butter": 1.0,
+  "veg.lettuce_leaf": 1.0,
+  "chicken.longyan_thigh": 1.0
+ },
+ "龙焰芝士棒鸡腿堡": {
+  "bun.longyan": 1.0,
+  "cheese.mozz_stick": 1.0,
+  "sauce.gochujang_butter": 1.0,
+  "veg.lettuce_leaf": 1.0,
+  "chicken.longyan_thigh": 1.0
+ },
+ "酥酥多笋卷": {
+  "wrap.tortilla": 1.0,
+  "chicken.strip": 2.0,
+  "veg.lettuce_shred": 1.0,
+  "sauce.hongyou_mala": 1.0,
+  "veg.bamboo_shoot": 1.0
+ },
+ "汉堡包": {
+  "bun.regular": 1.0,
+  "patty.beef_small": 1.0,
+  "sauce.ketchup": 1.0,
+  "veg.pickle": 1.0,
+  "veg.onion": 1.0,
+  "sauce.mustard": 1.0
+ },
+ "吉士汉堡包": {
+  "bun.regular": 1.0,
+  "patty.beef_small": 1.0,
+  "cheese.american": 1.0,
+  "sauce.ketchup": 1.0,
+  "sauce.mustard": 1.0,
+  "veg.pickle": 1.0,
+  "veg.onion": 1.0
+ },
+ "双层吉士汉堡": {
+  "bun.regular": 1.0,
+  "patty.beef_small": 2.0,
+  "cheese.american": 2.0,
+  "sauce.ketchup": 1.0,
+  "sauce.mustard": 1.0,
+  "veg.pickle": 1.0,
+  "veg.onion": 2.0
+ },
+ "巨无霸": {
+  "bun.bigmac": 1.0,
+  "patty.beef_small": 2.0,
+  "cheese.american": 1.0,
+  "sauce.bigmac": 1.0,
+  "veg.lettuce_shred": 1.0,
+  "veg.onion": 2.0,
+  "veg.pickle": 1.0
+ },
+ "培根蔬萃双层牛堡": {
+  "bun.sesame_round": 1.0,
+  "patty.beef_small": 2.0,
+  "bacon": 2.0,
+  "veg.tomato": 1.0,
+  "veg.lettuce_shred": 1.0,
+  "sauce.mcchicken": 0.5,
+  "sauce.ketchup": 1.0
+ },
+ "高达吉士双牛堡": {
+  "bun.regular": 1.0,
+  "patty.beef_small": 2.0,
+  "cheese.gouda": 1.0,
+  "sauce.ketchup": 1.0,
+  "sauce.mustard": 1.0,
+  "veg.pickle": 1.0,
+  "veg.onion": 2.0
+ },
+ "不素之霸双层牛堡": {
+  "bun.sesame_round": 1.0,
+  "patty.beef_small": 2.0,
+  "sausage.thuringer": 1.0,
+  "sauce.mustard_mayo": 1.0
+ },
+ "_fit_exclude": [
+  "烟肉蛋麦满分",
+  "培根双层安格斯厚牛堡"
+ ],
+ "_note": "配方来自 docs/research/recipe_research.json（多代理研究 + 对抗核查，核查结论见 docs/research/refute_verdicts.json）。_fit_exclude：官方数值不自洽，只预测不拟合；_obs_sd：个别餐品放宽观测误差；_uncertain：可能还有、无法确认的配料（计入预测误差）。培根的 1 份 = 培根蔬萃双层牛堡里的 1 片（安格斯约 2 片）。双层堡酸黄瓜按 1 份：核查员认为 1 与 2 份分不开，但加入香肠单品和鱼系后实测 1 份 χ² 10.3、酸黄瓜钠 59；2 份 χ² 12.6 且把酸黄瓜钠压到 0（不合理），删除诊断 z 也从 1.7 升到 3.0",
+ "德式图林根香肠": {
+  "sausage.thuringer": 1.0
+ },
+ "_obs_sd": {
+  "芝士双层安格斯厚牛堡": {
+   "sodium": 150
+  },
+  "麦辣鸡腿汉堡": {
+   "calcium": 1000
+  }
+ },
+ "_uncertain": {
+  "高达吉士双牛堡": {
+   "cheese.american": 1
+  }
+ }
+}

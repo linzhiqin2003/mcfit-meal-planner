@@ -1,0 +1,37 @@
+{
+ "汉堡包": {
+  "bun.regular": 1,
+  "patty.beef_small": 1,
+  "sauce.ketchup": 1,
+  "sauce.mustard": 1,
+  "veg.pickle": 1,
+  "veg.onion": 1
+ },
+ "吉士汉堡包": {
+  "bun.regular": 1,
+  "patty.beef_small": 1,
+  "cheese.american": 1,
+  "sauce.ketchup": 1,
+  "sauce.mustard": 1,
+  "veg.pickle": 1,
+  "veg.onion": 1
+ },
+ "双层吉士汉堡": {
+  "bun.regular": 1,
+  "patty.beef_small": 2,
+  "cheese.american": 2,
+  "sauce.ketchup": 1,
+  "sauce.mustard": 1,
+  "veg.pickle": 1,
+  "veg.onion": 1
+ },
+ "巨无霸": {
+  "bun.bigmac": 1,
+  "patty.beef_small": 2,
+  "cheese.american": 1,
+  "sauce.bigmac": 1,
+  "veg.lettuce_shred": 1,
+  "veg.pickle": 1,
+  "veg.onion": 1
+ }
+}

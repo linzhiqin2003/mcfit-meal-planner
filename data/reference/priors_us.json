@@ -1,0 +1,487 @@
+{
+ "bun.regular": {
+  "mean": {
+   "kcal": 140,
+   "protein": 5,
+   "fat": 1.5,
+   "carb": 27,
+   "sodium": 230,
+   "calcium": 52
+  },
+  "rel_sd": 0.3,
+  "source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200477(301578)；钙按中国差分约 50（美国面包钙 7.75 不适用）",
+  "sd": {
+   "calcium": 10
+  }
+ },
+ "bun.bigmac": {
+  "mean": {
+   "kcal": 190,
+   "protein": 7,
+   "fat": 2,
+   "carb": 37,
+   "sodium": 320
+  },
+  "rel_sd": 0.3,
+  "source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200463(302510)"
+ },
+ "patty.beef_small": {
+  "mean": {
+   "kcal": 90,
+   "protein": 7,
+   "fat": 7,
+   "carb": 0,
+   "sodium": 160
+  },
+  "rel_sd": 0.3,
+  "source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200477(300038)"
+ },
+ "cheese.american": {
+  "mean": {
+   "kcal": 50,
+   "protein": 3,
+   "fat": 4,
+   "carb": 1,
+   "sodium": 200
+  },
+  "rel_sd": 0.3,
+  "source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200480(301518)"
+ },
+ "sauce.ketchup": {
+  "mean": {
+   "kcal": 10,
+   "protein": 0,
+   "fat": 0,
+   "carb": 2,
+   "sodium": 80
+  },
+  "rel_sd": 0.5,
+  "source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200477(300037)"
+ },
+ "sauce.mustard": {
+  "mean": {
+   "kcal": 0,
+   "protein": 0,
+   "fat": 0,
+   "carb": 0,
+   "sodium": 5
+  },
+  "rel_sd": 0.5,
+  "source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200477(300044)"
+ },
+ "veg.pickle": {
+  "mean": {
+   "kcal": 0,
+   "protein": 0,
+   "fat": 0,
+   "carb": 0,
+   "sodium": 45
+  },
+  "rel_sd": 0.5,
+  "source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200477(300042)"
+ },
+ "veg.onion": {
+  "mean": {
+   "kcal": 0,
+   "protein": 0,
+   "fat": 0,
+   "carb": 1,
+   "sodium": 0
+  },
+  "rel_sd": 0.5,
+  "source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200477(300041)"
+ },
+ "sauce.bigmac": {
+  "mean": {
+   "kcal": 125,
+   "protein": 0,
+   "fat": 12.5,
+   "carb": 3,
+   "sodium": 125
+  },
+  "rel_sd": 0.25,
+  "source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200463(301554) 与 204229 两个口径取中值"
+ },
+ "veg.lettuce_shred": {
+  "mean": {
+   "kcal": 0,
+   "protein": 0,
+   "fat": 0,
+   "carb": 1,
+   "sodium": 0
+  },
+  "rel_sd": 0.5,
+  "source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200463(300098)"
+ },
+ "sauce.tartar": {
+  "mean": {
+   "kcal": 50,
+   "protein": 0.1,
+   "fat": 5,
+   "carb": 1.2,
+   "sodium": 120,
+   "calcium": 3
+  },
+  "rel_sd": 0.4,
+  "source": "美国 Tartar Sauce 93.9 kcal 的约 0.5 倍（热量、脂肪），钠约与美国相同；核查员按中国鱼系反推约 45–55 kcal、4.5–5 g 脂肪、钠 100–145"
+ },
+ "sauce.mayo_style": {
+  "mean": {
+   "kcal": 100,
+   "protein": 0,
+   "fat": 11,
+   "carb": 0,
+   "sodium": 65
+  },
+  "rel_sd": 0.4,
+  "source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200438(300430)"
+ },
+ "fish.fillet": {
+  "mean": {
+   "kcal": 120,
+   "protein": 9,
+   "fat": 5,
+   "carb": 9,
+   "sodium": 140
+  },
+  "rel_sd": 0.4,
+  "source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200445(300055)",
+  "sd": {
+   "sodium": 120
+  }
+ },
+ "veg.tomato": {
+  "mean": {
+   "kcal": 0,
+   "protein": 0,
+   "fat": 0,
+   "carb": 1,
+   "sodium": 0
+  },
+  "rel_sd": 0.4,
+  "source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=203745(301407)"
+ },
+ "bun.muffin": {
+  "mean": {
+   "kcal": 140,
+   "protein": 5,
+   "fat": 1,
+   "carb": 27,
+   "sodium": 260
+  },
+  "rel_sd": 0.4,
+  "source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200161(301533)"
+ },
+ "pork.sausage": {
+  "mean": {
+   "kcal": 190,
+   "protein": 6,
+   "fat": 18,
+   "carb": 1,
+   "sodium": 280
+  },
+  "rel_sd": 0.4,
+  "source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200161(300694)"
+ },
+ "egg.round": {
+  "mean": {
+   "kcal": 80,
+   "protein": 7,
+   "fat": 5,
+   "carb": 1,
+   "sodium": 70
+  },
+  "rel_sd": 0.4,
+  "source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200161(300067)"
+ },
+ "bacon": {
+  "mean": {
+   "kcal": 22,
+   "protein": 1.2,
+   "fat": 1.8,
+   "carb": 0.5,
+   "sodium": 60,
+   "calcium": 1
+  },
+  "rel_sd": 0.5,
+  "source": "1 份 = 培根蔬萃双层牛堡的 1 片。核查员按中国差分推算两片培根只剩约 40 大卡、≤120 mg 钠；约为美国 Bacon McDouble 培根（13.7 g，71.9/3.9/6.0/0.7/219）的 0.3 倍"
+ },
+ "chicken.mcchicken_patty": {
+  "mean": {
+   "kcal": 150,
+   "protein": 9,
+   "fat": 8,
+   "carb": 10,
+   "sodium": 270
+  },
+  "rel_sd": 0.4,
+  "source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200438(300708)"
+ },
+ "sauce.mcchicken": {
+  "mean": {
+   "kcal": 100,
+   "protein": 0,
+   "fat": 11,
+   "carb": 0,
+   "sodium": 65
+  },
+  "rel_sd": 0.4,
+  "source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200438(300430)"
+ },
+ "egg.scrambled": {
+  "mean": {
+   "kcal": 150,
+   "protein": 14,
+   "fat": 9,
+   "carb": 2,
+   "sodium": 130
+  },
+  "rel_sd": 0.4,
+  "source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200322(300524)"
+ },
+ "bun.angus": {
+  "mean": {
+   "kcal": 180,
+   "protein": 6,
+   "fat": 2.5,
+   "carb": 34,
+   "sodium": 260,
+   "calcium": 55
+  },
+  "rel_sd": 0.4,
+  "source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200466(301516)；钙按培根安格斯的钙预算改为约 55（美国面包钙 8–11 不适用）",
+  "sd": {
+   "calcium": 15
+  }
+ },
+ "patty.angus": {
+  "mean": {
+   "kcal": 220,
+   "protein": 18,
+   "fat": 16,
+   "carb": 1,
+   "sodium": 210
+  },
+  "rel_sd": 0.4,
+  "source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200466(301574)"
+ },
+ "veg.lettuce_leaf": {
+  "mean": {
+   "kcal": 0,
+   "protein": 0,
+   "fat": 0,
+   "carb": 0,
+   "sodium": 0
+  },
+  "rel_sd": 0.4,
+  "source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200765(300098)"
+ },
+ "butter": {
+  "mean": {
+   "kcal": 45,
+   "protein": 0,
+   "fat": 5,
+   "carb": 0,
+   "sodium": 35,
+   "calcium": 1.5
+  },
+  "rel_sd": 0.4,
+  "source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=203747(300310)"
+ },
+ "bun.sesame_round": {
+  "mean": {
+   "kcal": 140,
+   "protein": 5,
+   "fat": 1.5,
+   "carb": 27,
+   "sodium": 230,
+   "calcium": 62
+  },
+  "rel_sd": 0.25,
+  "source": "美国 Regular Bun 200477(301578) 140/5/1.5/27/230；钙按中国差分约 60–65（核查员指出不能用四分之一磅面包 301516）；https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=200477(301578)"
+ },
+ "bun.longyan": {
+  "mean": {
+   "kcal": 170,
+   "protein": 7,
+   "fat": 2.5,
+   "carb": 32,
+   "sodium": 250
+  },
+  "rel_sd": 0.4,
+  "source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=203745(302402)"
+ },
+ "wrap.tortilla": {
+  "mean": {
+   "kcal": 140,
+   "protein": 4,
+   "fat": 4,
+   "carb": 22,
+   "sodium": 330
+  },
+  "rel_sd": 0.5,
+  "source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=204401(300422)"
+ },
+ "chicken.spicy_thigh": {
+  "mean": {
+   "kcal": 250,
+   "protein": 20,
+   "fat": 12,
+   "carb": 14,
+   "sodium": 730,
+   "calcium": 15
+  },
+  "rel_sd": 0.35,
+  "source": "https://www.mcdonalds.com/dnaapp/itemList?country=US&language=en&showLiveData=true&nutrient_req=Y&item=203745(302309)；注意美国这条其实是鸡胸排，蛋白和脂肪方差放宽；钙收紧在 10–20（麦辣鸡腿汉堡的钙异常不进鸡排）",
+  "sd": {
+   "calcium": 6
+  }
+ },
+ "chicken.strip": {
+  "mean": {
+   "kcal": 65,
+   "protein": 5,
+   "fat": 3.5,
+   "carb": 4,
+   "sodium": 220,
+   "calcium": 2
+  },
+  "rel_sd": 0.5,
+  "source": "美国鸡柳先验的约 0.5 倍（核查员：酥酥多笋卷的余量放不下美国规格的两条）"
+ },
+ "cheese.gouda": {
+  "mean": {
+   "kcal": 39,
+   "protein": 2.7,
+   "fat": 3.0,
+   "carb": 0.2,
+   "sodium": 90,
+   "calcium": 77
+  },
+  "rel_sd": 0.4,
+  "source": "USDA 高达干酪每 100 g 356/24.9/27.4/2.2/819/钙700，按每片约 11 g 折算"
+ },
+ "sauce.teriyaki": {
+  "mean": {
+   "kcal": 8.9,
+   "protein": 0.6,
+   "fat": 0.0,
+   "carb": 1.6,
+   "sodium": 383.0,
+   "calcium": 2.5
+  },
+  "rel_sd": 0.6,
+  "source": "USDA 照烧酱 FDC 171167 每 100 g 89 大卡/5.9 g/0/15.6 g/3830 mg，按约 10 g 一份折算；早餐双层减单层显示「鸡腿+酱」只有 2 g 碳水，酱的量不会多；https://fdc.nal.usda.gov/food-details/171167/nutrients"
+ },
+ "sauce.cheese": {
+  "mean": {
+   "kcal": 106.8,
+   "protein": 1.0,
+   "fat": 11.0,
+   "carb": 0.9,
+   "sodium": 182.9,
+   "calcium": 8
+  },
+  "rel_sd": 0.5,
+  "source": "按蛋黄酱基底的芝士风味酱估：USDA 蛋黄酱 FDC 171009 与奶酪酱 FDC 171191 各半，约 25 g 一份；https://fdc.nal.usda.gov/food-details/171009/nutrients ; https://fdc.nal.usda.gov/food-details/171191/nutrients",
+  "sd": {
+   "calcium": 8
+  }
+ },
+ "sauce.roast_beef": {
+  "mean": {
+   "kcal": 96.9,
+   "protein": 0.3,
+   "fat": 9.4,
+   "carb": 2.8,
+   "sodium": 285.6,
+   "calcium": 3.4
+  },
+  "rel_sd": 0.5,
+  "source": "按蛋黄酱基底的牛排风味酱估：USDA 蛋黄酱 FDC 171009 与牛排酱 FDC 171825 各半，约 25 g 一份；https://fdc.nal.usda.gov/food-details/171009/nutrients ; https://fdc.nal.usda.gov/food-details/171825/nutrients"
+ },
+ "sauce.mustard_mayo": {
+  "mean": {
+   "kcal": 55.7,
+   "protein": 0.1,
+   "fat": 4.9,
+   "carb": 2.8,
+   "sodium": 61.4,
+   "calcium": 1.4
+  },
+  "rel_sd": 0.6,
+  "source": "USDA 蜂蜜芥末沙拉酱 FDC 171043，约 12 g 一份；https://fdc.nal.usda.gov/food-details/171043/nutrients"
+ },
+ "veg.bamboo_shoot": {
+  "mean": {
+   "kcal": 13,
+   "protein": 0.3,
+   "fat": 1.0,
+   "carb": 0.6,
+   "sodium": 150,
+   "calcium": 1.6
+  },
+  "rel_sd": 0.6,
+  "source": "USDA 罐装笋 FDC 169212 约 20 g，另加酸辣调味（约 1 g 油、150 mg 钠）；https://fdc.nal.usda.gov/food-details/169212/nutrients"
+ },
+ "sauce.hongyou_mala": {
+  "mean": {
+   "kcal": 55,
+   "protein": 0.3,
+   "fat": 5.5,
+   "carb": 1.0,
+   "sodium": 150,
+   "calcium": 3
+  },
+  "rel_sd": 0.6,
+  "source": "红油按约 10 g、六成为植物油估（USDA 植物油 884 大卡/100 g），另含辣椒与盐"
+ },
+ "cheese.mozz_stick": {
+  "mean": {
+   "kcal": 110.6,
+   "protein": 5.2,
+   "fat": 6.4,
+   "carb": 8.0,
+   "sodium": 293.3,
+   "calcium": 111.6
+  },
+  "rel_sd": 0.4,
+  "source": "USDA 炸芝士棒 FDC 169011，按约 35 g 一根（核查员估 30–40 g）；https://fdc.nal.usda.gov/food-details/169011/nutrients"
+ },
+ "sauce.gochujang_butter": {
+  "mean": {
+   "kcal": 55,
+   "protein": 0.4,
+   "fat": 5.0,
+   "carb": 2.0,
+   "sodium": 150,
+   "calcium": 3
+  },
+  "rel_sd": 0.6,
+  "source": "辣椒黄油风味酱按约 12 g、黄油（USDA FDC 173410）与辣椒酱各半粗估；https://fdc.nal.usda.gov/food-details/173410/nutrients"
+ },
+ "bun.corn_long": {
+  "mean": {
+   "kcal": 170,
+   "protein": 6.5,
+   "fat": 2.0,
+   "carb": 31.4,
+   "sodium": 198,
+   "calcium": 77
+  },
+  "rel_sd": 0.25,
+  "source": "没有美国对应；按本库芝麻圆面包的拟合值放大 1.2 倍（长条面包更大）"
+ },
+ "chicken.longyan_thigh": {
+  "mean": {
+   "kcal": 250,
+   "protein": 20,
+   "fat": 12,
+   "carb": 14,
+   "sodium": 730,
+   "calcium": 10
+  },
+  "rel_sd": 0.35,
+  "source": "官方写明是薯片裹粉的原切鸡腿排，与麦辣不同；宽先验取美国 McCrispy 鸡排 203745(302309)"
+ }
+}

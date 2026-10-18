@@ -1,0 +1,53 @@
+{
+ "code": "9900016079",
+ "name": "蘸酱脆皮鸡柳",
+ "rounds": [
+  {
+   "id": 1,
+   "name": "脆皮鸡柳",
+   "quantity": 1,
+   "maxQuantity": 1,
+   "minQuantity": 1,
+   "choices": [
+    {
+     "code": "521823",
+     "name": "脆皮鸡柳3根",
+     "quantity": 1,
+     "maxQuantity": -1,
+     "isDefault": 1,
+     "diffPrice": "+ ¥0",
+     "supportModify": false
+    }
+   ]
+  },
+  {
+   "id": 2,
+   "name": "选择蘸酱",
+   "quantity": 1,
+   "maxQuantity": 1,
+   "minQuantity": 1,
+   "choices": [
+    {
+     "code": "521966",
+     "name": "韩式烟熏芝士风味酱",
+     "quantity": 1,
+     "maxQuantity": -1,
+     "isDefault": 1,
+     "diffPrice": "+ ¥0",
+     "supportModify": false
+    },
+    {
+     "code": "521799",
+     "name": "日式鲜磨山葵酱",
+     "quantity": 0,
+     "maxQuantity": -1,
+     "isDefault": 0,
+     "diffPrice": "+ ¥0",
+     "supportModify": false
+    }
+   ]
+  }
+ ],
+ "image": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_9900016079_600.png",
+ "supportModify": false
+}

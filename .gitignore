@@ -1,0 +1,24 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+*.egg-info/
+build/
+dist/
+.DS_Store
+.claude/worktrees/
+.claude/settings.local.json
+
+# 设计稿的出图和生成日志只在本机，入库的是生成脚本和 HTML
+docs/mockups/*.png
+docs/mockups/*/*.png
+docs/mockups/*/*.log
+docs/mockups/split2/pen/*.pbm
+docs/mockups/split2/pen/*.log
+
+# 3D 工程（Blender 文件、渲染、验收图、日志）和视频工程（HyperFrames 合成、素材、成片）只在本机：
+# 体积大（合计约 480 MB），里面还有官方参考照片、用户照片裁出的参考图和本机路径。
+# 主页用到的图片和视频由 scripts/build_site_*.py 生成到 site/，随仓库发布。
+assets/3d/*
+!assets/3d/BRIEF.md
+videos/

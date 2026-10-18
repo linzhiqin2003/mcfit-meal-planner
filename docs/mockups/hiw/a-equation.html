@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>怎么算 · A 算式</title>
+<link rel="stylesheet" href="../../../site/assets/css/site.css">
+<style>
+:root{--cheese:#CDBF9C}
+/* 方向 A：三步各写成一道算式。数字是主角，运算符和箭头上的条件（像化学方程式写在箭头上的反应条件）说明怎么从左边得到右边 */
+.hiw-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px 40px;flex-wrap:wrap;margin:88px 0 32px}
+.hiw-head h2{margin:8px 0 0;font-size:40px;line-height:1.15;font-weight:600;letter-spacing:-.02em}
+.hiw-head .aside{margin:0;font-size:15px;color:var(--ink-2)}
+.eqs{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink);border-bottom:1px solid var(--ink)}
+.eq{display:grid;grid-template-columns:184px minmax(0,1fr);column-gap:40px;padding:40px 0 36px}
+.eq+.eq{border-top:1px solid var(--rule)}
+.eq-lab .no{font-family:var(--num);font-weight:700;font-size:16px;letter-spacing:.08em;color:var(--ink-3)}
+.eq-lab h3{margin:6px 0 0;font-size:24px;font-weight:600;line-height:1.3}
+.eq-line{display:flex;flex-wrap:wrap;align-items:flex-end;column-gap:16px;row-gap:28px}
+.grp{display:inline-flex;align-items:flex-end;column-gap:16px}
+.t{display:inline-flex;align-items:flex-end;gap:10px}
+.t b{position:relative;z-index:0;font-family:var(--num);font-weight:700;font-size:78px;line-height:.76;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.t small{font-size:14px;line-height:1.45;color:var(--ink-2);white-space:nowrap}
+.t.res b::before{content:"";position:absolute;z-index:-1;left:-.08em;right:-.08em;bottom:.1em;height:.24em;background:var(--cheese)}
+.t.red b{color:var(--red)}
+.t.word b{font-family:var(--cn);font-size:44px;font-weight:700;line-height:1;letter-spacing:-.01em}
+.op{font-family:var(--num);font-weight:700;font-size:48px;line-height:.8;color:var(--ink-3)}
+.to{display:inline-flex;flex-direction:column;align-items:stretch;gap:6px;min-width:88px;padding-bottom:24px}
+.to em{font-style:normal;font-size:13px;line-height:1;color:var(--ink-3);text-align:center;white-space:nowrap}
+.to i{position:relative;display:block;height:1.5px;background:var(--ink-2)}
+.to i::after{content:"";position:absolute;right:0;top:50%;width:9px;height:9px;border-top:1.5px solid var(--ink-2);border-right:1.5px solid var(--ink-2);transform:translate(-1px,-50%) rotate(45deg)}
+.eq-note{margin:26px 0 0;max-width:780px;font-size:15px;line-height:1.85;color:var(--ink-2)}
+.eq-note .n{font-family:var(--num);font-weight:700;font-size:1.22em;line-height:1;color:var(--ink)}
+@media (max-width:900px){
+  .eq{grid-template-columns:1fr;row-gap:22px}
+  .eq-lab{display:flex;align-items:baseline;gap:12px}
+  .eq-lab h3{margin:0}
+}
+@media (max-width:640px){
+  .hiw-head{margin:64px 0 24px}
+  .hiw-head h2{font-size:30px}
+  .eq{padding:28px 0 26px}
+  .eq-line,.grp{flex-direction:column;align-items:flex-start;row-gap:10px}
+  .t b{font-size:60px}
+  .t.word b{font-size:34px}
+  .t small{font-size:13px}
+  .op{font-size:30px;padding-left:6px}
+  .to{flex-direction:row-reverse;align-items:center;justify-content:flex-end;gap:12px;min-width:0;padding:0 0 0 14px}
+  .to em{font-size:13px}
+  .to i{width:1.5px;height:30px}
+  .to i::after{right:auto;top:auto;left:50%;bottom:0;transform:translate(-50%,-1px) rotate(135deg)}
+}
+</style>
+</head>
+<body>
+<section class="page"><div class="wrap page-body">
+
+  <!-- 上下文：省钱对比（与线上一致） -->
+  <div class="versus" style="margin-top:0">
+    <div class="versus-head"><h3>省钱对比</h3><p>同一家店，同样 400 大卡以内、蛋白质 30 克以上</p></div>
+    <div class="vs">
+      <div class="side a"><div class="lab">只能整份吃</div><div class="big"><span>最便宜</span><b>¥32.0</b></div><div class="what">2 × 薄皮焦香V翅</div><div class="st sep"><span>384 大卡</span><span>蛋白质 34 g</span><span>碳水 12 g</span></div></div>
+      <div class="vs-mid"><span>VS</span></div>
+      <div class="side b"><div class="lab">允许拆着吃</div><div class="big"><span>最便宜</span><b>¥27.8</b></div><div class="what">2 份人气经典随心配，高达吉士双牛堡去干酪、只吃馅</div><div class="st sep"><span>365 大卡</span><span>蛋白质 33 g</span><span>碳水 6 g，面包留作明天早餐</span></div></div>
+    </div>
+  </div>
+
+  <!-- ============ 新：怎么算 · 算式 ============ -->
+  <div class="hiw-head">
+    <div><div class="kicker">HOW IT WORKS</div><h2>怎么算</h2></div>
+    <p class="aside">三步，每一步都写得出算式</p>
+  </div>
+  <ol class="eqs">
+    <li class="eq">
+      <div class="eq-lab"><div class="no">01</div><h3>配料库</h3></div>
+      <div>
+        <div class="eq-line">
+          <span class="t"><b>28</b><small>款餐品的<br>官方营养</small></span>
+          <span class="grp"><span class="op">+</span><span class="t"><b>33</b><small>份<br>配方</small></span></span>
+          <span class="grp"><span class="op">+</span><span class="t"><b>41</b><small>个配料<br>参考值</small></span></span>
+          <span class="grp"><span class="to"><em>联合求解</em><i></i></span><span class="t res"><b>44</b><small>种配料的营养<br>和误差</small></span></span>
+        </div>
+        <p class="eq-note">官方只公布整份的营养；配方写明每份由哪些配料组成，参考值来自美国麦当劳官网和 USDA。拆不准的吃法不推荐，比如龙焰鸡腿堡预测 <span class="n">475 ± 116</span> 大卡，误差太大，不会出现在方案里。</p>
+      </div>
+    </li>
+    <li class="eq">
+      <div class="eq-lab"><div class="no">02</div><h3>约束求解</h3></div>
+      <div>
+        <div class="eq-line">
+          <span class="t"><b>119</b><small>项<br>门店菜单</small></span>
+          <span class="grp"><span class="to"><em>展开吃法</em><i></i></span><span class="t"><b>1,744</b><small>种<br>点法</small></span></span>
+          <span class="grp"><span class="to"><em>按约束筛</em><i></i></span><span class="t"><b>575</b><small>个<br>候选</small></span></span>
+          <span class="grp"><span class="to"><em>分支定界</em><i></i></span><span class="t red"><b>¥27.8</b><small>最便宜<br>的组合</small></span></span>
+        </div>
+        <p class="eq-note">以上面的省钱对比为例：每个单品、每种套餐选法、每种吃法都算一种点法；单份就超出热量、蛋白质、碳水、预算和训练部位要求的先筛掉，再去掉价格更高、营养又不占优的，最后用分支定界搜索 <span class="n">6,931</span> 步，找到最便宜的组合。</p>
+      </div>
+    </li>
+    <li class="eq">
+      <div class="eq-lab"><div class="no">03</div><h3>实时核价</h3></div>
+      <div>
+        <div class="eq-line">
+          <span class="t"><b>1</b><small>家最近的<br>营业门店</small></span>
+          <span class="grp"><span class="to"><em>官方算价</em><i></i></span><span class="t res"><b>9/9</b><small>个方案预测价<br>与官方一致</small></span></span>
+          <span class="grp"><span class="to"><em>你确认</em><i></i></span><span class="t word"><b>下单</b></span></span>
+        </div>
+        <p class="eq-note">按地点自动选最近的营业门店；每个方案先用麦当劳官方算价接口核对，实测人民广场附近三组约束下的 <span class="n">9</span> 个方案全部一致。你确认之后才会下单。</p>
+      </div>
+    </li>
+  </ol>
+
+</div></section>
+<footer>
+  <div class="wrap">
+    <a class="brand" href="#"><span class="gy">Gy<span class="m"><svg aria-hidden="true" viewBox="0 0 640 708"><path d="M0 708V40Q0 0 40 0H600Q640 0 640 40V708H490V160Q490 130 460 130H425Q395 130 395 160V708H245V160Q245 130 215 130H180Q150 130 150 160V708Z"/></svg></span></span><span class="cn">麦门健身房</span></a>
+    <p>本项目是麦当劳程序员节创意开发大赛的参赛作品，不是麦当劳官方产品。除整份营养外，数字均为估算，仅供参考，不构成营养建议。</p>
+  </div>
+</footer>
+</body>
+</html>

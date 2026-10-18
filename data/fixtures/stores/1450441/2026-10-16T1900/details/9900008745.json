@@ -1,0 +1,26 @@
+{
+ "code": "9900008745",
+ "name": "新地",
+ "rounds": [
+  {
+   "id": 1,
+   "name": "选择新地",
+   "quantity": 1,
+   "maxQuantity": 1,
+   "minQuantity": 1,
+   "choices": [
+    {
+     "code": "4416",
+     "name": "草莓新地",
+     "quantity": 1,
+     "maxQuantity": -1,
+     "isDefault": 1,
+     "diffPrice": "+ ¥0",
+     "supportModify": false
+    }
+   ]
+  }
+ ],
+ "image": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_9900008745_600.png",
+ "supportModify": false
+}

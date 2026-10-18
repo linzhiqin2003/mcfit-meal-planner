@@ -1,0 +1,35 @@
+{
+ "code": "9900008752",
+ "name": "派",
+ "rounds": [
+  {
+   "id": 1,
+   "name": "选择派",
+   "quantity": 1,
+   "maxQuantity": 1,
+   "minQuantity": 1,
+   "choices": [
+    {
+     "code": "4105",
+     "name": "菠萝派",
+     "quantity": 1,
+     "maxQuantity": -1,
+     "isDefault": 1,
+     "diffPrice": "+ ¥0",
+     "supportModify": false
+    },
+    {
+     "code": "4106",
+     "name": "香芋派",
+     "quantity": 0,
+     "maxQuantity": -1,
+     "isDefault": 0,
+     "diffPrice": "+ ¥0",
+     "supportModify": false
+    }
+   ]
+  }
+ ],
+ "image": "https://menu-img.mcd.cn/pcm/prod/menu/ProductPool/product/MS_9900008752_600.png",
+ "supportModify": false
+}

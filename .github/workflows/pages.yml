@@ -1,0 +1,30 @@
+# 项目主页：把 site/ 发布到 GitHub Pages（需要在仓库 Settings → Pages 里把 Source 设为 GitHub Actions）
+name: pages
+on:
+  push:
+    branches: [main]
+    paths: ["site/**", "scripts/stamp_site_assets.py", ".github/workflows/pages.yml"]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      # 给 CSS/JS/图片链接加内容版本号：内容一变链接就变，避免访客拿到「新页面 + 旧脚本」（只改 CI 里的工作副本）
+      - run: python3 scripts/stamp_site_assets.py site
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - id: deploy
+        uses: actions/deploy-pages@v4

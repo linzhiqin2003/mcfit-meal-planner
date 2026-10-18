@@ -1,0 +1,44 @@
+{
+ "code": "9900006332",
+ "name": "薄皮V翅双拼十翅",
+ "rounds": [
+  {
+   "id": 1,
+   "name": "麦辣鸡翅-2块",
+   "quantity": 3,
+   "maxQuantity": 3,
+   "minQuantity": 3,
+   "choices": [
+    {
+     "code": "516013",
+     "name": "麦辣鸡翅-2块",
+     "quantity": 3,
+     "maxQuantity": -1,
+     "isDefault": 1,
+     "diffPrice": "+ ¥0",
+     "supportModify": false
+    }
+   ]
+  },
+  {
+   "id": 2,
+   "name": "选择小食",
+   "quantity": 2,
+   "maxQuantity": 2,
+   "minQuantity": 2,
+   "choices": [
+    {
+     "code": "520450",
+     "name": "薄皮焦香V翅",
+     "quantity": 2,
+     "maxQuantity": -1,
+     "isDefault": 1,
+     "diffPrice": "+ ¥0",
+     "supportModify": false
+    }
+   ]
+  }
+ ],
+ "image": "https://menu-img.mcd.cn/pcm/prod/menu/20250423/product/MS_9900006332_600_1745288015452.png",
+ "supportModify": false
+}

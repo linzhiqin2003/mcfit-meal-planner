@@ -1,0 +1,35 @@
+{
+ "code": "507368",
+ "name": "麦咖啡™热美式中杯",
+ "rounds": [],
+ "image": "https://menu-img.mcd.cn/pcm/prod/menu/20260610/product/MS_507368_600.png",
+ "modification": {
+  "items": [
+   {
+    "maxValues": 1,
+    "minValues": 1,
+    "values": [
+     {
+      "code": "8008",
+      "price": 0,
+      "name": "不加",
+      "maxQuantity": 1,
+      "minQuantity": 0,
+      "selectedQuantity": 1,
+      "selectedKey": "0-0"
+     },
+     {
+      "code": "8008",
+      "price": 500,
+      "name": "加",
+      "maxQuantity": 1,
+      "minQuantity": 0,
+      "selectedQuantity": 0,
+      "selectedKey": "0-1"
+     }
+    ]
+   }
+  ]
+ },
+ "supportModify": true
+}
