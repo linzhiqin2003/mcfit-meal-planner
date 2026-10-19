@@ -27,6 +27,7 @@
     <symbol id="i-ok" viewBox="0 0 24 24"><circle cx="12" cy="12" r="11"/><path d="m7.5 12.3 3 3 6-6.6"/></symbol>
     <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 5-5.54 10.19-7.4 11.8a1 1 0 0 1-1.2 0C9.54 20.19 4 15 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
     <symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12"/><path d="M18 6L6 18"/></symbol>
     <symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></symbol>
     <symbol id="i-click" viewBox="0 0 24 24"><path d="M14 4.1 12 6"/><path d="m5.1 8-2.9-.8"/><path d="m6 12-1.9 2"/><path d="M7.2 2.2 8 5.1"/><path d="M9.04 9.69a.5.5 0 0 1 .65-.65l11 4.5a.5.5 0 0 1-.07.95l-4.35 1.04a1 1 0 0 0-.74.74l-1.04 4.35a.5.5 0 0 1-.95.07z"/></symbol>
     <symbol id="i-ban" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m5.7 5.7 12.6 12.6"/></symbol>
@@ -69,6 +70,11 @@
     <p class="sub"><span class="nw">麦麦健身餐规划师</span> · <span class="nw">健身人群的麦当劳点餐 Skill</span><span class="sub2">告诉它热量、蛋白质和今天练哪里，最便宜的点法和「只吃馅」的吃法帮你算好</span></p>
     <div class="crew2" id="crew2" aria-label="三个入口"></div>
   </section>
+  <!-- 宣传片入口（docs/mockups/home-promo 的 B 版，用户 10-19 选定）：电脑在主视觉右下角，手机跟在三个入口下面；点开在弹窗里播放（promo.js） -->
+  <button class="promo-entry" type="button" aria-haspopup="dialog" aria-controls="promoDlg">
+    <span class="promo-thumb"><img src="assets/img/promo-poster.webp" alt="" width="540" height="960"><span class="promo-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span></span>
+    <span class="promo-txt"><b>宣传片<i>0:46</i></b><span>麦当劳也能当健身餐？46 秒看懂</span></span>
+  </button>
   <!-- 底部跑马灯：两组完全相同的内容首尾相接，整条左移一组的宽度后回到起点，看起来无缝。
        说人话的短句，数字都有出处：双吉整份 429、去吉士 339（拆页零件清单）；¥27.8 / 33 克蛋白质（拆页省钱对比）；
        「算多少，付多少」= 每个方案下单前过官方算价、你确认后才下单；后三句是训练单上的部位口号（app.js PARTS） -->
@@ -397,12 +403,22 @@
   </div>
 </footer>
 
+<!-- 首页宣传片弹窗：原生 dialog（Esc 关闭、焦点圈在弹窗里都由浏览器负责）；点遮罩或关闭键关掉，关掉就暂停，再打开接着放 -->
+<dialog class="promo-dlg" id="promoDlg" aria-label="宣传片">
+  <div class="promo-box">
+    <video id="homePromo" preload="none" playsinline controls poster="assets/img/promo-poster.webp" src="assets/video/promo.mp4"></video>
+    <p class="promo-fail" role="status">视频暂时加载不出来，刷新一下试试</p>
+    <button class="promo-x" type="button" aria-label="关闭宣传片" autofocus><svg class="i"><use href="#i-x"/></svg></button>
+  </div>
+</dialog>
+
 <script src="assets/js/router.js"></script>
 <script src="assets/js/app.js" defer></script>
 <script src="assets/js/home.js" defer></script>
 <script src="assets/js/parts.js" defer></script>
 <script src="assets/js/train-pen.js" defer></script>
 <script src="assets/js/install.js" defer></script>
+<script src="assets/js/promo.js" defer></script>
 <script src="assets/js/opendata.js" defer></script>
 </body>
 </html>

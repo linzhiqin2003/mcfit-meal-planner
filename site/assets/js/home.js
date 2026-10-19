@@ -150,6 +150,13 @@
       stage.style.paddingBottom = Math.max(24, parseFloat(cs.paddingBottom) - d) + "px";
       place();
     }
+    // 手机上标签排在副标题下面，宣传片入口卡在文档流里紧跟其后：下内边距按标签实际占的高度留（320 宽时三个标签排成三行），
+    // 不压到入口卡也不空出一大截。用 offsetHeight：入场动画的 scale 会让 getBoundingClientRect 的高度变小
+    if (window.matchMedia("(max-width:640px)").matches) {
+      var base = stage.getBoundingClientRect(), sub = document.querySelector(".stage .sub").getBoundingClientRect(), last = 0;
+      cast.forEach(function (o) { last = Math.max(last, (parseFloat(o.pill.style.top) || 0) + o.pill.offsetHeight); });
+      stage.style.paddingBottom = Math.max(24, last - (sub.bottom - base.top) + 14) + "px";
+    }
   }
   function place() {
     var base = stage.getBoundingClientRect(), fm = fontMetrics();

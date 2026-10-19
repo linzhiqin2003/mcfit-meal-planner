@@ -22,7 +22,7 @@
 - 主页风格：「练」「拆」「装」三页是「教练批注」（.coach：印章、红笔、手写字矢量），首页是「焦点构图」；mockup 与生成脚本在 `docs/mockups/`（split2、nav、install）
 - 主页数据与素材脚本：`build_site_data.py`（练页方案）、`build_site_ingredients.py`（装页散点图）、`build_site_curtain.py`（页脚举牌小人，牌子框位置要同步进 index.html，测试守着）、`build_site_fonts.py`（标题粗体子集，加新标题字要重跑）
 - README 配图在 `docs/readme/`，由 `python3 scripts/build_readme_images.py` 生成（GYM 梗图横幅 + 教程帧三联图 + 实操截图，版式是用户选的 mockup C，横幅 10-18 用户改成梗图）；README 不再提「训练部位」（用户 10-18 定），主页首屏或安装教程改了要重跑，教程重剪后要重找 FRAMES 里的时间点和三联图的裁切行
-- 首页放宣传片：用户 10-19 选了 mockup B（`docs/mockups/home-promo/build.py` 的 B：首屏内虚线框入口卡，手机放在三个入口下面，电脑放在主视觉右下角），同时手机端「装」页不再放宣传片；用户说网站暂时先不改，等用户开口再落地
+- 首页放宣传片：用户 10-19 选了 mockup B（`docs/mockups/home-promo/build.py` 的 B：首屏内虚线框入口卡，手机放在三个入口下面，电脑放在主视觉右下角），同时手机端「装」页不再放宣传片；10-19 已实现（promo.js + site.css「首页宣传片入口」一节，home.js 手机端按标签高度留下内边距），发布前要先给用户看截图
 - 主页视频：`python3 scripts/build_site_videos.py` 从 videos/ 的成片生成 site/assets/video/ 和封面；宣传片用 gym-promo-v6（v6 只改了结尾仓库名；2026-10-17 v5：用户要求加强麦当劳品牌关联，纸袋人戴麦当劳纸袋、结尾用 GYM 梗图；v3-arches 那版仍不用）
 
 ## 已确认的接口事实（2026-10-15 实测）

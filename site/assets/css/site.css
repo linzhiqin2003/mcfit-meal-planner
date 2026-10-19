@@ -409,6 +409,42 @@ html[data-view="home"] .curtain{display:none}
   .ticker span{font-size:15px}
 }
 @media (prefers-reduced-motion:reduce){.ticker-track{animation:none}.stage.ready .focus-disc,.stage.ready .focus-loop path{animation:none}}
+/* ---------- 首页宣传片入口（docs/mockups/home-promo 的 B 版，用户 10-19 选定） ----------
+   电脑：主视觉右下角、跑马灯上方一张虚线框横卡，右边和内容区（.wrap）右边对齐；
+   手机（≤640）：跟在三个入口下面，在文档流里（home.js 按入口实际占的高度留下内边距），屏幕再矮也压不到入口。
+   点开是原生 dialog 里的竖版视频（promo.js） */
+.promo-entry{position:absolute;z-index:4;right:max(var(--gutter),calc((100% - 1408px) / 2 + var(--gutter)));bottom:62px;display:flex;align-items:center;gap:16px;width:330px;padding:10px 18px 10px 10px;border:1.5px dashed var(--ink);border-radius:20px;background:var(--paper);color:var(--ink);font:inherit;text-align:left;cursor:pointer;transition:transform .25s cubic-bezier(.3,1.5,.5,1);animation:pill-in .5s cubic-bezier(.3,1.4,.5,1) 1.1s both}
+.promo-entry:hover{transform:translateY(-2px)}
+.promo-entry:focus-visible{outline:3px solid var(--ink);outline-offset:4px}
+.promo-thumb{position:relative;flex:0 0 72px;border-radius:12px;overflow:hidden;line-height:0;box-shadow:0 8px 18px -10px rgba(23,21,15,.45)}
+.promo-thumb img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;object-position:50% 0}   /* 只露海报上半截（标题和纸袋人），卡片矮一些，窗口矮时不碰绕回 ᗰ 的箭头 */
+.promo-play{position:absolute;left:50%;top:50%;display:grid;place-items:center;width:36px;height:36px;margin:-18px 0 0 -18px;border-radius:50%;background:var(--red);color:var(--paper);transition:transform .25s cubic-bezier(.3,1.5,.5,1)}
+.promo-play svg{width:15px;height:15px;margin-left:2px;fill:currentColor}
+.promo-entry:hover .promo-play{transform:scale(1.1)}
+.promo-txt{display:flex;flex-direction:column;gap:4px;min-width:0}
+.promo-txt b{font-size:17px;font-weight:700;line-height:1.3}
+.promo-txt i{margin-left:8px;font-style:normal;font-weight:500;color:var(--ink-3)}
+.promo-txt span{font-size:13px;line-height:1.45;color:var(--ink-2)}
+.promo-dlg{max-width:none;max-height:none;margin:auto;padding:0;border:0;background:transparent;overflow:visible}
+.promo-dlg::backdrop{background:rgba(23,21,15,.78)}
+.promo-box{position:relative}
+.promo-dlg video{display:block;width:min(92vw,calc(86svh * 9 / 16),450px);height:auto;aspect-ratio:9/16;border-radius:18px;background:var(--code)}
+.promo-x{position:absolute;top:0;right:-56px;display:grid;place-items:center;width:42px;height:42px;padding:0;border:0;border-radius:50%;background:var(--paper);color:var(--ink);cursor:pointer}
+.promo-x svg.i{width:20px;height:20px;stroke-width:2}
+.promo-x:focus-visible{outline:3px solid var(--paper);outline-offset:3px}
+.promo-dlg video:focus{outline:none}.promo-dlg video:focus-visible{outline:3px solid var(--paper);outline-offset:3px}   /* 打开时焦点落在关闭键（autofocus），视频不出浏览器默认的蓝框 */
+.promo-fail{display:none;position:absolute;left:12px;right:12px;bottom:64px;margin:0;padding:10px 14px;border-radius:8px;background:rgba(23,21,15,.82);color:var(--paper);font-size:14px;text-align:center}
+.promo-dlg.failed .promo-fail{display:block}
+@media (max-width:640px){
+  .home{flex-direction:column;justify-content:center}   /* 后面手机首页那段还设了 align-items:center，入口卡用 align-self 撑满 */
+  .promo-entry{position:relative;right:auto;bottom:auto;align-self:stretch;width:auto;margin:0 var(--gutter) 28px;padding:8px 14px 8px 8px;gap:14px;border-radius:16px}
+  .promo-thumb{flex-basis:58px;border-radius:10px}
+  .promo-play{width:30px;height:30px;margin:-15px 0 0 -15px}
+  .promo-play svg{width:13px;height:13px}
+  .promo-txt b{font-size:16px}
+  .promo-x{top:-52px;right:0}
+}
+@media (prefers-reduced-motion:reduce){.promo-entry,.promo-play{animation:none;transition:none}}
 .stage:not(.ready) .crew2{opacity:0}
 .hb{position:absolute;display:block;pointer-events:auto;cursor:pointer;-webkit-tap-highlight-color:transparent;outline:none}
 .hb:focus-visible .hb-body{outline:2px solid var(--ink);outline-offset:6px;border-radius:12px}
@@ -694,8 +730,7 @@ html[data-view="home"] .curtain{display:none}
 }
 @media (max-width:640px){
   .ins-screens{grid-template-columns:minmax(0,1fr);gap:28px}
-  .ins-side{display:grid;grid-template-columns:150px minmax(0,1fr);gap:18px;align-items:end}
-  .ins-side .ins-cap{flex-direction:column;gap:4px;margin:0 0 6px}
+  .ins-side{display:none}   /* 手机上宣传片只在首页入口卡里放（用户 10-19 定），这里只留教程 */
   .ins-play{width:64px;height:64px;margin:-32px 0 0 -32px}
   .ins-play svg{width:26px;height:26px}
   .ins-play.sm{width:46px;height:46px;margin:-23px 0 0 -23px}
