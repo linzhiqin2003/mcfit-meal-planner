@@ -18,7 +18,7 @@
 - 配方：正式版 `data/reference/recipes.json`，没有时回落到 `recipes_draft.json`
 - 项目主页本地预览用 `python3 scripts/serve_site.py`（Cache-Control: no-cache + 支持 Range）；别用 `python3 -m http.server`：它不发缓存头，浏览器会按启发式缓存旧 JS（改完页面看到「新 HTML + 旧脚本」、元素缺失），也不支持 Range（视频跳不到没下载的位置）
 - 发布到 GitHub Pages 时 CI 先跑 `scripts/stamp_site_assets.py` 给资源链接加内容版本号；仓库里的 index.html 不带版本号
-- 主站是 https://mcd.lzqqq.org（仓库主页字段指向它），GitHub Pages 留一份。发布：提交 site/ 后运行 `python3 scripts/deploy_site.py myserver:/var/www/mcd.lzqqq.org --url https://mcd.lzqqq.org --ssh "ssh -B en0"`（本机 Clash TUN 不转发 SSH，要绑 en0）。服务器 nginx 配置在 `deploy/nginx/`；前面是 Cloudflare（Full strict），源站证书单独签给 mcd（webroot `/var/www/dsh-acme`），Cloudflare 会往页面插统计脚本，还会把不带版本号的静态文件浏览器缓存改成 4 小时
+- 主站是 https://mcd.lzqqq.org（README 顶部「项目主页」链到它；仓库 About 的网站栏是 GitHub Pages 那份，用户 10-19 定不改），GitHub Pages 留一份。发布：提交 site/ 后运行 `python3 scripts/deploy_site.py myserver:/var/www/mcd.lzqqq.org --url https://mcd.lzqqq.org --ssh "ssh -B en0"`（本机 Clash TUN 不转发 SSH，要绑 en0）。服务器 nginx 配置在 `deploy/nginx/`；前面是 Cloudflare（Full strict），源站证书单独签给 mcd（webroot `/var/www/dsh-acme`），Cloudflare 会往页面插统计脚本，还会把不带版本号的静态文件浏览器缓存改成 4 小时
 - 主页风格：「练」「拆」「装」三页是「教练批注」（.coach：印章、红笔、手写字矢量），首页是「焦点构图」；mockup 与生成脚本在 `docs/mockups/`（split2、nav、install）
 - 主页数据与素材脚本：`build_site_data.py`（练页方案）、`build_site_ingredients.py`（装页散点图）、`build_site_curtain.py`（页脚举牌小人，牌子框位置要同步进 index.html，测试守着）、`build_site_fonts.py`（标题粗体子集，加新标题字要重跑）
 - README 配图在 `docs/readme/`，由 `python3 scripts/build_readme_images.py` 生成（GYM 梗图横幅 + 教程帧三联图 + 实操截图，版式是用户选的 mockup C，横幅 10-18 用户改成梗图）；README 不再提「训练部位」（用户 10-18 定），主页首屏或安装教程改了要重跑，教程重剪后要重找 FRAMES 里的时间点和三联图的裁切行
