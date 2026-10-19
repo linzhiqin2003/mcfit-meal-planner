@@ -353,11 +353,35 @@
       <li class="ins-step" data-from="58.5" data-to="83">
         <div class="ins-step-h"><span class="stamp" aria-hidden="true">02</span><h3>接麦当劳 MCP</h3><button class="ins-jump" type="button" data-at="58.5" aria-label="在教程里看这一组（0:58）"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>0:58</button></div>
         <p>在 <code>open.mcd.cn/mcp</code> 申请麦当劳 MCP Token，然后在 WorkBuddy 的连接器里添加麦当劳 MCP，粘贴配置、点信任。</p>
+        <!-- 配置和仓库里的 mcp-config.example.json 一致，只把 ${MCD_MCP_TOKEN} 换成「你的 Token」（WorkBuddy 不展开环境变量），test_site_install 守着 -->
+        <p class="os ins-path">WorkBuddy：连接器<span aria-hidden="true">›</span>自定义连接器<span aria-hidden="true">›</span>配置 MCP，粘贴：</p>
+        <div class="code cfg" aria-label="麦当劳 MCP 配置">
+<pre>{
+  "mcpServers": {
+    "mcd-mcp": {
+      "type": "streamablehttp",
+      "url": "https://mcp.mcd.cn",
+      "headers": {
+        "Authorization": "Bearer 你的 Token"
+      }
+    }
+  }
+}</pre>
+          <button class="copy" type="button" aria-label="复制麦当劳 MCP 配置"><svg class="i"><use href="#i-copy"/></svg></button>
+        </div>
+        <p class="note">把「你的 Token」换成申请到的 Token 原文：WorkBuddy 不读环境变量</p>
       </li>
       <li class="ins-step" data-from="83" data-to="105.5">
         <div class="ins-step-h"><span class="stamp" aria-hidden="true">03</span><h3>开口说一句</h3><button class="ins-jump" type="button" data-at="83" aria-label="在教程里看这一组（1:23）"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg>1:23</button></div>
         <p>新建任务，直接说：</p>
         <p class="say">「今晚 500 大卡以内，蛋白质 30 克，人民广场附近」</p>
+        <p class="os">也可以这样说</p>
+        <ul class="ins-more">
+          <li>「减脂期，晚饭想吃麦当劳，40 块以内，碳水别太高」</li>
+          <li>「明早 7 点半在福州路吃早餐，400 大卡，蛋白质 25 克」</li>
+          <li>「双层吉士汉堡去掉吉士、只吃馅，还剩多少热量」</li>
+        </ul>
+        <p class="note">还没申请 Token？先说「用离线快照演示一下」</p>
       </li>
     </ol>
 

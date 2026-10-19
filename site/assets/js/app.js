@@ -137,9 +137,10 @@
     t.click();
   });
 
-  // 复制按钮所在命令块里显示的命令（去掉行首的 $ / > 提示符），显示什么就复制什么
+  // 复制按钮所在块里显示的内容，显示什么就复制什么：命令去掉行首的 $ / > 提示符，配置（pre）原样复制
   function copyCode(btn) {
-    var text = [].map.call(btn.closest(".code").querySelectorAll(".ln"), function (ln) {
+    var box = btn.closest(".code"), pre = box.querySelector("pre");
+    var text = pre ? pre.textContent : [].map.call(box.querySelectorAll(".ln"), function (ln) {
       var c = ln.cloneNode(true), pr = c.querySelector(".pr");
       if (pr) pr.remove();
       return c.textContent.trim();

@@ -23,6 +23,7 @@
 - 主页数据与素材脚本：`build_site_data.py`（练页方案）、`build_site_ingredients.py`（装页散点图）、`build_site_curtain.py`（页脚举牌小人，牌子框位置要同步进 index.html，测试守着）、`build_site_fonts.py`（标题粗体子集，加新标题字要重跑）
 - README 配图在 `docs/readme/`，由 `python3 scripts/build_readme_images.py` 生成（GYM 梗图横幅 + 教程帧三联图 + 实操截图，版式是用户选的 mockup C，横幅 10-18 用户改成梗图）；README 不再提「训练部位」（用户 10-18 定），主页首屏或安装教程改了要重跑，教程重剪后要重找 FRAMES 里的时间点和三联图的裁切行
 - 首页放宣传片：用户 10-19 选了 mockup B（`docs/mockups/home-promo/build.py` 的 B：首屏内虚线框入口卡，手机放在三个入口下面，电脑放在主视觉右下角），同时手机端「装」页不再放宣传片；10-19 已实现并发布（promo.js + site.css「首页宣传片入口」一节）。电脑窗口矮时 home.js 的 fitPromo 依次退成胶囊（promo-mini）、排到副标题下面（promo-flow），量间距要沿箭头路径按笔画宽度取点、文字按每行实际宽度，不要用整块的包围盒
+- 「装」页三组动作用 mockup B（`docs/mockups/install-steps/build.py`，用户 10-19 选定）：第二组贴 MCP 配置（和 mcp-config.example.json 一致，Token 处写「你的 Token」，`test_site_install` 守着），第三组加其他说法；三栏 1 : 1.2 : 0.8
 - 页眉品牌是「Gyᗰ 麦麦健身餐规划师」（10-19 用户要求放回 Gyᗰ 标志）：800 以下页眉排两行，410 以下 Star 按钮只留短字，改品牌或导航文字后要重扫各宽度有没有横向溢出
 - 主页视频：`python3 scripts/build_site_videos.py` 从 videos/ 的成片生成 site/assets/video/ 和封面；宣传片用 gym-promo-v6（v6 只改了结尾仓库名；2026-10-17 v5：用户要求加强麦当劳品牌关联，纸袋人戴麦当劳纸袋、结尾用 GYM 梗图；v3-arches 那版仍不用）
 
