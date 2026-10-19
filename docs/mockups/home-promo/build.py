@@ -5,7 +5,7 @@
 A 首屏下方加一节：首页可以往下滚，宣传片大竖卡 + 标题 + 播放按钮
 B 首屏内的入口卡：手机在三个入口下面放一张虚线框横卡；电脑在主视觉右下角的空白处放竖卡
 C 浮动胶囊：右下角「▶ 46 秒看懂」，点开全屏播放（另截一张打开后的样子）
-输出 board.png（三版并排，不入库）。
+输出 board-A.png、board-B.png、board-C.png（每版一张：上面手机，下面电脑；不入库）。
 """
 from __future__ import annotations
 
@@ -25,13 +25,14 @@ FREEZE = "*,*::before,*::after{animation:none!important;transition:none!importan
 
 A_HTML = f"""<section class="mk-a"><div class="wrap mk-a-in">
 <figure class="mk-a-card"><img src="assets/img/promo-poster.webp" alt=""><span class="mk-play">{PLAY}</span></figure>
-<div class="mk-a-txt"><div class="mk-kicker">宣传片 · 0:46</div><h2>麦当劳<br>也能当健身餐？</h2>
-<p>46 秒看它怎么帮你算：拆层算热量、分顿吃、按价格排组合。</p>
-<span class="mk-btn">{PLAY}播放宣传片</span></div></div></section><script>if(location.search.indexOf("s=1")>0)addEventListener("load",function(){{setTimeout(function(){{document.querySelector(".mk-a").scrollIntoView({{block:"center"}})}},300)}})</script>"""
+<div class="mk-a-txt"><div class="mk-kicker">宣传片 · 0:46</div><h2>46 秒看懂<br>它怎么帮你点</h2>
+<p>拆层算热量、分顿吃、按价格排组合，都在这支片子里。</p>
+<span class="mk-btn">{PLAY}播放宣传片</span></div></div></section><script>/* 只滚 iframe 自己：scrollIntoView 会连外层拼板页一起滚，拼板顶部被裁、底部露白 */if(location.search.indexOf("s=1")>0)addEventListener("load",function(){{setTimeout(function(){{var r=document.querySelector(".mk-a").getBoundingClientRect();scrollTo(0,scrollY+r.top-(innerHeight-r.height)/2)}},300)}})</script>"""
 A_CSS = """
+html,body{background:var(--paper)!important}
 .home{min-height:auto!important}
-.mk-a{padding:56px 0 72px;border-top:1px solid var(--rule)}
-.mk-a-in{display:flex;gap:48px;align-items:center}
+.mk-a{padding:72px 0 96px;border-top:1px solid var(--rule);min-height:72vh;display:flex;align-items:center}
+.mk-a-in{display:flex;gap:64px;align-items:center;justify-content:center;width:100%}
 .mk-a-card{position:relative;flex:0 0 300px;margin:0;border-radius:22px;overflow:hidden;box-shadow:0 18px 40px -18px rgba(23,21,15,.35)}
 .mk-a-card img{display:block;width:100%;height:auto}
 .mk-play{position:absolute;left:50%;top:50%;width:76px;height:76px;margin:-38px 0 0 -38px;border-radius:50%;background:var(--red);display:grid;place-items:center}
@@ -42,7 +43,7 @@ A_CSS = """
 .mk-btn{display:inline-flex;align-items:center;gap:8px;height:46px;padding:0 20px 0 16px;border:1.5px dashed var(--ink);border-radius:999px;font-weight:700;font-size:16px}
 .mk-btn svg{width:18px;height:18px;fill:var(--red)}
 @media (max-width:760px){
- .mk-a{padding:36px 0 48px}
+ .mk-a{padding:36px 0 48px;min-height:0}
  .mk-a-in{gap:18px;align-items:flex-end}
  .mk-a-card{flex-basis:46%;border-radius:16px}
  .mk-play{width:54px;height:54px;margin:-27px 0 0 -27px}.mk-play svg{width:22px;height:22px}
@@ -107,7 +108,7 @@ def shot(url: str, out: Path, w: int, h: int, prof: Path) -> None:
     out.unlink(missing_ok=True)
     with open(prof.parent / "chrome.log", "wb") as logf:
         p = subprocess.Popen([CHROME, "--headless=new", f"--user-data-dir={prof}", "--hide-scrollbars", "--allow-file-access-from-files",
-                              "--force-prefers-reduced-motion", "--force-device-scale-factor=2", f"--window-size={w},{h}",
+                              "--force-prefers-reduced-motion", "--force-device-scale-factor=2", "--run-all-compositor-stages-before-draw", f"--window-size={w},{h}",
                               "--virtual-time-budget=8000", f"--screenshot={out}", url], stdout=logf, stderr=subprocess.STDOUT,
                              start_new_session=True)
     last, deadline = -1, time.time() + 60
@@ -140,19 +141,23 @@ def main() -> None:
         def frame(k, w, h, scale, q=""):
             return (f'<div class="fr" style="width:{w*scale:.0f}px;height:{h*scale:.0f}px"><iframe src="{k}.html{q}" width="{w}" height="{h}" '
                     f'style="transform:scale({scale});transform-origin:0 0"></iframe></div>')
-        rows = [("A 首屏下方加一节", "首页可以往下滚；左一是首屏，左二是往下滚到宣传片那一节",
-                 [frame("A", 375, 812, .8), frame("A", 375, 812, .8, "?s=1"), frame("A", 1280, 800, .5, "?s=1")]),
-                ("B 首屏内的入口卡", "手机：三个入口下面一张虚线框横卡；电脑：主视觉右下角的横卡",
-                 [frame("B", 375, 812, .8), frame("B", 1280, 800, .5)]),
-                ("C 浮动胶囊", "右下角「46 秒看懂」常驻，点开全屏播放（左二是打开后）",
-                 [frame("C", 375, 812, .8), frame("C2", 375, 812, .8), frame("C", 1280, 800, .5)])]
-        body = "".join(f'<section><h2>{t}</h2><p>{d}</p><div class="row">{"".join(fs)}</div></section>' for t, d, fs in rows)
-        (tmp / "board.html").write_text(f"""<!doctype html><meta charset="utf-8"><style>body{{margin:0;padding:28px;background:#fff;
-font:600 22px -apple-system,"PingFang SC",sans-serif;color:#17150F}}section{{margin-bottom:34px}}h2{{margin:0 0 4px;font-size:26px}}
-p{{margin:0 0 12px;font-weight:400;font-size:17px;color:#47433B}}.row{{display:flex;gap:24px;align-items:flex-start}}
-.fr{{overflow:hidden;border:1px solid #D5CEBF;border-radius:10px;flex:none}}iframe{{border:0;display:block}}</style>{body}""", encoding="utf-8")
-        shot((tmp / "board.html").as_uri(), HERE / "board.png", 1640, 2330, prof)
-    print("board", (HERE / "board.png").stat().st_size)
+        # 每版一张图：上面一排手机（375 宽），下面电脑（1280×800），手机上看也看得清
+        boards = {"A": ("A 首屏下方加一节", "首页可以往下滚。手机左边是首屏、右边是滚到宣传片那一节；电脑是滚到那一节",
+                        [frame("A", 375, 812, .8), frame("A", 375, 812, .8, "?s=1")], frame("A", 1280, 800, .6, "?s=1")),
+                  "B": ("B 首屏内的入口卡", "不用滚动就能看到。手机放在三个入口下面，电脑放在主视觉右下角",
+                        [frame("B", 375, 812, .8)], frame("B", 1280, 800, .6)),
+                  "C": ("C 浮动胶囊", "右下角常驻「46 秒看懂」，点开全屏播放。手机右边是点开之后",
+                        [frame("C", 375, 812, .8), frame("C2", 375, 812, .8)], frame("C", 1280, 800, .6))}
+        style = """<!doctype html><meta charset="utf-8"><style>body{margin:0;padding:28px;background:#fff;
+font:600 22px -apple-system,"PingFang SC",sans-serif;color:#17150F}h2{margin:0 0 6px;font-size:28px}
+p{margin:0 0 16px;font-weight:400;font-size:17px;line-height:1.5;color:#47433B;max-width:44em}
+.row{display:flex;gap:24px;align-items:flex-start;margin-bottom:24px}.lbl{font-size:15px;color:#77705F;margin:0 0 8px;font-weight:600}
+.fr{overflow:hidden;border:1px solid #D5CEBF;border-radius:10px;flex:none}iframe{border:0;display:block}</style>"""
+        for k, (title, desc, phones, desk) in boards.items():
+            (tmp / f"board-{k}.html").write_text(style + f'<h2>{title}</h2><p>{desc}</p><div class="lbl">手机</div><div class="row">{"".join(phones)}</div>'
+                                                 f'<div class="lbl">电脑</div><div class="row">{desk}</div>', encoding="utf-8")
+            shot((tmp / f"board-{k}.html").as_uri(), HERE / f"board-{k}.png", 830, 1330, prof)
+            print("board", k, (HERE / f"board-{k}.png").stat().st_size)
 
 
 if __name__ == "__main__":
