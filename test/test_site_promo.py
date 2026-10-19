@@ -73,6 +73,14 @@ class HomePromoTest(unittest.TestCase):
         self.assertIn("assets/js/promo.js", srcs)
         self.assertTrue((SITE / "assets/js/promo.js").is_file())
 
+    def test_short_window_fallbacks(self):
+        # 电脑上窗口矮时 home.js 依次换成胶囊（promo-mini）、排到副标题下面（promo-flow），两档 CSS 都要在
+        js = (SITE / "assets/js/home.js").read_text(encoding="utf-8")
+        for cls in ("promo-mini", "promo-flow"):
+            self.assertIn(f'"{cls}"', js)
+            self.assertRegex(self.css, rf"\.home\.{cls} \.promo-entry\{{")
+        self.assertRegex(self.css, r"\.home\.promo-flow \.promo-entry\{[^}]*position:relative")
+
     def test_install_page_hides_promo_on_phone_only(self):
         phone = media_rule(self.css, 640)
         self.assertRegex(phone, r"\.ins-side\{display:none\}")

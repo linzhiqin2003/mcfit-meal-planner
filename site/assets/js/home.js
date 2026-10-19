@@ -138,7 +138,7 @@
   // 最高的元素离上沿不足 TOP_GAP 就把上内边距加大，再摆一次
   var TOP_GAP = 16;
   function layout() {
-    if (!cast.length) return;
+    if (!cast.length) { fitPromo(); return; }
     stage.style.paddingTop = stage.style.paddingBottom = "";
     place();
     var minTop = Infinity;
@@ -157,6 +157,59 @@
       cast.forEach(function (o) { last = Math.max(last, (parseFloat(o.pill.style.top) || 0) + o.pill.offsetHeight); });
       stage.style.paddingBottom = Math.max(24, last - (sub.bottom - base.top) + 14) + "px";
     }
+    fitPromo();
+  }
+
+  /* ---------- 宣传片入口卡（电脑） ----------
+   * 默认是主视觉右下角空白里的横卡（CSS 绝对定位）。窗口矮时那块空白放不下，会压到副标题、绕回 ᗰ 的箭头或小人，
+   * 依次退一档，每档都离周围的东西留 PROMO_GAP：
+   *   promo-mini：同一位置换成一行的胶囊（和三个入口标签一样高），1366×657、1280×600 的笔记本仍在首屏里；
+   *   promo-flow：横卡排到副标题下面（文档流里），上外边距吃进舞台的下内边距（横屏手机、矮的小平板）。
+   * 手机（≤640）本来就在文档流里，不用判断 */
+  var promo = document.querySelector(".promo-entry"), home = stage.closest(".home"), PROMO_GAP = 16;
+  function box(e) {   // 用 offset*：入场动画的 scale 不影响；没显示出来（display:none）的返回 null
+    if (!e.offsetParent) return null;
+    var p = e.offsetParent.getBoundingClientRect(), l = p.left + e.offsetLeft, t = p.top + e.offsetTop;
+    return { left: l, top: t, right: l + e.offsetWidth, bottom: t + e.offsetHeight };
+  }
+  function promoClearance() {
+    var c = box(promo), base = stage.getBoundingClientRect(), min = Infinity;
+    function gap(r) { if (r) min = Math.min(min, Math.max(r.left - c.right, c.left - r.right, r.top - c.bottom, c.top - r.bottom)); }
+    [mega, stage.querySelector(".sub")].forEach(function (e) {   // 按每行文字的实际宽度，不按整块
+      var tw = document.createTreeWalker(e, NodeFilter.SHOW_TEXT), t;
+      while ((t = tw.nextNode())) {
+        if (!t.nodeValue.trim()) continue;
+        var rg = document.createRange(); rg.selectNodeContents(t);
+        Array.prototype.forEach.call(rg.getClientRects(), gap);
+      }
+    });
+    var gold = document.getElementById("ank-gold");
+    if (gold) gap(gold.getBoundingClientRect());
+    cast.forEach(function (o) { gap(box(o.pill)); gap(box(o.a)); });
+    if (loop && loop.style.display !== "none") {
+      var hw = (parseFloat(loop.style.strokeWidth) || 2) / 2;
+      Array.prototype.forEach.call(loop.querySelectorAll("path"), function (path) {
+        var len = path.getTotalLength();
+        for (var i = 0; len && i <= 120; i++) {
+          var pt = path.getPointAtLength(len * i / 120), x = base.left + pt.x, y = base.top + pt.y;
+          gap({ left: x - hw, right: x + hw, top: y - hw, bottom: y + hw });
+        }
+      });
+    }
+    return min;
+  }
+  function fitPromo() {
+    if (!promo || !home) return;
+    home.classList.remove("promo-mini", "promo-flow");
+    promo.style.marginTop = "";
+    if (window.matchMedia("(max-width:640px)").matches || promoClearance() >= PROMO_GAP) return;
+    home.classList.add("promo-mini");
+    if (promoClearance() >= PROMO_GAP) return;
+    home.classList.remove("promo-mini");
+    home.classList.add("promo-flow");
+    promo.style.marginTop = (PROMO_GAP - (parseFloat(getComputedStyle(stage).paddingBottom) || 0)) + "px";
+    var left = promoClearance();   // 箭头或标签比副标题还低时，再往下让
+    if (left < PROMO_GAP) promo.style.marginTop = (parseFloat(promo.style.marginTop) + PROMO_GAP - left) + "px";
   }
   function place() {
     var base = stage.getBoundingClientRect(), fm = fontMetrics();

@@ -286,14 +286,18 @@ svg.i{width:20px;height:20px;flex:none;fill:none;stroke:currentColor;stroke-widt
   .calc-row{grid-template-columns:minmax(0,1fr);row-gap:32px}
   .calc-txt>p{max-width:none}
 }
+/* 页眉两行：品牌 + Star 一行，导航单独一行。品牌、导航、完整 Star 按钮排一行要约 770px，再窄就会横向溢出（留 30px 余量） */
+@media (max-width:800px){
+  .top .wrap{height:auto;padding-top:12px;padding-bottom:4px;flex-wrap:wrap;column-gap:10px;row-gap:8px}
+  .nav{order:3;width:100%;margin-left:0;justify-content:space-between;gap:0;border-top:1px solid var(--rule)}
+  .nav a{padding:12px 0 11px}
+  .top .btn-sm{margin-left:auto}
+}
 @media (max-width:640px){
   :root{--gutter:20px}
   body{font-size:15px}
-  .top .wrap{height:auto;padding-top:12px;padding-bottom:4px;flex-wrap:wrap;column-gap:10px;row-gap:8px}
-  .nav{display:flex;order:3;width:100%;margin-left:0;justify-content:space-between;gap:0;font-size:14px;border-top:1px solid var(--rule)}
-  .nav a{padding:12px 0 11px}
   .nav b{font-size:17px}
-  .top .btn-sm{margin-left:auto;height:40px;padding:0 13px;gap:6px;font-size:14px}
+  .top .btn-sm{height:40px;padding:0 13px;gap:6px;font-size:14px}
   .top .btn-sm svg.i{width:16px;height:16px}
   .brand{gap:8px}
   .brand .gy{font-size:24px}
@@ -410,7 +414,7 @@ html[data-view="home"] .curtain{display:none}
 }
 @media (prefers-reduced-motion:reduce){.ticker-track{animation:none}.stage.ready .focus-disc,.stage.ready .focus-loop path{animation:none}}
 /* ---------- 首页宣传片入口（docs/mockups/home-promo 的 B 版，用户 10-19 选定） ----------
-   电脑：主视觉右下角、跑马灯上方一张虚线框横卡，右边和内容区（.wrap）右边对齐；
+   电脑：主视觉右下角、跑马灯上方一张虚线框横卡，右边和内容区（.wrap）右边对齐；窗口矮放不下时换成胶囊（.promo-mini）或排到副标题下面（.promo-flow）；
    手机（≤640）：跟在三个入口下面，在文档流里（home.js 按入口实际占的高度留下内边距），屏幕再矮也压不到入口。
    点开是原生 dialog 里的竖版视频（promo.js） */
 .promo-entry{position:absolute;z-index:4;right:max(var(--gutter),calc((100% - 1408px) / 2 + var(--gutter)));bottom:62px;display:flex;align-items:center;gap:16px;width:330px;padding:10px 18px 10px 10px;border:1.5px dashed var(--ink);border-radius:20px;background:var(--paper);color:var(--ink);font:inherit;text-align:left;cursor:pointer;transition:transform .25s cubic-bezier(.3,1.5,.5,1);animation:pill-in .5s cubic-bezier(.3,1.4,.5,1) 1.1s both}
@@ -425,6 +429,16 @@ html[data-view="home"] .curtain{display:none}
 .promo-txt b{font-size:17px;font-weight:700;line-height:1.3}
 .promo-txt i{margin-left:8px;font-style:normal;font-weight:500;color:var(--ink-3)}
 .promo-txt span{font-size:13px;line-height:1.45;color:var(--ink-2)}
+/* 窗口矮、右下角放不下横卡时（home.js 判断）：先换成一行的胶囊（promo-mini，样式同入口标签），
+   还放不下就把横卡排到副标题下面、仍靠右（promo-flow，上外边距由 home.js 设） */
+.home.promo-mini .promo-entry{width:auto;height:44px;padding:0 18px 0 4px;gap:10px;border-radius:999px}
+.home.promo-mini .promo-thumb{flex:0 0 34px;height:34px;border-radius:50%;box-shadow:none}
+.home.promo-mini .promo-thumb img,.home.promo-mini .promo-txt span{display:none}
+.home.promo-mini .promo-play{width:34px;height:34px;margin:-17px 0 0 -17px}
+.home.promo-mini .promo-play svg{width:13px;height:13px}
+.home.promo-mini .promo-txt b{font-size:16px;line-height:1}
+.home.promo-flow{flex-direction:column;justify-content:center}
+.home.promo-flow .promo-entry{position:relative;right:auto;bottom:auto;align-self:flex-end;margin:0 max(var(--gutter),calc((100% - 1408px) / 2 + var(--gutter))) 16px 0}
 .promo-dlg{max-width:none;max-height:none;margin:auto;padding:0;border:0;background:transparent;overflow:visible}
 .promo-dlg::backdrop{background:rgba(23,21,15,.78)}
 .promo-box{position:relative}
@@ -680,7 +694,7 @@ html[data-view="home"] .curtain{display:none}
   .pen-note .pen-hook{width:20px;height:20px}
 }
 @media (max-width:640px){.coach .vs{grid-template-columns:minmax(0,1fr)}}
-@media (max-width:360px){.top .btn-long{display:none}}   /* 320 宽品牌名和完整按钮放不下一行，按钮只留「☆ Star」 */
+@media (max-width:410px){.top .btn-long{display:none}}   /* 「Gyᗰ 麦麦健身餐规划师」约 173px + 完整按钮 168px 要 391px 才放得下一行；410 以下按钮只留「☆ Star」 */
 /* ---------- 「装」页 · 双屏并排（docs/mockups/install/v3-pair.html，用户选定） ----------
    横版教程和竖版宣传片等高并排（宣传片列宽 300px，教程 16:9 占其余宽度时两者高度相近，底边对齐）；
    下面「三组动作」一行三列，每组的时间按钮跳到教程对应一段，正在播的那一组印章填红（install.js 加 .on） */
@@ -915,8 +929,9 @@ html[data-view="home"] .curtain{display:none}
   .page-head{grid-template-columns:auto 1fr;column-gap:20px}
   .page-avatar{height:110px}
 }
+@media (max-width:800px){.home{min-height:calc(100svh - 109px)}}   /* 800 以下顶栏两行（品牌 + 按钮、导航），实测 108.5px */
 @media (max-width:640px){
-  .home{min-height:calc(100svh - 107px);align-items:center}  /* 手机顶栏两行（品牌 + 按钮、导航），实测 107px */
+  .home{min-height:calc(100svh - 107px);align-items:center}  /* 手机字号小一号，实测 107px */
   .stage{padding-top:56px;padding-bottom:150px}
   .mega{font-size:19.6vw;line-height:calc(.95em + 6px)}
   .mega .ru{display:block;margin:.02em 0 .06em;font-size:.46em;line-height:1.25;vertical-align:0}

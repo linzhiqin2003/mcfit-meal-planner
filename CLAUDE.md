@@ -1,6 +1,6 @@
 # mcfit-meal-planner（麦麦健身餐规划师）项目记忆
 
-项目名「麦麦健身餐规划师」（2026-10-18 起对外只用这个名字：网站、README、LICENSE、SKILL.md、安装提示、开放数据集都已换掉「Gyᗰ 麦门健身房」；英文名 McFit Meal Planner（用户 10-18 定，已知 McFIT 是德国连锁健身房商标、用户接受）；早期名「拆着吃」「Gyᗰ 麦门健身房」。10-18 GitHub 仓库从 maimen-gym 改名为 `linzhiqin2003/mcfit-meal-planner`（旧地址 301 跳转，报名 Issue #848 里登记的还是旧地址，没改 Issue），Skill 名和安装目录也改成 mcfit-meal-planner（install.py 会删掉改名前装的 maimen-gym）；本机目录仍叫 maimen-gym，代码包名仍为 mcdstrip。SKILL.md description 以中文名开头，WorkBuddy 技能卡片显示的就是这一行。健身人群的麦当劳点餐 Skill，口号「Go to Gym 不如 Go to ᗰ」，推荐结果写成训练计划（训练量、会员费、明早拉伸）。参加麦当劳程序员创意开发大赛（M-CODE，10/25 23:59 截止，按 GitHub Star 定榜）。
+项目名「麦麦健身餐规划师」（2026-10-18 起对外只用这个名字：网站、README、LICENSE、SKILL.md、安装提示、开放数据集都已换掉「Gyᗰ 麦门健身房」；英文名 McFit Meal Planner（用户 10-18 定，已知 McFIT 是德国连锁健身房商标、用户接受）；早期名「拆着吃」「Gyᗰ 麦门健身房」。10-18 GitHub 仓库从 maimen-gym 改名为 `linzhiqin2003/mcfit-meal-planner`（旧地址 301 跳转；报名 Issue #848 已在 10-19 改成新名字和新地址，大赛机器人不会因编辑重新校验，别重发 Issue），Skill 名和安装目录也改成 mcfit-meal-planner（install.py 会删掉改名前装的 maimen-gym）；本机目录仍叫 maimen-gym，代码包名仍为 mcdstrip。SKILL.md description 以中文名开头，WorkBuddy 技能卡片显示的就是这一行。健身人群的麦当劳点餐 Skill，口号「Go to Gym 不如 Go to ᗰ」，推荐结果写成训练计划（训练量、会员费、明早拉伸）。参加麦当劳程序员创意开发大赛（M-CODE，10/25 23:59 截止，按 GitHub Star 定榜）。
 
 **不再讲训练部位**（练腿 / 练胸 / 练背 / 练手臂，2026-10-18 用户定）：README、SKILL.md、话术、训练卡都已去掉；`--train` 只剩隐藏参数，给主页「练」页按部位生成数据（`build_site_data.py`），主页要不要也去掉还没定。
 
@@ -22,7 +22,8 @@
 - 主页风格：「练」「拆」「装」三页是「教练批注」（.coach：印章、红笔、手写字矢量），首页是「焦点构图」；mockup 与生成脚本在 `docs/mockups/`（split2、nav、install）
 - 主页数据与素材脚本：`build_site_data.py`（练页方案）、`build_site_ingredients.py`（装页散点图）、`build_site_curtain.py`（页脚举牌小人，牌子框位置要同步进 index.html，测试守着）、`build_site_fonts.py`（标题粗体子集，加新标题字要重跑）
 - README 配图在 `docs/readme/`，由 `python3 scripts/build_readme_images.py` 生成（GYM 梗图横幅 + 教程帧三联图 + 实操截图，版式是用户选的 mockup C，横幅 10-18 用户改成梗图）；README 不再提「训练部位」（用户 10-18 定），主页首屏或安装教程改了要重跑，教程重剪后要重找 FRAMES 里的时间点和三联图的裁切行
-- 首页放宣传片：用户 10-19 选了 mockup B（`docs/mockups/home-promo/build.py` 的 B：首屏内虚线框入口卡，手机放在三个入口下面，电脑放在主视觉右下角），同时手机端「装」页不再放宣传片；10-19 已实现（promo.js + site.css「首页宣传片入口」一节，home.js 手机端按标签高度留下内边距），发布前要先给用户看截图
+- 首页放宣传片：用户 10-19 选了 mockup B（`docs/mockups/home-promo/build.py` 的 B：首屏内虚线框入口卡，手机放在三个入口下面，电脑放在主视觉右下角），同时手机端「装」页不再放宣传片；10-19 已实现并发布（promo.js + site.css「首页宣传片入口」一节）。电脑窗口矮时 home.js 的 fitPromo 依次退成胶囊（promo-mini）、排到副标题下面（promo-flow），量间距要沿箭头路径按笔画宽度取点、文字按每行实际宽度，不要用整块的包围盒
+- 页眉品牌是「Gyᗰ 麦麦健身餐规划师」（10-19 用户要求放回 Gyᗰ 标志）：800 以下页眉排两行，410 以下 Star 按钮只留短字，改品牌或导航文字后要重扫各宽度有没有横向溢出
 - 主页视频：`python3 scripts/build_site_videos.py` 从 videos/ 的成片生成 site/assets/video/ 和封面；宣传片用 gym-promo-v6（v6 只改了结尾仓库名；2026-10-17 v5：用户要求加强麦当劳品牌关联，纸袋人戴麦当劳纸袋、结尾用 GYM 梗图；v3-arches 那版仍不用）
 
 ## 已确认的接口事实（2026-10-15 实测）
